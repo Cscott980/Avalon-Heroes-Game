@@ -1,0 +1,139 @@
+{
+    "status_effects": {
+        "dot_burn": {
+            "id": "dot_burn",
+            "display_name": "Burning",
+            "effect_class": "damage_over_time",
+            "damage_type": "fire",
+            "description": "Takes 2% max HP as fire damage every 1.5 seconds for 8 seconds.",
+            "damage_percentage": 0.02,
+            "tick": 1.5,
+            "duration": 8.0,
+            "stacking":{
+                "stack_scope": ["per_source", "per_ability"],
+                "max_stacks": 5,
+                "reapply_rule": "refresh_duration"
+            }
+
+        },
+        "dot_bleed": {
+            "id": "dot_bleed",
+            "display_name": "Bleeding",
+            "effect_class": "damage_over_time",
+            "damage_type": "physical",
+            "description": "Takes 2% max HP as physical damage every 1.5 seconds for 8 seconds.",
+            "damage_percentage": 0.02,
+            "tick": 1.5,
+            "duration": 8.0,
+            "stacking":{
+                "stack_scope": ["per_source", "per_ability"],
+                "max_stacks": 99,
+                "reapply_rule": "refresh_duration"
+            }
+        },
+        "dot_poison": {
+            "id": "dot_poison",
+            "display_name": "Poisoned",
+            "effect_class": "damage_over_time",
+            "damage_type": "poison",
+            "description": "Takes 2% max HP as poison damage every 1.5 seconds for 8 seconds.",
+            "damage_percentage": 0.02,
+            "tick": 1.5,
+            "duration": 8.0,
+            "stacking":{
+                "stack_scope": ["per_source", "per_ability"],
+                "max_stacks": 99,
+                "reapply_rule": "refresh_duration"
+            }
+        },
+        "dot_shadow": {
+            "id": "dot_shadow",
+            "display_name": "Cursed",
+            "effect_class": "damage_over_time",
+            "damage_type": "shadow",
+            "description": "Takes 4% max HP as shadow damage every 1.5 seconds for 6 seconds",
+            "damage_percentage": 0.04,
+            "tick": 1.5,
+            "duration": 6.0,
+            "stacking":{
+                "stack_scope": ["per_source", "per_ability"],
+                "max_stacks": 99,
+                "reapply_rule": "refresh_duration"
+            }
+        },
+        "dot_holy": {
+            "id": "dot_holy",
+            "display_name": "Holy Burn",
+            "effect_class": "damage_over_time",
+            "damage_type": "holy",
+            "description": "Takes 2% max HP as holy damage every 1.5 seconds for 8 seconds",
+            "damage_percentage": 0.02,
+            "tick": 1.5,
+            "duration": 8.0,
+            "stacking":{
+                "stack_scope": ["per_source", "per_ability"],
+                "max_stacks": 99,
+                "reapply_rule": "refresh_duration"
+            }
+        },
+        "hot_holy": {
+            "id": "hot_holy",
+            "display_name": "Holy Blessing",
+            "effect_class": "heal_over_time",
+            "damage_type": "holy",
+            "description": "Heals 3% max HP as holy healing every 1.0 seconds for 8 seconds",
+            "heal_percentage": 0.03,
+            "tick": 1.0,
+            "duration": 8.0,
+            "stacking":{
+                "stack_scope": ["per_source", "per_ability"],
+                "max_stacks": 99,
+                "reapply_rule": "refresh_duration"
+            }
+        },
+        "dot_nature": {
+            "id": "dot_nature",
+            "display_name": "Nature's Furry",
+            "effect_class": "damage_over_time",
+            "damage_type": "nature",
+            "description": "Takes 2% max HP as nature damage every 1.5 seconds for 8 seconds",
+            "heal_percentage": 0.02,
+            "tick": 1.5,
+            "duration": 8.0,
+            "stacking":{
+                "stack_scope": ["per_source", "per_ability"],
+                "max_stacks": 99,
+                "reapply_rule": "refresh_duration"
+            }
+        },
+        "hot_nature":{
+            "id": "hot_nature",
+            "display_name": "Nature's Embrace",
+            "effect_class": "heal_over_time",
+            "damage_type": "nature",
+            "description": "Heal 3% max HP as nature damage every 1.5 seconds for 8 seconds",
+            "heal_percentage": 0.03,
+            "tick": 1.5,
+            "duration": 8.0,
+            "stacking":{
+                "stack_scope": ["per_source", "per_ability"],
+                "max_stacks": 99,
+                "reapply_rule": "refresh_duration"
+            }
+        },
+        "debuff_frost": {},
+        "debuff_fear": {},
+        "debuff_slow": {},
+        "debuff_stun": {},
+        "debuff_exhausted": {},
+        "debuff_time_dust_residue": {},
+        "buff_attack_speed": {},
+        "buff_cooldown_rdux": {},
+        "buff_speed_boost": {},
+        "buff_time_acceleration":{},
+        "buff_rally": {},
+        "buff_invulnerable": {},
+        "buff_stealth": {},
+        "buff_enraged": {}
+    }
+}

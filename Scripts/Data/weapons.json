@@ -1,0 +1,221 @@
+{
+    "weapons":{
+        "dagger_avalonian_dagger":{
+            "id": "dagger_avalonian_dagger",
+            "display_name": "Avalonian Dagger",
+            "category": "dagger",
+            "slots": ["main_hand", "off_hand"],
+            "damage_scaling_stat": "dexterity",
+            "mesh": "",
+            "status_effects": [],
+            "variants": {
+                "common": {
+                "damage": 10,
+                "stat_bonus": {},
+                "icon": ""
+                },
+                "uncommon": {
+                "damage": 15,
+                "stat_bonus": {
+                    "dexterity": 0.02
+                },
+                "icon": ""
+                },
+                "rare": {
+                "damage": 18,
+                "stat_bonus": {
+                    "dexterity": 0.05,
+                    "vitality": 0.02
+                },
+                "icon": ""
+                }
+            }
+        },
+        "dagger_avalonian_dagger_of_flame": {
+            "id": "dagger_avalonian_dagger_of_flame",
+            "display_name": "Avalonian Dagger Of Flame",
+            "category": "dagger",
+            "slots": ["main_hand", "off_hand"],
+            "damage_scaling_stat": "dexterity",
+            "mesh": "",
+            "status_effects": ["dot_burn"],
+            "variants": {
+                "uncommon": {
+                "damage": 15,
+                "stat_bonus": {
+                    "dexterity": 0.02
+                },
+                "icon": ""
+                },
+                "rare": {
+                "damage": 18,
+                "stat_bonus": {
+                    "dexterity": 0.05,
+                    "vitality": 0.02
+                },
+                "icon": ""
+                }
+            }
+        },
+        "dagger_avalonian_dagger_of_frost": {
+            "id": "dagger_avalonian_dagger_of_frost",
+            "display_name": "Avalonian Dagger Of Frost",
+            "category": "dagger",
+            "slots": ["main_hand", "off_hand"],
+            "damage_scaling_stat": "dexterity",
+            "mesh": "",
+            "status_effects": ["debuff_frost"],
+            "variants": {
+                "uncommon": {
+                "damage": 15,
+                "stat_bonus": {
+                    "dexterity": 0.02
+                },
+                "icon": ""
+                },
+                "rare": {
+                "damage": 18,
+                "stat_bonus": {
+                    "dexterity": 0.05,
+                    "vitality": 0.02
+                },
+                "icon": ""
+                }
+            }
+        },
+        "dagger_avalonian_dagger_of_shadows": {
+            "id": "dagger_avalonian_dagger_of_shadows",
+            "display_name": "Avalonian Dagger Of Shadows",
+            "category": "dagger",
+            "slots": ["main_hand", "off_hand"],
+            "damage_scaling_stat": "dexterity",
+            "mesh": "",
+            "status_effects": ["dot_shadow"],
+            "variants": {
+                "rare": {
+                "damage": 18,
+                "stat_bonus": {
+                    "dexterity": 0.05,
+                    "vitality": 0.02
+                },
+                "icon": ""
+                },
+                "epic": {
+                "damage": 22,
+                "stat_bonus": {
+                    "dexterity": 0.08,
+                    "vitality": 0.03
+                },
+                "icon": ""
+                }
+            }
+        },
+        "dagger_avalonian_dagger_of_poisons": {
+            "id": "dagger_avalonian_dagger_of_poisons",
+            "display_name": "Avalonian Dagger Of Poisons",
+            "category": "dagger",
+            "slots": ["main_hand", "off_hand"],
+            "damage_scaling_stat": "dexterity",
+            "mesh": "",
+            "status_effects": ["dot_poison"],
+            "variants": {
+                "uncommon": {
+                "damage": 15,
+                "stat_bonus": {
+                    "dexterity": 0.02
+                },
+                "icon": ""
+                },
+                "rare": {
+                "damage": 18,
+                "stat_bonus": {
+                    "dexterity": 0.05,
+                    "vitality": 0.02
+                },
+                "icon": ""
+                }
+            }
+        },
+        "dagger_dagger_of_the_dead": {},
+        "dagger_dagger_of_the_burned": {},
+        "dagger_dagger_of_deaths_cold_touch": {},
+        "dagger_dagger_of_deaths_grasp": {},
+        "dagger_dagger_of_deaths_plight": {},
+        "axe_avalonian_axe": {},
+        "axe_avalonian_axe_of_flame": {},
+        "axe_avalonian_axe_of_frost": {},
+        "axe_avalonian_axe_of_shadows": {},
+        "axe_avalonian_axe_of_poisons": {},
+        "axe_axe_of_the_barbarian": {},
+        "axe_axe_of_the_flame_barbarian": {},
+        "axe_axe_of_the_frozen_barbarian": {},
+        "axe_axe_of_the_dark_barbarian": {},
+        "axe_axe_of_the_stained_barbarian": {},
+        "axe_the_warchiefs_hand": {},
+        "axe_the_warchiefs_heart": {},
+        "axe_the_warchiefs_pride": {},
+        "axe_the_warchiefs_presence": {},
+        "axe_the_warchiefs_end": {},
+        "axe_axe_of_the_dead": {},
+        "axe_axe_of_the_burned": {},
+        "axe_axe_of_deaths_cold_touch": {},
+        "axe_axe_of_deaths_grasp": {},
+        "axe_axe_of_deaths_plight": {},
+        "axe_stone_axe": {},
+        "axe_stone_axe_of_flame": {},
+        "axe_stone_axe_of_frost": {},
+        "axe_stone_axe_of_poisons": {},
+        "battleaxe_avalonian_battleaxe": {
+            "id": "battleaxe_avalonian_battleaxe",
+            "display_name": "Avalonian Battleaxe",
+            "category": "battleaxe",
+            "weapon_type": "2_handed_weapon",
+            "slots": ["main_hand"],
+            "damage_scaling_stat": "strength",
+            "scene_path": "uid://hbo2yvqrs6cf",
+            "status_effects": [null],
+            "variants": {
+                "common": {
+                "damage": 12,
+                "stat_bonus": {},
+                "icon": "uid://dg7r1xkpw8kgj"
+                },
+                "uncommon": {
+                "damage": 15,
+                "stat_bonus": {
+                    "strength": 0.02
+                },
+                "icon": "uid://b10uuwi47285n"
+                }
+            }
+        },
+        "battleaxe_avalonian_battleaxe_of_flame": {},
+        "battleaxe_avalonian_battleaxe_of_frost": {},
+        "battleaxe_avalonian_battleaxe_of_shadows": {},
+        "battleaxe_avalonian_battleaxe_of_poisons": {},
+        "battleaxe_dreadmourne": {},
+        "battleaxe_dreadmourne_flamebound": {},
+        "battleaxe_dreadmourne_frostbound": {},
+        "battleaxe_dreadmourne_venombound": {},
+        "battleaxe_frostgore_colossus": {},
+        "battleaxe_frostgore_colossus_cinderbound": {},
+        "battleaxe_frostgore_colossus_umbral_core": {},
+        "battleaxe_frostgore_colossus_rotbound": {},
+        "battleaxe_afterburner_cleaver": {},
+        "sword_avalonian_sword": {},
+        "sword_avalonian_sword_of_flame": {},
+        "sword_avalonian_sword_of_frost": {},
+        "sword_avalonian_sword_of_shadows": {},
+        "sword_avalonian_sword_of_poisons": {},
+        "sword_avalons_oathlight": {},
+        "sword_sword_of_the_dead": {},
+        "sword_sword_of_the_burned": {},
+        "sword_sword_of_deaths_cold_touch": {},
+        "sword_sword_of_deaths_grasp": {},
+        "sword_katana": {},
+        "sword_katana_of_flame": {},
+        "sword_katana_of_frost": {},
+        "sword_katana_of_shadows": {},
+        "sword_katana_of_rot": {}
+    }
+}

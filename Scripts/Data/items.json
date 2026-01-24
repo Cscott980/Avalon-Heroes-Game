@@ -1,0 +1,92 @@
+{
+	"item_drops": {
+		"minor_healing_potion": {
+			"id": "minor_healing_potion",
+			"display_name": "Minor Healing Potion",
+			"target_stat": "health",
+			"amount": 0.10,
+			"drop_weight": 70,
+			"store_value": 10,
+			"item_mesh": "",
+			"item_icon": "",
+			"//dev_note": "Heals 5% of a player's total health."
+		},
+		"medium_healing_potion": {
+			"id": "medium_healing_potion",
+			"display_name": "Medium Healing Potion",
+			"target_stat": "health",
+			"amount": 0.20,
+			"drop_weight": 50,
+			"store_value": 20,
+			"item_mesh": "",
+			"item_icon": "",
+			"//dev_note": "Heals 15% of a player's total health."
+		},
+		"major_healing_potion": {
+			"id": "major_healing_potion",
+			"display_name": "Major Healing Potion",
+			"target_stat": "health",
+			"amount": 0.50,
+			"drop_weight": 20,
+			"store_value": 70,
+			"item_mesh": "",
+			"item_icon": "",
+			"//dev_note": "Heals 20% of a player's total health."
+		},
+		"mega_healing_potion": {
+			"id": "mega_healing_potion",
+			"display_name": "Mega Healing Potion",
+			"target_stat": "health",
+			"amount": 0.70,
+			"drop_weight": 10,
+			"store_value": 100,
+			"item_mesh": "",
+			"item_icon": "",
+			"//dev_note": "Heals 20% of a player's total health."
+		},		
+		"minor_mana_potion": {
+			"id": "minor_mana_potion",
+			"display_name": "Minor Mana Potion",
+			"amount": 10,
+			"drop_weight": 70,
+			"store_value": 30,
+			"item_mesh": "",
+			"item_icon": "",
+			"exclusive_visiblity": ["mage", "paladin", "ranger", "druid"],
+			"//dev_note": "Regenerates 10 mana to a player."
+		},
+		"medium_mana_potion": {
+			"id": "medium_mana_potion",
+			"display_name": "Medium Mana Potion",
+			"amount": 20,
+			"drop_weight": 50,
+			"store_value": 30,
+			"item_mesh": "",
+			"item_icon": "",
+			"exclusive_visiblity": ["mage", "paladin", "ranger", "druid"],
+			"//dev_note": "Regenerates 20 mana to a player."
+		},
+		"major_mana_potion": {
+			"id": "major_mana_potion",
+			"display_name": "Major Mana Potion",
+			"amount": 30,
+			"drop_weight": 20,
+			"store_value": 60,
+			"item_mesh": "",
+			"item_icon": "",
+			"exclusive_visiblity": ["mage", "paladin", "ranger", "druid"],
+			"//dev_note": "Regenerates 30 mana to a player."
+		},
+		"mega_mana_potion": {
+			"id": "mega_mana_potion",
+			"display_name": "Mega Mana Potion",
+			"amount": 50,
+			"drop_weight": 50,
+			"store_value": 30,
+			"item_mesh": "",
+			"item_icon": "",
+			"exclusive_visiblity": ["mage", "paladin", "ranger", "druid"],
+			"//dev_note": "Regenerates 50 mana to a player."
+		}
+	}
+}

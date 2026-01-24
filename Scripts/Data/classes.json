@@ -1,0 +1,198 @@
+{
+	"classes":{
+		"warrior": {
+			"class": "warrior",
+			"display_name": "Warrior",
+			"hero_icon": "",
+			"stats":{
+				"health": 150,
+				"rage": 0,
+				"strength": 10,
+				"dexterity": 5,
+				"intellect": 1,
+				"vitality": 10,
+				"wisdom": 1
+			},
+			"abilities": [
+				{"level": 10, "ability_id": "warrior_ability_war_cry"},
+				{"level": 20, "ability_id":{"2_handed_weapon": "warrior_ability_whirlwind", "1_handed_weapon": "warrior_ability_tornado_furry"}},
+				{"level": 30, "ability_id": "warrior_ability_ultimate_earth_shatter"}
+			],
+			"starting_armor": {
+				"helm": null,
+				"armor": {"id": "heavy_armor_the_barbarian_bear", "variants": "common"},
+				"main_hand": {"id": "axe_avalonian_axe" , "variants": "common"},
+				"off_hand": {"id": "shield_acalonian_shield" , "variants": "common"}
+			},
+			"allowed_weapons": ["axe", "battleaxe", "sword", "greatsword", "mace", "great_hammer", "scythe"],
+			"allowed_off_hand": ["shield", "axe", "sword", "mace"],
+			"allowed_armor_types": ["light", "medium", "heavy"]
+		},
+		"mage": {
+			"class": "mage",
+			"display_name": "Mage",
+			"hero_icon": "",
+			"stats": {
+				"health": 85,
+				"mana": 100,
+				"strength": 1,
+				"dexterity": 5,
+				"intellect": 10,
+				"vitality": 2,
+				"wisdom": 5
+			},
+			"abilities": [
+				{"level": 10, "ability_id": "mage_ability_blink"},
+				{"level": 20, "ability_id": ["mage_ability_unstable_arcane", "mage_ability_blizzard", "mage_ability_meteor_strike"]},
+				{"level": 30, "ability_id": "mage_ability_ultimate_time_control"}
+			],
+			"starting_armor": {
+				"helm": null,
+				"armor": {"id": "light_armor_avalonian_scholars_robe", "variants": "common"},
+				"main_hand": {"id": "wand_avalonian_wand_arcane" , "variants": "common"},
+				"off_hand": null
+			},
+			"allowed_weapons": ["staff", "wand", "relic"],
+			"allowed_off_hand": ["relic"],
+			"allowed_armor_types": ["light"]
+		},
+		"paladin": {
+			"class": "paladin",
+			"display_name": "Paladin",
+			"hero_icon": "",
+			"stats": {
+				"health": 120,
+				"mana": 100,
+				"strength": 8,
+				"dexterity": 3,
+				"intellect": 2,
+				"vitality": 5,
+				"wisdom": 10      
+			},
+			"abilities": [
+				{"level": 10, "ability_id": "paladin_ability_holy_aura"},
+				{"level": 20, "ability_id": ["paladin_ability_sword_of_light", "paladin_ability_vangaurd"]},
+				{"level": 30, "ability_id": "paladin_ability_ultimate_crusader_charge"}
+			],
+			"starting_armor": {
+				"helm": null,
+				"armor": {"id": "heavy_armor_avalonian_knight_armor", "variants": "common"},
+				"main_hand": {"id": "sword_avalonian_sword" , "variants": "common"},
+				"off_hand": {"id": "shield_avalonian_shield" , "variants": "common"}
+			},
+			"allowed_weapons": ["sword", "greatsword", "mace", "great_hammer", "relic"],
+			"allowed_off_hand": ["shield", "axe", "sword", "mace"],
+			"allowed_armor_types": ["light", "medium", "heavy"]
+		},
+		"rogue": {
+			"class": "rogue",
+			"display_name": "Rogue",
+			"hero_icon": "",
+			"stats": {
+				"health": 100,
+				"energy": 0,
+				"strength": 5,
+				"dexterity": 10,
+				"intellect": 1,
+				"vitality": 4,
+				"wisdom": 2     
+			},
+			"abilities": [
+				{"level": 10, "ability_id": "rogue_ability_stealth"},
+				{"level": 20, "ability_id": ["rogue_ability_dagger_storm", "rogue_ability_rogues_gamble"]},
+				{"level": 30, "ability_id": "rogue_ability_ultimate_shadow_blades"}
+			],
+			"starting_armor": {
+				"helm": null,
+				"armor": {"id": "medium_armor_avalonian_tunic", "variants": "common"},
+				"main_hand": {"id": "dagger_avalonian_dagger" , "variants": "common"},
+				"off_hand": {"id": "dagger_avalonian_dagger" , "variants": "common"}
+			},
+			"allowed_weapons": ["dagger", "sword", "crossbow", "thorwable"],
+			"allowed_off_hand": ["dagger", "sword"],
+			"allowed_armor_types": ["light", "medium"]
+		},
+		"ranger": {
+			"class": "ranger",
+			"display_name": "Ranger",
+			"hero_icon": "",
+			"stats": {
+				"health": 100,
+				"mana": 100,
+				"strength": 5,
+				"dexterity": 8,
+				"intellect": 3,
+				"vitality": 5,
+				"wisdom": 1     
+			},
+			"abilities": [
+				{"level": 10, "ability_id": "ranger_ability_volley"},
+				{"level": 20, "ability_id": ["ranger_ability_trap", "ranger_ability_animal_instincts"]},
+				{"level": 30, "ability_id": "ranger_ability_ultimate_beastial_furry"}
+			],
+			"starting_armor": {
+				"helm": null,
+				"armor": {"id": "medium_armor_avalonian_archers_tunic", "variants": "common"},
+				"main_hand": {"id": "bow_avalonian_bow" , "variants": "common"},
+				"off_hand": null
+			},
+			"allowed_weapons": ["bow","gun", "crossbow", "thorwable"],
+			"allowed_companions": ["beast"],
+			"allowed_armor_types": ["light", "medium"]
+		},
+		"druid": {
+			"class": "druid",
+			"display_name": "Ranger",
+			"hero_icon": "",
+			"stats": {
+				"health": 90,
+				"mana": 100,
+				"strength": 5,
+				"dexterity": 5,
+				"intellect": 8,
+				"vitality": 5,
+				"wisdom": 10     
+			},
+			"abilities": [
+				{"level": 10, "ability_id": "druid_ability_natures_call"},
+				{"level": 20, "ability_id": ["druid_ability_healing_rain", "druid_ability_acid_rain"]},
+				{"level": 30, "ability_id": "druid_ability_ultimatet_tree_of_life"}
+			],
+			"starting_armor": {
+				"helm": null,
+				"armor": {"id": "medium_armor_natures_tunic", "variants": "common"},
+				"main_hand": {"id": "staff_avalonian_staff_of_nature" , "variants": "common"},
+				"off_hand": null
+			},
+			"allowed_weapons": ["mace", "staff", "relic"],
+			"allowed_armor_types": ["light", "medium"]
+		},
+		"engineer": {
+			"class": "engineer",
+			"display_name": "Ranger",
+			"hero_icon": "",
+			"stats": {
+				"health": 100,
+				"scraps": 0,
+				"strength": 6,
+				"dexterity": 10,
+				"intellect": 8,
+				"vitality": 3,
+				"wisdom": 1     
+			},
+			"abilities": [
+				{"level": 10, "ability_id": "engineer_ability_turret"},
+				{"level": 20, "ability_id": ["engineer_ability_bomb_turret", "engineer_ability_tesla_turret"]},
+				{"level": 30, "ability_id": "engineer_ability_prototype_00451"}
+			],
+			"starting_armor": {
+				"helm": null,
+				"armor": {"id": "medium_armor_avalonian_engineer_suit", "variants": "common"},
+				"main_hand": {"id": "avalonian_mechanical_wrench", "variants": "common"},
+				"off_hand": null
+			},
+			"allowed_weapons": ["mace", "gun", "throwable"],
+			"allowed_armor_types": ["light", "medium"]
+		}
+	}
+}

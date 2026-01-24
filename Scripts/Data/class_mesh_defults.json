@@ -1,0 +1,102 @@
+{
+	"class_visual_defults": {
+		"warrior_defults": {
+			"id": "warrior_defults",
+			"helm": null,
+			"head": "uid://2mh852i3ocjg",
+			"armor": {
+				"arm_left": "uid://do1nwmqk61rdk",
+				"arm_right": "uid://cyurcj5g6i536",
+				"chest": "uid://b7exqulsw6emq",
+				"leg_left": "uid://du3jspdlsbi0j",
+				"leg_right": "uid://djk03wvf47cqc"
+			},
+			"main_hand": "",
+			"off_hand": ""
+		},
+		"paladin_defults": {
+			"id": "paladin_defults",
+			"helm": null,
+			"head": null,
+			"armor": {
+				"arm_left": null,
+				"arm_right": null,
+				"chest": null,
+				"leg_left": null,
+				"leg_right": null
+			},
+			"main_hand": "",
+			"off_hand": ""
+		},
+		"mage_defults": {
+			"id": "mage_defults",
+			"helm": null,
+			"head": null,
+			"armor": {
+				"arm_left": null,
+				"arm_right": null,
+				"chest": null,
+				"leg_left": null,
+				"leg_right": null
+			},
+			"main_hand": "",
+			"off_hand": ""
+		},
+		"ranger_defults": {
+			"id": "ranger_defults",
+			"helm": null,
+			"head": null,
+			"armor": {
+				"arm_left": null,
+				"arm_right": null,
+				"chest": null,
+				"leg_left": null,
+				"leg_right": null
+			},
+			"main_hand": "",
+			"off_hand": ""
+		},
+		"rogue_defults": {
+			"id": "rogue_defults",
+			"helm": null,
+			"head": null,
+			"armor": {
+				"arm_left": null,
+				"arm_right": null,
+				"chest": null,
+				"leg_left": null,
+				"leg_right": null
+			},
+			"main_hand": "",
+			"off_hand": ""
+		},
+		"druid_defults": {
+			"id": "druid_defults",
+			"helm": null,
+			"head": null,
+			"armor": {
+				"arm_left": null,
+				"arm_right": null,
+				"chest": null,
+				"leg_left": null,
+				"leg_right": null
+			},
+			"main_hand": "",
+			"off_hand": ""
+		},
+		"enginnear_defults": {
+			"id": "engineer_defults",
+			"helm": null,
+			"head": null,
+			"armor": {
+				"arm_left": null,
+				"arm_right": null,
+				"chest": null,
+				"leg_left": null,
+				"leg_right": null
+			},
+			"main_hand": "",
+			"off_hand": ""
+		}
+	}
+}

@@ -1,0 +1,56 @@
+{
+	"enemies": {
+		"enemy_skeletal_grunt":{
+			"id": "enemy_skeletal_grunt",
+			"display_name": "Skeletal Grunt",
+			"scene_path": "uid://bp2biwp3lcpdf",
+			"attack_type": "melee",
+			"health": 50,
+			"level": 1,
+			"move_speed": 2.0,
+			"attack_speed": 1.0,
+			"damage": 5,
+			"abilities":[],
+			"drops": [
+				{"item": "healing_potion_minor", "weight": 50},
+				{"item": "healing_potion_major", "weight": 20},
+				{"item": "mana_potion_minor", "weight": 50},
+				{"item": "mana_potion_major", "weight": 20},
+				{"item": "gold_coin", "weight": 70}
+			]
+		},
+		"enemy_skeletal_ranger": {},
+		"enemy_skeletal_warrior": {},
+		"enemy_skeletal_mage": {},
+		"enemy_skeletal_necromancer": {
+			"id": "enemy_skeletal_necromancer",
+			"display_name": "Skeletal Necromancer",
+			"scene_path": "",
+			"stats": {
+				"health": 60,
+				"level": 1,
+				"strength": 1,
+				"dexterity": 1,
+				"intellect": 10,
+				"vitality": 2,
+				"wisdom": 5
+			},
+			"abilities":[
+				"enemy_skeletal_necromancer_shadow_bolt",
+				"enemy_skeletal_necromancer_heal_skeletons",
+                "enemy_skeletal_necromancer_ability_summon_skeletons"
+			],
+			"drops": [
+				{"item": "consumable_healing_potion_minor", "weight": 50},
+				{"item": "consumable_healing_potion_major", "weight": 20},
+				{"item": "consumable_mana_potion_minor", "weight": 50},
+				{"item": "consumable_mana_potion_major", "weight": 20},
+				{"item": "currency_gold_coin", "weight": 70}
+			]
+			
+		},
+		"enemy_orc_grunt": {},
+		"enemy_orc_ranger": {},
+		"enemy_orc_warrior": {}
+	}
+}

@@ -1,0 +1,464 @@
+{
+    "class_abilities": {
+        "mage_ability_blink": {
+            "id": "mage_ability_blink",
+            "ability_name": "Blink",
+            "ability_type": ["movement"],
+            "ability_description": "Teleports a caster to short distances making them briefly immune to attacks.",
+            "ability_stats": {
+                "mana_cost": 40,
+                "teleport_range": 10.0,
+                "stats_duration": 1.0,
+                "status_effect_applied": "status_effect_buff_invoulnerable",
+                "cooldown": 5.0
+            },
+            "ability_script_path": "",
+            "ability_icon_path": "",
+            "ability_VFS_scene_path": ""
+        },
+        "mage_ability_unstable_arcane": {
+            "id": "mage_ability_unstable_arcane",
+            "ability_name": "Unstable Arcane",
+            "ability_type": ["offensive", "area of effect"],
+            "ability_description": "Unlesh a blast of arcane energy to decimate any near by enemies.",
+            "ability_stats": {
+                "mana_cost": 30,
+                "impact_damage": 15,
+                "range": 5.0,
+                "cooldown": 5.0
+            },
+            "ability_script_path": "",
+            "ability_icon_path": "",
+            "ability_VFS_scene_path": ""
+        },
+        "mage_ability_blizzard": {
+            "id": "mage_ability_blizzard",
+            "ability_name": "Blizzard",
+            "ability_type": ["projectile", "area of effect"],
+            "ability_description": "Summon hail from the sky fall ontop of your enemeies damaging them and slowing them down for 5.0 seconds.",
+            "ability_stats": {
+                "mana_cost": 40,
+                "damage_per_projectile": 10,
+                "spell_duration": 5.0,
+                "cast range": 10.0,
+                "projectile": "mage_projectile_hail",
+                "status_effect_applied": "debuff_frost",
+                "cooldown": 20.0
+            },
+            "ability_script_path": "",
+            "ability_icon_path": "",
+            "ability_VFS_scene_path": ""
+        },
+        "mage_ability_meteor_strike": {
+            "id": "mage_ability_meteor_strike",
+            "ability_name": "Meteor Strike",
+            "ability_type": ["projectile", "area of effect"],
+            "ability_description": "Call down a meteor from the skys by burning the the ground where it lands applying burn damage every 2.0 seconds.",
+            "ability_stats": {
+                "mana_cost": 40,
+                "impact_damage": 40,
+                "tick": 1.0,
+                "cast_range": 10.0,
+                "projectile": "mage_projectile_meteor",
+                "status_effect_applied": "dot_burn",
+                "cooldown":20.0
+            },
+            "ability_script_path": "",
+            "ability_icon_path": "",
+            "ability_VFS_scene_path": ""
+        },
+        "mage_ability_ultimate_time_control": {
+            "id": "mage_ability_ultimate_time_control",
+            "ability_name": "Time Control",
+            "ability_type": ["buff", "area of effect"],
+            "ability_description": "Manipulate time and refresh your allies abilities and increasing their attack speed for 10.0 seconds. You cannot reset other Mage's Time Control ability",
+            "ability_stats": {
+                "mana_cost": 50,
+                "effetc_range": 8.0,
+                "stats_duration": 10.0,
+                "status_effect_applied": ["buff_attack_speed", "debuff_time_dust_residue", "buff_cooldown_rdux"],
+                "cooldown": 60.0
+            },
+            "ability_script_path": "",
+            "ability_icon_path": "",
+            "ability_VFS_scene_path": ""
+        },
+        "warrior_ability_war_cry": {
+            "id": "warrior_ability_war_cry",
+            "ability_name": "War Cry",
+            "ability_type": ["buff", "area of effect"],
+            "ability_description": "Let out a shout rallying your allies and increasing their damage by 5% for 5.0 seconds",
+            "ability_stats": {
+                "rage_cost": 20,
+                "effect_range": 10.0,
+                "stats_duration": 5.0,
+                "status_effect_applied": ["status_effetc_buff_rally"],
+                "cooldown": 30.0
+            },
+            "ability_script_path": "",
+            "ability_icon_path": "",
+            "ability_VFS_scene_path": ""
+        },
+        "warrior_ability_whirlwind": {
+            "id": "warrior_ability_whirlwind",
+            "ability_name": "Whirlwind",
+            "ability_type":["offensive", "area of effect"],
+            "restrictions": {"type": ["greatsword", "great_hammer", "battleaxe", "scythe"], "slot": "main_hand" },
+            "ability_description": "A relentless, spinning melee attack that hits all nearby enemies in a furious, blade-driven vortex for 5.0 seconds.",
+            "ability_stats": {
+                "rage_cost": 40,
+                "damage": 15,
+                "tick": 1.0,
+                "duration": 5.0,
+                "range": 5.0,
+                "cooldown": 10.0
+            },
+            "ability_script_path": "",
+            "ability_icon_path": "",
+            "ability_VFS_scene_path": ""
+        },
+        "warrior_ability_tornado_furry": {
+            "id": "warrior_ability_tornado_furry",
+            "ability_name": "Tornado Furry",
+            "ability_type": ["projectile", "area of effect"],
+            "restrictions": {"type": ["axe", "sword", "mace"], "slot": "main_hand"},
+            "ability_description": "Launches a fast-moving, linear tornado of swirling blades that shreds all enemies in its path. Enemies that are hit take bleeding damage every 1.5 seconds for 8.0 seconds.",
+            "ability_stats": {
+                "rage_cost": 10,
+                "damage": 10,
+                "duration": 1.0,
+                "projectile": "warrior_projectile_tornado",
+                "amount": 1,
+                "cooldown": 2.0
+            },
+            "ability_script_path": "",
+            "ability_icon_path": "",
+            "ability_VFS_scene_path": ""
+        },
+        "warrior_ability_ultimate_earth_shatter": {
+            "id": "warrior_ability_ultimate_earth_shatter",
+            "ability_name": "Earth Shatter",
+            "ability_type": ["offensive", "area of effect"],
+            "ability_description": "Stomp the ground with massive force, causing a localized earthquake that shatters the earth and violently pushes back all nearby enemies, dealing massive damage.",
+            "ability_stats": {
+                "rage_cost": 50,
+                "damage": 30,
+                "duration": 3.0,
+                "cooldown": 60.0
+            },
+            "ability_script_path": "",
+            "ability_icon_path": "",
+            "ability_VFS_scene_path": ""
+        },
+        "paladin_ability_holy_aura": {
+            "id": "paladin_ability_holy_aura",
+            "ability_name": "Holy Aura",
+            "ability_type": ["healing", "area of effect"],
+            "ability_description": "Radiate divine energy around you, forming a restorative aura that continuously heals all allies within range for a 8.0 seconds.",
+            "ability_stats": {
+                "mana_cost": 40,
+                "healing": "status_effect_holy_healing",
+                "range": 10.0,
+                "cooldown": 30.0
+            },
+            "ability_script_path": "",
+            "ability_icon_path": "",
+            "ability_VFS_scene_path": ""
+        },
+        "paladin_ability_sword_of_light": {
+            "id": "paladin_ability_sword_of_light",
+            "ability_name": "Sword Of Light",
+            "ability_type": ["offensive", "area of effect"],
+            "ability_description": "Call down a celestial sword to strike into the ground causing damage to all enemies within the impacted area.",
+            "ability_stats": {
+                "mana_cost": 40,
+                "impact_damage": 20,
+                "damage_per_tick": 10,
+                "tick": 1.5,
+                "duration": 5.0,
+                "cooldown": 30.0
+            },
+            "ability_script_path": "",
+            "ability_icon_path": "",
+            "ability_VFS_scene_path": ""
+        },
+        "paladin_ability_vangaurd": {
+            "id": "paladin_ability_vangaurd",
+            "ability_name": "Vangaurd",
+            "ability_type": ["offensive", "area of effect"],
+            "ability_description": "Strike enemeies infront of you with holy vengence appling [Holy Touch] to your enemies dealing holy damage for every 2.0 seconds for 10.0 seconds.",
+            "ability_stats": {
+                "mana_cost": 20,
+                "impact_damage": 20,
+                "status_effect_applied": "status_effect_holy_dmg",
+                "cooldown": 10.0
+            },
+            "ability_script_path": "",
+            "ability_icon_path": "",
+            "ability_VFS_scene_path": ""
+        },
+        "rogue_ability_dagger_storm": {
+            "id": "rogue_ability_dagger_storm",
+            "ability_name": "Dagger Storm",
+            "ability_type": ["offensive", "area of effect"],
+            "ability_description": "Shoot out daggers all round you hitting anything that is near you and applying poison damage to the enemy.",
+            "ability_stats": {
+                "energy_cost": 20,
+                "impact_damage": 5,
+                "status_effect_applied": "status_effetc_poison",
+                "cooldown": 1.0
+            },
+            "ability_script_path": "",
+            "ability_icon_path": "",
+            "ability_VFS_scene_path": ""
+        },
+        "rogue_ability_stealth": {
+            "id": "rogue_ability_stealth",
+            "ability_name": "Stealth",
+            "ability_type": ["utility"],
+            "ability_description": "Hide within the shadows for 5 seconds and your first attack dose an extra 10% damage to the enemy. If hit you will be taken out of stealth.",
+            "ability_stats": {
+                "energy_cost": 10,
+                "duration": 5.0,
+                "status_effect_applied": "stats_effect_stealth",
+                "cooldown": 10.0
+            },
+            "ability_script": "",
+            "ability_icon": "",
+            "ability_VFS_scene": ""
+        },
+        "rogue_ability_rogues_gamble": {
+            "id": "rogue_ability_rogues_gamble",
+            "ability_name": "Rogue's Gamble",
+            "ability_type": ["buff"],
+            "ability_description": "Roll a mysterious six-sided die and embrace whatever destiny grants you. Each outcome unleashes a unique empowered state: ",
+            "ability_stats": {
+                "energy_cost": 30,
+                "status_effect_applied": ["stats_effect_dice_of_six", "stats_effect_dice_of_blades", "stats_effect_death_deal"],
+                "cooldown": 30.0
+            },
+            "ability_script": "",
+            "ability_icon": "",
+            "ability_VFS_scene": ""
+        },
+        "rogue_ability_ultimate_shadow_blades": {
+            "id": "rogue_ability_ultimate_shadow_blades",
+            "ability_name": "Shadow Blades",
+            "ability_type": ["offensive", "area of effect"],
+            "ability_description": "Dash foward decimating anything in your path with quick attacks.",
+            "ability_stats": {
+                "energy_cost": 50,
+                "damage_per_tick": 15,
+                "status_effect_applied": [
+                    "dot_bleed"
+                ],
+                "tick": 0.5,
+                "duration": 3.0,
+                "cooldown": 50.0
+            },
+            "ability_script": "",
+            "ability_icon": "",
+            "ability_VFS_scene": ""
+        },
+        "ranger_ability_volley": {
+            "id": "ranger_ability_volley",
+            "ability_name": "Volley",
+            "ability_type": ["offensive", "area of effect"],
+            "ability_description": "Rain your equipped weapon's projectiles over a target area for 5.0 seconds.",
+            "ability_stats": {
+                "mana_cost": 30,
+                "duration": 5.0,
+                "cast_range": 10.0,
+                "projectile": [
+                    "bow_projectile_arrow", 
+                    "bow_projectile_arrow_fire", 
+                    "bow_projectile_arrow_ice", 
+                    "bow_projectile_arrow_poison",
+                    "gun_projectile_bullet",
+                    "gun_projectile_bullet_poison", 
+                    "throwable_projectile_shuriken",
+                    "throwable_projectile_shuriken_poison", 
+                    "throwable_projectile_bomb", 
+                    "throwable_projectile_knife",
+                    "throwable_projectile_knife_poison"
+                ],
+                "status_effect_applied": [
+                    "dot_poison",
+                    "dot_fire",
+                    "debuff_frost"
+                ],
+                "cooldown": 30.0
+            },
+            "ability_script": "",
+            "ability_icon": "",
+            "ability_VFS_scene": ""
+        },
+        "ranger_ability_trap": {
+            "id": "ranger_ability_trap",
+            "ability_name": "Trap",
+            "ability_type": ["offensive", "area of effect"],
+            "ability_description": "Place a trap on the ground with a random property.",
+            "ability_stats": {
+                "mana_cost": 20,
+                "impact_damage": 10,
+                "duration": 10.0,
+                "status_effect_applied": [
+                    "dot_poison",
+                    "dot_fire",
+                    "debuff_slow",
+                    "debuff_root"
+                ],
+                "cooldown": 20.0
+            },
+            "ability_script": "",
+            "ability_icon": "",
+            "ability_VFS_scene": ""
+        },
+        "ranger_ability_animals_instincts ": {
+            "id": "ranger_ability_animals_instincts",
+            "ability_name": "Animal Instincts",
+            "ability_type": ["movement"],
+            "ability_description": "Run as fast as a beast by increasing your movment speed by 10% for 5.0 seconds. Cannot be stacked with other movement abilities.",
+            "ability_stats": {
+                "mana_cost": 40,
+                "duration": 5.0,
+                "status_effect_applied": ["buff_speed_boost"],
+                "cooldown": 40.0
+            },
+            "ability_script": "",
+            "ability_icon": "",
+            "ability_VFS_scene": ""
+        },
+        "ranger_ability_ultimate_beastial_furry": {
+            "id": "ranger_ability_ultimate_beastial_furry",
+            "ability_name": "Beastial Furry",
+            "ability_type": ["buff"],
+            "ability_description": "Empower yourself and your companion by increasing your damage by 15% for 8.0 seconds.",
+            "ability_stats": {
+                "mana_cost": 50,
+                "duration": 8.0,
+                "status_effect_applied": ["buff_enraged"],
+                "cooldown": 60.0
+            },
+            "ability_script": "",
+            "ability_icon": "",
+            "ability_VFS_scene": ""
+        },
+        "druid_ability_natures_call": {
+            "id": "druid_ability_natures_call",
+            "ability_name": "Nature's Call",
+            "ability_type": ["movement"],
+            "ability_description": "Rally your companions to be one with nature by increasing thier movement speed by 10% for 5.0 seconds. Cannot be stack with other movment abilities.",
+            "ability_stats": {
+                "mana_cost":30,
+                "duration": 5.0,
+                "effect_range": 10.0,
+                "status_effect_applied": ["buff_speed_boost"],
+                "cooldown": 30.0
+            },
+            "ability_script": "",
+            "ability_icon": "",
+            "ability_VFS_scene": ""
+        },
+        "druid_ability_healing_rain": {
+            "id": "druid_ability_healing_rain",
+            "ability_name": "Healing Rain",
+            "ability_type": ["movement"],
+            "ability_description": "Call down a soothing rain to fall on your allies healing them over time for 8.0 seconds.",
+            "ability_stats": {
+                "mana_cost": 40,
+                "duration": 8.0,
+                "status_effect_applied": ["hot_nature"],
+                "cooldown": 20.0
+            },
+            "ability_script": "",
+            "ability_icon": "",
+            "ability_VFS_scene": ""
+        },
+        "druid_ability_acid_rain": {
+            "id": "druid_ability_acid_rain",
+            "ability_name": "Acid Rain",
+            "ability_type": ["offensive", "area of effect"],
+            "ability_description": "Rain acid on your enemies for 5.0 seconds applying nature damage over time for every 1.5 seconds for 8.0 seconds",
+            "ability_stats": {
+                "mana_cost": 40,
+                "damage_per_projectile": 10,
+                "spell_duration": 5.0,
+                "cast range": 10.0,
+                "status_effect_applied": "dot_nature",
+                "cooldown": 20.0
+            },
+            "ability_script_path": "",
+            "ability_icon_path": "",
+            "ability_VFS_scene_path": ""
+        },
+        "druid_ability_ultimatet_tree_of_life": {
+            "id": "druid_ability_ultimate_tree_of_life",
+            "ability_name": "Tree Of Life",
+            "ability_type": ["support", "area of effect"],
+            "ability_description": "Summon a child of Yggdrasil to grow and pulse nature healing to heal 5% max health of you and your near by allies health for every 2.0 for 10.0 seconds. ",
+            "ability_stats": {
+                "mana_cost": 50,
+                "heal_per_tick": 5.0,
+                "spell_duration": 10.0,
+                "cast_range": 10.0,
+                "cooldown": 60.0
+            },
+            "ability_script_path": "",
+            "ability_icon_path": "",
+            "ability_VFS_scene_path": ""
+        },
+        "engineer_ability_turret": {
+            "id": "engineer_ability_turret",
+            "ability_name": "Turret",
+            "ability_type": ["companion"],
+            "ability_description": "Build a turret that targets the closest enemy until it is destoryed. Build limit to 2 in the world.",
+            "ability_stats": {
+                "scrap_cost": 20,
+                "max_active": 2,
+                "cooldown": 20.0
+            },
+            "ability_script_path": "",
+            "ability_icon_path": "",
+            "ability_summon_scene": ""
+        },
+        "engineer_ability_upgrade_bomb_turret": {
+            "id": "engineer_upgrade_bomb_turret",
+            "ability_name": "UPGRADE: Bomb Turret",
+            "ability_type": ["passive"],
+            "ability_description": "Your turret fires explosive bombs.",
+            "upgrade_targets": ["engineer_ability_turret"],
+            "upgrade_effects": {
+                "set_variant": "bomb",
+                "summon_scene_override": ""
+            },
+            "ability_icon_path": ""
+        },
+        "engineer_ability_upgrade_tesla_turret": {
+            "id": "engineer_upgrade_tesla_turret",
+            "ability_name": "UPGRADE: Tesla Turret",
+            "ability_type": ["upgrade", "passive"],
+            "ability_description": "Your turret fires chain lightning that bounces up to 5 enemies.",
+            "upgrade_targets": ["engineer_ability_turret"],
+            "upgrade_effects": {
+                "set_variant": "tesla",
+                "chain_bounces": 5,
+                "summon_scene_override": ""
+            },
+            "ability_icon_path": ""
+        },
+        "engineer_ability_prototype_00451": {
+            "id": "engineer_ability_prototype_00451",
+            "ability_name": "Prototype 00451",
+            "ability_type": ["companion"],
+            "ability_description": "Call down a mechanical construct that fights for you for 20 seconds.",
+            "ability_stats": {
+                "scrap_cost": 50,
+                "duration": 20.0,
+                "cooldown": 60.0
+            },
+            "ability_summon_scene": "",
+            "ability_icon_path": ""
+        }
+    }
+}
