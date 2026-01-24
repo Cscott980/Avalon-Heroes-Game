@@ -39,7 +39,6 @@ mouse_cursor/custom_image="uid://gdb7tqkuj0vq"
 
 folder_colors={
 "res://Assets/": "teal",
-"res://GPUTrail-main/": "gray",
 "res://Resources/": "orange",
 "res://Scenes/": "blue",
 "res://Scripts/": "yellow",
