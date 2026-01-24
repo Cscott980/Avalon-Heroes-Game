@@ -22,5 +22,7 @@ class_name ItemResource extends Resource
 	"Material"
 ) var item_type
 
+@export var item_panel: StyleBox
+@export var name_color: Color = Color.WHITE
 @export var stackable: bool
 @export var max_stack: int

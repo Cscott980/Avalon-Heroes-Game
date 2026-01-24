@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=5 format=3 uid="uid://er0ka2ldae5f"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=6 format=3 uid="uid://er0ka2ldae5f"]
 
 [ext_resource type="Shape3D" uid="uid://ct5ylgdyutiow" path="res://Assets/CollissionShape/Avalonian_Axe_Collision_shape.tres" id="1_3uhxd"]
 [ext_resource type="Texture2D" uid="uid://dj4pvvs1mcbbn" path="res://Assets/Icons/Weapons/Axes/Avalonian_Axe_Common.png" id="2_weryp"]
 [ext_resource type="ArrayMesh" uid="uid://p73js8prmce6" path="res://Assets/WeaponMeshes/Axes/Avalonian_Axe_Mesh.res" id="3_4maxg"]
+[ext_resource type="StyleBox" uid="uid://d2hluo0relbhx" path="res://Resources/ItemPanels/CommonPanel.tres" id="3_weryp"]
 [ext_resource type="Script" uid="uid://c50kbrwa28ffs" path="res://Scripts/Resources/WeaponResource.gd" id="4_rb87r"]
 
 [resource]
@@ -10,7 +11,6 @@ script = ExtResource("4_rb87r")
 weapon_type = "Axe"
 mesh = ExtResource("3_4maxg")
 collision_shape = ExtResource("1_3uhxd")
-can_be_equiped = 3
 damage = 8
 scale_on_stat = 1
 scale_percentage = 0.2
@@ -22,4 +22,5 @@ description = "A reliable one-handed axe forged for everyday battle in Avalon."
 icon = ExtResource("2_weryp")
 rarity = "Common"
 item_type = 0
+item_panel = ExtResource("3_weryp")
 metadata/_custom_type_script = "uid://c50kbrwa28ffs"

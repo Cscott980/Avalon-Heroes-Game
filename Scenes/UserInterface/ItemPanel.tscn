@@ -1,22 +1,72 @@
-[gd_scene load_steps=7 format=3 uid="uid://days71eyd4igm"]
+[gd_scene load_steps=12 format=3 uid="uid://days71eyd4igm"]
 
-[ext_resource type="Texture2D" uid="uid://wvq2jdpa6iqr" path="res://Assets/Icons/Armor/Heavy/AvalonianLightsChampionHelmChroma.png" id="1_v1g4q"]
-[ext_resource type="FontFile" uid="uid://bpj43a3io706v" path="res://Assets/Fonts/gomarice_no_continue.ttf" id="2_h6je7"]
+[ext_resource type="StyleBox" uid="uid://d1xcarb8osooi" path="res://Resources/ItemPanels/ChromaPanel.tres" id="1_h6je7"]
+[ext_resource type="Script" uid="uid://cqak41i6rt4jr" path="res://Scenes/UserInterface/ItemPanel.gd" id="2_d0vok"]
+[ext_resource type="Texture2D" uid="uid://bj47ar0qvkdnk" path="res://Assets/GUI/gold.png" id="3_h6je7"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0vok"]
-bg_color = Color(0, 0, 0, 0.24300002)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(1, 0, 0.21960784, 1)
-border_blend = true
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-shadow_color = Color(0, 0, 0, 0.22900002)
-shadow_size = 10
+[sub_resource type="FontFile" id="FontFile_od7a3"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/13/0/ascent = 0.0
+cache/0/13/0/descent = 0.0
+cache/0/13/0/underline_position = 0.0
+cache/0/13/0/underline_thickness = 0.0
+cache/0/13/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
+cache/0/15/0/ascent = 0.0
+cache/0/15/0/descent = 0.0
+cache/0/15/0/underline_position = 0.0
+cache/0/15/0/underline_thickness = 0.0
+cache/0/15/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_qbrqb"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/13/0/ascent = 0.0
+cache/0/13/0/descent = 0.0
+cache/0/13/0/underline_position = 0.0
+cache/0/13/0/underline_thickness = 0.0
+cache/0/13/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
+cache/0/15/0/ascent = 0.0
+cache/0/15/0/descent = 0.0
+cache/0/15/0/underline_position = 0.0
+cache/0/15/0/underline_thickness = 0.0
+cache/0/15/0/scale = 1.0
 
 [sub_resource type="FontFile" id="FontFile_h6je7"]
 cache/0/16/0/ascent = 0.0
@@ -26,6 +76,13 @@ cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 
 [sub_resource type="FontFile" id="FontFile_d0vok"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_q7q8n"]
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -44,62 +101,103 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 
-[node name="PanelContainer" type="PanelContainer"]
-custom_minimum_size = Vector2(300, 200)
+[sub_resource type="FontFile" id="FontFile_1oiw8"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_40obu"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="ItemPanel" type="PanelContainer"]
+custom_minimum_size = Vector2(300, 0)
 offset_right = 40.0
 offset_bottom = 40.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_d0vok")
+theme_override_styles/panel = ExtResource("1_h6je7")
+script = ExtResource("2_d0vok")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-texture = ExtResource("1_v1g4q")
-expand_mode = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="ItemName" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="ItemName" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 0, 0.21960784, 1)
-theme_override_fonts/font = ExtResource("2_h6je7")
 theme_override_font_sizes/font_size = 30
 text = "Avalonina Light's Champion helm"
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Restrictions" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="ArmorType" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Category" type="Label" parent="VBoxContainer/ArmorType"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_od7a3")
+theme_override_font_sizes/font_size = 15
+text = "Armor Type:"
+
+[node name="AType" type="Label" parent="VBoxContainer/ArmorType"]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
-text = "heavy helm
-class armor: paladin"
+theme_override_fonts/font = SubResource("FontFile_qbrqb")
+theme_override_font_sizes/font_size = 15
+text = "Heavy"
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="WeaponType" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="Specials" type="Label" parent="VBoxContainer/VBoxContainer"]
+[node name="Category" type="Label" parent="VBoxContainer/WeaponType"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_od7a3")
+theme_override_font_sizes/font_size = 15
+text = "Weapon Type:"
+
+[node name="WType" type="Label" parent="VBoxContainer/WeaponType"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_qbrqb")
+theme_override_font_sizes/font_size = 15
+vertical_alignment = 1
+
+[node name="ClassArmor" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Category" type="Label" parent="VBoxContainer/ClassArmor"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_od7a3")
+theme_override_font_sizes/font_size = 15
+text = "Class:"
+
+[node name="ClassType" type="Label" parent="VBoxContainer/ClassArmor"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_qbrqb")
+theme_override_font_sizes/font_size = 15
+text = "Paladin"
+vertical_alignment = 1
+
+[node name="Specials" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.271663, 0.9199219, 0.10241318, 1)
@@ -107,17 +205,168 @@ theme_override_fonts/font = SubResource("FontFile_h6je7")
 text = "Equip: Heals you for 2% of your total health every 3 seconds when out of combat."
 autowrap_mode = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
+[node name="Properties" type="VBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Armor" type="HBoxContainer" parent="VBoxContainer/Properties"]
+visible = false
+layout_mode = 2
+
+[node name="ArmorValue" type="Label" parent="VBoxContainer/Properties/Armor"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = SubResource("FontFile_d0vok")
-text = "+30% Strength
-+20% Wisdom"
+text = "+150"
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="FlavoTtext" type="Label" parent="VBoxContainer/VBoxContainer"]
+[node name="Category" type="Label" parent="VBoxContainer/Properties/Armor"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("FontFile_q7q8n")
+text = "Armor"
+vertical_alignment = 1
+
+[node name="Damage" type="HBoxContainer" parent="VBoxContainer/Properties"]
+visible = false
+layout_mode = 2
+
+[node name="DamageValue" type="Label" parent="VBoxContainer/Properties/Damage"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = SubResource("FontFile_d0vok")
+text = "+150"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Category" type="Label" parent="VBoxContainer/Properties/Damage"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("FontFile_q7q8n")
+text = "Damage"
+vertical_alignment = 1
+
+[node name="Strength" type="HBoxContainer" parent="VBoxContainer/Properties"]
+visible = false
+layout_mode = 2
+
+[node name="StrengthValue" type="Label" parent="VBoxContainer/Properties/Strength"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = SubResource("FontFile_d0vok")
+text = "+30%"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Category" type="Label" parent="VBoxContainer/Properties/Strength"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("FontFile_q7q8n")
+text = "Strength"
+vertical_alignment = 1
+
+[node name="Intellect" type="HBoxContainer" parent="VBoxContainer/Properties"]
+visible = false
+layout_mode = 2
+
+[node name="IntellectValue" type="Label" parent="VBoxContainer/Properties/Intellect"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = SubResource("FontFile_d0vok")
+text = "+20%"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Category" type="Label" parent="VBoxContainer/Properties/Intellect"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("FontFile_q7q8n")
+text = "Intellect"
+vertical_alignment = 1
+
+[node name="Dexterity" type="HBoxContainer" parent="VBoxContainer/Properties"]
+visible = false
+layout_mode = 2
+
+[node name="DexterityValue" type="Label" parent="VBoxContainer/Properties/Dexterity"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = SubResource("FontFile_d0vok")
+text = "+5%"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Category" type="Label" parent="VBoxContainer/Properties/Dexterity"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("FontFile_q7q8n")
+text = "Dexterity"
+vertical_alignment = 1
+
+[node name="Wisdom" type="HBoxContainer" parent="VBoxContainer/Properties"]
+visible = false
+layout_mode = 2
+
+[node name="WisdomValue" type="Label" parent="VBoxContainer/Properties/Wisdom"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = SubResource("FontFile_d0vok")
+text = "+50%"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Category" type="Label" parent="VBoxContainer/Properties/Wisdom"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("FontFile_q7q8n")
+text = "Wisdom"
+vertical_alignment = 1
+
+[node name="Vitality" type="HBoxContainer" parent="VBoxContainer/Properties"]
+visible = false
+layout_mode = 2
+
+[node name="VitalityValue" type="Label" parent="VBoxContainer/Properties/Vitality"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = SubResource("FontFile_d0vok")
+text = "+25"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Category" type="Label" parent="VBoxContainer/Properties/Vitality"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("FontFile_q7q8n")
+text = "Vitality"
+vertical_alignment = 1
+
+[node name="FlavoTtext" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -128,6 +377,23 @@ text = "\"A sacred helm worn by Avalonina’s chosen champions. Its golden armor
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="SellPrice" type="Label" parent="VBoxContainer/VBoxContainer"]
+[node name="MarketData" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+
+[node name="SellPrice" type="Label" parent="VBoxContainer/MarketData"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_1oiw8")
 text = "Sell Price: "
+
+[node name="Price" type="Label" parent="VBoxContainer/MarketData"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_40obu")
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarketData"]
+custom_minimum_size = Vector2(20, 25)
+layout_mode = 2
+texture = ExtResource("3_h6je7")
+expand_mode = 1

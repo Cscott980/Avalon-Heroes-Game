@@ -16,7 +16,7 @@ class_name WeaponResource extends ItemResource
 	"Crossbow",
 	"Wand",
 	"Staff"
-	) var weapon_type: String = "Dagger"
+) var weapon_type: String = "Dagger"
 enum HANDEDNESS {
 	ONE_HANDED,
 	TWO_HANDED

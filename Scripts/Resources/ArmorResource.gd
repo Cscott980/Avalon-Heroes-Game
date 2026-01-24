@@ -3,6 +3,7 @@ class_name ArmorResource extends ItemResource
 enum ArmorType {Light, Medium, Heavy}
 @export var armor_slot_type: EquipmentSlotResource
 @export var armor_type: ArmorType
+@export var armor_exclusive_to: String #This is only for ItemPanel
 
 @export_group("Accessory Mesh")
 @export var mesh_accessory: Mesh
