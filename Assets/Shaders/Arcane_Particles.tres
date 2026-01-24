@@ -1,0 +1,52 @@
+[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://cqwoywuhgq0yn"]
+
+[ext_resource type="Texture2D" uid="uid://bao7mpja0eio7" path="res://Assets/Textures/Misc/T_fire_flipbook4_sm.png" id="1_adpvr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmarl"]
+atlas = ExtResource("1_adpvr")
+region = Rect2(51, 85, 114, 113)
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_l850p"]
+texture = SubResource("AtlasTexture_dmarl")
+texture_type = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_uiemy"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_lgf18"]
+input_name = "time"
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2 : hint_normal;
+
+
+
+void fragment() {
+// Input:3
+	vec2 n_out3p0 = UV;
+
+
+// Input:4
+	float n_out4p0 = TIME;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = textureLod(tex_frg_2, n_out3p0, n_out4p0);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+
+
+}
+"
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_l850p")
+nodes/fragment/2/position = Vector2(-720, 560)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_uiemy")
+nodes/fragment/3/position = Vector2(-1540, 520)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_lgf18")
+nodes/fragment/4/position = Vector2(-1800, 800)
+nodes/fragment/connections = PackedInt32Array(3, 0, 2, 0, 2, 0, 0, 0, 4, 0, 2, 1)

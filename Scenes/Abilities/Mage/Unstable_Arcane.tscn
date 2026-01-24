@@ -1,33 +1,27 @@
-[gd_scene load_steps=15 format=3 uid="uid://b38xjcf16nbxd"]
+[gd_scene load_steps=16 format=3 uid="uid://b38xjcf16nbxd"]
 
 [ext_resource type="Shader" uid="uid://cmeh5wjymyla2" path="res://Assets/Shaders/ArcaneShader.tres" id="1_00eoe"]
 [ext_resource type="ArrayMesh" uid="uid://cgf1e6l1m2mmk" path="res://Assets/Misc/staticmeshdome.obj" id="2_2nwl5"]
+[ext_resource type="PackedScene" uid="uid://b5b6ea8b5673k" path="res://Scenes/Player/player.tscn" id="3_2nwl5"]
+[ext_resource type="Shader" uid="uid://cqwoywuhgq0yn" path="res://Assets/Shaders/Arcane_Particles.tres" id="3_37lk6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37lk6"]
 render_priority = 0
 shader = ExtResource("1_00eoe")
+shader_parameter/ColorParameter = Color(0.7701276, 0.34925842, 0.9511719, 1)
 
-[sub_resource type="Curve" id="Curve_00eoe"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_37lk6"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_2nwl5"]
-curve = SubResource("Curve_00eoe")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wiv4e"]
+render_priority = 0
+shader = ExtResource("3_37lk6")
 
-[sub_resource type="Curve" id="Curve_wiv4e"]
-_data = [Vector2(0, 0.0836066), 0.0, 2.7766693, 0, 0, Vector2(0.25806448, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tsuid"]
+next_pass = SubResource("ShaderMaterial_wiv4e")
 
-[sub_resource type="CurveTexture" id="CurveTexture_tsuid"]
-curve = SubResource("Curve_wiv4e")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fdfbt"]
-gravity = Vector3(0, 0, 0)
-scale_min = 4.0
-scale_max = 4.0
-scale_curve = SubResource("CurveTexture_tsuid")
-color = Color(1.4900565, 0.8554135, 1.1024846, 1)
-alpha_curve = SubResource("CurveTexture_2nwl5")
+[sub_resource type="QuadMesh" id="QuadMesh_fdfbt"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tvclc"]
 
@@ -51,38 +45,98 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("OmniLight3D:light_energy")
+tracks/1/path = NodePath("Area3D/CollisionShape3D:shape:radius")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [3.314]
+"values": [4.029333]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Area3D/CollisionShape3D:shape:radius")
+tracks/2/path = NodePath("Area3D:monitoring")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [4.029333]
+"update": 1,
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Area3D:monitoring")
+tracks/3/path = NodePath("GPUParticles3D:color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Color(0.97405916, 0.40018785, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GPUParticles3D:scale_amount_curve:min_domain")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GPUParticles3D:scale_amount_curve:max_domain")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GPUParticles3D:scale_amount_curve:min_value")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GPUParticles3D:scale_amount_curve:max_value")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("OmniLight3D:light_energy")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.79]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37lk6"]
@@ -107,38 +161,98 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("OmniLight3D:light_energy")
+tracks/1/path = NodePath("Area3D/CollisionShape3D:shape:radius")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.13333334, 0.23333333, 0.5),
+"times": PackedFloat32Array(0, 0.16666667, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [3.314, 0.0, 0.0]
+"values": [0.001, 4.029333, 10.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Area3D/CollisionShape3D:shape:radius")
+tracks/2/path = NodePath("Area3D:monitoring")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.001, 4.029333, 4.029333]
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Area3D:monitoring")
+tracks/3/path = NodePath("GPUParticles3D:color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"update": 0,
+"values": [Color(0.97405916, 0.40018785, 1, 1), Color(0.97405916, 0.40018785, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GPUParticles3D:scale_amount_curve:min_domain")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GPUParticles3D:scale_amount_curve:max_domain")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GPUParticles3D:scale_amount_curve:min_value")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GPUParticles3D:scale_amount_curve:max_value")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("OmniLight3D:light_energy")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.46666667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 6.79, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tsuid"]
@@ -148,26 +262,35 @@ _data = {
 
 [node name="Node3D" type="Node3D"]
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021811366, 0)
 material_override = SubResource("ShaderMaterial_37lk6")
 cast_shadow = 0
 amount = 1
 lifetime = 0.5
-process_material = SubResource("ParticleProcessMaterial_fdfbt")
-draw_pass_1 = ExtResource("2_2nwl5")
+one_shot = true
+mesh = ExtResource("2_2nwl5")
+gravity = Vector3(0, 0, 0)
+scale_amount_min = 10.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_37lk6")
+color = Color(0.97405916, 0.40018785, 1, 1)
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_tsuid")
+mesh = SubResource("QuadMesh_fdfbt")
+emission_shape = 1
+emission_sphere_radius = 1.0
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(7.105, 0, 0, 0, 7.105, 0, 0, 0, 7.105, 0, 0, 0)
 mesh = SubResource("PlaneMesh_tvclc")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.126852, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44492435, -0.046401978)
 light_color = Color(1, 0, 1, 1)
-light_energy = 3.314
-light_indirect_energy = 0.0
-light_volumetric_fog_energy = 0.0
-omni_range = 8.228987
+light_energy = 6.79
+omni_range = 30.949902
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -181,3 +304,5 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("3_2nwl5")]

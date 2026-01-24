@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://days71eyd4igm"]
+
+[ext_resource type="Texture2D" uid="uid://no3rcxlwdk1w" path="res://Assets/Icons/Armor/Heavy/AvalonianKnightHelmCommon.png" id="1_v1g4q"]
+[ext_resource type="FontFile" uid="uid://bpj43a3io706v" path="res://Assets/Fonts/gomarice_no_continue.ttf" id="2_h6je7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0vok"]
+bg_color = Color(0, 0, 0, 0.24300002)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.22900002)
+shadow_size = 10
+
+[node name="PanelContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(300, 200)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_d0vok")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_v1g4q")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_h6je7")
+text = "Avalonina Knight Helm"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
