@@ -99,7 +99,6 @@
 [ext_resource type="Script" uid="uid://ctr7taoyv2xth" path="res://Scripts/States/Player/AttackState2.gd" id="109_yylel"]
 [ext_resource type="Script" uid="uid://dass1u87mgpxb" path="res://Scripts/States/Player/AttackState3.gd" id="110_t53un"]
 [ext_resource type="Script" uid="uid://bos7mhqtacmin" path="res://Scripts/CameraEffects.gd" id="111_ddxso"]
-[ext_resource type="FontFile" uid="uid://bpj43a3io706v" path="res://Assets/Fonts/gomarice_no_continue.ttf" id="112_ujqdw"]
 
 [sub_resource type="Skin" id="Skin_t53un"]
 resource_name = "Skin"
@@ -843,6 +842,18 @@ radius = 6.0
 [sub_resource type="ViewportTexture" id="ViewportTexture_ujqdw"]
 viewport_path = NodePath("Username/Playername")
 
+[sub_resource type="FontFile" id="FontFile_22q81"]
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 2
 collision_mask = 7
@@ -1234,7 +1245,7 @@ texture = SubResource("ViewportTexture_ujqdw")
 
 [node name="Playername" type="SubViewport" parent="Username"]
 transparent_bg = true
-size = Vector2i(92, 22)
+size = Vector2i(92, 32)
 
 [node name="Label" type="Label" parent="Username/Playername"]
 texture_filter = 1
@@ -1244,7 +1255,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.60124344, 0.92266005, 0.9804042, 1)
 theme_override_colors/font_outline_color = Color(0.031295776, 0.5278892, 0.5722656, 1)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("112_ujqdw")
+theme_override_fonts/font = SubResource("FontFile_22q81")
 theme_override_font_sizes/font_size = 20
 text = "Player1"
 horizontal_alignment = 1

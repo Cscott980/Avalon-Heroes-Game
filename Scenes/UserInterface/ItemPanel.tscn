@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://days71eyd4igm"]
+[gd_scene load_steps=7 format=3 uid="uid://days71eyd4igm"]
 
-[ext_resource type="Texture2D" uid="uid://no3rcxlwdk1w" path="res://Assets/Icons/Armor/Heavy/AvalonianKnightHelmCommon.png" id="1_v1g4q"]
+[ext_resource type="Texture2D" uid="uid://wvq2jdpa6iqr" path="res://Assets/Icons/Armor/Heavy/AvalonianLightsChampionHelmChroma.png" id="1_v1g4q"]
 [ext_resource type="FontFile" uid="uid://bpj43a3io706v" path="res://Assets/Fonts/gomarice_no_continue.ttf" id="2_h6je7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0vok"]
@@ -9,7 +9,7 @@ border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(1, 1, 1, 1)
+border_color = Color(1, 0, 0.21960784, 1)
 border_blend = true
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -17,6 +17,32 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 shadow_color = Color(0, 0, 0, 0.22900002)
 shadow_size = 10
+
+[sub_resource type="FontFile" id="FontFile_h6je7"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_d0vok"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_3xkik"]
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
 
 [node name="PanelContainer" type="PanelContainer"]
 custom_minimum_size = Vector2(300, 200)
@@ -52,10 +78,56 @@ layout_mode = 2
 [node name="ItemName" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 texture_filter = 1
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 0, 0.21960784, 1)
 theme_override_fonts/font = ExtResource("2_h6je7")
-text = "Avalonina Knight Helm"
+theme_override_font_sizes/font_size = 30
+text = "Avalonina Light's Champion helm"
+vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Restrictions" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+text = "heavy helm
+class armor: paladin"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Specials" type="Label" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.271663, 0.9199219, 0.10241318, 1)
+theme_override_fonts/font = SubResource("FontFile_h6je7")
+text = "Equip: Heals you for 2% of your total health every 3 seconds when out of combat."
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = SubResource("FontFile_d0vok")
+text = "+30% Strength
++20% Wisdom"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="FlavoTtext" type="Label" parent="VBoxContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.89453125, 0.8622434, 0.45949554, 1)
+theme_override_fonts/font = SubResource("FontFile_3xkik")
+theme_override_font_sizes/font_size = 12
+text = "\"A sacred helm worn by Avalonina’s chosen champions. Its golden armor radiates divine resolve, granting Paladins the strength to stand firm against overwhelming odds.\""
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SellPrice" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sell Price: "

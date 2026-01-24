@@ -21,7 +21,7 @@ class_name Player
 @onready var ability_2: TextureButton = %PlayerUI/Control/AbilityBar/HBoxContainer/Ability2
 @onready var ability_3: TextureButton = %PlayerUI/Control/AbilityBar/HBoxContainer/Ability3
 
-var world_gravity = ProjectSettings.get_setting("physics/2d/default_gravity") 
+var world_gravity = ProjectSettings.get_setting("physics/3d/default_gravity") 
 #-------- Inventory -------
 var inv_data: Array = []
 
