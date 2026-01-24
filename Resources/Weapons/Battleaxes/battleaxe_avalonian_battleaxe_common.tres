@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=5 format=3 uid="uid://ux3318iq802s"]
+
+[ext_resource type="Shape3D" uid="uid://csh0mb4gx6t2k" path="res://Assets/CollissionShape/Avalonian_Battleaxe_Collision_Shape.tres" id="1_0gux8"]
+[ext_resource type="Texture2D" uid="uid://dg7r1xkpw8kgj" path="res://Assets/Icons/Weapons/Battleaxes/Avalonian Battleaxe Common.png" id="2_f122p"]
+[ext_resource type="ArrayMesh" uid="uid://calgv4o8mab1h" path="res://Assets/WeaponMeshes/Battleaxes/Avalonian_Battleaxe_Mesh.res" id="3_oei2y"]
+[ext_resource type="Script" uid="uid://c50kbrwa28ffs" path="res://Scripts/Resources/WeaponResource.gd" id="4_ekhv6"]
+
+[resource]
+script = ExtResource("4_ekhv6")
+weapon_type = "Battleaxe"
+mesh = ExtResource("3_oei2y")
+collision_shape = ExtResource("1_0gux8")
+handedness = 1
+can_be_equippable = 1
+damage = 12
+scale_on_stat = 1
+scale_percentage = 0.2
+weapon_speed = 1.0
+allowed_classes = 1
+stat_info = "Increassed damage based on heroes total strength by  20%."
+name = "Avalonian Battleaxe"
+id = "battleaxe_avalonian_battleaxe_common"
+description = "A brutal axe forged for close combat. Favoured by Avalonian warriors who value strength over finesse."
+icon = ExtResource("2_f122p")
+rarity = "Common"
+item_type = 0
+metadata/_custom_type_script = "uid://c50kbrwa28ffs"

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp0xf0yuwpu21"]
+
+[ext_resource type="Texture2D" uid="uid://brg8dkr6fqm3e" path="res://Assets/GUI/UI/Icons/EmptySlot.png" id="1_42hnv"]
+
+[node name="Slot1" type="TextureRect"]
+clip_contents = true
+custom_minimum_size = Vector2(75, 75)
+mouse_filter = 0
+texture = ExtResource("1_42hnv")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1

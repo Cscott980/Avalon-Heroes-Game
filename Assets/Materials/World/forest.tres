@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://tteoidsugete"]
+
+[ext_resource type="Texture2D" uid="uid://cw40kvwqsdqiq" path="res://Assets/World/Forest/Color1/forest_texture.png" id="1_h2mv6"]
+
+[resource]
+resource_name = "forest"
+albedo_texture = ExtResource("1_h2mv6")
+roughness = 0.6

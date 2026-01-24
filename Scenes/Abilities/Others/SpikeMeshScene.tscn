@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqyrqmqstb8gi"]
+
+[ext_resource type="ArrayMesh" uid="uid://dvqlyuh1bqofk" path="res://Assets/World/Spike_Rock_4_B_Color1.res" id="1_nbalu"]
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+transform = Transform3D(1.385, 0, 0, 0, 1.7, 0, 0, 0, 1.23, 0, 0, 0)
+mesh = ExtResource("1_nbalu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7309076, -0.115646705, 0, 0.115646705, 0.7309077, 0, 0, 0, 0.7399998, -0.065753154, -0.20779093, 0)
+mesh = ExtResource("1_nbalu")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.20202112, 0.09213669, -0.7737722, -0.12260977, 0.7931544, 0.062432926, 0.76953167, 0.1021854, 0.21308167, 0.1437304, -0.29129273, -0.081066)
+mesh = ExtResource("1_nbalu")

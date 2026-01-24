@@ -1,0 +1,161 @@
+[gd_scene load_steps=5 format=3 uid="uid://btrixeiv74lor"]
+
+[ext_resource type="Texture2D" uid="uid://b4sqdn6dmtc1c" path="res://Assets/GUI/BackPackAvalonHeroes.png" id="1_5y2cj"]
+[ext_resource type="PackedScene" uid="uid://da3mmd6600cpl" path="res://Scenes/UserInterface/IconInventory.tscn" id="2_khhxp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khhxp"]
+bg_color = Color(0.62295496, 0.4030275, 0.03876, 0.57900006)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.8294766, 0.37342674, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.6080301, 0, 0, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 12.49)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhtnq"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(800, 800)
+layout_mode = 3
+anchor_right = 0.41700003
+anchor_bottom = 0.74100006
+offset_right = -0.6400757
+offset_bottom = -0.28009033
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(800, 800)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5y2cj")
+expand_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="TextureRect"]
+texture_filter = 1
+custom_minimum_size = Vector2(525, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -262.5
+offset_top = -150.0
+offset_right = 262.5
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_khhxp")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/PanelContainer"]
+custom_minimum_size = Vector2(525, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_bhtnq")
+
+[node name="GridContainer" type="GridContainer" parent="TextureRect/PanelContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 4
+columns = 5
+
+[node name="TextureButton" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton2" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton3" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton4" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton5" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton6" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton7" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton8" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton9" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton10" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton11" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton12" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton13" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton14" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton15" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton16" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton17" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton18" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton19" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton20" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton21" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton22" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton23" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton24" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton25" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton26" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton27" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton28" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton29" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2
+
+[node name="TextureButton30" parent="TextureRect/PanelContainer/ScrollContainer/GridContainer" instance=ExtResource("2_khhxp")]
+layout_mode = 2

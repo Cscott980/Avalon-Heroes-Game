@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://duyqu0bvtyg0o"]
+
+[ext_resource type="PackedScene" uid="uid://dka8xugayb1cd" path="res://Scenes/UserInterface/Assets/HealthBar.tscn" id="1_w1pvm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1pvm"]
+bg_color = Color(0.9999276, 0.37236527, 0.3559166, 1)
+border_width_bottom = 5
+border_color = Color(0.49162906, 0.011237748, 9.62615e-08, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uaifa"]
+bg_color = Color(0.45651197, 0.096139915, 0.039982744, 1)
+border_width_bottom = 5
+border_color = Color(0.21312183, 0.037910596, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.63529414)
+
+[node name="PlayerHelath" type="Sprite3D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(312, 47)
+
+[node name="ProgressBar" parent="SubViewport" instance=ExtResource("1_w1pvm")]
+theme_override_styles/background = SubResource("StyleBoxFlat_w1pvm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uaifa")
+value = 0.0

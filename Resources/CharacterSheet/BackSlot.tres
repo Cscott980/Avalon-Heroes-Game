@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EquipmentSlotResource" load_steps=2 format=3 uid="uid://xbcr4crirkuc"]
+
+[ext_resource type="Script" uid="uid://dgwcs3qe6ckep" path="res://Scripts/Resources/EqupimentSlotResource.gd" id="1_8spgv"]
+
+[resource]
+script = ExtResource("1_8spgv")
+equipment_slot_type = 2
+metadata/_custom_type_script = "uid://dgwcs3qe6ckep"

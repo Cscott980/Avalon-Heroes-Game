@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bvsnww7mxjtf7"]
+
+[ext_resource type="Texture2D" uid="uid://cu7i4xmq88pjy" path="res://Assets/PlayableCharacterBodies/Lorekeeper_lorekeeper_texture.png" id="1_18mnc"]
+
+[resource]
+resource_name = "lorekeeper"
+albedo_texture = ExtResource("1_18mnc")
+roughness = 0.5

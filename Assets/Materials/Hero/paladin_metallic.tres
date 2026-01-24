@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cx3gvo71dotq2"]
+
+[ext_resource type="Texture2D" uid="uid://cnqng47oa1hds" path="res://Assets/PlayableCharacterBodies/Paladin_paladin_texture_A.png" id="1_8e18c"]
+
+[resource]
+resource_name = "paladin_metallic"
+albedo_texture = ExtResource("1_8e18c")
+metallic = 1.0
+roughness = 0.25

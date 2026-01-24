@@ -1,0 +1,124 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bffaxnknrmsnh"
+path="res://.godot/imported/Ranger.glb-da504e25a8a220e6f8d92179070f9fd1.scn"
+
+[deps]
+
+source_file="res://Assets/PlayableCharacterBodies/Ranger.glb"
+dest_files=["res://.godot/imported/Ranger.glb-da504e25a8a220e6f8d92179070f9fd1.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"ranger": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Hero/ranger.tres",
+"use_external/path": "uid://d4dsa40dwdmmt"
+}
+},
+"meshes": {
+"Ranger_Ranger_ArmLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Ranger_Ranger_ArmLeft.res",
+"save_to_file/path": "uid://dbclgpc3w237s"
+},
+"Ranger_Ranger_ArmRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Ranger_Ranger_ArmRight.res",
+"save_to_file/path": "uid://b70o60mv0bq1r"
+},
+"Ranger_Ranger_Body": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Ranger_Ranger_Body.res",
+"save_to_file/path": "uid://cgtwnlduewfvn"
+},
+"Ranger_Ranger_Cape": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/Back/Ranger_Ranger_Cape.res",
+"save_to_file/path": "uid://1ym6wtorfees"
+},
+"Ranger_Ranger_Head": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/Heads/HeadSource/Ranger_Ranger_Head.res",
+"save_to_file/path": "uid://cx6c3dq4sn7i8"
+},
+"Ranger_Ranger_LegLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Ranger_Ranger_LegLeft.res",
+"save_to_file/path": "uid://b3m0w86x15ayk"
+},
+"Ranger_Ranger_LegRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Ranger_Ranger_LegRight.res",
+"save_to_file/path": "uid://dwx8u16f8ti1r"
+},
+"Ranger_Ranger_Quiver": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/Accessory/Ranger_Ranger_Quiver.res",
+"save_to_file/path": "uid://byxg3hxy7kp1h"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

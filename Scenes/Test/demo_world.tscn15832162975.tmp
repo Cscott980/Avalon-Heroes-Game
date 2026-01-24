@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://bfmohdl7imugf"]
+
+[ext_resource type="PackedScene" uid="uid://b5b6ea8b5673k" path="res://Scenes/Player/player.tscn" id="1_ylmk8"]
+[ext_resource type="PackedScene" uid="uid://ytxf53uu04er" path="res://Scenes/Enemeies/orc_grunt.tscn" id="2_ogw2s"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6a33m"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ylmk8"]
+sky_material = SubResource("ProceduralSkyMaterial_6a33m")
+
+[sub_resource type="Environment" id="Environment_ogw2s"]
+background_mode = 2
+sky = SubResource("Sky_ylmk8")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_ogw2s"]
+vertices = PackedVector3Array(-96.6, 0.49997348, 12.461761, -9.849998, 0.49997348, 12.461761, -9.099998, 0.49997348, 10.961761, -7.5999985, 0.49997348, 10.461761, -7.5999985, 0.49997348, -96.53824, -96.6, 0.49997348, -96.53824, -6.3499985, 0.49997348, 10.961761, -5.5999985, 0.49997348, 12.461761, 96.65, 0.49997348, 12.461761, 96.65, 0.49997348, -96.53824, -9.099998, 0.49997348, 96.71176, -9.099998, 0.49997348, 13.711761, -9.849998, 0.49997348, 13.211761, -96.6, 0.49997348, 96.71176, -5.5999985, 0.49997348, 13.211761, -6.3499985, 0.49997348, 13.711761, -6.3499985, 0.49997348, 96.71176, 96.65, 0.49997348, 96.71176)
+polygons = [PackedInt32Array(0, 2, 1), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(4, 0, 5), PackedInt32Array(8, 7, 6), PackedInt32Array(6, 3, 8), PackedInt32Array(8, 3, 4), PackedInt32Array(8, 4, 9), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(12, 13, 0), PackedInt32Array(0, 1, 12), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 17), PackedInt32Array(17, 14, 8), PackedInt32Array(14, 7, 8), PackedInt32Array(15, 16, 11), PackedInt32Array(11, 16, 10)]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6a33m"]
+size = Vector2(10, 10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ogw2s"]
+data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
+
+[node name="DemoWorld" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ogw2s")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 1.399313, 18.573872, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_ylmk8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.053823233, 0)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_ogw2s")
+
+[node name="floor" type="StaticBody3D" parent="NavigationRegion3D"]
+transform = Transform3D(19.42, 0, 0, 0, 19.42, 0, 0, 0, 19.42, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0031804203)
+mesh = SubResource("PlaneMesh_6a33m")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor"]
+shape = SubResource("ConcavePolygonShape3D_ogw2s")
+
+[node name="OrcGrunt" parent="NavigationRegion3D" instance=ExtResource("2_ogw2s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.983999, 0, 29.998207)

@@ -1,0 +1,196 @@
+[gd_scene load_steps=65 format=3 uid="uid://fdfwex4dqtpm"]
+
+[ext_resource type="PackedScene" uid="uid://ubndr4xghw3q" path="res://Assets/Items/RPG_Tools/anvil.gltf" id="1_75sjy"]
+[ext_resource type="PackedScene" uid="uid://djnop2b267sot" path="res://Assets/Items/RPG_Tools/axe.gltf" id="2_j2gha"]
+[ext_resource type="PackedScene" uid="uid://c7hq3auh70i10" path="res://Assets/Items/RPG_Tools/blueprint.gltf" id="3_oupas"]
+[ext_resource type="PackedScene" uid="uid://8g1y2h18vkhm" path="res://Assets/Items/RPG_Tools/blueprint_stacked.gltf" id="4_oicdu"]
+[ext_resource type="PackedScene" uid="uid://c5umh1r0fpdkl" path="res://Assets/Items/RPG_Tools/bucket_metal.gltf" id="5_vrnm6"]
+[ext_resource type="PackedScene" uid="uid://cjnale8757te5" path="res://Assets/Items/RPG_Tools/chisel.gltf" id="6_gc43k"]
+[ext_resource type="PackedScene" uid="uid://currfc0b32mai" path="res://Assets/Items/RPG_Tools/compass_base.gltf" id="7_f76mp"]
+[ext_resource type="PackedScene" uid="uid://bkyp4gv306dq" path="res://Assets/Items/RPG_Tools/drafting_compass.gltf" id="8_j3xfj"]
+[ext_resource type="PackedScene" uid="uid://53enui2wpp7k" path="res://Assets/Items/RPG_Tools/file.gltf" id="9_gwsct"]
+[ext_resource type="PackedScene" uid="uid://dsm7igqvh7ibc" path="res://Assets/Items/RPG_Tools/fishing_floater.gltf" id="10_2bim3"]
+[ext_resource type="PackedScene" uid="uid://6w0d646wif8e" path="res://Assets/Items/RPG_Tools/fishing_hook_A.gltf" id="11_3uutp"]
+[ext_resource type="PackedScene" uid="uid://bnmxosduny3n" path="res://Assets/Items/RPG_Tools/fishing_hook_B.gltf" id="12_lvqfp"]
+[ext_resource type="PackedScene" uid="uid://djofuoym7w47" path="res://Assets/Items/RPG_Tools/fishing_rod.gltf" id="13_y0wt1"]
+[ext_resource type="PackedScene" uid="uid://olnjwyly2uww" path="res://Assets/Items/RPG_Tools/fishing_rod_base.gltf" id="14_ap4yo"]
+[ext_resource type="PackedScene" uid="uid://iurnen5qyo0o" path="res://Assets/Items/RPG_Tools/fishing_tacklebox.gltf" id="15_0fb55"]
+[ext_resource type="PackedScene" uid="uid://dulo6a3rsq1tx" path="res://Assets/Items/RPG_Tools/fishing_tacklebox_empty.gltf" id="16_0bdtp"]
+[ext_resource type="PackedScene" uid="uid://lr6kt067kn3c" path="res://Assets/Items/RPG_Tools/fishing_worm.gltf" id="17_hocls"]
+[ext_resource type="PackedScene" uid="uid://clw5kkdvrheb3" path="res://Assets/Items/RPG_Tools/grindstone.gltf" id="18_whd0y"]
+[ext_resource type="PackedScene" uid="uid://csnl4o7ng2tcn" path="res://Assets/Items/RPG_Tools/hammer.gltf" id="19_i7ajw"]
+[ext_resource type="PackedScene" uid="uid://d2nxccqtrp3e4" path="res://Assets/Items/RPG_Tools/handdrill.gltf" id="20_im6y2"]
+[ext_resource type="PackedScene" uid="uid://cn0ona78tat1o" path="res://Assets/Items/RPG_Tools/handplane.gltf" id="21_cj6tn"]
+[ext_resource type="PackedScene" uid="uid://cerajug6f5cpa" path="res://Assets/Items/RPG_Tools/journal_closed.gltf" id="22_11h5f"]
+[ext_resource type="PackedScene" uid="uid://c3yuv3d2jf3jy" path="res://Assets/Items/RPG_Tools/journal_open.gltf" id="23_hsmqo"]
+[ext_resource type="PackedScene" uid="uid://bgfqje68kqpys" path="res://Assets/Items/RPG_Tools/key_A.gltf" id="24_88nlx"]
+[ext_resource type="PackedScene" uid="uid://ceyh0c4fqpcd2" path="res://Assets/Items/RPG_Tools/key_B.gltf" id="25_rft0u"]
+[ext_resource type="PackedScene" uid="uid://dvux76nfpnivq" path="res://Assets/Items/RPG_Tools/key_C.gltf" id="26_1h4by"]
+[ext_resource type="PackedScene" uid="uid://clk3sjcj7done" path="res://Assets/Items/RPG_Tools/knife.gltf" id="27_1u5qg"]
+[ext_resource type="PackedScene" uid="uid://yp8115skstgw" path="res://Assets/Items/RPG_Tools/lantern.gltf" id="28_ulao2"]
+[ext_resource type="PackedScene" uid="uid://cwf1cbbkoi7t5" path="res://Assets/Items/RPG_Tools/lockpick_A.gltf" id="29_eoxix"]
+[ext_resource type="PackedScene" uid="uid://h1x5fah5o3dg" path="res://Assets/Items/RPG_Tools/lockpick_A_old.gltf" id="30_xyrgr"]
+[ext_resource type="PackedScene" uid="uid://bcj0i8q84o5yb" path="res://Assets/Items/RPG_Tools/lockpick_B.gltf" id="31_3sin2"]
+[ext_resource type="PackedScene" uid="uid://d0cs84fmuy540" path="res://Assets/Items/RPG_Tools/lockpick_C.gltf" id="32_suh1w"]
+[ext_resource type="PackedScene" uid="uid://cu4tb6m32y1wn" path="res://Assets/Items/RPG_Tools/lockpick_D.gltf" id="33_svwrv"]
+[ext_resource type="PackedScene" uid="uid://bjdmyr68acyic" path="res://Assets/Items/RPG_Tools/lockpick_set.gltf" id="34_b5qaj"]
+[ext_resource type="PackedScene" uid="uid://dlvoumm1smjfq" path="res://Assets/Items/RPG_Tools/lock_A.gltf" id="35_gjto0"]
+[ext_resource type="PackedScene" uid="uid://bv0ay6mwwdbqo" path="res://Assets/Items/RPG_Tools/lock_B.gltf" id="36_ab7dh"]
+[ext_resource type="PackedScene" uid="uid://ca8fw5khljbpy" path="res://Assets/Items/RPG_Tools/lock_C.gltf" id="37_77h3x"]
+[ext_resource type="PackedScene" uid="uid://ynvtwup6f87q" path="res://Assets/Items/RPG_Tools/magnifying_glass.gltf" id="38_lpoy8"]
+[ext_resource type="PackedScene" uid="uid://jwv3g1paa5gt" path="res://Assets/Items/RPG_Tools/mallet.gltf" id="39_6r838"]
+[ext_resource type="PackedScene" uid="uid://2a8ds3nkbfhu" path="res://Assets/Items/RPG_Tools/map.gltf" id="40_ufyn8"]
+[ext_resource type="PackedScene" uid="uid://bfk7hrib60bom" path="res://Assets/Items/RPG_Tools/map_empty.gltf" id="41_nfqqi"]
+[ext_resource type="PackedScene" uid="uid://c5mio3afhjy2f" path="res://Assets/Items/RPG_Tools/map_rolled.gltf" id="42_jllh5"]
+[ext_resource type="PackedScene" uid="uid://tel4by2bhthd" path="res://Assets/Items/RPG_Tools/nail.gltf" id="43_vsk4n"]
+[ext_resource type="PackedScene" uid="uid://qv4pqu7j4nkq" path="res://Assets/Items/RPG_Tools/pencil_A_long.gltf" id="44_te0uq"]
+[ext_resource type="PackedScene" uid="uid://cmrpe2vs72son" path="res://Assets/Items/RPG_Tools/pencil_A_short.gltf" id="45_sto0b"]
+[ext_resource type="PackedScene" uid="uid://cmkkdh2ow4ix3" path="res://Assets/Items/RPG_Tools/pencil_B_long.gltf" id="46_dcoet"]
+[ext_resource type="PackedScene" uid="uid://b4r1d845udy1" path="res://Assets/Items/RPG_Tools/pencil_B_short.gltf" id="47_8glpy"]
+[ext_resource type="PackedScene" uid="uid://b8kftbnidgjwk" path="res://Assets/Items/RPG_Tools/pickaxe.gltf" id="48_c2a6h"]
+[ext_resource type="PackedScene" uid="uid://capln5mooufxl" path="res://Assets/Items/RPG_Tools/rope_bundle_A.gltf" id="49_7d1xt"]
+[ext_resource type="PackedScene" uid="uid://dic5libteljxs" path="res://Assets/Items/RPG_Tools/rope_bundle_B.gltf" id="50_0cyjm"]
+[ext_resource type="PackedScene" uid="uid://o0gjqb8thala" path="res://Assets/Items/RPG_Tools/saw.gltf" id="51_r8sek"]
+[ext_resource type="PackedScene" uid="uid://bqxh8hro86d72" path="res://Assets/Items/RPG_Tools/scissors.gltf" id="52_g2rqx"]
+[ext_resource type="PackedScene" uid="uid://64i6yexvou6g" path="res://Assets/Items/RPG_Tools/screwdriver_A_long.gltf" id="53_wsc81"]
+[ext_resource type="PackedScene" uid="uid://ccc6fleg7jpse" path="res://Assets/Items/RPG_Tools/screwdriver_A_long_color.gltf" id="54_jyhhw"]
+[ext_resource type="PackedScene" uid="uid://d16hvur1u7l1n" path="res://Assets/Items/RPG_Tools/screwdriver_A_short.gltf" id="55_1howi"]
+[ext_resource type="PackedScene" uid="uid://cp8gbgmrhwx6r" path="res://Assets/Items/RPG_Tools/screwdriver_A_short_color.gltf" id="56_kji0r"]
+[ext_resource type="PackedScene" uid="uid://bw5i7fei8cdif" path="res://Assets/Items/RPG_Tools/screwdriver_B_long.gltf" id="57_yshuy"]
+[ext_resource type="PackedScene" uid="uid://bb38u0xoggphx" path="res://Assets/Items/RPG_Tools/screwdriver_B_long_color.gltf" id="58_bpgta"]
+[ext_resource type="PackedScene" uid="uid://01rqjneg43p5" path="res://Assets/Items/RPG_Tools/screwdriver_B_short.gltf" id="59_m8y70"]
+[ext_resource type="PackedScene" uid="uid://cubqsxfrst3jk" path="res://Assets/Items/RPG_Tools/screwdriver_B_short_color.gltf" id="60_5ligv"]
+[ext_resource type="PackedScene" uid="uid://bea3da1bx4wju" path="res://Assets/Items/RPG_Tools/screw_A.gltf" id="61_tbt85"]
+[ext_resource type="PackedScene" uid="uid://mf3uasdry5du" path="res://Assets/Items/RPG_Tools/screw_B.gltf" id="62_s5jse"]
+[ext_resource type="PackedScene" uid="uid://bhwuph8uxt7vm" path="res://Assets/Items/RPG_Tools/shovel.gltf" id="63_xv6ip"]
+[ext_resource type="PackedScene" uid="uid://cjh4rgb0rlmaj" path="res://Assets/Items/RPG_Tools/tongs.gltf" id="64_vpgcd"]
+
+[node name="RPGToolLib" type="Node3D"]
+
+[node name="anvil2" parent="." instance=ExtResource("1_75sjy")]
+
+[node name="axe2" parent="." instance=ExtResource("2_j2gha")]
+
+[node name="blueprint2" parent="." instance=ExtResource("3_oupas")]
+
+[node name="blueprint_stacked2" parent="." instance=ExtResource("4_oicdu")]
+
+[node name="bucket_metal2" parent="." instance=ExtResource("5_vrnm6")]
+
+[node name="chisel2" parent="." instance=ExtResource("6_gc43k")]
+
+[node name="compass_base2" parent="." instance=ExtResource("7_f76mp")]
+
+[node name="drafting_compass2" parent="." instance=ExtResource("8_j3xfj")]
+
+[node name="file2" parent="." instance=ExtResource("9_gwsct")]
+
+[node name="fishing_floater2" parent="." instance=ExtResource("10_2bim3")]
+
+[node name="fishing_hook_A2" parent="." instance=ExtResource("11_3uutp")]
+
+[node name="fishing_hook_B2" parent="." instance=ExtResource("12_lvqfp")]
+
+[node name="fishing_rod2" parent="." instance=ExtResource("13_y0wt1")]
+
+[node name="fishing_rod_base2" parent="." instance=ExtResource("14_ap4yo")]
+
+[node name="fishing_tacklebox2" parent="." instance=ExtResource("15_0fb55")]
+
+[node name="fishing_tacklebox_empty2" parent="." instance=ExtResource("16_0bdtp")]
+
+[node name="fishing_worm2" parent="." instance=ExtResource("17_hocls")]
+
+[node name="grindstone2" parent="." instance=ExtResource("18_whd0y")]
+
+[node name="hammer2" parent="." instance=ExtResource("19_i7ajw")]
+
+[node name="handdrill2" parent="." instance=ExtResource("20_im6y2")]
+
+[node name="handplane2" parent="." instance=ExtResource("21_cj6tn")]
+
+[node name="journal_closed2" parent="." instance=ExtResource("22_11h5f")]
+
+[node name="journal_open2" parent="." instance=ExtResource("23_hsmqo")]
+
+[node name="key_A2" parent="." instance=ExtResource("24_88nlx")]
+
+[node name="key_B2" parent="." instance=ExtResource("25_rft0u")]
+
+[node name="key_C2" parent="." instance=ExtResource("26_1h4by")]
+
+[node name="knife2" parent="." instance=ExtResource("27_1u5qg")]
+
+[node name="lantern2" parent="." instance=ExtResource("28_ulao2")]
+
+[node name="lockpick_A2" parent="." instance=ExtResource("29_eoxix")]
+
+[node name="lockpick_A_old2" parent="." instance=ExtResource("30_xyrgr")]
+
+[node name="lockpick_B2" parent="." instance=ExtResource("31_3sin2")]
+
+[node name="lockpick_C2" parent="." instance=ExtResource("32_suh1w")]
+
+[node name="lockpick_D2" parent="." instance=ExtResource("33_svwrv")]
+
+[node name="lockpick_set2" parent="." instance=ExtResource("34_b5qaj")]
+
+[node name="lock_A2" parent="." instance=ExtResource("35_gjto0")]
+
+[node name="lock_B2" parent="." instance=ExtResource("36_ab7dh")]
+
+[node name="lock_C2" parent="." instance=ExtResource("37_77h3x")]
+
+[node name="magnifying_glass2" parent="." instance=ExtResource("38_lpoy8")]
+
+[node name="mallet2" parent="." instance=ExtResource("39_6r838")]
+
+[node name="map2" parent="." instance=ExtResource("40_ufyn8")]
+
+[node name="map_empty2" parent="." instance=ExtResource("41_nfqqi")]
+
+[node name="map_rolled2" parent="." instance=ExtResource("42_jllh5")]
+
+[node name="nail2" parent="." instance=ExtResource("43_vsk4n")]
+
+[node name="pencil_A_long2" parent="." instance=ExtResource("44_te0uq")]
+
+[node name="pencil_A_short2" parent="." instance=ExtResource("45_sto0b")]
+
+[node name="pencil_B_long2" parent="." instance=ExtResource("46_dcoet")]
+
+[node name="pencil_B_short2" parent="." instance=ExtResource("47_8glpy")]
+
+[node name="pickaxe2" parent="." instance=ExtResource("48_c2a6h")]
+
+[node name="rope_bundle_A2" parent="." instance=ExtResource("49_7d1xt")]
+
+[node name="rope_bundle_B2" parent="." instance=ExtResource("50_0cyjm")]
+
+[node name="saw2" parent="." instance=ExtResource("51_r8sek")]
+
+[node name="scissors2" parent="." instance=ExtResource("52_g2rqx")]
+
+[node name="screwdriver_A_long2" parent="." instance=ExtResource("53_wsc81")]
+
+[node name="screwdriver_A_long_color2" parent="." instance=ExtResource("54_jyhhw")]
+
+[node name="screwdriver_A_short2" parent="." instance=ExtResource("55_1howi")]
+
+[node name="screwdriver_A_short_color2" parent="." instance=ExtResource("56_kji0r")]
+
+[node name="screwdriver_B_long2" parent="." instance=ExtResource("57_yshuy")]
+
+[node name="screwdriver_B_long_color2" parent="." instance=ExtResource("58_bpgta")]
+
+[node name="screwdriver_B_short2" parent="." instance=ExtResource("59_m8y70")]
+
+[node name="screwdriver_B_short_color2" parent="." instance=ExtResource("60_5ligv")]
+
+[node name="screw_A2" parent="." instance=ExtResource("61_tbt85")]
+
+[node name="screw_B2" parent="." instance=ExtResource("62_s5jse")]
+
+[node name="shovel2" parent="." instance=ExtResource("63_xv6ip")]
+
+[node name="tongs2" parent="." instance=ExtResource("64_vpgcd")]

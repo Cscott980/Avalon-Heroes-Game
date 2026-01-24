@@ -1,0 +1,124 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://b3seqqn8jr7on"
+path="res://.godot/imported/Engineer.glb-3e095b8a0b21231190a5494bec7e6537.scn"
+
+[deps]
+
+source_file="res://Assets/PlayableCharacterBodies/Engineer.glb"
+dest_files=["res://.godot/imported/Engineer.glb-3e095b8a0b21231190a5494bec7e6537.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"engineer": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Hero/engineer.tres",
+"use_external/path": "uid://dx1aqs0mhn332"
+}
+},
+"meshes": {
+"Engineer_Engineer_ArmLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Engineer_Engineer_ArmLeft.res",
+"save_to_file/path": "uid://c8bwwd8lceefo"
+},
+"Engineer_Engineer_ArmRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Engineer_Engineer_ArmRight.res",
+"save_to_file/path": "uid://po7rbxy2v2fo"
+},
+"Engineer_Engineer_Backpack": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/Back/Engineer_Engineer_Backpack.res",
+"save_to_file/path": "uid://5co54nnngkfs"
+},
+"Engineer_Engineer_Body": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Engineer_Engineer_Body.res",
+"save_to_file/path": "uid://8dvwn0o13yuc"
+},
+"Engineer_Engineer_Goggles": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Engineer_Engineer_Goggles.res",
+"save_to_file/path": "uid://jkmtv3tlmx6v"
+},
+"Engineer_Engineer_Head": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/Heads/HeadSource/Engineer_Engineer_Head.res",
+"save_to_file/path": "uid://dlao03p0u1tj"
+},
+"Engineer_Engineer_LegLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Engineer_Engineer_LegLeft.res",
+"save_to_file/path": "uid://4o5lw5hscy78"
+},
+"Engineer_Engineer_LegRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Engineer_Engineer_LegRight.res",
+"save_to_file/path": "uid://b1d51mt0qtywy"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

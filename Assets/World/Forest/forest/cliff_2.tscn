@@ -1,0 +1,112 @@
+[gd_scene load_steps=22 format=3 uid="uid://bekyqmxn6uywx"]
+
+[ext_resource type="PackedScene" uid="uid://bnplc876l8t1j" path="res://assets/forest/platform_grass.glb" id="1_3g4ls"]
+[ext_resource type="PackedScene" uid="uid://83af1cnmgvpv" path="res://assets/forest/platform_stone.glb" id="2_o7p5c"]
+[ext_resource type="PackedScene" uid="uid://bnvvi52jms1sa" path="res://assets/forest/rock_tallH.glb" id="3_af6ll"]
+[ext_resource type="PackedScene" uid="uid://b5apsnuxnxeyl" path="res://assets/forest/rock_tallG.glb" id="4_ohxl6"]
+[ext_resource type="PackedScene" uid="uid://8x3iwnyy1prf" path="res://assets/forest/tree_pineSmallB.glb" id="5_pnim3"]
+[ext_resource type="PackedScene" uid="uid://dsmwst5h037ua" path="res://assets/forest/tree_pineSmallC.glb" id="6_psb07"]
+[ext_resource type="PackedScene" uid="uid://boin1t1mqns6q" path="res://assets/forest/cliff_blockCave_rock.glb" id="7_ovlk5"]
+[ext_resource type="PackedScene" uid="uid://cwloxr0e04n4i" path="res://scenes/asset scenes/misc/darkness_for_entrances.tscn" id="8_nkxsi"]
+[ext_resource type="PackedScene" uid="uid://cqjei4imqrts2" path="res://assets/forest/rock_tallE.glb" id="9_m6dgh"]
+[ext_resource type="PackedScene" uid="uid://cfyvpnuhi17fg" path="res://assets/forest/rock_tallA.glb" id="10_e4h4d"]
+[ext_resource type="PackedScene" uid="uid://bdsy4ayqxpjo3" path="res://assets/forest/rock_smallTopA.glb" id="11_o7p5c"]
+[ext_resource type="PackedScene" uid="uid://bi87q6x4enk76" path="res://assets/forest/rock_largeE.glb" id="12_nkxsi"]
+[ext_resource type="PackedScene" uid="uid://bx08whk4phpjx" path="res://assets/forest/rock_largeA.glb" id="13_m6dgh"]
+[ext_resource type="PackedScene" uid="uid://0xptrxv23ux3" path="res://assets/forest/tree_pineTallA.glb" id="14_e4h4d"]
+[ext_resource type="PackedScene" uid="uid://bt4avufebhs5t" path="res://assets/forest/tree_pineTallB.glb" id="15_50us8"]
+[ext_resource type="PackedScene" uid="uid://wwu1jyyeuuqa" path="res://assets/forest/grass.glb" id="16_itmxf"]
+[ext_resource type="PackedScene" uid="uid://deu5xji1pok2t" path="res://assets/forest/grass_leafs.glb" id="17_2ugoq"]
+[ext_resource type="PackedScene" uid="uid://d2w2ub015v85w" path="res://assets/forest/flower_redA.glb" id="18_e4h4d"]
+[ext_resource type="PackedScene" uid="uid://ctmqp5iffjlev" path="res://assets/forest/flower_redC.glb" id="19_50us8"]
+[ext_resource type="PackedScene" uid="uid://d0eynauyemav0" path="res://assets/forest/tree_pineSmallD.glb" id="20_itmxf"]
+[ext_resource type="PackedScene" uid="uid://chv8ajm0l0arc" path="res://assets/forest/tree_pineRoundF.glb" id="21_2ugoq"]
+
+[node name="Cliff2" type="Node3D"]
+
+[node name="platform_grass2" parent="." instance=ExtResource("1_3g4ls")]
+transform = Transform3D(2.6843708, 0, 0, 0, 15.488043, 0, 0, 0, 3.0239704, 0, 0.7504359, 0)
+
+[node name="platform_grass3" parent="." instance=ExtResource("1_3g4ls")]
+transform = Transform3D(-2.6735592, 0, 0.27112687, 0, 15.488042, 0, -0.24067867, 0, -3.0117912, 1.066293, 0.7504359, -0.27719116)
+
+[node name="platform_stone2" parent="." instance=ExtResource("2_o7p5c")]
+transform = Transform3D(-1.4819078, 0, 1.0250503, 0, 11.463531, 0, -1.0711861, 0, -1.4180827, 0.08728814, 0.52955914, 0.3483677)
+
+[node name="platform_stone3" parent="." instance=ExtResource("2_o7p5c")]
+transform = Transform3D(-1.4819078, 0, 1.0250503, 0, 11.463531, 0, -1.0711861, 0, -1.4180827, -1.0503054, 0.52955914, -0.10930252)
+
+[node name="rock_tallH2" parent="." instance=ExtResource("3_af6ll")]
+transform = Transform3D(-0.4131839, 0, -0.91064763, 0, 1, 0, 0.91064763, 0, -0.4131839, 0.35940826, 1.3037972, -0.05694371)
+
+[node name="rock_tallH3" parent="." instance=ExtResource("3_af6ll")]
+transform = Transform3D(-0.7491408, 0, 0.66241086, 0, 1, 0, -0.66241086, 0, -0.7491408, 0.86761487, 1.3037972, 0.042092383)
+
+[node name="rock_tallG2" parent="." instance=ExtResource("4_ohxl6")]
+transform = Transform3D(0.99997914, 0, -0.0064576734, 0, 1, 0, 0.0064576734, 0, 0.99997914, 0.7884624, 1.3037972, -0.17953585)
+
+[node name="rock_tallG3" parent="." instance=ExtResource("4_ohxl6")]
+transform = Transform3D(-1.8926867, 0, -0.29148144, 0, 1.9149998, 0, 0.29148144, 0, -1.8926867, -0.33745015, 1.3037972, 0.05201055)
+
+[node name="tree_pineSmallB2" parent="." instance=ExtResource("5_pnim3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4833371, 1.3662329, 0.47124618)
+
+[node name="tree_pineSmallC2" parent="." instance=ExtResource("6_psb07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5499702, 0.66491514, 0.8726756)
+
+[node name="cliff_blockCave_rock2" parent="." instance=ExtResource("7_ovlk5")]
+transform = Transform3D(-0.97288495, 0, -0.23128946, 0, 1, 0, 0.23128946, 0, -0.97288495, 0.966364, -0.015262246, 0.41293097)
+
+[node name="DarknessForEntrances" parent="." instance=ExtResource("8_nkxsi")]
+transform = Transform3D(-0.05690032, 0, 0.25881913, 0, 0.265, 0, -0.25881913, 0, -0.05690032, 1.0230347, 0.3278013, 0.8424591)
+
+[node name="rock_tallE2" parent="." instance=ExtResource("9_m6dgh")]
+transform = Transform3D(-0.99991614, 0, 0.012949971, 0, 1, 0, -0.012949971, 0, -0.99991614, 1.0658886, 0.98473775, 0.5550938)
+
+[node name="rock_tallA2" parent="." instance=ExtResource("10_e4h4d")]
+transform = Transform3D(-0.617489, 0, -0.78657955, 0, 1, 0, 0.78657955, 0, -0.617489, 0.61010087, 0, 1.0962484)
+
+[node name="rock_tallA3" parent="." instance=ExtResource("10_e4h4d")]
+transform = Transform3D(-0.14361352, 0, -0.9896338, 0, 1, 0, 0.9896338, 0, -0.14361352, 1.7188636, 0, 0.827451)
+
+[node name="rock_smallTopA2" parent="." instance=ExtResource("11_o7p5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69614863, 0.979166, 0.7630048)
+
+[node name="rock_smallTopA3" parent="." instance=ExtResource("11_o7p5c")]
+transform = Transform3D(0.47715876, 0, 0.87881714, 0, 1, 0, -0.87881714, 0, 0.47715876, 1.4579418, 0.979166, 0.5710963)
+
+[node name="rock_largeE2" parent="." instance=ExtResource("12_nkxsi")]
+transform = Transform3D(0.79752076, 0, -0.6032915, 0, 1, 0, 0.6032915, 0, 0.79752076, 1.0895241, 0.7214056, 0.7146665)
+
+[node name="rock_largeA2" parent="." instance=ExtResource("13_m6dgh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031845182, -0.11786497, 1.2252694)
+
+[node name="tree_pineTallA2" parent="." instance=ExtResource("14_e4h4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.057568565, 0.14191109, 1.2802527)
+
+[node name="tree_pineTallB2" parent="." instance=ExtResource("15_50us8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8477367, 0.09179044, 1.0458258)
+
+[node name="grass2" parent="." instance=ExtResource("16_itmxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1729827, 0.9662317, 0.8587251)
+
+[node name="grass3" parent="." instance=ExtResource("16_itmxf")]
+transform = Transform3D(0.6046686, 0, -0.79647714, 0, 1, 0, 0.79647714, 0, 0.6046686, 1.5849092, 1.2734002, -0.21306157)
+
+[node name="grass4" parent="." instance=ExtResource("16_itmxf")]
+transform = Transform3D(-0.52039874, 0, -0.85392344, 0, 1, 0, 0.85392344, 0, -0.52039874, 1.4493489, 1.2734002, 0.106482804)
+
+[node name="grass_leafs2" parent="." instance=ExtResource("17_2ugoq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7152867, 1.3037971, 0.09970975)
+
+[node name="flower_redA2" parent="." instance=ExtResource("18_e4h4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42333245, 0.09179044, 1.3219714)
+
+[node name="flower_redC2" parent="." instance=ExtResource("19_50us8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20248556, 0.14191103, 1.2046176)
+
+[node name="tree_pineSmallD2" parent="." instance=ExtResource("20_itmxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3020787, 1.303797, -0.32273638)
+
+[node name="tree_pineRoundF2" parent="." instance=ExtResource("21_2ugoq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7888215, 1.3037971, -0.093798876)

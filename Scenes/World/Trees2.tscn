@@ -1,0 +1,196 @@
+[gd_scene load_steps=65 format=3 uid="uid://dery8pu2j8dmf"]
+
+[ext_resource type="PackedScene" uid="uid://csyx8tl0gc8g7" path="res://Assets/World/Forest/Color5/Tree_1_A_Color5.gltf" id="1_n3k74"]
+[ext_resource type="PackedScene" uid="uid://cqwr65gorsp54" path="res://Assets/World/Forest/Color5/Tree_1_B_Color5.gltf" id="2_qayt2"]
+[ext_resource type="PackedScene" uid="uid://frxkjn63lff2" path="res://Assets/World/Forest/Color5/Tree_1_C_Color5.gltf" id="3_uxfxi"]
+[ext_resource type="PackedScene" uid="uid://du101b0fusubx" path="res://Assets/World/Forest/Color5/Tree_2_A_Color5.gltf" id="4_2wj57"]
+[ext_resource type="PackedScene" uid="uid://clapld6axt6rc" path="res://Assets/World/Forest/Color5/Tree_2_B_Color5.gltf" id="5_8m6st"]
+[ext_resource type="PackedScene" uid="uid://c0mp3m4v6vg1y" path="res://Assets/World/Forest/Color5/Tree_2_C_Color5.gltf" id="6_7ixue"]
+[ext_resource type="PackedScene" uid="uid://b1bs75oxjk6k7" path="res://Assets/World/Forest/Color5/Tree_2_D_Color5.gltf" id="7_4ef1b"]
+[ext_resource type="PackedScene" uid="uid://dlb4o8v3upken" path="res://Assets/World/Forest/Color5/Tree_2_E_Color5.gltf" id="8_u7y0w"]
+[ext_resource type="PackedScene" uid="uid://byn1qd0r7k325" path="res://Assets/World/Forest/Color5/Tree_3_A_Color5.gltf" id="9_t4uus"]
+[ext_resource type="PackedScene" uid="uid://bo187kn367wcy" path="res://Assets/World/Forest/Color5/Tree_3_B_Color5.gltf" id="10_gbc5q"]
+[ext_resource type="PackedScene" uid="uid://c37djkuhybrnm" path="res://Assets/World/Forest/Color5/Tree_3_C_Color5.gltf" id="11_kvlnj"]
+[ext_resource type="PackedScene" uid="uid://dal64t3fv53yx" path="res://Assets/World/Forest/Color5/Tree_4_A_Color5.gltf" id="12_qodei"]
+[ext_resource type="PackedScene" uid="uid://dnr21t8bai5w3" path="res://Assets/World/Forest/Color5/Tree_4_B_Color5.gltf" id="13_2ovde"]
+[ext_resource type="PackedScene" uid="uid://caeqe4usui8j3" path="res://Assets/World/Forest/Color5/Tree_4_C_Color5.gltf" id="14_l7jng"]
+[ext_resource type="PackedScene" uid="uid://by4uecn4x88dv" path="res://Assets/World/Forest/Color5/Tree_5_A_Color5.gltf" id="15_g7ftr"]
+[ext_resource type="PackedScene" uid="uid://bukn0pqwbadga" path="res://Assets/World/Forest/Color5/Tree_5_B_Color5.gltf" id="16_hkt38"]
+[ext_resource type="PackedScene" uid="uid://ciepdr0r3sryh" path="res://Assets/World/Forest/Color5/Tree_5_C_Color5.gltf" id="17_l1ldq"]
+[ext_resource type="PackedScene" uid="uid://cydrvksve7j8w" path="res://Assets/World/Forest/Color5/Tree_5_D_Color5.gltf" id="18_rkr8c"]
+[ext_resource type="PackedScene" uid="uid://ceyrajq6cyh57" path="res://Assets/World/Forest/Color5/Tree_5_E_Color5.gltf" id="19_qjhjy"]
+[ext_resource type="PackedScene" uid="uid://cii18n35ov8x4" path="res://Assets/World/Forest/Color5/Tree_5_F_Color5.gltf" id="20_2sum7"]
+[ext_resource type="PackedScene" uid="uid://dk05ccbmhl21r" path="res://Assets/World/Forest/Color5/Tree_6_A_Color5.gltf" id="21_uk6ex"]
+[ext_resource type="PackedScene" uid="uid://1x4ghqewjxsw" path="res://Assets/World/Forest/Color5/Tree_6_B_Color5.gltf" id="22_0p4g7"]
+[ext_resource type="PackedScene" uid="uid://cr1x6m6mmiy18" path="res://Assets/World/Forest/Color5/Tree_6_C_Color5.gltf" id="23_mwb0y"]
+[ext_resource type="PackedScene" uid="uid://cll0a53lnyltp" path="res://Assets/World/Forest/Color5/Tree_7_A_Color5.gltf" id="24_apie0"]
+[ext_resource type="PackedScene" uid="uid://f40ju16yh88k" path="res://Assets/World/Forest/Color5/Tree_7_B_Color5.gltf" id="25_k07m0"]
+[ext_resource type="PackedScene" uid="uid://byhs80wjb5jc3" path="res://Assets/World/Forest/Color5/Tree_7_C_Color5.gltf" id="26_lmnyi"]
+[ext_resource type="PackedScene" uid="uid://cesjbl0n2cu83" path="res://Assets/World/Forest/Color5/Tree_Bare_1_A_Color5.gltf" id="27_miagd"]
+[ext_resource type="PackedScene" uid="uid://csm0gkrhfeu4s" path="res://Assets/World/Forest/Color5/Tree_Bare_1_B_Color5.gltf" id="28_6ptsb"]
+[ext_resource type="PackedScene" uid="uid://du310oklb44mo" path="res://Assets/World/Forest/Color5/Tree_Bare_1_C_Color5.gltf" id="29_pe8s2"]
+[ext_resource type="PackedScene" uid="uid://dpm8cey1rhbh1" path="res://Assets/World/Forest/Color5/Tree_Bare_2_A_Color5.gltf" id="30_4jm2r"]
+[ext_resource type="PackedScene" uid="uid://dttfgt20rxt2s" path="res://Assets/World/Forest/Color5/Tree_Bare_2_B_Color5.gltf" id="31_xlxtk"]
+[ext_resource type="PackedScene" uid="uid://bhjdf15ix45gt" path="res://Assets/World/Forest/Color5/Tree_Bare_2_C_Color5.gltf" id="32_4igd6"]
+[ext_resource type="PackedScene" uid="uid://bexas16vcanc4" path="res://Assets/World/Forest/Color3/Tree_1_A_Color3.gltf" id="33_dk7xt"]
+[ext_resource type="PackedScene" uid="uid://cudj21n5yqoi5" path="res://Assets/World/Forest/Color3/Tree_1_B_Color3.gltf" id="34_prpjn"]
+[ext_resource type="PackedScene" uid="uid://bwoxycqitqx2q" path="res://Assets/World/Forest/Color3/Tree_1_C_Color3.gltf" id="35_cyidi"]
+[ext_resource type="PackedScene" uid="uid://bcoqf2x5wi178" path="res://Assets/World/Forest/Color3/Tree_2_A_Color3.gltf" id="36_ex2jp"]
+[ext_resource type="PackedScene" uid="uid://b0mlwy8n0fqno" path="res://Assets/World/Forest/Color3/Tree_2_B_Color3.gltf" id="37_mgufy"]
+[ext_resource type="PackedScene" uid="uid://bnufbj08vfc0b" path="res://Assets/World/Forest/Color3/Tree_2_C_Color3.gltf" id="38_wwbp0"]
+[ext_resource type="PackedScene" uid="uid://b70j1kmc0ylx6" path="res://Assets/World/Forest/Color3/Tree_2_D_Color3.gltf" id="39_jxfgj"]
+[ext_resource type="PackedScene" uid="uid://fnelostbqfay" path="res://Assets/World/Forest/Color3/Tree_2_E_Color3.gltf" id="40_kfm5b"]
+[ext_resource type="PackedScene" uid="uid://ddsbpx74mul0x" path="res://Assets/World/Forest/Color3/Tree_3_A_Color3.gltf" id="41_asfk3"]
+[ext_resource type="PackedScene" uid="uid://jtmv5okand34" path="res://Assets/World/Forest/Color3/Tree_3_B_Color3.gltf" id="42_gyv16"]
+[ext_resource type="PackedScene" uid="uid://do0d5m3x0ju63" path="res://Assets/World/Forest/Color3/Tree_3_C_Color3.gltf" id="43_bpcl4"]
+[ext_resource type="PackedScene" uid="uid://b44jmjnookcdp" path="res://Assets/World/Forest/Color3/Tree_4_A_Color3.gltf" id="44_jflaq"]
+[ext_resource type="PackedScene" uid="uid://s0v5pxwtsb1w" path="res://Assets/World/Forest/Color3/Tree_4_B_Color3.gltf" id="45_qtg4y"]
+[ext_resource type="PackedScene" uid="uid://nwcka1pyic01" path="res://Assets/World/Forest/Color3/Tree_4_C_Color3.gltf" id="46_pfiis"]
+[ext_resource type="PackedScene" uid="uid://rgidd8eiiqkw" path="res://Assets/World/Forest/Color3/Tree_5_A_Color3.gltf" id="47_3fgjb"]
+[ext_resource type="PackedScene" uid="uid://bvoc67xeq7fqx" path="res://Assets/World/Forest/Color3/Tree_5_B_Color3.gltf" id="48_dlu82"]
+[ext_resource type="PackedScene" uid="uid://fqgsy0nsuma7" path="res://Assets/World/Forest/Color3/Tree_5_C_Color3.gltf" id="49_n6xbc"]
+[ext_resource type="PackedScene" uid="uid://6mwab10lfrgg" path="res://Assets/World/Forest/Color3/Tree_5_D_Color3.gltf" id="50_mcb1x"]
+[ext_resource type="PackedScene" uid="uid://cpht0gtvo3q8w" path="res://Assets/World/Forest/Color3/Tree_5_E_Color3.gltf" id="51_knrkk"]
+[ext_resource type="PackedScene" uid="uid://bnvw0p46e3ec1" path="res://Assets/World/Forest/Color3/Tree_5_F_Color3.gltf" id="52_j40xk"]
+[ext_resource type="PackedScene" uid="uid://c00sjpufb57hn" path="res://Assets/World/Forest/Color3/Tree_6_A_Color3.gltf" id="53_kk22k"]
+[ext_resource type="PackedScene" uid="uid://dh1m8iwkyie7b" path="res://Assets/World/Forest/Color3/Tree_6_B_Color3.gltf" id="54_774jp"]
+[ext_resource type="PackedScene" uid="uid://yb3817ojq6lv" path="res://Assets/World/Forest/Color3/Tree_6_C_Color3.gltf" id="55_h41ax"]
+[ext_resource type="PackedScene" uid="uid://csohy13dvkf18" path="res://Assets/World/Forest/Color3/Tree_7_A_Color3.gltf" id="56_wllm5"]
+[ext_resource type="PackedScene" uid="uid://dblu0yygq1t3f" path="res://Assets/World/Forest/Color3/Tree_7_B_Color3.gltf" id="57_dmg20"]
+[ext_resource type="PackedScene" uid="uid://boup5t66glaoj" path="res://Assets/World/Forest/Color3/Tree_7_C_Color3.gltf" id="58_21wbr"]
+[ext_resource type="PackedScene" uid="uid://cyhqoaa43b32a" path="res://Assets/World/Forest/Color3/Tree_Bare_1_A_Color3.gltf" id="59_qrwl0"]
+[ext_resource type="PackedScene" uid="uid://e3cwv6vfe7xw" path="res://Assets/World/Forest/Color3/Tree_Bare_1_B_Color3.gltf" id="60_gwimh"]
+[ext_resource type="PackedScene" uid="uid://b7e4l58wmpht3" path="res://Assets/World/Forest/Color3/Tree_Bare_1_C_Color3.gltf" id="61_vcwnb"]
+[ext_resource type="PackedScene" uid="uid://ciefe0lstirso" path="res://Assets/World/Forest/Color3/Tree_Bare_2_A_Color3.gltf" id="62_7rfvp"]
+[ext_resource type="PackedScene" uid="uid://dg2iwrylnjikt" path="res://Assets/World/Forest/Color3/Tree_Bare_2_B_Color3.gltf" id="63_61erg"]
+[ext_resource type="PackedScene" uid="uid://dfkmdbwyovoib" path="res://Assets/World/Forest/Color3/Tree_Bare_2_C_Color3.gltf" id="64_c0ja3"]
+
+[node name="Tress" type="Node3D"]
+
+[node name="Tree_1_A_Color52" parent="." instance=ExtResource("1_n3k74")]
+
+[node name="Tree_1_B_Color52" parent="." instance=ExtResource("2_qayt2")]
+
+[node name="Tree_1_C_Color52" parent="." instance=ExtResource("3_uxfxi")]
+
+[node name="Tree_2_A_Color52" parent="." instance=ExtResource("4_2wj57")]
+
+[node name="Tree_2_B_Color52" parent="." instance=ExtResource("5_8m6st")]
+
+[node name="Tree_2_C_Color52" parent="." instance=ExtResource("6_7ixue")]
+
+[node name="Tree_2_D_Color52" parent="." instance=ExtResource("7_4ef1b")]
+
+[node name="Tree_2_E_Color52" parent="." instance=ExtResource("8_u7y0w")]
+
+[node name="Tree_3_A_Color52" parent="." instance=ExtResource("9_t4uus")]
+
+[node name="Tree_3_B_Color52" parent="." instance=ExtResource("10_gbc5q")]
+
+[node name="Tree_3_C_Color52" parent="." instance=ExtResource("11_kvlnj")]
+
+[node name="Tree_4_A_Color52" parent="." instance=ExtResource("12_qodei")]
+
+[node name="Tree_4_B_Color52" parent="." instance=ExtResource("13_2ovde")]
+
+[node name="Tree_4_C_Color52" parent="." instance=ExtResource("14_l7jng")]
+
+[node name="Tree_5_A_Color52" parent="." instance=ExtResource("15_g7ftr")]
+
+[node name="Tree_5_B_Color52" parent="." instance=ExtResource("16_hkt38")]
+
+[node name="Tree_5_C_Color52" parent="." instance=ExtResource("17_l1ldq")]
+
+[node name="Tree_5_D_Color52" parent="." instance=ExtResource("18_rkr8c")]
+
+[node name="Tree_5_E_Color52" parent="." instance=ExtResource("19_qjhjy")]
+
+[node name="Tree_5_F_Color52" parent="." instance=ExtResource("20_2sum7")]
+
+[node name="Tree_6_A_Color52" parent="." instance=ExtResource("21_uk6ex")]
+
+[node name="Tree_6_B_Color52" parent="." instance=ExtResource("22_0p4g7")]
+
+[node name="Tree_6_C_Color52" parent="." instance=ExtResource("23_mwb0y")]
+
+[node name="Tree_7_A_Color52" parent="." instance=ExtResource("24_apie0")]
+
+[node name="Tree_7_B_Color52" parent="." instance=ExtResource("25_k07m0")]
+
+[node name="Tree_7_C_Color52" parent="." instance=ExtResource("26_lmnyi")]
+
+[node name="Tree_Bare_1_A_Color52" parent="." instance=ExtResource("27_miagd")]
+
+[node name="Tree_Bare_1_B_Color52" parent="." instance=ExtResource("28_6ptsb")]
+
+[node name="Tree_Bare_1_C_Color52" parent="." instance=ExtResource("29_pe8s2")]
+
+[node name="Tree_Bare_2_A_Color52" parent="." instance=ExtResource("30_4jm2r")]
+
+[node name="Tree_Bare_2_B_Color52" parent="." instance=ExtResource("31_xlxtk")]
+
+[node name="Tree_Bare_2_C_Color52" parent="." instance=ExtResource("32_4igd6")]
+
+[node name="Tree_1_A_Color32" parent="." instance=ExtResource("33_dk7xt")]
+
+[node name="Tree_1_B_Color32" parent="." instance=ExtResource("34_prpjn")]
+
+[node name="Tree_1_C_Color32" parent="." instance=ExtResource("35_cyidi")]
+
+[node name="Tree_2_A_Color32" parent="." instance=ExtResource("36_ex2jp")]
+
+[node name="Tree_2_B_Color32" parent="." instance=ExtResource("37_mgufy")]
+
+[node name="Tree_2_C_Color32" parent="." instance=ExtResource("38_wwbp0")]
+
+[node name="Tree_2_D_Color32" parent="." instance=ExtResource("39_jxfgj")]
+
+[node name="Tree_2_E_Color32" parent="." instance=ExtResource("40_kfm5b")]
+
+[node name="Tree_3_A_Color32" parent="." instance=ExtResource("41_asfk3")]
+
+[node name="Tree_3_B_Color32" parent="." instance=ExtResource("42_gyv16")]
+
+[node name="Tree_3_C_Color32" parent="." instance=ExtResource("43_bpcl4")]
+
+[node name="Tree_4_A_Color32" parent="." instance=ExtResource("44_jflaq")]
+
+[node name="Tree_4_B_Color32" parent="." instance=ExtResource("45_qtg4y")]
+
+[node name="Tree_4_C_Color32" parent="." instance=ExtResource("46_pfiis")]
+
+[node name="Tree_5_A_Color32" parent="." instance=ExtResource("47_3fgjb")]
+
+[node name="Tree_5_B_Color32" parent="." instance=ExtResource("48_dlu82")]
+
+[node name="Tree_5_C_Color32" parent="." instance=ExtResource("49_n6xbc")]
+
+[node name="Tree_5_D_Color32" parent="." instance=ExtResource("50_mcb1x")]
+
+[node name="Tree_5_E_Color32" parent="." instance=ExtResource("51_knrkk")]
+
+[node name="Tree_5_F_Color32" parent="." instance=ExtResource("52_j40xk")]
+
+[node name="Tree_6_A_Color32" parent="." instance=ExtResource("53_kk22k")]
+
+[node name="Tree_6_B_Color32" parent="." instance=ExtResource("54_774jp")]
+
+[node name="Tree_6_C_Color32" parent="." instance=ExtResource("55_h41ax")]
+
+[node name="Tree_7_A_Color32" parent="." instance=ExtResource("56_wllm5")]
+
+[node name="Tree_7_B_Color32" parent="." instance=ExtResource("57_dmg20")]
+
+[node name="Tree_7_C_Color32" parent="." instance=ExtResource("58_21wbr")]
+
+[node name="Tree_Bare_1_A_Color32" parent="." instance=ExtResource("59_qrwl0")]
+
+[node name="Tree_Bare_1_B_Color32" parent="." instance=ExtResource("60_gwimh")]
+
+[node name="Tree_Bare_1_C_Color32" parent="." instance=ExtResource("61_vcwnb")]
+
+[node name="Tree_Bare_2_A_Color32" parent="." instance=ExtResource("62_7rfvp")]
+
+[node name="Tree_Bare_2_B_Color32" parent="." instance=ExtResource("63_61erg")]
+
+[node name="Tree_Bare_2_C_Color32" parent="." instance=ExtResource("64_c0ja3")]

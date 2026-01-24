@@ -1,0 +1,291 @@
+[gd_scene load_steps=97 format=3 uid="uid://bh87il1c2soyy"]
+
+[ext_resource type="PackedScene" uid="uid://bobdp65lptiwq" path="res://Assets/PlayableCharacterBodies/Barbarian.glb" id="1_ryvqx"]
+[ext_resource type="PackedScene" uid="uid://hbo2yvqrs6cf" path="res://Scenes/Weapons/Battleaxes/avalonian_battleaxe.tscn" id="2_0abai"]
+[ext_resource type="Animation" uid="uid://2qo5t34oq5u0" path="res://Assets/Animations/Rig_Mid_Animations/Crawling.res" id="3_qisnv"]
+[ext_resource type="Animation" uid="uid://bevsbcounnh4r" path="res://Assets/Animations/Rig_Mid_Animations/Crouching.res" id="4_3gh3s"]
+[ext_resource type="Animation" uid="uid://bnimkpt656j8j" path="res://Assets/Animations/Rig_Mid_Animations/Death_A.res" id="5_2vh2t"]
+[ext_resource type="Animation" uid="uid://cygmg61je73t3" path="res://Assets/Animations/Rig_Mid_Animations/Death_A_Pose.res" id="6_0r7yi"]
+[ext_resource type="Animation" uid="uid://pi7hexnyvexh" path="res://Assets/Animations/Rig_Mid_Animations/Death_B.res" id="7_edg0m"]
+[ext_resource type="Animation" uid="uid://d6ij81x7swsm" path="res://Assets/Animations/Rig_Mid_Animations/Death_B_Pose.res" id="8_rwj2j"]
+[ext_resource type="Animation" uid="uid://bqlpn4yntuk6v" path="res://Assets/Animations/Rig_Mid_Animations/Dodge_Backward.res" id="9_w48yo"]
+[ext_resource type="Animation" uid="uid://dlsbths02qc8f" path="res://Assets/Animations/Rig_Mid_Animations/Dodge_Forward.res" id="10_74ask"]
+[ext_resource type="Animation" uid="uid://dq4uvgryfr1nn" path="res://Assets/Animations/Rig_Mid_Animations/Dodge_Left.res" id="11_l0d73"]
+[ext_resource type="Animation" uid="uid://dyb3otnbs4meh" path="res://Assets/Animations/Rig_Mid_Animations/Dodge_Right.res" id="12_seu0u"]
+[ext_resource type="Animation" uid="uid://cwwx2anp1i4ej" path="res://Assets/Animations/Rig_Mid_Animations/EXPERIMENTAL_Medium_Transform.res" id="13_ucbj3"]
+[ext_resource type="Animation" uid="uid://br3s0es5pxblt" path="res://Assets/Animations/Rig_Mid_Animations/Hit_A.res" id="14_x0ic3"]
+[ext_resource type="Animation" uid="uid://cx21q6jxcwmh3" path="res://Assets/Animations/Rig_Mid_Animations/Hit_B.res" id="15_xfipa"]
+[ext_resource type="Animation" uid="uid://wyd6bbv82od5" path="res://Assets/Animations/Rig_Mid_Animations/Idle_A.res" id="16_k8c7p"]
+[ext_resource type="Animation" uid="uid://cpikc4cfrtshy" path="res://Assets/Animations/Rig_Mid_Animations/Idle_B.res" id="17_w5j0t"]
+[ext_resource type="Animation" uid="uid://bjl18e71cmigs" path="res://Assets/Animations/Rig_Mid_Animations/Interact.res" id="18_54jme"]
+[ext_resource type="Animation" uid="uid://2kpug6gddl3x" path="res://Assets/Animations/Rig_Mid_Animations/Jump_Full_Long.res" id="19_w1quj"]
+[ext_resource type="Animation" uid="uid://cro3a7yge0wn5" path="res://Assets/Animations/Rig_Mid_Animations/Jump_Full_Short.res" id="20_aixyn"]
+[ext_resource type="Animation" uid="uid://fyymlhi2bnyf" path="res://Assets/Animations/Rig_Mid_Animations/Jump_Idle.res" id="21_p3pb7"]
+[ext_resource type="Animation" uid="uid://bghlcp6dt7pva" path="res://Assets/Animations/Rig_Mid_Animations/Jump_Land.res" id="22_qiw8v"]
+[ext_resource type="Animation" uid="uid://dweevfjd5qujv" path="res://Assets/Animations/Rig_Mid_Animations/Jump_Start.res" id="23_ifl02"]
+[ext_resource type="Animation" uid="uid://bhr14yec04p8" path="res://Assets/Animations/Rig_Mid_Animations/Melee_1H_Attack_Chop.res" id="24_ki8n0"]
+[ext_resource type="Animation" uid="uid://cbcix5603o0xt" path="res://Assets/Animations/Rig_Mid_Animations/Melee_1H_Attack_Jump_Chop.res" id="25_qjhhh"]
+[ext_resource type="Animation" uid="uid://dgptntqxlkdsx" path="res://Assets/Animations/Rig_Mid_Animations/Melee_1H_Attack_Slice_Diagonal.res" id="26_pyjov"]
+[ext_resource type="Animation" uid="uid://cv4otn8xrkude" path="res://Assets/Animations/Rig_Mid_Animations/Melee_1H_Attack_Slice_Horizontal.res" id="27_6p0mt"]
+[ext_resource type="Animation" uid="uid://ppof4pl67ehn" path="res://Assets/Animations/Rig_Mid_Animations/Melee_1H_Attack_Stab.res" id="28_lb4u0"]
+[ext_resource type="Animation" uid="uid://dnlxrdqvmfhhm" path="res://Assets/Animations/Rig_Mid_Animations/Melee_2H_Attack_Chop.res" id="29_asb86"]
+[ext_resource type="Animation" uid="uid://c16luen36u4my" path="res://Assets/Animations/Rig_Mid_Animations/Melee_2H_Attack_Slice.res" id="30_q3ja6"]
+[ext_resource type="Animation" uid="uid://0bbutkiyl10y" path="res://Assets/Animations/Rig_Mid_Animations/Melee_2H_Attack_Spin.res" id="31_l5ddd"]
+[ext_resource type="Animation" uid="uid://dqokwd33i32qf" path="res://Assets/Animations/Rig_Mid_Animations/Melee_2H_Attack_Spinning.res" id="32_eilku"]
+[ext_resource type="Animation" uid="uid://bi0jhcxkykngw" path="res://Assets/Animations/Rig_Mid_Animations/Melee_2H_Attack_Stab.res" id="33_ewmkx"]
+[ext_resource type="Animation" uid="uid://c453cm65prko1" path="res://Assets/Animations/Rig_Mid_Animations/Melee_2H_Idle.res" id="34_n7h3q"]
+[ext_resource type="Animation" uid="uid://cstmtjlvpj233" path="res://Assets/Animations/Rig_Mid_Animations/Melee_Block.res" id="35_fohx2"]
+[ext_resource type="Animation" uid="uid://ij32pf5tk01w" path="res://Assets/Animations/Rig_Mid_Animations/Melee_Block_Attack.res" id="36_dv5m2"]
+[ext_resource type="Animation" uid="uid://b8qvse6y2g2fu" path="res://Assets/Animations/Rig_Mid_Animations/Melee_Block_Hit.res" id="37_idpdn"]
+[ext_resource type="Animation" uid="uid://dkb4igwdc4krs" path="res://Assets/Animations/Rig_Mid_Animations/Melee_Blocking.res" id="38_e7pbn"]
+[ext_resource type="Animation" uid="uid://yd0kiok4bt6a" path="res://Assets/Animations/Rig_Mid_Animations/Melee_Dualwield_Attack_Chop.res" id="39_q11vo"]
+[ext_resource type="Animation" uid="uid://ci30v3nx0iuoh" path="res://Assets/Animations/Rig_Mid_Animations/Melee_Dualwield_Attack_Slice.res" id="40_5p6y6"]
+[ext_resource type="Animation" uid="uid://cejgljpn5c54t" path="res://Assets/Animations/Rig_Mid_Animations/Melee_Dualwield_Attack_Stab.res" id="41_fd1wn"]
+[ext_resource type="Animation" uid="uid://m2mov5m6nyt2" path="res://Assets/Animations/Rig_Mid_Animations/Melee_Unarmed_Attack_Kick.res" id="42_gtll2"]
+[ext_resource type="Animation" uid="uid://dco6d01o4nbw7" path="res://Assets/Animations/Rig_Mid_Animations/Melee_Unarmed_Attack_Punch_A.res" id="43_hb5uh"]
+[ext_resource type="Animation" uid="uid://eis8dabnaj8p" path="res://Assets/Animations/Rig_Mid_Animations/Melee_Unarmed_Idle.res" id="44_3rju5"]
+[ext_resource type="Animation" uid="uid://e7dvnoscpji5" path="res://Assets/Animations/Rig_Mid_Animations/PickUp.res" id="45_2g02t"]
+[ext_resource type="Animation" uid="uid://fa5f4the88th" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_1H_Aiming.res" id="46_ah02j"]
+[ext_resource type="Animation" uid="uid://skih1b672eit" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_1H_Reload.res" id="47_mjkvf"]
+[ext_resource type="Animation" uid="uid://bte48vqynm32h" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_1H_Shoot.res" id="48_41rxi"]
+[ext_resource type="Animation" uid="uid://k762k43rgr06" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_1H_Shooting.res" id="49_rywcm"]
+[ext_resource type="Animation" uid="uid://dyu08ydc1wye7" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_2H_Aiming.res" id="50_pio1f"]
+[ext_resource type="Animation" uid="uid://c63vefmjdar17" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_2H_Reload.res" id="51_h2h4e"]
+[ext_resource type="Animation" uid="uid://dqq2pf7ngirqd" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_2H_Shoot.res" id="52_ggleb"]
+[ext_resource type="Animation" uid="uid://oactry6hxolq" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_2H_Shooting.res" id="53_5urvj"]
+[ext_resource type="Animation" uid="uid://c0hu67bicoaxj" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Bow_Aiming_Idle.res" id="54_ncdgu"]
+[ext_resource type="Animation" uid="uid://bhqxvlkvaxnd4" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Bow_Draw.res" id="55_rvtpo"]
+[ext_resource type="Animation" uid="uid://c2tr7yf7r4xe7" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Bow_Draw_Up.res" id="56_wvxnv"]
+[ext_resource type="Animation" uid="uid://b4clg7wvqv52v" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Bow_Idle.res" id="57_qb618"]
+[ext_resource type="Animation" uid="uid://bq1g5pidioqkl" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Bow_Release.res" id="58_wmkgd"]
+[ext_resource type="Animation" uid="uid://c5nul615l3lxx" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Bow_Release_Up.res" id="59_m1v2f"]
+[ext_resource type="Animation" uid="uid://b881apgub0uuk" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Magic_Raise.res" id="60_clp8e"]
+[ext_resource type="Animation" uid="uid://bbr3vbxqc5v3u" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Magic_Shoot.res" id="61_qjbx5"]
+[ext_resource type="Animation" uid="uid://cmu2h8172y1ek" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Magic_Spellcasting.res" id="62_2iauu"]
+[ext_resource type="Animation" uid="uid://rxer4sy6vm7n" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Magic_Spellcasting_Long.res" id="63_cettn"]
+[ext_resource type="Animation" uid="uid://xf1lgey6cego" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Magic_Summon.res" id="64_b0ndn"]
+[ext_resource type="Animation" uid="uid://b86ppidsw0kmc" path="res://Assets/Animations/Rig_Mid_Animations/Running_A.res" id="65_krub5"]
+[ext_resource type="Animation" uid="uid://155mggu41gh6" path="res://Assets/Animations/Rig_Mid_Animations/Running_B.res" id="66_2mgr4"]
+[ext_resource type="Animation" uid="uid://yb6iw1sk37m5" path="res://Assets/Animations/Rig_Mid_Animations/Running_HoldingBow.res" id="67_l74l7"]
+[ext_resource type="Animation" uid="uid://b676qarpseclk" path="res://Assets/Animations/Rig_Mid_Animations/Running_HoldingRifle.res" id="68_2nmxn"]
+[ext_resource type="Animation" uid="uid://c7qvqbhnix4n" path="res://Assets/Animations/Rig_Mid_Animations/Running_Strafe_Left.res" id="69_6ehon"]
+[ext_resource type="Animation" uid="uid://cwknayapi1mai" path="res://Assets/Animations/Rig_Mid_Animations/Running_Strafe_Right.res" id="70_av77b"]
+[ext_resource type="Animation" uid="uid://58d5l85xg3in" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Awaken_Floor.res" id="71_bnj3o"]
+[ext_resource type="Animation" uid="uid://bcq2ntobuwv3s" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Awaken_Floor_Long.res" id="72_8ogp8"]
+[ext_resource type="Animation" uid="uid://qlanctwguxmg" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Awaken_Standing.res" id="73_qv8bw"]
+[ext_resource type="Animation" uid="uid://bxxf5nkspwjyw" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Death.res" id="74_0hku2"]
+[ext_resource type="Animation" uid="uid://bni1tnwgyhk0v" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Death_Pose.res" id="75_pd01a"]
+[ext_resource type="Animation" uid="uid://cvdgfqqokt3ch" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Death_Resurrect.res" id="76_px3hl"]
+[ext_resource type="Animation" uid="uid://b0io3n8du4gwt" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Idle.res" id="77_luod0"]
+[ext_resource type="Animation" uid="uid://cqwd1x4hjj8ct" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Inactive_Floor_Pose.res" id="78_unvx1"]
+[ext_resource type="Animation" uid="uid://d1w2qp1qqtbve" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Inactive_Standing_Pose.res" id="79_637fh"]
+[ext_resource type="Animation" uid="uid://uba0p0u0gxkm" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Spawn_Ground.res" id="80_kvb2i"]
+[ext_resource type="Animation" uid="uid://d2fi4trvecay0" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Taunt.res" id="81_py2l0"]
+[ext_resource type="Animation" uid="uid://tilun801edo3" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Taunt_Longer.res" id="82_003xm"]
+[ext_resource type="Animation" uid="uid://csx3ffbfw7pnh" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Walking.res" id="83_3dmdc"]
+[ext_resource type="Animation" uid="uid://rmvb5lr67m3s" path="res://Assets/Animations/Rig_Mid_Animations/Sneaking.res" id="84_xcp51"]
+[ext_resource type="Animation" uid="uid://baoj0o3vjaocg" path="res://Assets/Animations/Rig_Mid_Animations/Spawn_Air.res" id="85_s1ms0"]
+[ext_resource type="Animation" uid="uid://b8qm7mng43cbg" path="res://Assets/Animations/Rig_Mid_Animations/Spawn_Ground.res" id="86_irtvj"]
+[ext_resource type="Animation" uid="uid://cchtwwoohiw84" path="res://Assets/Animations/Rig_Mid_Animations/T-Pose.res" id="87_uobxk"]
+[ext_resource type="Animation" uid="uid://cehos3v3dvcxu" path="res://Assets/Animations/Rig_Mid_Animations/Throw.res" id="88_sb7va"]
+[ext_resource type="Animation" uid="uid://8a7cqpvjntrm" path="res://Assets/Animations/Rig_Mid_Animations/Use_Item.res" id="89_n573v"]
+[ext_resource type="Animation" uid="uid://c7wogo72e8dt5" path="res://Assets/Animations/Rig_Mid_Animations/Walking_A.res" id="90_nekac"]
+[ext_resource type="Animation" uid="uid://48i843qb1i5t" path="res://Assets/Animations/Rig_Mid_Animations/Walking_B.res" id="91_hwkcj"]
+[ext_resource type="Animation" uid="uid://t3b7yphqd03l" path="res://Assets/Animations/Rig_Mid_Animations/Walking_Backwards.res" id="92_46wxu"]
+[ext_resource type="Animation" uid="uid://iuwul71pvd0j" path="res://Assets/Animations/Rig_Mid_Animations/Walking_C.res" id="93_t3rq6"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rl351"]
+_data = {
+&"Crawling": ExtResource("3_qisnv"),
+&"Crouching": ExtResource("4_3gh3s"),
+&"Death_A": ExtResource("5_2vh2t"),
+&"Death_A_Pose": ExtResource("6_0r7yi"),
+&"Death_B": ExtResource("7_edg0m"),
+&"Death_B_Pose": ExtResource("8_rwj2j"),
+&"Dodge_Backward": ExtResource("9_w48yo"),
+&"Dodge_Forward": ExtResource("10_74ask"),
+&"Dodge_Left": ExtResource("11_l0d73"),
+&"Dodge_Right": ExtResource("12_seu0u"),
+&"EXPERIMENTAL_Medium_Transform": ExtResource("13_ucbj3"),
+&"Hit_A": ExtResource("14_x0ic3"),
+&"Hit_B": ExtResource("15_xfipa"),
+&"Idle_A": ExtResource("16_k8c7p"),
+&"Idle_B": ExtResource("17_w5j0t"),
+&"Interact": ExtResource("18_54jme"),
+&"Jump_Full_Long": ExtResource("19_w1quj"),
+&"Jump_Full_Short": ExtResource("20_aixyn"),
+&"Jump_Idle": ExtResource("21_p3pb7"),
+&"Jump_Land": ExtResource("22_qiw8v"),
+&"Jump_Start": ExtResource("23_ifl02"),
+&"Melee_1H_Attack_Chop": ExtResource("24_ki8n0"),
+&"Melee_1H_Attack_Jump_Chop": ExtResource("25_qjhhh"),
+&"Melee_1H_Attack_Slice_Diagonal": ExtResource("26_pyjov"),
+&"Melee_1H_Attack_Slice_Horizontal": ExtResource("27_6p0mt"),
+&"Melee_1H_Attack_Stab": ExtResource("28_lb4u0"),
+&"Melee_2H_Attack_Chop": ExtResource("29_asb86"),
+&"Melee_2H_Attack_Slice": ExtResource("30_q3ja6"),
+&"Melee_2H_Attack_Spin": ExtResource("31_l5ddd"),
+&"Melee_2H_Attack_Spinning": ExtResource("32_eilku"),
+&"Melee_2H_Attack_Stab": ExtResource("33_ewmkx"),
+&"Melee_2H_Idle": ExtResource("34_n7h3q"),
+&"Melee_Block": ExtResource("35_fohx2"),
+&"Melee_Block_Attack": ExtResource("36_dv5m2"),
+&"Melee_Block_Hit": ExtResource("37_idpdn"),
+&"Melee_Blocking": ExtResource("38_e7pbn"),
+&"Melee_Dualwield_Attack_Chop": ExtResource("39_q11vo"),
+&"Melee_Dualwield_Attack_Slice": ExtResource("40_5p6y6"),
+&"Melee_Dualwield_Attack_Stab": ExtResource("41_fd1wn"),
+&"Melee_Unarmed_Attack_Kick": ExtResource("42_gtll2"),
+&"Melee_Unarmed_Attack_Punch_A": ExtResource("43_hb5uh"),
+&"Melee_Unarmed_Idle": ExtResource("44_3rju5"),
+&"PickUp": ExtResource("45_2g02t"),
+&"Ranged_1H_Aiming": ExtResource("46_ah02j"),
+&"Ranged_1H_Reload": ExtResource("47_mjkvf"),
+&"Ranged_1H_Shoot": ExtResource("48_41rxi"),
+&"Ranged_1H_Shooting": ExtResource("49_rywcm"),
+&"Ranged_2H_Aiming": ExtResource("50_pio1f"),
+&"Ranged_2H_Reload": ExtResource("51_h2h4e"),
+&"Ranged_2H_Shoot": ExtResource("52_ggleb"),
+&"Ranged_2H_Shooting": ExtResource("53_5urvj"),
+&"Ranged_Bow_Aiming_Idle": ExtResource("54_ncdgu"),
+&"Ranged_Bow_Draw": ExtResource("55_rvtpo"),
+&"Ranged_Bow_Draw_Up": ExtResource("56_wvxnv"),
+&"Ranged_Bow_Idle": ExtResource("57_qb618"),
+&"Ranged_Bow_Release": ExtResource("58_wmkgd"),
+&"Ranged_Bow_Release_Up": ExtResource("59_m1v2f"),
+&"Ranged_Magic_Raise": ExtResource("60_clp8e"),
+&"Ranged_Magic_Shoot": ExtResource("61_qjbx5"),
+&"Ranged_Magic_Spellcasting": ExtResource("62_2iauu"),
+&"Ranged_Magic_Spellcasting_Long": ExtResource("63_cettn"),
+&"Ranged_Magic_Summon": ExtResource("64_b0ndn"),
+&"Running_A": ExtResource("65_krub5"),
+&"Running_B": ExtResource("66_2mgr4"),
+&"Running_HoldingBow": ExtResource("67_l74l7"),
+&"Running_HoldingRifle": ExtResource("68_2nmxn"),
+&"Running_Strafe_Left": ExtResource("69_6ehon"),
+&"Running_Strafe_Right": ExtResource("70_av77b"),
+&"Skeletons_Awaken_Floor": ExtResource("71_bnj3o"),
+&"Skeletons_Awaken_Floor_Long": ExtResource("72_8ogp8"),
+&"Skeletons_Awaken_Standing": ExtResource("73_qv8bw"),
+&"Skeletons_Death": ExtResource("74_0hku2"),
+&"Skeletons_Death_Pose": ExtResource("75_pd01a"),
+&"Skeletons_Death_Resurrect": ExtResource("76_px3hl"),
+&"Skeletons_Idle": ExtResource("77_luod0"),
+&"Skeletons_Inactive_Floor_Pose": ExtResource("78_unvx1"),
+&"Skeletons_Inactive_Standing_Pose": ExtResource("79_637fh"),
+&"Skeletons_Spawn_Ground": ExtResource("80_kvb2i"),
+&"Skeletons_Taunt": ExtResource("81_py2l0"),
+&"Skeletons_Taunt_Longer": ExtResource("82_003xm"),
+&"Skeletons_Walking": ExtResource("83_3dmdc"),
+&"Sneaking": ExtResource("84_xcp51"),
+&"Spawn_Air": ExtResource("85_s1ms0"),
+&"Spawn_Ground": ExtResource("86_irtvj"),
+&"T-Pose": ExtResource("87_uobxk"),
+&"Throw": ExtResource("88_sb7va"),
+&"Use_Item": ExtResource("89_n573v"),
+&"Walking_A": ExtResource("90_nekac"),
+&"Walking_B": ExtResource("91_hwkcj"),
+&"Walking_Backwards": ExtResource("92_46wxu"),
+&"Walking_C": ExtResource("93_t3rq6")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ryvqx"]
+animation = &"Player/Idle_A"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cl0yh"]
+graph_offset = Vector2(-92.54321, 61.058212)
+nodes/output/position = Vector2(680, 150)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_ryvqx")
+nodes/Animation/position = Vector2(370, 200)
+node_connections = [&"output", 0, &"Animation"]
+
+[node name="CharacterSheetCharacter" instance=ExtResource("1_ryvqx")]
+
+[node name="Skeleton3D" parent="Rig_Medium" index="0"]
+bones/1/position = Vector3(0, 0.38485926, 0)
+bones/1/rotation = Quaternion(0.004092241, 0.04315738, 0.00017678014, 0.9990599)
+bones/1/scale = Vector3(0.99999994, 1, 0.99999994)
+bones/2/rotation = Quaternion(0.011660866, 1.8328663e-09, 0.0010093385, 0.9999315)
+bones/2/scale = Vector3(1.0000001, 1, 1.0000001)
+bones/3/rotation = Quaternion(-0.0053119496, 5.0338533e-09, -0.0004597903, 0.9999858)
+bones/3/scale = Vector3(1, 0.9999999, 1)
+bones/4/position = Vector3(0.21200737, 0.13413215, 8.216504e-08)
+bones/4/rotation = Quaternion(-0.53906715, -0.10344845, -0.76364994, 0.33991754)
+bones/4/scale = Vector3(0.9999993, 0.99999905, 0.9999998)
+bones/5/rotation = Quaternion(2.827085e-09, -5.8882712e-08, -0.37723497, 0.92611766)
+bones/5/scale = Vector3(1.0000004, 0.9999998, 1)
+bones/6/rotation = Quaternion(1.514567e-08, -7.3584383e-09, 0.0266581, 0.99964464)
+bones/6/scale = Vector3(1.0000001, 1, 1)
+bones/7/rotation = Quaternion(-0.2204012, -0.34346738, 0.178733, 0.8952698)
+bones/7/scale = Vector3(0.99999976, 1.0000001, 1.0000004)
+bones/8/position = Vector3(5.138494e-10, 0.096125126, -0.057500005)
+bones/8/rotation = Quaternion(0.0023044385, 0.0023044376, -0.69859415, 0.7155108)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(-0.015848845, -0.031337798, -0.0008725002, 0.9993829)
+bones/9/scale = Vector3(0.99999994, 1, 1)
+bones/10/position = Vector3(-0.21200736, 0.13413227, 8.62731e-08)
+bones/10/rotation = Quaternion(-0.5655323, 0.033630732, 0.7282933, 0.3855269)
+bones/10/scale = Vector3(0.9999992, 0.9999988, 0.9999998)
+bones/11/rotation = Quaternion(2.2316833e-08, 2.8743289e-08, 0.39020318, 0.92072886)
+bones/11/scale = Vector3(1.0000004, 0.99999976, 1.0000001)
+bones/12/rotation = Quaternion(2.249753e-10, 6.8246844e-09, -0.026658092, 0.99964464)
+bones/12/scale = Vector3(0.99999994, 0.99999994, 1)
+bones/13/rotation = Quaternion(-0.21079634, 0.37987548, -0.13206068, 0.8909656)
+bones/13/scale = Vector3(0.9999995, 0.99999994, 1.0000005)
+bones/14/position = Vector3(-1.5415026e-08, 0.096125185, -0.057500005)
+bones/14/rotation = Quaternion(0.0023044385, -0.0023044373, 0.69859415, 0.7155108)
+bones/14/scale = Vector3(1, 1.0000001, 1.0000001)
+bones/15/position = Vector3(0.17094508, 0.1135872, 1.5994095e-08)
+bones/15/rotation = Quaternion(0.98957914, 0.05764065, 0.07134193, 0.11100083)
+bones/15/scale = Vector3(0.9999999, 0.9999997, 1.0000008)
+bones/16/rotation = Quaternion(0.32641134, 6.1677625e-08, -2.2639263e-07, 0.94522786)
+bones/16/scale = Vector3(1.0000004, 0.99999994, 1.0000001)
+bones/17/rotation = Quaternion(-0.56514853, -0.112384856, 0.04788026, 0.8158948)
+bones/17/scale = Vector3(1.0000004, 1.0000007, 0.9999993)
+bones/18/rotation = Quaternion(-9.973152e-07, 0.9202346, -0.39136732, 2.755921e-07)
+bones/18/scale = Vector3(1.0000001, 0.9999975, 1.0000027)
+bones/19/position = Vector3(-0.17094508, 0.11358732, 1.557549e-08)
+bones/19/rotation = Quaternion(0.99529994, -0.03098646, 0.031027993, 0.08634414)
+bones/19/scale = Vector3(0.9999999, 0.99999976, 1.0000008)
+bones/20/rotation = Quaternion(0.33693767, -6.6751504e-08, 2.33638e-07, 0.941527)
+bones/20/scale = Vector3(0.99999994, 0.99999976, 0.99999994)
+bones/21/rotation = Quaternion(-0.593616, 0.11397707, -0.014100447, 0.7965115)
+bones/21/scale = Vector3(0.99999976, 1.0000006, 0.9999992)
+bones/22/rotation = Quaternion(-8.934892e-05, 0.9202217, -0.3913977, 2.0290998e-05)
+bones/22/scale = Vector3(1.0000002, 0.9999979, 1.0000024)
+
+[node name="MainHand" type="BoneAttachment3D" parent="Rig_Medium/Skeleton3D" index="7"]
+transform = Transform3D(1.7263927e-05, -0.26292893, -0.9648154, -0.99969596, -0.023748398, 0.006455005, -0.024610415, 0.96452224, -0.2628497, -0.42423466, 0.530347, 0.08021968)
+bone_name = "handslot.r"
+bone_idx = 14
+
+[node name="AvalonianBattleaxe" parent="Rig_Medium/Skeleton3D/MainHand" index="0" instance=ExtResource("2_0abai")]
+
+[node name="OffHand" type="BoneAttachment3D" parent="Rig_Medium/Skeleton3D" index="8"]
+transform = Transform3D(4.3178443e-05, 0.26295012, 0.9648095, 0.99969494, -0.023803579, 0.0064433496, 0.024660593, 0.96451515, -0.26287133, 0.42546055, 0.533102, 0.08568893)
+bone_name = "handslot.l"
+bone_idx = 8
+
+[node name="SheethBack" type="BoneAttachment3D" parent="Rig_Medium/Skeleton3D" index="9"]
+transform = Transform3D(0.9962749, -5.820766e-09, 0.08623529, 0.0027247265, 0.9995007, -0.03147865, -0.08619225, 0.031596348, 0.9957774, -9.883383e-10, 0.5768303, 0.0015726886)
+bone_name = "spine"
+bone_idx = 2
+
+[node name="SheethHipRight" type="BoneAttachment3D" parent="Rig_Medium/Skeleton3D" index="10"]
+transform = Transform3D(0.99627477, -5.1481988e-09, 0.086235285, 0.0007064486, 0.99996644, -0.008161528, -0.086232394, 0.008192047, 0.99624133, 0, 0.38485926, 0)
+bone_name = "hips"
+bone_idx = 1
+
+[node name="SheethHipLeft" type="BoneAttachment3D" parent="Rig_Medium/Skeleton3D" index="11"]
+transform = Transform3D(0.99627477, -5.1481988e-09, 0.086235285, 0.0007064486, 0.99996644, -0.008161528, -0.086232394, 0.008192047, 0.99624133, 0, 0.38485926, 0)
+bone_name = "hips"
+bone_idx = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"Player": SubResource("AnimationLibrary_rl351")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_cl0yh")
+anim_player = NodePath("../AnimationPlayer")

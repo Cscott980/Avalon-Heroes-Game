@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1yrhot3rr1s"]
+
+[ext_resource type="Script" uid="uid://cjh7yppcf2bjt" path="res://Scripts/Enemy/Spawner.gd" id="1_hgw3m"]
+
+[node name="Spawner" type="Node3D"]
+transform = Transform3D(0.9999939, 0, 0.0034906515, 0, 1, 0, -0.0034906515, 0, 0.9999939, 0, 0, 0)
+script = ExtResource("1_hgw3m")
+spawn_time = 5.0
+
+[node name="SpawnTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

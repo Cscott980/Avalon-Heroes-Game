@@ -1,0 +1,233 @@
+[gd_scene load_steps=12 format=3 uid="uid://bj7apda73qwfm"]
+
+[ext_resource type="MeshLibrary" uid="uid://c3xl4rrkv1nk5" path="res://Assets/MeshLib/LobbyMeshes.tres" id="1_2vnmm"]
+[ext_resource type="MeshLibrary" uid="uid://b41fl2a8nd4lt" path="res://Assets/MeshLib/RPGToolMeshes.tres" id="2_7mxwi"]
+[ext_resource type="PackedScene" uid="uid://b5b6ea8b5673k" path="res://Scenes/Player/player.tscn" id="2_62igp"]
+[ext_resource type="PackedScene" uid="uid://jwi1uejwjh4b" path="res://Assets/ModelWeapons/Battleaxes/axe_2handed.gltf" id="3_7mxwi"]
+[ext_resource type="PackedScene" uid="uid://c77wvr2bjgghj" path="res://Assets/World/Towns/forge_02.fbx" id="3_qr1ks"]
+[ext_resource type="PackedScene" uid="uid://bl6wgs2np2y6p" path="res://Assets/ModelWeapons/Crossbows/Skeleton_Crossbow.gltf" id="4_33c4u"]
+[ext_resource type="PackedScene" uid="uid://wcrv54t52y2v" path="res://Assets/ModelWeapons/Shields/Skeleton_Shield_Small_A.gltf" id="5_7sbsm"]
+[ext_resource type="AudioStream" uid="uid://ctaivi81ptvsu" path="res://Assets/Audio/Tavern Whispers.wav" id="5_dx3ka"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2vnmm"]
+sky_top_color = Color(0.30011976, 0.5212282, 0.86471206, 1)
+sky_horizon_color = Color(0.6849836, 0.7325107, 0.8093816, 1)
+ground_horizon_color = Color(0.6849836, 0.7325107, 0.8093816, 1)
+
+[sub_resource type="Sky" id="Sky_62igp"]
+sky_material = SubResource("ProceduralSkyMaterial_2vnmm")
+
+[sub_resource type="Environment" id="Environment_7mxwi"]
+background_mode = 2
+sky = SubResource("Sky_62igp")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Lobby" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7mxwi")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, -0.39567584, 0.8991943, 0.18678921, -0.30568066, 0.06284526, -0.95005774, 6.7161922, 13.642517, 12.560162)
+visible = false
+shadow_enabled = true
+
+[node name="FloorGripMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_2vnmm")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(1, 1, 139, 5, 1, 139, 9, 1, 139, 13, 1, 139, 17, 1, 139, 21, 1, 139, 25, 1, 139, 1, 5, 139, 5, 5, 139, 9, 5, 139, 13, 5, 139, 17, 5, 139, 21, 5, 139, 25, 5, 139, 1, 9, 139, 5, 9, 139, 9, 9, 139, 13, 9, 139, 17, 9, 139, 21, 9, 139, 25, 9, 139, 65533, 9, 139, 65533, 5, 139, 65533, 1, 139, 65529, 1, 139, 65529, 5, 139, 65529, 9, 139, 65525, 9, 139, 65525, 5, 139, 65525, 1, 139, 65521, 9, 139, 65521, 5, 139, 65521, 1, 139, 65521, 13, 139, 65525, 13, 139, 65529, 13, 139, 65533, 13, 139, 5, 13, 139, 9, 13, 139, 13, 13, 139, 17, 13, 139, 21, 13, 139, 25, 13, 139, 65518, 1, 1441929, 65518, 13, 1441929, 28, 7, 1441929, 65531, 19, 1441928, 15, 19, 1441928, 1, 17, 1441931, 5, 17, 1441931, 9, 17, 1441931, 1, 21, 1441931, 5, 21, 1441931, 9, 21, 1441931, 65525, 21, 1441931, 65525, 17, 1441931, 65521, 17, 1441931, 65521, 21, 1441931, 21, 21, 1441931, 21, 17, 1441931, 25, 17, 1441931, 25, 21, 1441931, 28, 10, 1441937, 28, 12, 1441933, 28, 14, 1441933, 28, 16, 1441933, 28, 18, 1441933, 28, 20, 1441933, 28, 22, 1441933, 28, 4, 1441933, 28, 2, 1441933, 28, 0, 1441933, 65518, 10, 655507, 65518, 8, 655506, 65518, 6, 655505, 65518, 4, 655502, 27, 25, 655478, 27, 29, 655479, 11, 25, 655499, 11, 29, 655499, 1, 13, 139, 23, 25, 139, 19, 25, 139, 15, 25, 139, 26, 24, 1048699)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="WallsGridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_2vnmm")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65519, 17, 1048820, 65517, 15, 655610, 65519, 15, 253, 65517, 11, 1442046, 65517, 7, 1442041, 65517, 3, 1442036, 65517, 65535, 1048826, 65521, 65535, 263, 65525, 65535, 271, 65529, 65535, 274, 7, 25, 1048724, 7, 29, 1048724, 3, 29, 1048724, 3, 25, 1048724, 65535, 25, 1048724, 65535, 29, 1048724, 65531, 29, 1048724, 65531, 25, 1048724, 65527, 25, 1048715, 65527, 29, 1048715, 65523, 29, 1048724, 65523, 25, 1048724, 65521, 25, 1048724, 65521, 29, 1048724, 15, 29, 1048715, 19, 29, 1048715, 23, 29, 1048715, 65529, 23, 1048625, 65529, 27, 1048623, 65529, 31, 275, 65533, 23, 655408, 65520, 23, 48, 65524, 23, 655410, 65525, 23, 655408, 65519, 31, 655611, 65519, 27, 1442056, 65525, 24, 1048635, 65525, 26, 1048635, 65525, 28, 1048635, 65525, 30, 1048635, 65533, 65535, 256, 1, 65535, 282, 5, 65535, 655641, 9, 65535, 655634, 13, 65535, 655614, 17, 65535, 655608, 21, 65535, 655605, 25, 65535, 245, 29, 65535, 250, 29, 3, 1442036, 29, 7, 1442036, 29, 11, 1442036, 29, 15, 1442036, 29, 19, 1442036, 29, 23, 1442036, 29, 27, 1442041, 29, 31, 1442043, 25, 31, 655605, 21, 31, 655604, 17, 31, 655604, 13, 31, 655604, 9, 31, 655604, 5, 31, 247, 1, 31, 275, 65533, 31, 275, 65529, 29, 1441842, 65519, 25, 1048820, 65519, 21, 1048820, 65525, 31, 264, 65523, 31, 655606, 10, 31, 655551, 327677, 65535, 244, 327669, 65535, 244, 327665, 65535, 244, 262145, 65535, 244, 262149, 65535, 244, 262157, 65535, 244, 262161, 65535, 244, 262165, 65535, 247, 262173, 65535, 250, 327661, 65535, 1048826, 262153, 65535, 274, 327673, 65535, 274, 262169, 65535, 244, 327661, 3, 1442036, 327661, 7, 1442036, 327661, 11, 1442036, 327661, 15, 655610, 327663, 15, 250, 327663, 19, 1442036, 327663, 23, 1442036, 327663, 31, 655610, 327663, 27, 1048820, 327667, 31, 655604, 327671, 31, 655604, 327675, 31, 655604, 327679, 31, 655604, 262147, 31, 655604, 262150, 31, 655604, 262154, 31, 655604, 262158, 31, 655604, 262162, 31, 655604, 262173, 31, 1442043, 262173, 27, 1442036, 262173, 23, 1442036, 262173, 19, 1048820, 262173, 15, 1048820, 262173, 11, 1048820, 262173, 7, 1048820, 262173, 3, 1048820, 262170, 31, 655604, 262166, 31, 655604, 9, 23, 655521, 65534, 23, 655521, 262153, 23, 655520, 327678, 23, 655520, 9, 29, 1048623, 9, 25, 1048623, 589811, 31, 244, 589815, 31, 244, 589819, 31, 244, 589823, 31, 244, 524296, 31, 244, 524300, 31, 244, 524304, 31, 244, 524308, 31, 244, 524312, 31, 244, 524317, 31, 1442042, 589807, 31, 655610, 524297, 23, 655520, 589822, 23, 655520, 524294, 31, 655624, 524292, 31, 655624, 524288, 31, 655625, 524313, 31, 655625, 524317, 27, 1442036, 524317, 23, 1442036, 524317, 19, 1442036, 524317, 15, 1442036, 524317, 11, 1442036, 524317, 7, 1442036, 524317, 3, 1442036, 524317, 65535, 250, 524313, 65535, 244, 524309, 65535, 244, 524305, 65535, 244, 524301, 65535, 244, 524297, 65535, 274, 589817, 65535, 274, 524293, 65535, 244, 524289, 65535, 244, 589821, 65535, 244, 589813, 65535, 244, 589809, 65535, 244, 589805, 65535, 1048826, 589805, 3, 1048824, 589805, 7, 1442036, 589805, 11, 1442036, 589805, 15, 655610, 589807, 15, 253, 589807, 18, 1442036, 589807, 22, 1442036, 589807, 26, 1442036, 589807, 30, 1442057)
+}
+metadata/_editor_floor_ = Vector3(0, 8, 0)
+
+[node name="PropsGridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_2vnmm")
+cell_size = Vector3(0.2, 0.2, 0.2)
+data = {
+"cells": PackedInt32Array(196599, 65533, 655619, 131047, 152, 655513, 131059, 151, 655512, 65543, 157, 655551, 65562, 152, 1048788, 131047, 130, 218, 131068, 152, 231, 65674, 148, 170, 65678, 118, 1441964, 65671, 131, 1441963, 524234, 153, 1048666, 524237, 150, 1048663, 524235, 122, 1048678, 524234, 149, 1048687, 524235, 125, 1048819, 196530, 152, 1048669, 196530, 143, 1048682, 196530, 129, 1048652, 196552, 113, 73, 196535, 113, 73, 131113, 150, 655474, 131211, 140, 655529)
+}
+metadata/_editor_floor_ = Vector3(0, 2, 0)
+
+[node name="PropsGridMap2" type="GridMap" parent="."]
+mesh_library = ExtResource("2_7mxwi")
+cell_size = Vector3(0.5, 0.85, 0.5)
+data = {
+"cells": PackedInt32Array(65543, 60, 27, 65546, 60, 655399, 48, 50, 655360)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="forge_02" parent="." instance=ExtResource("3_qr1ks")]
+transform = Transform3D(-1.595, 0, -1.3943934e-07, 0, 1.595, 0, 1.3943934e-07, 0, -1.595, 22.47601, 0.42908072, 30.212942)
+
+[node name="StoreProps" type="Node3D" parent="."]
+
+[node name="axe_2handed2" parent="StoreProps" instance=ExtResource("3_7mxwi")]
+transform = Transform3D(0.033399407, 0, -0.9994421, 0, 1, 0, 0.9994421, 0, 0.033399407, -16.240917, 1.8422809, 29.427938)
+
+[node name="Skeleton_Crossbow2" parent="StoreProps" instance=ExtResource("4_33c4u")]
+transform = Transform3D(-0.0058992, 0.8504385, -0.52604145, 0, 0.5260506, 0.85045326, 0.9999826, 0.005016994, -0.0031032779, -15.576244, 3.763723, 27.103481)
+
+[node name="Skeleton_Shield_Small_A2" parent="StoreProps" instance=ExtResource("5_7sbsm")]
+transform = Transform3D(0.010698684, 0, 0.99994284, 0, 1, 0, -0.99994284, 0, 0.010698684, -16.027554, 2.9000304, 28.340464)
+
+[node name="StoreProps2" type="Node3D" parent="."]
+
+[node name="axe_2handed2" parent="StoreProps2" instance=ExtResource("3_7mxwi")]
+transform = Transform3D(0.033399407, 0, -0.9994421, 0, 1, 0, 0.9994421, 0, 0.033399407, -16.240917, 1.8422809, 29.427938)
+
+[node name="Skeleton_Crossbow2" parent="StoreProps2" instance=ExtResource("4_33c4u")]
+transform = Transform3D(-0.0058992, 0.8504385, -0.52604145, 0, 0.5260506, 0.85045326, 0.9999826, 0.005016994, -0.0031032779, -15.576244, 3.763723, 27.103481)
+
+[node name="Skeleton_Shield_Small_A2" parent="StoreProps2" instance=ExtResource("5_7sbsm")]
+transform = Transform3D(0.010698684, 0, 0.99994284, 0, 1, 0, -0.99994284, 0, 0.010698684, -16.027554, 2.9000304, 28.340464)
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="Celing Lights" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.527637, 6.1147842, 4.5397882)
+light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
+light_energy = 1.508
+light_indirect_energy = 1.437
+light_specular = 2.302
+shadow_enabled = true
+omni_range = 14.635
+omni_attenuation = 0.659
+
+[node name="Celing Lights2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4417467, 6.1147842, 4.2893915)
+light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
+light_energy = 1.508
+light_indirect_energy = 1.437
+light_specular = 2.302
+shadow_enabled = true
+omni_range = 14.635
+omni_attenuation = 0.659
+
+[node name="Celing Lights3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.306835, 6.1147842, 4.706723)
+light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
+light_energy = 1.508
+light_indirect_energy = 1.437
+light_specular = 2.302
+shadow_enabled = true
+omni_range = 14.635
+omni_attenuation = 0.659
+
+[node name="Celing Lights4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.306835, 6.1147842, 15.064116)
+light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
+light_energy = 1.508
+light_indirect_energy = 1.437
+light_specular = 2.302
+shadow_enabled = true
+omni_range = 14.635
+omni_attenuation = 0.659
+
+[node name="Celing Lights5" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.233143, 6.1147842, 15.314514)
+light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
+light_energy = 1.508
+light_indirect_energy = 1.437
+light_specular = 2.302
+shadow_enabled = true
+omni_range = 14.635
+omni_attenuation = 0.659
+
+[node name="Celing Lights6" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.386547, 6.1147842, 15.2310505)
+light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
+light_energy = 1.508
+light_indirect_energy = 1.437
+light_specular = 2.302
+shadow_enabled = true
+omni_range = 14.635
+omni_attenuation = 0.659
+
+[node name="Celing Lights7" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.386547, 6.1147842, 26.498959)
+light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
+light_energy = 1.508
+light_indirect_energy = 1.437
+light_specular = 2.302
+shadow_enabled = true
+omni_range = 14.635
+omni_attenuation = 0.659
+
+[node name="Celing Lights9" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.744684, 6.1147842, 26.498959)
+light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
+light_energy = 1.508
+light_indirect_energy = 1.437
+light_specular = 2.302
+shadow_enabled = true
+omni_range = 14.635
+omni_attenuation = 0.659
+
+[node name="Celing Lights10" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.253504, 6.1147842, 27.06831)
+light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
+light_energy = 1.508
+light_indirect_energy = 1.437
+light_specular = 2.302
+shadow_enabled = true
+omni_range = 14.635
+omni_attenuation = 0.659
+
+[node name="CandleLight" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.416103, 1.1538055, 6.5429716)
+light_color = Color(0.9260749, 0.5497381, 0, 1)
+light_energy = 1.508
+omni_range = 4.269876
+
+[node name="CandleLight2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.542456, 1.1538055, 10.438247)
+light_color = Color(0.9260749, 0.5497381, 0, 1)
+light_energy = 1.508
+shadow_enabled = true
+omni_range = 4.269876
+
+[node name="CandleLight4" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.639353, 2.7474484, 28.224354)
+light_color = Color(0.9260749, 0.5497381, 0, 1)
+light_energy = 1.508
+shadow_enabled = true
+omni_range = 1.2290161
+
+[node name="CandleLight5" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.036087, 1.7815747, 27.31689)
+light_color = Color(0.9260749, 0.5497381, 0, 1)
+light_energy = 1.508
+shadow_enabled = true
+omni_range = 1.2290161
+
+[node name="CandleLight6" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.493893, 1.7815747, 28.853046)
+light_color = Color(0.9260749, 0.5497381, 0, 1)
+light_energy = 1.508
+shadow_enabled = true
+omni_range = 1.2290161
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6918206, 1.6938338, 30.23678)
+light_color = Color(0.95562154, 0.5891244, 0, 1)
+light_energy = 1.508
+omni_range = 0.9761548
+
+[node name="Player" parent="." instance=ExtResource("2_62igp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85367537, 6.9746103)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_dx3ka")
+volume_db = -19.095
+autoplay = true

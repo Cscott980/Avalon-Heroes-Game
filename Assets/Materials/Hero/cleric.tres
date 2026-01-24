@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cwq8lgeufhntq"]
+
+[ext_resource type="Texture2D" uid="uid://ilgshgw832ds" path="res://Assets/PlayableCharacterBodies/Cleric_cleric_texture.png" id="1_t1chh"]
+
+[resource]
+resource_name = "cleric"
+albedo_texture = ExtResource("1_t1chh")
+roughness = 0.5

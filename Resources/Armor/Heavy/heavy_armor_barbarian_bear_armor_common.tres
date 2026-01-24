@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=10 format=3 uid="uid://cty400b0x2awl"]
+
+[ext_resource type="Resource" uid="uid://dfhs3gii54www" path="res://Resources/CharacterSheet/ArmorSlot.tres" id="1_ctinx"]
+[ext_resource type="Script" uid="uid://bccu0u1b1jjyl" path="res://Scripts/Resources/ArmorResource.gd" id="1_unwup"]
+[ext_resource type="Texture2D" uid="uid://cxxxd7t13ra1k" path="res://Assets/Icons/Armor/Heavy/BarbarianBearArmorCommon.png" id="2_tlnem"]
+[ext_resource type="ArrayMesh" uid="uid://b1fcy56i8ksls" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/The_Barbarian_Bear_ArmLeft.res" id="3_lyibb"]
+[ext_resource type="ArrayMesh" uid="uid://ctnhnt4dhcd6r" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/The_Barbarian_Bear_ArmRight.res" id="4_fjpfw"]
+[ext_resource type="ArrayMesh" uid="uid://d2tf34kixfh3q" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/The_Barbarian_Bear_Chest.res" id="5_cxtwl"]
+[ext_resource type="ArrayMesh" uid="uid://clybr6eiqnked" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/The_Barbarian_Bear_LegLeft.res" id="6_d8yt2"]
+[ext_resource type="ArrayMesh" uid="uid://da6unfb2082b5" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/The_Barbarian_Bear_LegRight.res" id="7_kaeds"]
+[ext_resource type="Skin" uid="uid://krk1ouqog26y" path="res://Resources/MeshSkins/WarriorSkin.tres" id="9_fjpfw"]
+
+[resource]
+script = ExtResource("1_unwup")
+armor_slot_type = ExtResource("1_ctinx")
+armor_type = 2
+mesh_arm_left = ExtResource("3_lyibb")
+mesh_arm_right = ExtResource("4_fjpfw")
+mesh_armor = ExtResource("5_cxtwl")
+mesh_leg_left = ExtResource("6_d8yt2")
+mesh_leg_right = ExtResource("7_kaeds")
+skin = ExtResource("9_fjpfw")
+allowed_classes = 3
+name = "Barbarian Bear Armor"
+id = "heavy_armor_barbarian_bear_armor_common"
+description = "A fearsome hide-and-iron armor that channels the strength of a fallen bear. Built for raw power and brutal combat."
+icon = ExtResource("2_tlnem")
+rarity = "Common"
+item_type = 1
+metadata/_custom_type_script = "uid://bccu0u1b1jjyl"

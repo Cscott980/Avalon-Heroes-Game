@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HeadData" load_steps=3 format=3 uid="uid://ccubrgyt7851u"]
+
+[ext_resource type="ArrayMesh" uid="uid://gpxn2qv64ax2" path="res://Assets/Characters/Character Hero Meshes/Heads/Male_Head_3.res" id="1_v47ef"]
+[ext_resource type="Script" uid="uid://d1m0832qarn13" path="res://Scripts/Resources/CharacterHeadResource.gd" id="2_se77b"]
+
+[resource]
+script = ExtResource("2_se77b")
+id = "Male_Head_3"
+display_name = "3"
+head_mesh = ExtResource("1_v47ef")
+metadata/_custom_type_script = "uid://d1m0832qarn13"

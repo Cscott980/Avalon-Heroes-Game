@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d4dsa40dwdmmt"]
+
+[ext_resource type="Texture2D" uid="uid://c7gg3e7jeqewt" path="res://Assets/PlayableCharacterBodies/Ranger_ranger_texture.png" id="1_pu82f"]
+
+[resource]
+resource_name = "ranger"
+cull_mode = 2
+albedo_texture = ExtResource("1_pu82f")
+roughness = 0.5

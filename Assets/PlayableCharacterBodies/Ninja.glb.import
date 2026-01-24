@@ -1,0 +1,124 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://b1qaipupbiqbh"
+path="res://.godot/imported/Ninja.glb-74af58e5487efec94a167ca3bbb4a9a8.scn"
+
+[deps]
+
+source_file="res://Assets/PlayableCharacterBodies/Ninja.glb"
+dest_files=["res://.godot/imported/Ninja.glb-74af58e5487efec94a167ca3bbb4a9a8.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"ninja": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Hero/ninja.tres",
+"use_external/path": "uid://dxhftt1gm4tcb"
+}
+},
+"meshes": {
+"Ninja_Ninja_ArmLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Ninja_Ninja_ArmLeft.res",
+"save_to_file/path": "uid://bivjlask1jau1"
+},
+"Ninja_Ninja_ArmRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Ninja_Ninja_ArmRight.res",
+"save_to_file/path": "uid://c1i0gr1stqgcl"
+},
+"Ninja_Ninja_Chest": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Ninja_Ninja_Chest.res",
+"save_to_file/path": "uid://c5lmul2af6sr1"
+},
+"Ninja_Ninja_Head": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/Heads/HeadSource/Ninja_Ninja_Head.res",
+"save_to_file/path": "uid://d00n64xc4fqky"
+},
+"Ninja_Ninja_Headband": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Ninja_Ninja_Headband.res",
+"save_to_file/path": "uid://c2k30bosn5gle"
+},
+"Ninja_Ninja_LegLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Ninja_Ninja_LegLeft.res",
+"save_to_file/path": "uid://cb14nhvm1tpwu"
+},
+"Ninja_Ninja_LegRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Ninja_Ninja_LegRight.res",
+"save_to_file/path": "uid://371okikdsnn"
+},
+"Ninja_Ninja_Mask": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Ninja_Ninja_Mask.res",
+"save_to_file/path": "uid://bx473r406cp1v"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

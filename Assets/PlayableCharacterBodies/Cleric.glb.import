@@ -1,0 +1,120 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://duts8kaeoxnq5"
+path="res://.godot/imported/Cleric.glb-8fe45b0f1c0fa4088a30cc9c8499ff2a.scn"
+
+[deps]
+
+source_file="res://Assets/PlayableCharacterBodies/Cleric.glb"
+dest_files=["res://.godot/imported/Cleric.glb-8fe45b0f1c0fa4088a30cc9c8499ff2a.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"cleric": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Hero/cleric.tres",
+"use_external/path": "uid://cwq8lgeufhntq"
+},
+"glass": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Misc/glass.tres",
+"use_external/path": "uid://brg53tbg2jsoi"
+}
+},
+"meshes": {
+"Cleric_Cleric_ArmLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Cleric_Cleric_ArmLeft.res",
+"save_to_file/path": "uid://cn8bivuaepa8r"
+},
+"Cleric_Cleric_ArmRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Cleric_Cleric_ArmRight.res",
+"save_to_file/path": "uid://cvkyamiopqgww"
+},
+"Cleric_Cleric_Body": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Cleric_Cleric_Body.res",
+"save_to_file/path": "uid://utcxqga4khwu"
+},
+"Cleric_Cleric_Head": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/HeavyArmor/Cleric_Cleric_Head.res",
+"save_to_file/path": "uid://bvnejggdbk6br"
+},
+"Cleric_Cleric_HolyWater": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Items/Consumables/Cleric_Cleric_HolyWater.res",
+"save_to_file/path": "uid://clspr2uf2lgx1"
+},
+"Cleric_Cleric_LegLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Cleric_Cleric_LegLeft.res",
+"save_to_file/path": "uid://csux7buc77ydl"
+},
+"Cleric_Cleric_LegRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Cleric_Cleric_LegRight.res",
+"save_to_file/path": "uid://dwifmes6b4dln"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

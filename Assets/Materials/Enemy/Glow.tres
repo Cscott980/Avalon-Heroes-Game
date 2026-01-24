@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c5pg1sy7vogdv"]
+
+[resource]
+resource_name = "Glow"
+metallic = 1.0
+emission_enabled = true
+emission = Color(0.7176021, 1, 1, 1)

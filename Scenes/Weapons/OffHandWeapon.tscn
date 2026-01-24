@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfv5odlic646l"]
+
+[ext_resource type="Script" uid="uid://3om3gcr1t84c" path="res://Scripts/Weapons/init_weapon.gd" id="1_vli2i"]
+[ext_resource type="AudioStream" uid="uid://ea1n1dfai36d" path="res://Assets/Audio/SFX/MeleeSwingSound1.mp3" id="2_vli2i"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qv81b"]
+
+[node name="OffHandWeapon" type="Node3D"]
+script = ExtResource("1_vli2i")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+
+[node name="HitBox" type="Area3D" parent="mesh"]
+unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mesh/HitBox"]
+unique_name_in_owner = true
+shape = SubResource("CapsuleShape3D_qv81b")
+
+[node name="PositionOverrides" type="Node3D" parent="."]
+
+[node name="BackSheath" type="Node3D" parent="PositionOverrides"]
+unique_name_in_owner = true
+transform = Transform3D(0.79644537, 0.60471046, 1.509958e-07, 0.60471046, -0.79644537, 5.2865467e-08, 1.5222821e-07, 4.9204285e-08, -1, -0.17888482, 0.68746275, -0.42570236)
+
+[node name="RightHipSheath" type="Node3D" parent="PositionOverrides"]
+unique_name_in_owner = true
+transform = Transform3D(-3.388277e-08, 5.103928e-08, -1, 0.9819587, -0.18909545, -4.292278e-08, -0.18909545, -0.9819587, -4.371139e-08, -0.4126867, 0.2205565, 0.08834767)
+
+[node name="LeftHipSheath" type="Node3D" parent="PositionOverrides"]
+unique_name_in_owner = true
+transform = Transform3D(-3.388277e-08, 5.103928e-08, -1, 0.9819587, -0.18909545, -4.292278e-08, -0.18909545, -0.9819587, -4.371139e-08, 0.41839337, 0.2205565, 0.08834767)
+
+[node name="MeleeHitSound1" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_vli2i")
+
+[connection signal="body_entered" from="mesh/HitBox" to="." method="_on_hit_box_body_entered"]

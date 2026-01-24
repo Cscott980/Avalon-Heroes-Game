@@ -1,0 +1,66 @@
+[gd_scene load_steps=13 format=3 uid="uid://b5b6ea8b5673k"]
+
+[ext_resource type="PackedScene" uid="uid://djsr5sg6v6q8f" path="res://Scenes/Classes/warrior.tscn" id="1_uvnfx"]
+[ext_resource type="Script" uid="uid://3t0iviceiewt" path="res://Scenes/Player/player.gd" id="1_xpcdj"]
+[ext_resource type="Script" uid="uid://b580uwxkgp4uh" path="res://Scenes/Player/PlayerStateMachine.gd" id="3_mtuoh"]
+[ext_resource type="Script" uid="uid://gmxqpvp6k64h" path="res://Scenes/Player/idle_state.gd" id="4_jhyir"]
+[ext_resource type="Script" uid="uid://dafyqlgontsvn" path="res://Scenes/Player/move_state.gd" id="5_74mp2"]
+[ext_resource type="Script" uid="uid://u2hnr5wjn80c" path="res://Scenes/Player/attack_state.gd" id="6_oikmp"]
+[ext_resource type="Script" uid="uid://b6avg5il8illu" path="res://Scenes/Player/ability_state.gd" id="7_06tpx"]
+[ext_resource type="Script" uid="uid://bue0cq67j75dn" path="res://Scenes/Player/hurt_state.gd" id="8_7g0yx"]
+[ext_resource type="Script" uid="uid://dx5w0cryq4a7e" path="res://Scenes/Player/dead_state.gd" id="9_dey5f"]
+[ext_resource type="Script" uid="uid://cfkks6y7tg4h3" path="res://Scenes/Player/quiz_state.gd" id="10_r5xpd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a3d8c"]
+radius = 0.7084961
+height = 2.7214355
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xpcdj"]
+radius = 1.0976563
+height = 2.842041
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_xpcdj")
+
+[node name="PlayerClass" type="Node3D" parent="."]
+
+[node name="Warrior" parent="PlayerClass" instance=ExtResource("1_uvnfx")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1798096, 0)
+shape = SubResource("CapsuleShape3D_a3d8c")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, -2.6758523e-16, -8.742278e-08, -4.1601865e-08, 0.8795157, 0.4758699, 7.6889705e-08, 0.4758699, -0.8795157, 0, 4.329996, -3.1886199)
+
+[node name="HurtBox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2161865, 0)
+shape = SubResource("CapsuleShape3D_xpcdj")
+debug_color = Color(0.9282087, 0.2686967, 0, 0.41960785)
+
+[node name="StateMachine" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_mtuoh")
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("4_jhyir")
+
+[node name="MoveState" type="Node" parent="StateMachine"]
+script = ExtResource("5_74mp2")
+
+[node name="AttackState" type="Node" parent="StateMachine"]
+script = ExtResource("6_oikmp")
+
+[node name="AbilityState" type="Node" parent="StateMachine"]
+script = ExtResource("7_06tpx")
+
+[node name="HurtState" type="Node" parent="StateMachine"]
+script = ExtResource("8_7g0yx")
+
+[node name="DeadState" type="Node" parent="StateMachine"]
+script = ExtResource("9_dey5f")
+
+[node name="QuizState" type="Node" parent="StateMachine"]
+script = ExtResource("10_r5xpd")

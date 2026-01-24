@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=5 format=3 uid="uid://b7cnlw8hglnd6"]
+
+[ext_resource type="Shape3D" uid="uid://cohnvx0fx8y36" path="res://Assets/CollissionShape/Avalonian_Sword_Collision.tres" id="1_ud53f"]
+[ext_resource type="Script" uid="uid://c50kbrwa28ffs" path="res://Scripts/Resources/WeaponResource.gd" id="1_w3odh"]
+[ext_resource type="Texture2D" uid="uid://kvpeki0wbrco" path="res://Assets/Icons/Weapons/Swords/Avalonian_Sword_Common.png" id="2_x4qt2"]
+[ext_resource type="ArrayMesh" uid="uid://bvr031t5xx0fe" path="res://Assets/WeaponMeshes/Swords/sword_1handed_sword_1handed.res" id="3_4fwxc"]
+
+[resource]
+script = ExtResource("1_w3odh")
+weapon_type = "Sword"
+mesh = ExtResource("3_4fwxc")
+collision_shape = ExtResource("1_ud53f")
+can_be_equippable = 3
+damage = 8
+scale_on_stat = 1
+scale_percentage = 0.2
+weapon_speed = 1.0
+allowed_classes = 19
+name = "Avalonian Sword"
+description = "A finely balanced blade forged in Avalon’s ancient forges, glowing faintly with shard-light and trusted by heroes of the realm."
+icon = ExtResource("2_x4qt2")
+rarity = "Common"
+item_type = 0
+metadata/_custom_type_script = "uid://c50kbrwa28ffs"

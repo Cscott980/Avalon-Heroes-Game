@@ -1,0 +1,183 @@
+[gd_scene load_steps=15 format=3 uid="uid://b38xjcf16nbxd"]
+
+[ext_resource type="Shader" uid="uid://cmeh5wjymyla2" path="res://Assets/Shaders/ArcaneShader.tres" id="1_00eoe"]
+[ext_resource type="ArrayMesh" uid="uid://cgf1e6l1m2mmk" path="res://Assets/Misc/staticmeshdome.obj" id="2_2nwl5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_37lk6"]
+render_priority = 0
+shader = ExtResource("1_00eoe")
+
+[sub_resource type="Curve" id="Curve_00eoe"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2nwl5"]
+curve = SubResource("Curve_00eoe")
+
+[sub_resource type="Curve" id="Curve_wiv4e"]
+_data = [Vector2(0, 0.0836066), 0.0, 2.7766693, 0, 0, Vector2(0.25806448, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_tsuid"]
+curve = SubResource("Curve_wiv4e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fdfbt"]
+gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_tsuid")
+color = Color(1.4900565, 0.8554135, 1.1024846, 1)
+alpha_curve = SubResource("CurveTexture_2nwl5")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tvclc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_00eoe"]
+radius = 4.029333
+
+[sub_resource type="Animation" id="Animation_2nwl5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.314]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area3D/CollisionShape3D:shape:radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.029333]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area3D:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_37lk6"]
+_data = {
+&"RESET": SubResource("Animation_2nwl5")
+}
+
+[sub_resource type="Animation" id="Animation_wiv4e"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.13333334, 0.23333333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [3.314, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area3D/CollisionShape3D:shape:radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.001, 4.029333, 4.029333]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area3D:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tsuid"]
+_data = {
+&"Unstable_Arcane": SubResource("Animation_wiv4e")
+}
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021811366, 0)
+material_override = SubResource("ShaderMaterial_37lk6")
+cast_shadow = 0
+amount = 1
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_fdfbt")
+draw_pass_1 = ExtResource("2_2nwl5")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.105, 0, 0, 0, 7.105, 0, 0, 0, 7.105, 0, 0, 0)
+mesh = SubResource("PlaneMesh_tvclc")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.126852, 0)
+light_color = Color(1, 0, 1, 1)
+light_energy = 3.314
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+omni_range = 8.228987
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_00eoe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_37lk6"),
+&"MageAbilities": SubResource("AnimationLibrary_tsuid")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

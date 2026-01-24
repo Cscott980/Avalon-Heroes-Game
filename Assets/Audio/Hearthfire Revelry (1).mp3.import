@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ds5e6y352ww7c"
+path="res://.godot/imported/Hearthfire Revelry (1).mp3-e279f8729606da313ab75c0faaf7d035.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Hearthfire Revelry (1).mp3"
+dest_files=["res://.godot/imported/Hearthfire Revelry (1).mp3-e279f8729606da313ab75c0faaf7d035.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

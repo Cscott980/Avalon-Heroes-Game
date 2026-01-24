@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="AbilityResource" load_steps=6 format=3 uid="uid://dxw84vkrvq8lb"]
+
+[ext_resource type="Texture2D" uid="uid://lmgi15iuxr7s" path="res://Assets/GUI/UI/Icons/WarriorAbilities/EarthShatterIcon.png" id="1_hw6hb"]
+[ext_resource type="Script" uid="uid://bnvu7uffua2aj" path="res://Scripts/Resources/AbilityResource.gd" id="1_qxi3j"]
+[ext_resource type="Texture2D" uid="uid://0qwo6yvojd25" path="res://Assets/GUI/UI/Icons/WarriorAbilities/EarthShatterLocked.png" id="2_iaxmj"]
+[ext_resource type="Texture2D" uid="uid://dbgjwpxipjdwv" path="res://Assets/GUI/UI/Icons/WarriorAbilities/EarthShatterIconPressed.png" id="3_5vm5c"]
+[ext_resource type="PackedScene" uid="uid://cagx6o6yd0qag" path="res://Scenes/Abilities/Warrior/EarthShatter.tscn" id="4_je2g3"]
+
+[resource]
+script = ExtResource("1_qxi3j")
+display_name = "Earth Shatter"
+description = "Ultimate Ability
+
+The Warrior leaps to a targeted location, crashing down with overwhelming force.
+Upon landing, the ground erupts outward, dealing massive damage to all enemies in the impact zone and briefly staggering them.
+
+Unlocks at: Level 30
+
+Cooldown: 60 seconds"
+active_icon = ExtResource("1_hw6hb")
+pressed_icon = ExtResource("3_5vm5c")
+disabled_icon = ExtResource("2_iaxmj")
+scene = ExtResource("4_je2g3")
+base_damage = 50
+metadata/_custom_type_script = "uid://bnvu7uffua2aj"

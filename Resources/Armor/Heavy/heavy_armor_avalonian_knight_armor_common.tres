@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=10 format=3 uid="uid://bscx7ayylksqy"]
+
+[ext_resource type="Script" uid="uid://bccu0u1b1jjyl" path="res://Scripts/Resources/ArmorResource.gd" id="1_1fbar"]
+[ext_resource type="Resource" uid="uid://dfhs3gii54www" path="res://Resources/CharacterSheet/ArmorSlot.tres" id="1_eaqua"]
+[ext_resource type="Texture2D" uid="uid://bvbem61xxioug" path="res://Assets/Icons/Armor/Heavy/AvalonianKnightArmorCommon.png" id="2_qjarb"]
+[ext_resource type="ArrayMesh" uid="uid://bulcvp4m6swut" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/Avalonian_Knight_ArmLeft.res" id="3_h37km"]
+[ext_resource type="ArrayMesh" uid="uid://6ynxeql1d4ar" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/Avalonian_Knight_ArmRight.res" id="4_cjrg2"]
+[ext_resource type="ArrayMesh" uid="uid://cxwj8hdwjyyx2" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/Avalonian_Knight_Body.res" id="5_32i1j"]
+[ext_resource type="ArrayMesh" uid="uid://udqqu3pgjbo4" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/Avalonian_Knight_LegLeft.res" id="6_htl5l"]
+[ext_resource type="ArrayMesh" uid="uid://bd05ih1h4t67t" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/Avalonian_Knight_LegRight.res" id="7_3385m"]
+[ext_resource type="Skin" uid="uid://damgsnleqv3s2" path="res://Resources/MeshSkins/KnightSkin.tres" id="9_qggvh"]
+
+[resource]
+script = ExtResource("1_1fbar")
+armor_slot_type = ExtResource("1_eaqua")
+armor_type = 2
+mesh_arm_left = ExtResource("3_h37km")
+mesh_arm_right = ExtResource("4_cjrg2")
+mesh_armor = ExtResource("5_32i1j")
+mesh_leg_left = ExtResource("6_htl5l")
+mesh_leg_right = ExtResource("7_3385m")
+skin = ExtResource("9_qggvh")
+allowed_classes = 3
+name = "Avalonian Knight Armor"
+id = "heavy_armor_avalonian_knight_armor_common"
+description = "Forged in the heart of Avalon, this armor bears the marks of countless battles. It stands as a symbol of duty, honor, and unbreakable resolve."
+icon = ExtResource("2_qjarb")
+rarity = "Common"
+item_type = 1
+metadata/_custom_type_script = "uid://bccu0u1b1jjyl"

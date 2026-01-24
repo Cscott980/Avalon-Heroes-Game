@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsfqbvjoatwoe"]
+
+[ext_resource type="PackedScene" uid="uid://depbn5gmyncox" path="res://Assets/ModelWeapons/Axes/Orc_Axe.gltf.glb" id="1_im8tt"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ciqpr"]
+points = PackedVector3Array(-0.63784224, 0.80375063, -2.4452806e-05, -0.33440262, 0.8082025, 0.09048848, -0.23825097, 1.0494959, 0.07690641, -0.29781505, 1.1980413, -2.4452806e-05, -0.23825097, 1.0494959, -0.07692971, -0.33440262, 0.8082025, -0.09051178, -0.027966082, -0.29794827, -0.070061795, -0.08066219, -0.28845087, -0.024267167, -0.08066219, -0.28845087, 0.024218246, -0.027966082, -0.29794827, 0.0700385, -0.042825878, 1.0247136, 0.13090153, -0.28707603, 0.7325201, 0.09520377, -0.042825878, 0.5801164, 0.13090153, 0.29770082, 1.1980413, -2.4452806e-05, -0.042825878, 1.0247136, -0.1308992, -0.042825878, 0.5801164, -0.1308992, -0.28707603, 0.7325201, -0.09522706, 0.02785182, -0.30818766, -0.070061795, -0.00011956692, -0.31798187, -2.4452806e-05, 0.02785182, -0.30818766, 0.0700385, 0.042586744, 1.0247136, 0.13090153, 0.042586744, 0.5801164, 0.13090153, 0.63772804, 0.80375063, -2.4452806e-05, 0.23813671, 1.0494959, -0.07692971, 0.042586744, 1.0247136, -0.1308992, 0.23813671, 1.0494959, 0.07690641, 0.042586744, 0.5801164, -0.1308992, 0.08054793, -0.31768507, -0.024267167, 0.2869618, 0.7325201, -0.09522706, 0.33428836, 0.8082025, -0.09051178, 0.08054793, -0.31768507, 0.024218246, 0.33428836, 0.8082025, 0.09048848, 0.2869618, 0.7325201, 0.09520377)
+
+[node name="Axe of The Barbarian" groups=["1_handed_weapon", "enemy_weapon"] instance=ExtResource("1_im8tt")]
+
+[node name="HitBox" type="Area3D" parent="." index="1"]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox" index="0"]
+shape = SubResource("ConvexPolygonShape3D_ciqpr")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_exited" from="HitBox" to="." method="_on_hit_box_body_exited"]

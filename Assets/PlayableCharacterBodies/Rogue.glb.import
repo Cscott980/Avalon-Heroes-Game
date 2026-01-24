@@ -1,0 +1,115 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dvc0f32nmtrrs"
+path="res://.godot/imported/Rogue.glb-be4ee74c40a10672cdd75fd021e68e3c.scn"
+
+[deps]
+
+source_file="res://Assets/PlayableCharacterBodies/Rogue.glb"
+dest_files=["res://.godot/imported/Rogue.glb-be4ee74c40a10672cdd75fd021e68e3c.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"rogue": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Hero/rogue.tres",
+"use_external/path": "uid://blpaayotac37g"
+}
+},
+"meshes": {
+"Rogue_Rogue_ArmLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Rogue_Rogue_ArmLeft.res",
+"save_to_file/path": "uid://fam1c1jkvj5x"
+},
+"Rogue_Rogue_ArmRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Rogue_Rogue_ArmRight.res",
+"save_to_file/path": "uid://c5p6fqn7jouhg"
+},
+"Rogue_Rogue_Body": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Rogue_Rogue_Body.res",
+"save_to_file/path": "uid://1witeisggud"
+},
+"Rogue_Rogue_Cape": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/Back/Rogue_Rogue_Cape.res",
+"save_to_file/path": "uid://cbdoawkfnmwsq"
+},
+"Rogue_Rogue_Head": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/Heads/HeadSource/Rogue_Rogue_Head.res",
+"save_to_file/path": "uid://dgieux8kcg0s1"
+},
+"Rogue_Rogue_LegLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Rogue_Rogue_LegLeft.res",
+"save_to_file/path": "uid://brboay7grqnbf"
+},
+"Rogue_Rogue_LegRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/Rogue_Rogue_LegRight.res",
+"save_to_file/path": "uid://ba4bd5rp3uk7t"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

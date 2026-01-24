@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://vxcvim6lyhsk"]
+
+[ext_resource type="PackedScene" uid="uid://dka8xugayb1cd" path="res://Scenes/UserInterface/Assets/HealthBar.tscn" id="1_f1vrq"]
+
+[node name="PlayerHelath" type="Sprite3D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(312, 47)
+
+[node name="Panel" type="Panel" parent="SubViewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" parent="SubViewport/Panel" instance=ExtResource("1_f1vrq")]
+layout_mode = 0
+value = 100.0

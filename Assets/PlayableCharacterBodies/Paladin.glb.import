@@ -1,0 +1,120 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bwxi355dp87ui"
+path="res://.godot/imported/Paladin.glb-eda75061c413960647766186bb9ab1b0.scn"
+
+[deps]
+
+source_file="res://Assets/PlayableCharacterBodies/Paladin.glb"
+dest_files=["res://.godot/imported/Paladin.glb-eda75061c413960647766186bb9ab1b0.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"paladin": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Hero/paladin.tres",
+"use_external/path": "uid://dcmjxu3emukky"
+},
+"paladin_metallic": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Hero/paladin_metallic.tres",
+"use_external/path": "uid://cx3gvo71dotq2"
+}
+},
+"meshes": {
+"Paladin_Paladin_ArmLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Paladin_Paladin_ArmLeft.res",
+"save_to_file/path": "uid://jgrxk5oo4yr2"
+},
+"Paladin_Paladin_ArmRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Paladin_Paladin_ArmRight.res",
+"save_to_file/path": "uid://d3yhijiyxa6e4"
+},
+"Paladin_Paladin_Body": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Paladin_Paladin_Body.res",
+"save_to_file/path": "uid://f2irqua4srfq"
+},
+"Paladin_Paladin_Cape": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Paladin_Paladin_Cape.res",
+"save_to_file/path": "uid://c0pdbgq1l38hk"
+},
+"Paladin_Paladin_Head": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/Heads/HeadSource/Paladin_Paladin_Head.res",
+"save_to_file/path": "uid://da8u2usyfx4w7"
+},
+"Paladin_Paladin_LegLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Paladin_Paladin_LegLeft.res",
+"save_to_file/path": "uid://ctt4i4xmqof7n"
+},
+"Paladin_Paladin_LegRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Paladin_Paladin_LegRight.res",
+"save_to_file/path": "uid://daoiew55cvy0s"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
