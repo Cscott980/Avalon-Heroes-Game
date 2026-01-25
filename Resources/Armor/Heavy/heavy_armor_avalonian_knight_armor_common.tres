@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="ArmorResource" load_steps=10 format=3 uid="uid://bscx7ayylksqy"]
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=11 format=3 uid="uid://bscx7ayylksqy"]
 
 [ext_resource type="Script" uid="uid://bccu0u1b1jjyl" path="res://Scripts/Resources/ArmorResource.gd" id="1_1fbar"]
 [ext_resource type="Resource" uid="uid://dfhs3gii54www" path="res://Resources/CharacterSheet/ArmorSlot.tres" id="1_eaqua"]
 [ext_resource type="Texture2D" uid="uid://bvbem61xxioug" path="res://Assets/Icons/Armor/Heavy/AvalonianKnightArmorCommon.png" id="2_qjarb"]
 [ext_resource type="ArrayMesh" uid="uid://bulcvp4m6swut" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/Avalonian_Knight_ArmLeft.res" id="3_h37km"]
+[ext_resource type="StyleBox" uid="uid://d2hluo0relbhx" path="res://Resources/ItemPanels/CommonPanel.tres" id="3_qjarb"]
 [ext_resource type="ArrayMesh" uid="uid://6ynxeql1d4ar" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/Avalonian_Knight_ArmRight.res" id="4_cjrg2"]
 [ext_resource type="ArrayMesh" uid="uid://cxwj8hdwjyyx2" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/Avalonian_Knight_Body.res" id="5_32i1j"]
 [ext_resource type="ArrayMesh" uid="uid://udqqu3pgjbo4" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/Avalonian_Knight_LegLeft.res" id="6_htl5l"]
@@ -26,5 +27,7 @@ id = "heavy_armor_avalonian_knight_armor_common"
 description = "Forged in the heart of Avalon, this armor bears the marks of countless battles. It stands as a symbol of duty, honor, and unbreakable resolve."
 icon = ExtResource("2_qjarb")
 rarity = "Common"
-item_type = 1
+item_type = "Armor"
+item_panel = ExtResource("3_qjarb")
+sell_price = 2
 metadata/_custom_type_script = "uid://bccu0u1b1jjyl"

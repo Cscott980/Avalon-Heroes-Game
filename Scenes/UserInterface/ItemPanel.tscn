@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://days71eyd4igm"]
 
-[ext_resource type="StyleBox" uid="uid://d1xcarb8osooi" path="res://Resources/ItemPanels/ChromaPanel.tres" id="1_h6je7"]
+[ext_resource type="StyleBox" uid="uid://d2hluo0relbhx" path="res://Resources/ItemPanels/CommonPanel.tres" id="1_h6je7"]
 [ext_resource type="Script" uid="uid://cqak41i6rt4jr" path="res://Scenes/UserInterface/ItemPanel.gd" id="2_d0vok"]
 [ext_resource type="Texture2D" uid="uid://bj47ar0qvkdnk" path="res://Assets/GUI/gold.png" id="3_h6je7"]
 
@@ -131,14 +131,15 @@ texture_filter = 1
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/font_color = Color(1, 0, 0.21960784, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
-text = "Avalonina Light's Champion helm"
+text = "Avalonian Axe"
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="ArmorType" type="HBoxContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="Category" type="Label" parent="VBoxContainer/ArmorType"]
@@ -158,7 +159,6 @@ vertical_alignment = 1
 
 [node name="WeaponType" type="HBoxContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="Category" type="Label" parent="VBoxContainer/WeaponType"]
@@ -173,6 +173,7 @@ texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_qbrqb")
 theme_override_font_sizes/font_size = 15
+text = "Axe"
 vertical_alignment = 1
 
 [node name="ClassArmor" type="HBoxContainer" parent="VBoxContainer"]
@@ -207,7 +208,6 @@ autowrap_mode = 3
 
 [node name="Properties" type="VBoxContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -217,14 +217,12 @@ layout_mode = 2
 
 [node name="ArmorValue" type="Label" parent="VBoxContainer/Properties/Armor"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = SubResource("FontFile_d0vok")
 text = "+150"
 vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="Category" type="Label" parent="VBoxContainer/Properties/Armor"]
 layout_mode = 2
@@ -238,14 +236,13 @@ visible = false
 layout_mode = 2
 
 [node name="DamageValue" type="Label" parent="VBoxContainer/Properties/Damage"]
-custom_minimum_size = Vector2(50, 0)
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = SubResource("FontFile_d0vok")
-text = "+150"
+text = "+8"
 vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="Category" type="Label" parent="VBoxContainer/Properties/Damage"]
 layout_mode = 2
@@ -260,14 +257,12 @@ layout_mode = 2
 
 [node name="StrengthValue" type="Label" parent="VBoxContainer/Properties/Strength"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = SubResource("FontFile_d0vok")
-text = "+30%"
+text = "+2"
 vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="Category" type="Label" parent="VBoxContainer/Properties/Strength"]
 layout_mode = 2
@@ -282,14 +277,12 @@ layout_mode = 2
 
 [node name="IntellectValue" type="Label" parent="VBoxContainer/Properties/Intellect"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = SubResource("FontFile_d0vok")
-text = "+20%"
+text = "+5"
 vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="Category" type="Label" parent="VBoxContainer/Properties/Intellect"]
 layout_mode = 2
@@ -304,14 +297,12 @@ layout_mode = 2
 
 [node name="DexterityValue" type="Label" parent="VBoxContainer/Properties/Dexterity"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = SubResource("FontFile_d0vok")
-text = "+5%"
+text = "+5"
 vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="Category" type="Label" parent="VBoxContainer/Properties/Dexterity"]
 layout_mode = 2
@@ -326,14 +317,12 @@ layout_mode = 2
 
 [node name="WisdomValue" type="Label" parent="VBoxContainer/Properties/Wisdom"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = SubResource("FontFile_d0vok")
-text = "+50%"
+text = "+5"
 vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="Category" type="Label" parent="VBoxContainer/Properties/Wisdom"]
 layout_mode = 2
@@ -348,14 +337,12 @@ layout_mode = 2
 
 [node name="VitalityValue" type="Label" parent="VBoxContainer/Properties/Vitality"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_fonts/font = SubResource("FontFile_d0vok")
-text = "+25"
+text = "+2"
 vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="Category" type="Label" parent="VBoxContainer/Properties/Vitality"]
 layout_mode = 2
@@ -390,7 +377,7 @@ text = "Sell Price: "
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_40obu")
-text = "0"
+text = "2"
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarketData"]
 custom_minimum_size = Vector2(20, 25)

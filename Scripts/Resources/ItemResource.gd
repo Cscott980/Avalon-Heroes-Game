@@ -20,9 +20,12 @@ class_name ItemResource extends Resource
 	"Consumable",
 	"Quest",
 	"Material"
-) var item_type
+) var item_type: String = "Weapon"
 
 @export var item_panel: StyleBox
 @export var name_color: Color = Color.WHITE
+
 @export var stackable: bool
 @export var max_stack: int
+
+@export var sell_price: int = 0

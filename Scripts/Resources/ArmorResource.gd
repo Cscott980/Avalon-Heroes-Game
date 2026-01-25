@@ -36,3 +36,6 @@ enum ArmorType {Light, Medium, Heavy}
 	"druid",
 	"engineer"
 ) var allowed_classes = 0
+
+func get_item_kind() -> String:
+	return "armor"

@@ -1,5 +1,6 @@
 class_name ItemPanel extends PanelContainer
 
+@export var item_data: ItemResource
 
 #---- SWITCHES --- 
 @onready var armor_type: HBoxContainer = %ArmorType
@@ -23,6 +24,9 @@ class_name ItemPanel extends PanelContainer
 
 func _ready() -> void:
 	pass
+
+func set_item(i: ItemResource) -> void:
+	if
 
 func get_armor_data() -> void:
 	pass

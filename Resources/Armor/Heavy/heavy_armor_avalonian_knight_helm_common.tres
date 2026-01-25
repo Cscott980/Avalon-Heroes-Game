@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="ArmorResource" load_steps=7 format=3 uid="uid://dcoije2jyvwqc"]
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=8 format=3 uid="uid://dcoije2jyvwqc"]
 
 [ext_resource type="Resource" uid="uid://cmy6g7nguvjj5" path="res://Resources/CharacterSheet/HelmSlot.tres" id="1_j8sw0"]
 [ext_resource type="Script" uid="uid://bccu0u1b1jjyl" path="res://Scripts/Resources/ArmorResource.gd" id="1_nvw50"]
 [ext_resource type="Texture2D" uid="uid://no3rcxlwdk1w" path="res://Assets/Icons/Armor/Heavy/AvalonianKnightHelmCommon.png" id="2_r65se"]
 [ext_resource type="ArrayMesh" uid="uid://b7qqqq80miu6m" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/Avalonian_Knight_Helmet.res" id="3_hwavl"]
+[ext_resource type="StyleBox" uid="uid://d2hluo0relbhx" path="res://Resources/ItemPanels/CommonPanel.tres" id="3_r65se"]
 [ext_resource type="ArrayMesh" uid="uid://cs7jveucxr0nq" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/Avalonian_Knight_HelmetVisor.res" id="4_u5ntn"]
 [ext_resource type="Skin" uid="uid://damgsnleqv3s2" path="res://Resources/MeshSkins/KnightSkin.tres" id="6_lik8x"]
 
@@ -20,5 +21,7 @@ id = "heavy_armor_avalonian_knight_helm_common"
 description = "Helm worn by the sworn defenders of Avalon. Balanced, durable, and battle-tested."
 icon = ExtResource("2_r65se")
 rarity = "Common"
-item_type = 1
+item_type = "Armor"
+item_panel = ExtResource("3_r65se")
+sell_price = 2
 metadata/_custom_type_script = "uid://bccu0u1b1jjyl"
