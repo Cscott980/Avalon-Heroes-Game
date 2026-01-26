@@ -1,11 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://cagx6o6yd0qag"]
+[gd_scene load_steps=21 format=3 uid="uid://cagx6o6yd0qag"]
 
 [ext_resource type="PackedScene" uid="uid://1tw3mpkdl21d" path="res://Scenes/Abilities/Others/spike.tscn" id="1_vpd8b"]
 [ext_resource type="Texture2D" uid="uid://c62kbyu2j5uff" path="res://Assets/Textures/Misc/EarthShatterEffetc.png" id="2_yyqnm"]
 [ext_resource type="ArrayMesh" uid="uid://c2w8n23c8tw4s" path="res://Assets/Misc/staticmeshdebrione.obj" id="3_vpd8b"]
-[ext_resource type="Texture2D" uid="uid://ukbtxh5nurc4" path="res://Assets/Textures/Misc/T_LiquidVertical_Wave.png" id="4_bpudd"]
 [ext_resource type="Shader" uid="uid://vdrcy18tp278" path="res://Assets/Shaders/rising_earth.tres" id="4_eoveu"]
 [ext_resource type="ArrayMesh" uid="uid://cgf1e6l1m2mmk" path="res://Assets/Misc/staticmeshdome.obj" id="5_eoveu"]
+[ext_resource type="Texture2D" uid="uid://dpi77r0pavrnr" path="res://Assets/Textures/Misc/T_VFX_WindNoise1.png" id="5_ficti"]
 [ext_resource type="AudioStream" uid="uid://bw5ilhlg63vqm" path="res://Assets/Audio/SFX/Rockfall.wav" id="7_odddu"]
 [ext_resource type="AudioStream" uid="uid://bkye4b1ayb0in" path="res://Assets/Audio/SFX/Rockfall B.wav" id="8_858hb"]
 
@@ -26,8 +26,9 @@ albedo_texture = ExtResource("2_yyqnm")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j8ls8"]
 render_priority = 0
 shader = ExtResource("4_eoveu")
-shader_parameter/ColorParameter = Color(1, 0.0078125, 0.0078125, 1)
-shader_parameter/Texture2DParameter = ExtResource("4_bpudd")
+shader_parameter/ColorParameter = Color(0.6542969, 0, 0, 1)
+shader_parameter/Speed = Vector2(0, 0)
+shader_parameter/Texture2DParameter = ExtResource("5_ficti")
 
 [sub_resource type="Curve" id="Curve_g1q8q"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -847,7 +848,7 @@ tracks/66/keys = {
 tracks/67/type = "value"
 tracks/67/imported = false
 tracks/67/enabled = true
-tracks/67/path = NodePath("../AOE1/area of effect:shape:radius")
+tracks/67/path = NodePath("../AOE/area of effect:shape:radius")
 tracks/67/interp = 1
 tracks/67/loop_wrap = true
 tracks/67/keys = {
@@ -859,7 +860,7 @@ tracks/67/keys = {
 tracks/68/type = "value"
 tracks/68/imported = false
 tracks/68/enabled = true
-tracks/68/path = NodePath("../AOE1:monitoring")
+tracks/68/path = NodePath("../AOE:monitoring")
 tracks/68/interp = 1
 tracks/68/loop_wrap = true
 tracks/68/keys = {
@@ -1713,7 +1714,7 @@ tracks/66/keys = {
 tracks/67/type = "value"
 tracks/67/imported = false
 tracks/67/enabled = true
-tracks/67/path = NodePath("../AOE1/area of effect:shape:radius")
+tracks/67/path = NodePath("../AOE/area of effect:shape:radius")
 tracks/67/interp = 1
 tracks/67/loop_wrap = true
 tracks/67/keys = {
@@ -1725,7 +1726,7 @@ tracks/67/keys = {
 tracks/68/type = "value"
 tracks/68/imported = false
 tracks/68/enabled = true
-tracks/68/path = NodePath("../AOE1:monitoring")
+tracks/68/path = NodePath("../AOE:monitoring")
 tracks/68/interp = 1
 tracks/68/loop_wrap = true
 tracks/68/keys = {
@@ -1753,10 +1754,13 @@ _data = {
 &"RESET": SubResource("Animation_tfaxk")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ficti"]
+albedo_color = Color(0.24305081, 0.6816406, 0.23431396, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_odddu"]
 size = Vector2(29.215, 23.935)
 
-[node name="RisingEarth" type="Node"]
+[node name="RisingEarth" type="Node3D"]
 
 [node name="VFXRockSpikes" type="Node3D" parent="."]
 
@@ -1772,13 +1776,13 @@ transform = Transform3D(-0.0022115181, -1.2670448, -1.0412453, 0.0018173428, 1.0
 transform = Transform3D(-1.6391177, -0.040363964, -0.035521634, 0.0018173428, 1.0412437, -1.2670468, 0.053737625, -1.2664049, -1.0406393, 0.034080505, -0.7787237, -3.1354103)
 
 [node name="Spike4" parent="VFXRockSpikes/Inner" instance=ExtResource("1_vpd8b")]
-transform = Transform3D(1.6399553, 0.008017934, 0.00894125, 0.0018173392, 1.0412434, -1.2670468, -0.011871411, 1.2670224, 1.041207, 0.034080505, -0.7787237, 3.2887702)
+transform = Transform3D(1.6399553, 0.008017934, 0.00894125, 0.0018173393, 1.0412434, -1.2670468, -0.011871413, 1.2670224, 1.041207, 0.034080505, -0.7787237, 3.2887702)
 
 [node name="Spike5" parent="VFXRockSpikes/Inner" instance=ExtResource("1_vpd8b")]
-transform = Transform3D(1.1453338, -0.90767235, -0.74427134, 0.0018173716, 1.0412434, -1.2670468, 1.1737993, 0.8840483, 0.72818387, -2.164114, -0.7787237, 2.2322726)
+transform = Transform3D(1.145334, -0.9076723, -0.74427134, 0.0018173716, 1.0412434, -1.2670468, 1.1737993, 0.88404846, 0.72818404, -2.164114, -0.7787237, 2.2322726)
 
 [node name="Spike6" parent="VFXRockSpikes/Inner" instance=ExtResource("1_vpd8b")]
-transform = Transform3D(1.1913501, 0.86992276, 0.7166009, 0.001817203, 1.0412433, -1.2670468, -1.1270664, 0.92121875, 0.7554302, 2.3345165, -0.7787237, 2.453796)
+transform = Transform3D(1.1913501, 0.86992276, 0.71660084, 0.001817203, 1.0412433, -1.2670468, -1.1270663, 0.9212189, 0.75543034, 2.3345165, -0.7787237, 2.453796)
 
 [node name="Spike7" parent="VFXRockSpikes/Inner" instance=ExtResource("1_vpd8b")]
 transform = Transform3D(-1.2116777, 0.8547067, 0.7006502, 0.0018171353, 1.0412432, -1.2670466, -1.1051835, -0.9353531, -0.7702473, 2.3345165, -0.7787237, -2.3856397)
@@ -1796,7 +1800,7 @@ transform = Transform3D(-0.19848984, 1.3181038, 0.95540774, -0.08126017, 0.95326
 transform = Transform3D(1.345077, 0.7999195, 0.49040475, -0.08126015, 0.95326114, -1.3320248, -0.934754, 1.068186, 0.8214703, 2.4538572, -1.0427535, 2.402332)
 
 [node name="Spike3" parent="VFXRockSpikes/Outter" instance=ExtResource("1_vpd8b")]
-transform = Transform3D(1.6316199, 0.16457598, 0.018241616, -0.08126017, 0.9532614, -1.3320247, -0.14427339, 1.3243141, 0.9565447, -0.40126306, -1.0427535, 3.6033356)
+transform = Transform3D(1.6316199, 0.16457598, 0.018241623, -0.08126016, 0.9532614, -1.3320247, -0.14427339, 1.3243141, 0.9565447, -0.40126306, -1.0427535, 3.6033356)
 
 [node name="Spike4" parent="VFXRockSpikes/Outter" instance=ExtResource("1_vpd8b")]
 transform = Transform3D(0.6842304, -1.1919749, -0.89477664, -0.08126023, 0.9532615, -1.3320248, 1.4882296, 0.6000739, 0.33865255, -1.8225638, -1.0427535, 2.80538)
@@ -1805,7 +1809,7 @@ transform = Transform3D(0.6842304, -1.1919749, -0.89477664, -0.08126023, 0.95326
 transform = Transform3D(0.10254009, -1.3280866, -0.95669836, -0.081260145, 0.9532613, -1.3320248, 1.6347736, 0.13068737, -0.0062030493, -3.1859348, -1.0427535, -0.097759604)
 
 [node name="Spike6" parent="VFXRockSpikes/Outter" instance=ExtResource("1_vpd8b")]
-transform = Transform3D(-1.4215137, -0.70365816, -0.4168524, -0.081260085, 0.95326096, -1.3320249, 0.8138171, -1.1339129, -0.86112946, -2.7581263, -1.0427535, -2.3068333)
+transform = Transform3D(-1.4215137, -0.7036581, -0.4168524, -0.08126008, 0.95326096, -1.3320249, 0.8138171, -1.1339129, -0.86112946, -2.7581263, -1.0427535, -2.3068333)
 
 [node name="Spike7" parent="VFXRockSpikes/Outter" instance=ExtResource("1_vpd8b")]
 transform = Transform3D(-1.6303924, -0.17534156, -0.026020812, -0.08126026, 0.95326144, -1.3320245, 0.15753902, -1.3229312, -0.956365, -0.012209296, -1.0427535, -3.552371)
@@ -2319,21 +2323,22 @@ skeleton = NodePath("../../../..")
 material_override = SubResource("ShaderMaterial_j8ls8")
 cast_shadow = 0
 amount = 1
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
 mesh = ExtResource("5_eoveu")
 direction = Vector3(0, 0, 0)
 gravity = Vector3(0, 0, 0)
-scale_amount_min = 10.0
-scale_amount_max = 10.0
+scale_amount_min = 15.0
+scale_amount_max = 15.0
 scale_amount_curve = SubResource("Curve_g1q8q")
-anim_speed_min = 50.0
-anim_speed_max = 50.0
 
-[node name="AOE1" type="Area3D" parent="."]
+[node name="AOE" type="Area3D" parent="."]
 collision_layer = 4
 collision_mask = 4
 monitoring = false
 
-[node name="area of effect" type="CollisionShape3D" parent="AOE1"]
+[node name="area of effect" type="CollisionShape3D" parent="AOE"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92626953, 0)
 shape = SubResource("CylinderShape3D_eoveu")
 
@@ -2348,4 +2353,5 @@ autoplay = "init"
 volume_db = -0.122
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ficti")
 mesh = SubResource("PlaneMesh_odddu")

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="StatusEffectsResource" load_steps=2 format=3 uid="uid://dgqjv1si2lh1m"]
+
+[ext_resource type="Script" uid="uid://em3ud8vhqd44" path="res://Scripts/Resources/StatusEffects.gd" id="1_cvxkl"]
+
+[resource]
+script = ExtResource("1_cvxkl")
+display_name = "Warriors Call"
+description = "Total Health increased by 10% and damage increased by 5%. for 10 seconds."
+duration = 10.0
+tick_interval = 0.0
+refresh_on_reapply = false
+stat_mod_value = 0.1
+damage_mod = 0.05
+metadata/_custom_type_script = "uid://em3ud8vhqd44"

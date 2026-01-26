@@ -24,6 +24,7 @@ enum ScaleOn{
 @export var vfx: PackedScene
 
 @export_group("Properties")
+@export var level_to_unlock: int = 10
 @export var base_damage: int
 @export var scale_on_stat: ScaleOn
 @export var status_effect: StatusEffectsResource

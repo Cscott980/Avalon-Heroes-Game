@@ -26,7 +26,7 @@ func _ready() -> void:
 	pass
 
 func set_item(i: ItemResource) -> void:
-	if
+	pass
 
 func get_armor_data() -> void:
 	pass

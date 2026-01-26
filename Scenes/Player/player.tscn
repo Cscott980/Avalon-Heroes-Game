@@ -1,4 +1,4 @@
-[gd_scene load_steps=238 format=3 uid="uid://b5b6ea8b5673k"]
+[gd_scene load_steps=239 format=3 uid="uid://b5b6ea8b5673k"]
 
 [ext_resource type="Script" uid="uid://3t0iviceiewt" path="res://Scripts/Player/Player.gd" id="1_xpcdj"]
 [ext_resource type="PackedScene" uid="uid://d18vbkkww6e0i" path="res://Scenes/Weapons/MainHandWeapon.tscn" id="3_7ve27"]
@@ -94,6 +94,7 @@
 [ext_resource type="Animation" uid="uid://t3b7yphqd03l" path="res://Assets/Animations/Rig_Mid_Animations/Walking_Backwards.res" id="92_b1evd"]
 [ext_resource type="Animation" uid="uid://iuwul71pvd0j" path="res://Assets/Animations/Rig_Mid_Animations/Walking_C.res" id="93_gfejc"]
 [ext_resource type="Script" uid="uid://np78fbu8py3p" path="res://Scripts/Others/slash.gd" id="99_xvldo"]
+[ext_resource type="Script" uid="uid://mltur7xac0xi" path="res://Scripts/Components/AbilityComponent.gd" id="100_81gu5"]
 [ext_resource type="ArrayMesh" uid="uid://dve5g0ibb7jse" path="res://Assets/Misc/SlashMesh.obj" id="100_ujqdw"]
 [ext_resource type="Shader" uid="uid://7m7oijeqexj" path="res://Assets/Shaders/SlashShader.tres" id="101_ddxso"]
 [ext_resource type="Script" uid="uid://ctr7taoyv2xth" path="res://Scripts/States/Player/AttackState2.gd" id="109_yylel"]
@@ -1263,6 +1264,11 @@ theme_override_font_sizes/font_size = 20
 text = "Player1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AbilityComponent" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("100_81gu5")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://mltur7xac0xi"
 
 [connection signal="area_entered" from="Model/Rig_Medium/Skeleton3D/BoneAttachment3D/HurtBox" to="StateMachine/IdleState" method="_on_hurt_box_area_entered"]
 [connection signal="area_entered" from="Model/Rig_Medium/Skeleton3D/BoneAttachment3D/HurtBox" to="StateMachine/MoveState" method="_on_hurt_box_area_entered"]

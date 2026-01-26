@@ -20,6 +20,6 @@ Cooldown: 60 seconds"
 active_icon = ExtResource("1_hw6hb")
 pressed_icon = ExtResource("3_5vm5c")
 disabled_icon = ExtResource("2_iaxmj")
-scene = ExtResource("4_je2g3")
-base_damage = 50
+vfx = ExtResource("4_je2g3")
+base_damage = 30
 metadata/_custom_type_script = "uid://bnvu7uffua2aj"

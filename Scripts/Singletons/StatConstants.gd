@@ -1,7 +1,7 @@
 class_name StatConstants extends Node
 
 enum STATS {
-	STREGNTH,
+	STRENGTH,
 	INTELLECT,
 	DEXTERITY,
 	VITALITY,
@@ -9,7 +9,7 @@ enum STATS {
 }
 
 const STAT_REFERANCE: Dictionary = {
-	STATS.STREGNTH: "strength",
+	STATS.STRENGTH: "strength",
 	STATS.INTELLECT: "intellect",
 	STATS.DEXTERITY: "dexterity",
 	STATS.VITALITY: "vitality",

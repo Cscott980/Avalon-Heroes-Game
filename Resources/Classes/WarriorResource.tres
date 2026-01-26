@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="HeroClassResource" load_steps=19 format=3 uid="uid://bob2ix1bteewn"]
+[gd_resource type="Resource" script_class="HeroClassResource" load_steps=20 format=3 uid="uid://bob2ix1bteewn"]
 
 [ext_resource type="Resource" uid="uid://cqjgndtdbd44" path="res://Resources/Abilities/WarriorAbilities/WarCry.tres" id="1_1bvxv"]
 [ext_resource type="ArrayMesh" uid="uid://d2tf34kixfh3q" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/The_Barbarian_Bear_Chest.res" id="1_5y7rr"]
@@ -8,6 +8,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b1fcy56i8ksls" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/The_Barbarian_Bear_ArmLeft.res" id="2_iiy8a"]
 [ext_resource type="ArrayMesh" uid="uid://clybr6eiqnked" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/The_Barbarian_Bear_LegLeft.res" id="3_7oanv"]
 [ext_resource type="Resource" uid="uid://dxw84vkrvq8lb" path="res://Resources/Abilities/WarriorAbilities/EarthShatter.tres" id="3_it1mb"]
+[ext_resource type="Resource" uid="uid://dp5ubux2y0efp" path="res://Resources/Abilities/WarriorAbilities/Whirlwind.tres" id="3_musjr"]
 [ext_resource type="ArrayMesh" uid="uid://ctnhnt4dhcd6r" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/The_Barbarian_Bear_ArmRight.res" id="4_1bvxv"]
 [ext_resource type="ArrayMesh" uid="uid://da6unfb2082b5" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/The_Barbarian_Bear_LegRight.res" id="5_musjr"]
 [ext_resource type="Script" uid="uid://b87vhgfg22fil" path="res://Scripts/Resources/HeroClassVisualDefultResource.gd" id="6_it1mb"]
@@ -56,6 +57,7 @@ vitality = 8
 wisdom = 2
 resource_pool = SubResource("Resource_6nlpa")
 ability_1 = ExtResource("1_1bvxv")
+ability_2 = Array[ExtResource("2_1bvxv")]([ExtResource("3_musjr")])
 ability_3 = ExtResource("3_it1mb")
 starting_equipment = SubResource("Resource_6u6sx")
 allower_armor = 15
