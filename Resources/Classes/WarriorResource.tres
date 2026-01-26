@@ -4,8 +4,8 @@
 [ext_resource type="ArrayMesh" uid="uid://d2tf34kixfh3q" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/The_Barbarian_Bear_Chest.res" id="1_5y7rr"]
 [ext_resource type="Script" uid="uid://emgwnj0rkamw" path="res://Scripts/Resources/ResourcePoolResource.gd" id="1_15p1l"]
 [ext_resource type="Script" uid="uid://bsj17hheibsfy" path="res://Scripts/Resources/HeroClassResource.gd" id="1_nlh6m"]
+[ext_resource type="Script" uid="uid://bnvu7uffua2aj" path="res://Scripts/Resources/AbilityResource.gd" id="2_1bvxv"]
 [ext_resource type="ArrayMesh" uid="uid://b1fcy56i8ksls" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/The_Barbarian_Bear_ArmLeft.res" id="2_iiy8a"]
-[ext_resource type="Resource" uid="uid://dp5ubux2y0efp" path="res://Resources/Abilities/WarriorAbilities/Whirlwind.tres" id="2_musjr"]
 [ext_resource type="ArrayMesh" uid="uid://clybr6eiqnked" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/The_Barbarian_Bear_LegLeft.res" id="3_7oanv"]
 [ext_resource type="Resource" uid="uid://dxw84vkrvq8lb" path="res://Resources/Abilities/WarriorAbilities/EarthShatter.tres" id="3_it1mb"]
 [ext_resource type="ArrayMesh" uid="uid://ctnhnt4dhcd6r" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/The_Barbarian_Bear_ArmRight.res" id="4_1bvxv"]
@@ -42,6 +42,11 @@ metadata/_custom_type_script = "uid://cu1r70sfgkndx"
 
 [resource]
 script = ExtResource("1_nlh6m")
+description = "A frontline fighter forged in battle, the Warrior thrives where chaos is thickest. Armed with brutal weapons and unbreakable resolve, they charge headfirst into danger, drawing enemy fire and crushing foes up close. Warriors excel at controlling the battlefield, protecting allies, and delivering devastating blows when it matters most.
+
+Playstyle: Frontline bruiser
+Strengths: High durability, crowd control, close-range damage
+Role: Tank / Melee DPS"
 class_defults = SubResource("Resource_c2w2d")
 max_health = 120
 strength = 10
@@ -51,7 +56,6 @@ vitality = 8
 wisdom = 2
 resource_pool = SubResource("Resource_6nlpa")
 ability_1 = ExtResource("1_1bvxv")
-ability_2 = ExtResource("2_musjr")
 ability_3 = ExtResource("3_it1mb")
 starting_equipment = SubResource("Resource_6u6sx")
 allower_armor = 15

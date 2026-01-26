@@ -21,7 +21,6 @@ enum HeroClasses {
 @export var class_defults: HeroClassVisualDefultResource
 
 @export_group("Stats")
-@export var level: int = 1
 @export var max_health: int = 100
 
 @export_group("Stats/Base Stats")
@@ -36,7 +35,7 @@ enum HeroClasses {
 
 @export_group("Abilities")
 @export var ability_1: AbilityResource
-@export var ability_2: AbilityResource
+@export var ability_2: Array[AbilityResource]
 @export var ability_3: AbilityResource
 
 @export_group("Equipment Rules")

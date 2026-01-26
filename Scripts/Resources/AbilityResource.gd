@@ -21,7 +21,7 @@ enum ScaleOn{
 @export var pressed_icon:Texture2D
 @export var disabled_icon: Texture2D
 @export var ability_type: AbilityType = AbilityType.ACTIVE
-@export var scene:PackedScene
+@export var vfx: PackedScene
 
 @export_group("Properties")
 @export var base_damage: int

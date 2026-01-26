@@ -1,4 +1,4 @@
-[gd_scene load_steps=237 format=3 uid="uid://b5b6ea8b5673k"]
+[gd_scene load_steps=238 format=3 uid="uid://b5b6ea8b5673k"]
 
 [ext_resource type="Script" uid="uid://3t0iviceiewt" path="res://Scripts/Player/Player.gd" id="1_xpcdj"]
 [ext_resource type="PackedScene" uid="uid://d18vbkkww6e0i" path="res://Scenes/Weapons/MainHandWeapon.tscn" id="3_7ve27"]
@@ -98,7 +98,7 @@
 [ext_resource type="Shader" uid="uid://7m7oijeqexj" path="res://Assets/Shaders/SlashShader.tres" id="101_ddxso"]
 [ext_resource type="Script" uid="uid://ctr7taoyv2xth" path="res://Scripts/States/Player/AttackState2.gd" id="109_yylel"]
 [ext_resource type="Script" uid="uid://dass1u87mgpxb" path="res://Scripts/States/Player/AttackState3.gd" id="110_t53un"]
-[ext_resource type="Script" uid="uid://bos7mhqtacmin" path="res://Scripts/CameraEffects.gd" id="111_ddxso"]
+[ext_resource type="Script" uid="uid://bos7mhqtacmin" path="res://Scripts/UI/CameraEffects.gd" id="111_ddxso"]
 
 [sub_resource type="Skin" id="Skin_t53un"]
 resource_name = "Skin"
@@ -836,6 +836,8 @@ _data = {
 radius = 0.53808594
 height = 2.3289604
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_22q81"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_88f1v"]
 radius = 6.0
 
@@ -1198,6 +1200,7 @@ script = ExtResource("10_jhyir")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
 transform = Transform3D(-1, 4.5900542e-08, -7.4403516e-08, -3.1962465e-08, 0.60019696, 0.79985225, 8.13704e-08, 0.79985225, -0.60019696, 0, 13.361129, -11.888992)
+shape = SubResource("SphereShape3D_22q81")
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
 transform = Transform3D(1, 1.4210855e-14, -3.5527137e-15, 0, 1, 0, 0, 0, 1, 1.5315607e-07, 1.5054884, -1.1296959)

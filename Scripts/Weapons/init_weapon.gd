@@ -57,10 +57,8 @@ func load_weapon(weapon_id: WeaponResource) -> void:
 	
 	if weapon_handedness == 0:
 		add_to_group("one_handed_weapon")
-		print("hello")
 	else:
 		add_to_group("two_handed_weapon")
-		print("hello")
 		
 	mesh.mesh = weapon_id.mesh
 	collision_shape_3d.shape = weapon_id.collision_shape
