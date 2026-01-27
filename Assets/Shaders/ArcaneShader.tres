@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=9 format=3 uid="uid://cmeh5wjymyla2"]
+[gd_resource type="VisualShader" format=3 uid="uid://cmeh5wjymyla2"]
 
 [ext_resource type="Texture2D" uid="uid://c3snspncnmd38" path="res://Assets/Textures/Misc/T_Noise1_tiled.png" id="1_na2tp"]
 
@@ -28,43 +28,6 @@ operator = 2
 parameter_name = "ColorParameter"
 
 [resource]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded, shadows_disabled;
-
-uniform vec4 ColorParameter : source_color;
-uniform sampler2D tex_frg_5;
-uniform sampler2D tex_frg_2 : source_color;
-
-
-
-void fragment() {
-// ColorParameter:7
-	vec4 n_out7p0 = ColorParameter;
-
-
-// Texture2D:5
-	vec4 n_out5p0 = texture(tex_frg_5, UV);
-
-
-// Texture2D:2
-	vec4 n_out2p0 = texture(tex_frg_2, UV);
-
-
-// FloatOp:6
-	float n_out6p0 = n_out5p0.x * n_out2p0.x;
-
-
-// FloatOp:4
-	float n_out4p0 = n_out7p0.x * n_out6p0;
-
-
-// Output:0
-	ALBEDO = vec3(n_out7p0.xyz);
-	ALPHA = n_out4p0;
-
-
-}
-"
 modes/cull = 2
 flags/unshaded = true
 flags/shadows_disabled = true

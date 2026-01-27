@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://dpt6qhynt11ok"]
+[gd_resource type="VisualShader" format=3 uid="uid://dpt6qhynt11ok"]
 
 [sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_tf2ba"]
 parameter_name = "Dissolver_Texture"
@@ -21,43 +21,6 @@ expanded_output_ports = [0]
 input_name = "color"
 
 [resource]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_toon, specular_toon;
-
-uniform vec2 Vector2Parameter = vec2(1.000000, 1.000000);
-uniform sampler2D Dissolver_Texture : source_color;
-
-
-
-void fragment() {
-// Input:6
-	vec4 n_out6p0 = COLOR;
-	float n_out6p4 = n_out6p0.a;
-
-
-// Vector2Parameter:4
-	vec2 n_out4p0 = Vector2Parameter;
-
-
-// UVFunc:5
-	vec2 n_in5p2 = vec2(0.00000, 0.00000);
-	vec2 n_out5p0 = (UV - n_in5p2) * n_out4p0 + n_in5p2;
-
-
-	vec4 n_out3p0;
-// Texture2D:3
-	n_out3p0 = texture(Dissolver_Texture, n_out5p0);
-	float n_out3p1 = n_out3p0.r;
-
-
-// Output:0
-	ALBEDO = vec3(n_out6p0.xyz);
-	ALPHA = n_out3p1;
-	ALPHA_SCISSOR_THRESHOLD = n_out6p4;
-
-
-}
-"
 modes/cull = 2
 modes/diffuse = 3
 modes/specular = 1

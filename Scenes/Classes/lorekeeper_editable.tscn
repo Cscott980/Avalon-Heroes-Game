@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b6sbip384o2iy"]
+
+[ext_resource type="PackedScene" uid="uid://k3swb51olc4o" path="res://Assets/PlayableCharacterBodies/Lorekeeper.glb" id="1_lbehl"]
+[ext_resource type="Skin" uid="uid://b15navf1kb32i" path="res://Resources/MeshSkins/LorekeeperSkin.tres" id="2_h2env"]
+
+[node name="Lorekeeper" unique_id=2062097631 instance=ExtResource("1_lbehl")]
+
+[node name="Lorekeeper_Body" parent="Rig_Medium/Skeleton3D" index="3"]
+skin = ExtResource("2_h2env")

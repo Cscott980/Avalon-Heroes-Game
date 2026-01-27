@@ -1,7 +1,7 @@
-[gd_scene load_steps=79 format=4 uid="uid://bp2biwp3lcpdf"]
+[gd_scene format=4 uid="uid://bp2biwp3lcpdf"]
 
 [ext_resource type="Script" uid="uid://b1wqd30yuss33" path="res://Scripts/Enemy/EnemyNew.gd" id="1_nn0ay"]
-[ext_resource type="Texture2D" uid="uid://cy0l44g87piga" path="res://Assets/Characters/Enemies/Skeleton_Minion_skeleton_texture_A.png" id="1_nufs4"]
+[ext_resource type="Texture2D" uid="uid://cy0l44g87piga" path="res://Assets/Enemies/Skeleton_Minion_skeleton_texture_A.png" id="1_nufs4"]
 [ext_resource type="Material" uid="uid://cfrxegokeyufx" path="res://Assets/Materials/EnemyOutline.tres" id="2_2qmbp"]
 [ext_resource type="ArrayMesh" uid="uid://c1v6d7aitav73" path="res://Assets/WeaponMeshes/Swords/Skeleton_Blade_Cube_007.res" id="2_2w5kk"]
 [ext_resource type="ArrayMesh" uid="uid://c3ak1i3pflgge" path="res://Assets/WeaponMeshes/Shields/Skeleton_Shield_Small_A_Cylinder_010.res" id="4_yx5yr"]

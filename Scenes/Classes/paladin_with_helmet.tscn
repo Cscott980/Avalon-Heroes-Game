@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://e6cuyocs1o1v"]
+
+[ext_resource type="PackedScene" uid="uid://b2my8prxtqeld" path="res://Assets/PlayableCharacterBodies/Paladin_with_Helmet.glb" id="1_kpxrm"]
+[ext_resource type="Skin" uid="uid://tm2vjlbdln2k" path="res://Resources/MeshSkins/PaladinHelmSkin.tres" id="2_wnihn"]
+
+[node name="Paladin_with_Helmet" unique_id=1286196735 instance=ExtResource("1_kpxrm")]
+
+[node name="Paladin_Helmet" parent="Rig_Medium/Skeleton3D" index="4"]
+skin = ExtResource("2_wnihn")

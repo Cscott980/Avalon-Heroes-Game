@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwxokybkyny5x"]
+[gd_scene format=3 uid="uid://cwxokybkyny5x"]
 
-[ext_resource type="PackedScene" uid="uid://butv7nw0h7hon" path="res://Assets/Characters/Enemies/OrcRaider.glb" id="1_1nnb3"]
+[ext_resource type="PackedScene" uid="uid://butv7nw0h7hon" path="res://Assets/Enemies/OrcRaider.glb" id="1_1nnb3"]
 [ext_resource type="PackedScene" uid="uid://bsfqbvjoatwoe" path="res://Scenes/Weapons/Axes/axe_of_the_barbarian.tscn" id="2_udqq1"]
 
 [node name="OrcRaiderBase" instance=ExtResource("1_1nnb3")]

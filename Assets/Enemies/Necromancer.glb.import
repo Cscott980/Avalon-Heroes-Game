@@ -1,0 +1,120 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://gtcmdngl8io0"
+path="res://.godot/imported/Necromancer.glb-128805ab38891aa8fc34665037a3312b.scn"
+
+[deps]
+
+source_file="res://Assets/Enemies/Necromancer.glb"
+dest_files=["res://.godot/imported/Necromancer.glb-128805ab38891aa8fc34665037a3312b.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"Glow": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Enemy/Glow.tres",
+"use_external/path": "uid://c5pg1sy7vogdv"
+},
+"skeleton": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Enemy/skeleton.tres",
+"use_external/path": "uid://demfs4fe3pbom"
+}
+},
+"meshes": {
+"Necromancer_Necromancer_ArmLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/LightArmor/Necromancer_Necromancer_ArmLeft.res",
+"save_to_file/path": "uid://2n2spav3a4c8"
+},
+"Necromancer_Necromancer_ArmRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/LightArmor/Necromancer_Necromancer_ArmRight.res",
+"save_to_file/path": "uid://bg3ininlmf606"
+},
+"Necromancer_Necromancer_Body": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/LightArmor/Necromancer_Necromancer_Body.res",
+"save_to_file/path": "uid://d2fy670r2cjue"
+},
+"Necromancer_Necromancer_Crown": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/LightArmor/Necromancer_Necromancer_Crown.res",
+"save_to_file/path": "uid://dveatchnli5pu"
+},
+"Necromancer_Necromancer_Head": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/Heads/HeadSource/Necromancer_Necromancer_Head.res",
+"save_to_file/path": "uid://dxpb8l7c1sbgl"
+},
+"Necromancer_Necromancer_LegLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/LightArmor/Necromancer_Necromancer_LegLeft.res",
+"save_to_file/path": "uid://bhwoglu1hw0bg"
+},
+"Necromancer_Necromancer_LegRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/LightArmor/Necromancer_Necromancer_LegRight.res",
+"save_to_file/path": "uid://bxwplvq5y8ir8"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

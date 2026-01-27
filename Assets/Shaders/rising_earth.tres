@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=15 format=3 uid="uid://vdrcy18tp278"]
+[gd_resource type="VisualShader" format=3 uid="uid://vdrcy18tp278"]
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_lpxeo"]
 input_name = "time"
@@ -50,71 +50,6 @@ color_default = 1
 source = 5
 
 [resource]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded, shadows_disabled;
-
-uniform vec4 ColorParameter : source_color;
-uniform vec2 Speed;
-uniform sampler2D Texture2DParameter : hint_default_black;
-uniform sampler2D tex_frg_2 : source_color;
-
-
-
-void fragment() {
-// ColorParameter:7
-	vec4 n_out7p0 = ColorParameter;
-
-
-// Input:15
-	vec2 n_out15p0 = UV;
-
-
-// Vector2Parameter:16
-	vec2 n_out16p0 = Speed;
-
-
-// Input:12
-	float n_out12p0 = TIME;
-
-
-// VectorOp:17
-	vec2 n_out17p0 = n_out16p0 + vec2(n_out12p0);
-
-
-// VectorCompose:14
-	float n_in14p1 = 0.00000;
-	vec2 n_out14p0 = vec2(n_out17p0.x, n_in14p1);
-
-
-// VectorOp:13
-	vec2 n_out13p0 = n_out15p0 + n_out14p0;
-
-
-	vec4 n_out9p0;
-// Texture2D:9
-	n_out9p0 = texture(Texture2DParameter, n_out13p0);
-
-
-// Texture2D:2
-	vec4 n_out2p0 = texture(tex_frg_2, UV);
-	float n_out2p1 = n_out2p0.r;
-
-
-// FloatOp:6
-	float n_out6p0 = n_out9p0.x * n_out2p1;
-
-
-// FloatOp:4
-	float n_out4p0 = n_out7p0.x * n_out6p0;
-
-
-// Output:0
-	ALBEDO = vec3(n_out7p0.xyz);
-	ALPHA = n_out4p0;
-
-
-}
-"
 modes/cull = 2
 flags/unshaded = true
 flags/shadows_disabled = true
