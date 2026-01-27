@@ -14,7 +14,6 @@ class_name Player
 @onready var health_bar: ProgressBar = %PlayerUI/Control/AbilityBar/VBoxContainer/PlayerHealth as ProgressBar
 @onready var resource_bar: ProgressBar = %PlayerUI/Control/AbilityBar/VBoxContainer/HBoxContainer/ResourceBar as ProgressBar
 @onready var exp_bar: ProgressBar = %PlayerUI/Control/AbilityBar/VBoxContainer/HBoxContainer/ExperianceBar as ProgressBar
-@onready var level_buton: Button =  %PlayerUI/Control/LevelUp as Button
 @onready var level_display: Label = %PlayerUI/Control/AbilityBar/VBoxContainer/HBoxContainer/ExperianceBar/TextureRect/Label as Label
 
 @onready var ability_1: TextureButton = %PlayerUI/Control/AbilityBar/HBoxContainer/Ability1
@@ -81,7 +80,6 @@ var is_getting_hit: bool = false
 #----------------------------------
 
 func _ready() -> void:	
-	level_buton.pressed.connect(_on_level_up_pressed)
 	level_display.text = "%s" % player_level
 	hero_class_data = ClassData.classdb
 	exp_bar.value = player_exp_collected

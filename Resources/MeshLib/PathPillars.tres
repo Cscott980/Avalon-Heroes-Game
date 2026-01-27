@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=70 format=4 uid="uid://dxtwe6jqlda2o"]
+[gd_resource type="MeshLibrary" format=4 uid="uid://dxtwe6jqlda2o"]
 
 [ext_resource type="Texture2D" uid="uid://okui81xfuc0o" path="res://Assets/World/GraveYard/gltf/halloweenbits_texture.png" id="1_3niby"]
 

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dwrnr8bg0eg5m"]
+
+[ext_resource type="PackedScene" uid="uid://lit18tp2b71f" path="res://Assets/ResourceVisuals/gltf/Gem_Small.gltf" id="1_acypp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_acypp"]
+radius = 1.3748561
+
+[node name="EXPGem" unique_id=1366079077 instance=ExtResource("1_acypp")]
+
+[node name="ItemHoverComponent" type="Node" parent="." index="1" unique_id=330135828]
+
+[node name="Area3D" type="Area3D" parent="." index="2" unique_id=365979739]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1825722020]
+shape = SubResource("SphereShape3D_acypp")

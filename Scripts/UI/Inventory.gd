@@ -3,7 +3,6 @@ class_name CharacterSheetandInventory extends Control
 #------ Inventory and Equipment Brain -------
 @onready var inventorybox: GridContainer = %Inventory/GridContainer
 @onready var character_sheet_character: CharacterSheetDisplay = %CharacterSheetCharacter
-@onready var tool_tip: Label = null
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
@@ -18,7 +17,7 @@ class_name CharacterSheetandInventory extends Control
 @onready var wisdom_val: Label = %WisdomVal
 @onready var health_val: Label = %HealthVal
 
-
+#-------------------------
 
 
 @export var corner_size: int = 40

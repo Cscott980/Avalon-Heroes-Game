@@ -1,4 +1,4 @@
-class_name HeroClassVisualDefultResource extends Resource
+class_name HeroClassVisualDefaultResource extends Resource
 
 @export var skin: Skin
 @export var defult_armor: Mesh

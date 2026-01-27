@@ -1,24 +1,46 @@
-[gd_scene load_steps=28 format=3 uid="uid://dmqo550jk2hkw"]
+[gd_scene format=3 uid="uid://dmqo550jk2hkw"]
 
 [ext_resource type="Script" uid="uid://bhv2dcsa3a88s" path="res://Scripts/UI/AbilityBar.gd" id="1_hffhc"]
 [ext_resource type="Texture2D" uid="uid://ckh816q7qkh1r" path="res://Assets/GUI/AbilityBarTexture.png" id="1_ighag"]
-[ext_resource type="Texture2D" uid="uid://oanefjsfn4v2" path="res://Assets/GUI/UI/Icons/WarriorAbilities/BattleShoutIcon.png" id="3_w5sne"]
-[ext_resource type="Texture2D" uid="uid://cdwbyfl0qrebx" path="res://Assets/GUI/UI/Icons/WarriorAbilities/BattleShoutIconPressed.png" id="4_0137d"]
-[ext_resource type="Texture2D" uid="uid://be4s6isjimtj5" path="res://Assets/GUI/UI/Icons/WarriorAbilities/BattleShoutIconLocked.png" id="5_b26bj"]
-[ext_resource type="Texture2D" uid="uid://dxwpw2j8ttg4t" path="res://Assets/GUI/UI/Icons/CooldownTimerCover.png" id="5_ui6dq"]
+[ext_resource type="Texture2D" uid="uid://b3f230utu3e0j" path="res://Assets/Keys/keyboard_q.png" id="6_8r1g1"]
 [ext_resource type="FontFile" uid="uid://bpj43a3io706v" path="res://Assets/Fonts/gomarice_no_continue.ttf" id="6_hffhc"]
-[ext_resource type="Texture2D" uid="uid://dtiw01kbfwugg" path="res://Assets/GUI/UI/Icons/WarriorAbilities/WhirlwindIcon.png" id="6_ui6dq"]
-[ext_resource type="Texture2D" uid="uid://ft1pubu0havm" path="res://Assets/GUI/UI/Icons/WarriorAbilities/WhirlwindIconPressed.png" id="7_uvdei"]
-[ext_resource type="Texture2D" uid="uid://b74vg243rciit" path="res://Assets/GUI/UI/Icons/WarriorAbilities/WhirlwindIconLocked.png" id="8_q0ot0"]
-[ext_resource type="Texture2D" uid="uid://lmgi15iuxr7s" path="res://Assets/GUI/UI/Icons/WarriorAbilities/EarthShatterIcon.png" id="9_xmfmo"]
-[ext_resource type="Texture2D" uid="uid://dbgjwpxipjdwv" path="res://Assets/GUI/UI/Icons/WarriorAbilities/EarthShatterIconPressed.png" id="10_hffhc"]
-[ext_resource type="Texture2D" uid="uid://0qwo6yvojd25" path="res://Assets/GUI/UI/Icons/WarriorAbilities/EarthShatterLocked.png" id="11_bobc5"]
+[ext_resource type="Texture2D" uid="uid://cfhumv00f1a5w" path="res://Assets/Icons/Abilities/Warrior/WarCryNormal.png" id="8_8r1g1"]
+[ext_resource type="Texture2D" uid="uid://2fovvab3afga" path="res://Assets/Icons/Abilities/Warrior/WarCryPressed.png" id="9_abasy"]
+[ext_resource type="Texture2D" uid="uid://b1paxietp10ah" path="res://Assets/Icons/Abilities/Warrior/WarCryDisabled.png" id="10_htdp6"]
+[ext_resource type="Texture2D" uid="uid://da62dlfvnsnvb" path="res://Assets/Keys/keyboard_e.png" id="11_abasy"]
+[ext_resource type="Texture2D" uid="uid://d00js72bspodw" path="res://Assets/Icons/CooldownLayer.png" id="11_pxwtu"]
 [ext_resource type="PackedScene" uid="uid://dka8xugayb1cd" path="res://Scenes/UserInterface/Assets/HealthBar.tscn" id="12_0137d"]
 [ext_resource type="StyleBox" uid="uid://c2pljohu3gsm5" path="res://Styles/ResourceBarBack.tres" id="12_b26bj"]
+[ext_resource type="Texture2D" uid="uid://bmdeypgxpesar" path="res://Assets/Icons/Abilities/Warrior/WhirlwindNormal.png" id="13_be7e0"]
 [ext_resource type="StyleBox" uid="uid://bjfjl62blabpt" path="res://Styles/RageFill.tres" id="13_ui6dq"]
+[ext_resource type="Texture2D" uid="uid://bh42ud8xib1js" path="res://Assets/Icons/Abilities/Warrior/WhirlwindPressed.png" id="14_2r4rr"]
+[ext_resource type="Texture2D" uid="uid://u04qcapm68ff" path="res://Assets/Keys/keyboard_r.png" id="15_htdp6"]
+[ext_resource type="Texture2D" uid="uid://bc5wkxfih3db4" path="res://Assets/Icons/Abilities/Warrior/WhirlwindDisabled.png" id="15_n20qs"]
 [ext_resource type="Texture2D" uid="uid://bnx8cqbmgfrca" path="res://Assets/GUI/UI/Icons/LevelBG.png" id="15_uvdei"]
+[ext_resource type="Texture2D" uid="uid://d0xn7kvjtp8wy" path="res://Assets/Icons/Abilities/Warrior/EarthShatterNormal.png" id="17_wel50"]
 [ext_resource type="PackedScene" uid="uid://lhsufnuhcrv4" path="res://Scenes/UserInterface/CharacterSheet.tscn" id="17_xmfmo"]
-[ext_resource type="StyleBox" uid="uid://dkhw5kpqnswl5" path="res://Resources/Boxes/ToolTipBox.tres" id="19_bobc5"]
+[ext_resource type="Texture2D" uid="uid://mlcrvqpbcd5h" path="res://Assets/Icons/Abilities/Warrior/EarthShatterPressed.png" id="18_kro55"]
+[ext_resource type="Texture2D" uid="uid://b2md1n6q6vesi" path="res://Assets/Icons/Abilities/Warrior/EarthShatterDisabled.png" id="19_h2bcy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0ot0"]
+bg_color = Color(0, 0, 0, 0.49019608)
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmfmo"]
+bg_color = Color(0.53906786, 0.79655224, 1, 1)
+border_width_bottom = 5
+border_color = Color(0.3209854, 0.4934184, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.63529414)
 
 [sub_resource type="InputEventKey" id="InputEventKey_b26bj"]
 device = -1
@@ -44,29 +66,9 @@ unicode = 114
 [sub_resource type="Shortcut" id="Shortcut_hffhc"]
 events = [SubResource("InputEventKey_xmfmo")]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0ot0"]
-bg_color = Color(0, 0, 0, 0.49019608)
-border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_size = 3
+[node name="PlayerUI" type="CanvasLayer" unique_id=651787803]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmfmo"]
-bg_color = Color(0.53906786, 0.79655224, 1, 1)
-border_width_bottom = 5
-border_color = Color(0.3209854, 0.4934184, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_color = Color(0, 0, 0, 0.63529414)
-
-[node name="PlayerUI" type="CanvasLayer"]
-
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1609231834]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,7 +78,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_hffhc")
 
-[node name="AbilityBar" type="TextureRect" parent="Control"]
+[node name="AbilityBar" type="TextureRect" parent="Control" unique_id=1838549974]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -92,175 +94,7 @@ texture = ExtResource("1_ighag")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/AbilityBar"]
-custom_minimum_size = Vector2(100, 110)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -357.5
-offset_top = -233.5
-offset_right = 357.5
-offset_bottom = -83.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 24
-alignment = 1
-
-[node name="Ability1" type="TextureButton" parent="Control/AbilityBar/HBoxContainer"]
-unique_name_in_owner = true
-clip_children = 2
-texture_filter = 4
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-disabled = true
-shortcut = SubResource("Shortcut_ui6dq")
-texture_normal = ExtResource("3_w5sne")
-texture_pressed = ExtResource("4_0137d")
-texture_hover = ExtResource("3_w5sne")
-texture_disabled = ExtResource("5_b26bj")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Cooldown1" type="TextureProgressBar" parent="Control/AbilityBar/HBoxContainer/Ability1" node_paths=PackedStringArray("shortcut_context")]
-unique_name_in_owner = true
-self_modulate = Color(0.51246244, 0, 0.033235822, 0.58431375)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 0
-shortcut_context = NodePath("..")
-fill_mode = 5
-nine_patch_stretch = true
-texture_progress = ExtResource("5_ui6dq")
-
-[node name="Label" type="Label" parent="Control/AbilityBar/HBoxContainer/Ability1"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -43.5
-offset_top = -61.5
-offset_right = -7.5
-offset_bottom = 2.5
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/outline_size = 9
-theme_override_fonts/font = ExtResource("6_hffhc")
-theme_override_font_sizes/font_size = 36
-text = "Q"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="Ability2" type="TextureButton" parent="Control/AbilityBar/HBoxContainer"]
-unique_name_in_owner = true
-texture_filter = 4
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-disabled = true
-shortcut = SubResource("Shortcut_q0ot0")
-texture_normal = ExtResource("6_ui6dq")
-texture_pressed = ExtResource("7_uvdei")
-texture_hover = ExtResource("6_ui6dq")
-texture_disabled = ExtResource("8_q0ot0")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Cooldown2" type="TextureProgressBar" parent="Control/AbilityBar/HBoxContainer/Ability2" node_paths=PackedStringArray("shortcut_context")]
-unique_name_in_owner = true
-self_modulate = Color(0.51246244, 0, 0.033235822, 0.58431375)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 0
-shortcut_context = NodePath("..")
-fill_mode = 5
-nine_patch_stretch = true
-texture_progress = ExtResource("5_ui6dq")
-
-[node name="Label" type="Label" parent="Control/AbilityBar/HBoxContainer/Ability2"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -43.5
-offset_top = -61.5
-offset_right = -7.5
-offset_bottom = 2.5
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/outline_size = 9
-theme_override_fonts/font = ExtResource("6_hffhc")
-theme_override_font_sizes/font_size = 36
-text = "e"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="Ability3" type="TextureButton" parent="Control/AbilityBar/HBoxContainer"]
-unique_name_in_owner = true
-texture_filter = 4
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-disabled = true
-shortcut = SubResource("Shortcut_hffhc")
-texture_normal = ExtResource("9_xmfmo")
-texture_pressed = ExtResource("10_hffhc")
-texture_hover = ExtResource("9_xmfmo")
-texture_disabled = ExtResource("11_bobc5")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Cooldown3" type="TextureProgressBar" parent="Control/AbilityBar/HBoxContainer/Ability3" node_paths=PackedStringArray("shortcut_context")]
-unique_name_in_owner = true
-self_modulate = Color(0.51246244, 0, 0.033235822, 0.58431375)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 0
-shortcut_context = NodePath("..")
-fill_mode = 5
-nine_patch_stretch = true
-texture_progress = ExtResource("5_ui6dq")
-
-[node name="Label" type="Label" parent="Control/AbilityBar/HBoxContainer/Ability3"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -43.5
-offset_top = -61.5
-offset_right = -7.5
-offset_bottom = 2.5
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/outline_size = 9
-theme_override_fonts/font = ExtResource("6_hffhc")
-theme_override_font_sizes/font_size = 36
-text = "r"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/AbilityBar"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/AbilityBar" unique_id=1967513810]
 custom_minimum_size = Vector2(470, 0)
 layout_mode = 1
 anchors_preset = -1
@@ -273,15 +107,15 @@ offset_bottom = -173.0
 grow_horizontal = 2
 theme_override_constants/separation = 9
 
-[node name="PlayerHealth" parent="Control/AbilityBar/VBoxContainer" instance=ExtResource("12_0137d")]
+[node name="PlayerHealth" parent="Control/AbilityBar/VBoxContainer" unique_id=1893179437 instance=ExtResource("12_0137d")]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_hffhc")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/AbilityBar/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/AbilityBar/VBoxContainer" unique_id=1964270657]
 layout_mode = 2
 
-[node name="ResourceBar" parent="Control/AbilityBar/VBoxContainer/HBoxContainer" instance=ExtResource("12_0137d")]
+[node name="ResourceBar" parent="Control/AbilityBar/VBoxContainer/HBoxContainer" unique_id=1748262058 instance=ExtResource("12_0137d")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -289,7 +123,7 @@ theme_override_fonts/font = ExtResource("6_hffhc")
 theme_override_styles/background = ExtResource("12_b26bj")
 theme_override_styles/fill = ExtResource("13_ui6dq")
 
-[node name="ExperianceBar" parent="Control/AbilityBar/VBoxContainer/HBoxContainer" instance=ExtResource("12_0137d")]
+[node name="ExperianceBar" parent="Control/AbilityBar/VBoxContainer/HBoxContainer" unique_id=1770918688 instance=ExtResource("12_0137d")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -297,7 +131,7 @@ theme_override_fonts/font = ExtResource("6_hffhc")
 theme_override_styles/background = SubResource("StyleBoxFlat_q0ot0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xmfmo")
 
-[node name="TextureRect" type="TextureRect" parent="Control/AbilityBar/VBoxContainer/HBoxContainer/ExperianceBar"]
+[node name="TextureRect" type="TextureRect" parent="Control/AbilityBar/VBoxContainer/HBoxContainer/ExperianceBar" unique_id=747060480]
 texture_filter = 4
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
@@ -315,7 +149,7 @@ grow_vertical = 2
 texture = ExtResource("15_uvdei")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="Control/AbilityBar/VBoxContainer/HBoxContainer/ExperianceBar/TextureRect"]
+[node name="Label" type="Label" parent="Control/AbilityBar/VBoxContainer/HBoxContainer/ExperianceBar/TextureRect" unique_id=2086924760]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -330,43 +164,163 @@ text = "30"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LevelUp" type="Button" parent="Control"]
-visible = false
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 0
-offset_left = 317.0
-offset_top = 848.0
-offset_right = 517.0
-offset_bottom = 948.0
-action_mode = 0
-text = "level_up()"
-
-[node name="InventoryEquipment" parent="." instance=ExtResource("17_xmfmo")]
-
-[node name="ToolTip" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(500, 100)
-anchors_preset = 8
-anchor_left = 0.5
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/AbilityBar" unique_id=2111110505]
+layout_mode = 1
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("19_bobc5")
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+alignment = 1
 
-[node name="Label" type="Label" parent="ToolTip" groups=["tooltip"]]
-visible = false
-texture_filter = 1
+[node name="Ability1" type="TextureButton" parent="Control/AbilityBar/HBoxContainer" unique_id=439643693]
+unique_name_in_owner = true
+clip_children = 2
+texture_filter = 4
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.8183594, 0.22377014, 0.22377014, 1)
-theme_override_colors/font_outline_color = Color(1, 0.97265625, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("6_hffhc")
-theme_override_font_sizes/font_size = 35
-text = "Tool Tip"
-horizontal_alignment = 1
-vertical_alignment = 1
+disabled = true
+shortcut = SubResource("Shortcut_ui6dq")
+texture_normal = ExtResource("8_8r1g1")
+texture_pressed = ExtResource("9_abasy")
+texture_disabled = ExtResource("10_htdp6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Cooldown1" type="TextureProgressBar" parent="Control/AbilityBar/HBoxContainer/Ability1" unique_id=325232583 node_paths=PackedStringArray("shortcut_context")]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(0.51246244, 0, 0.033235822, 0.58431375)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+shortcut_context = NodePath("..")
+value = 100.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("11_pxwtu")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/AbilityBar/HBoxContainer/Ability1" unique_id=1769154732]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="BtnLabel" type="TextureRect" parent="Control/AbilityBar/HBoxContainer/Ability1/MarginContainer" unique_id=1745805272]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("6_8r1g1")
+expand_mode = 1
+
+[node name="Ability2" type="TextureButton" parent="Control/AbilityBar/HBoxContainer" unique_id=2041293502]
+unique_name_in_owner = true
+texture_filter = 4
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+disabled = true
+shortcut = SubResource("Shortcut_q0ot0")
+texture_normal = ExtResource("13_be7e0")
+texture_pressed = ExtResource("14_2r4rr")
+texture_disabled = ExtResource("15_n20qs")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Cooldown2" type="TextureProgressBar" parent="Control/AbilityBar/HBoxContainer/Ability2" unique_id=1100431578 node_paths=PackedStringArray("shortcut_context")]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(0.51246244, 0, 0.033235822, 0.58431375)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+shortcut_context = NodePath("..")
+value = 100.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("11_pxwtu")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/AbilityBar/HBoxContainer/Ability2" unique_id=1434634829]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="BtnLabel" type="TextureRect" parent="Control/AbilityBar/HBoxContainer/Ability2/MarginContainer" unique_id=791347390]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("11_abasy")
+expand_mode = 1
+
+[node name="Ability3" type="TextureButton" parent="Control/AbilityBar/HBoxContainer" unique_id=284159122]
+unique_name_in_owner = true
+texture_filter = 4
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+disabled = true
+shortcut = SubResource("Shortcut_hffhc")
+texture_normal = ExtResource("17_wel50")
+texture_pressed = ExtResource("18_kro55")
+texture_disabled = ExtResource("19_h2bcy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Cooldown3" type="TextureProgressBar" parent="Control/AbilityBar/HBoxContainer/Ability3" unique_id=1775915043 node_paths=PackedStringArray("shortcut_context")]
+unique_name_in_owner = true
+self_modulate = Color(0.51246244, 0, 0.033235822, 0.58431375)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+shortcut_context = NodePath("../../Ability2")
+value = 100.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("11_pxwtu")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/AbilityBar/HBoxContainer/Ability3" unique_id=1493999708]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="BtnLabel" type="TextureRect" parent="Control/AbilityBar/HBoxContainer/Ability3/MarginContainer" unique_id=1618960406]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("15_htdp6")
+expand_mode = 1
+
+[node name="InventoryEquipment" parent="." unique_id=1189334509 instance=ExtResource("17_xmfmo")]

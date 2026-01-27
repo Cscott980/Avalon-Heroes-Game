@@ -4,7 +4,8 @@ enum ResourceType {
 	MANA,
 	RAGE,
 	ENERGY,
-	SCRAP
+	SCRAP,
+	EXP_GEM
 }
 
 @export_group("Settings")

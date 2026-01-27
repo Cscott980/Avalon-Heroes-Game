@@ -17,8 +17,8 @@ enum HeroClasses {
 @export var icon: Texture2D
 
 #Defult visuals when character has no armor.
-@export_group("Defult Visuals")
-@export var class_defults: HeroClassVisualDefultResource
+@export_group("Default Visuals")
+@export var class_defaults: HeroClassVisualDefaultResource
 
 @export_group("Stats")
 @export var max_health: int = 100
@@ -45,7 +45,7 @@ enum HeroClasses {
 	"Medium",
 	"Heavy",
 	"Shield"
-) var allower_armor = 0
+) var allowed_armor = 0
 
 @export_flags(
 	"Dagger",
@@ -65,4 +65,4 @@ enum HeroClasses {
 	"Wand",
 	"Stave",
 	"Relic"
-) var allowed_weapon = 0
+) var allowed_weapons = 0
