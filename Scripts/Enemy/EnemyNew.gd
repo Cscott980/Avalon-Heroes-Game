@@ -22,6 +22,8 @@ class_name Enemy
 @onready var anim_state: AnimationNodeStateMachinePlayback = anim_tree.get("parameters/EnemyAnimations/playback")
 @onready var nav_agent: NavigationAgent3D = %NavigationAgent3D
 @onready var enemy_health_bar: ProgressBar = %EnemyHealthBar
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var hurt_cd: Timer = %HurtCD
 
 @export var enemy_list: EnemyDataManager.ENEMY_TYPE
 @export var level: int = 1
@@ -148,8 +150,9 @@ func take_damage(amount: int) -> void:
 func _on_hit_box_body_entered(body: Node3D) -> void:
 		body.take_damage(damage)
 
-func _on_hurt_box_area_entered(_area: Area3D) -> void:
-	pass # Replace with function body.
+func _on_hurt_box_area_entered(area: Area3D) -> void:
+	state_machine.change_state("HurtState")
+
 
 func highlighter_on() -> void:
 	for mesh in skin_list:

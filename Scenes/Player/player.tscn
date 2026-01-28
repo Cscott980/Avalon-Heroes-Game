@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://d18vbkkww6e0i" path="res://Scenes/Weapons/MainHandWeapon.tscn" id="3_7ve27"]
 [ext_resource type="Animation" uid="uid://2qo5t34oq5u0" path="res://Assets/Animations/Rig_Mid_Animations/Crawling.res" id="3_gpqv3"]
 [ext_resource type="Script" uid="uid://b580uwxkgp4uh" path="res://Scripts/States/Player/PlayerStateMachine.gd" id="3_mtuoh"]
-[ext_resource type="Material" uid="uid://c1y1umlnw6muh" path="res://Assets/Materials/Hero/knight.tres" id="3_pf3rq"]
 [ext_resource type="ArrayMesh" uid="uid://bdprwh32lrmik" path="res://Assets/Characters/Character Hero Meshes/Heads/Female_Head_1.res" id="4_5opb0"]
 [ext_resource type="Animation" uid="uid://bevsbcounnh4r" path="res://Assets/Animations/Rig_Mid_Animations/Crouching.res" id="4_7ve27"]
 [ext_resource type="PackedScene" uid="uid://dmqo550jk2hkw" path="res://Scenes/UserInterface/MainUI.tscn" id="4_74mp2"]
@@ -1056,7 +1055,6 @@ skin = SubResource("Skin_t53un")
 [node name="mesh_back" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=2082129891]
 
 [node name="mesh_head" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=36897347]
-material_override = ExtResource("3_pf3rq")
 mesh = ExtResource("4_5opb0")
 skin = ExtResource("5_gpqv3")
 

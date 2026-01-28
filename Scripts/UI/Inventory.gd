@@ -26,6 +26,7 @@ class_name CharacterSheetandInventory extends Control
 
 var pick_up_sound := preload("uid://c5lxkt43uv5h0")
 var drop_sound := preload("uid://4r21t47kiawv")
+var open_inventory_sound := preload("uid://72d01r063eta")
 
 var inventory_slot: InventorySlot
 
@@ -52,6 +53,7 @@ func _ready() -> void:
 	_connect_equipment_slots()
 
 	close()
+	
 func play_pick_up_sound() -> void:
 	audio_stream_player.stream = pick_up_sound
 	audio_stream_player.play()
@@ -96,10 +98,14 @@ func _is_in_drag_corner(local_pos: Vector2) -> bool:
 
 func close() -> void:
 	self.visible = false
+	audio_stream_player.stream = open_inventory_sound
+	audio_stream_player.play()
 	is_open = false
 
 func open() -> void:
 	self.visible = true
+	audio_stream_player.stream = open_inventory_sound
+	audio_stream_player.play()
 	is_open = true
 
 func _connect_equipment_slots() -> void:

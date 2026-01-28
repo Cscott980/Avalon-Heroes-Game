@@ -3,7 +3,7 @@ class_name EnemyAttackState
 
 
 func enter() -> void:
-	pass
+	enemy.enemy_attcak()
 	
 func exit() -> void:
 	pass
@@ -25,7 +25,10 @@ func physics_process(_delta: float) -> void:
 		return
 	
 	enemy.velocity = Vector3.ZERO
-	enemy.enemy_attcak()
 	enemy.move_and_slide()
 	
 		
+
+
+func _on_hurt_box_area_entered(area: Area3D) -> void:
+	state_machine.change_state("HurtState")

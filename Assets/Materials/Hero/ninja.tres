@@ -1,5 +1,8 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://dxhftt1gm4tcb"]
 
+[ext_resource type="Texture2D" uid="uid://ciadmi5j61wgi" path="res://Assets/PlayableCharacterBodies/Ninja_ninja_texture_A.png" id="1_brjv3"]
+
 [resource]
 resource_name = "ninja"
+albedo_texture = ExtResource("1_brjv3")
 roughness = 0.5

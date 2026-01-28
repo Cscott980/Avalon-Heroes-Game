@@ -31,6 +31,7 @@ func _ready() -> void:
 	if player.mesh_head != null:
 		mesh_head.mesh = player.mesh_head.mesh 
 		mesh_head.skin = player.mesh_head.skin
+		mesh_head.material_override = mesh_head.material_override
 	else:
 		mesh_head.mesh = null
 		mesh_head.skim = null

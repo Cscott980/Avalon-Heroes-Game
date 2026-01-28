@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://lhsufnuhcrv4"]
+[gd_scene format=3 uid="uid://lhsufnuhcrv4"]
 
 [ext_resource type="Texture2D" uid="uid://27uopevfvay8" path="res://Assets/GUI/UI/Icons/CharactersheetboarderBack.png" id="1_454s2"]
 [ext_resource type="Script" uid="uid://x5hf3om51ne1" path="res://Scripts/UI/Inventory.gd" id="1_ldpf6"]
@@ -148,7 +148,7 @@ nodes/IdleStates/node = SubResource("AnimationNodeStateMachine_xm37s")
 nodes/IdleStates/position = Vector2(-80, 100)
 node_connections = [&"output", 0, &"IdleStates"]
 
-[node name="Control" type="Control" groups=["playersheet"]]
+[node name="Control" type="Control" unique_id=685756668 groups=["playersheet"]]
 custom_minimum_size = Vector2(600, 700)
 layout_mode = 3
 anchor_right = 0.312
@@ -160,7 +160,7 @@ corner_size = 100
 inv = ExtResource("2_tkgd0")
 equipment = SubResource("Resource_5oqxr")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1264212566]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -171,7 +171,7 @@ mouse_filter = 2
 texture = ExtResource("1_454s2")
 expand_mode = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=561487037]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -179,30 +179,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Left" type="MarginContainer" parent="HBoxContainer"]
+[node name="Left" type="MarginContainer" parent="HBoxContainer" unique_id=866976560]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
-[node name="Main" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Main" type="VBoxContainer" parent="HBoxContainer" unique_id=1079204212]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Top" type="MarginContainer" parent="HBoxContainer/Main"]
+[node name="Top" type="MarginContainer" parent="HBoxContainer/Main" unique_id=86082626]
 custom_minimum_size = Vector2(0, 101.395)
 layout_mode = 2
 
-[node name="Armor and Desiplay" type="HBoxContainer" parent="HBoxContainer/Main"]
+[node name="Armor and Desiplay" type="HBoxContainer" parent="HBoxContainer/Main" unique_id=1463932369]
 custom_minimum_size = Vector2(0, 265)
 layout_mode = 2
 alignment = 1
 
-[node name="LeftSIdeEquipment" type="VBoxContainer" parent="HBoxContainer/Main/Armor and Desiplay"]
+[node name="LeftSIdeEquipment" type="VBoxContainer" parent="HBoxContainer/Main/Armor and Desiplay" unique_id=2110436566]
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="Helm" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/LeftSIdeEquipment" groups=["equipment_slot"]]
+[node name="Helm" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/LeftSIdeEquipment" unique_id=1076031345 groups=["equipment_slot"]]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 texture = ExtResource("2_4n6dp")
@@ -210,7 +210,7 @@ expand_mode = 1
 script = ExtResource("5_tu1q3")
 SLOT_TYPE = ExtResource("6_xtycw")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/LeftSIdeEquipment/Helm"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/LeftSIdeEquipment/Helm" unique_id=1395750103]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 1
 anchors_preset = 15
@@ -220,7 +220,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Armor" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/LeftSIdeEquipment" groups=["equipment_slot"]]
+[node name="Armor" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/LeftSIdeEquipment" unique_id=1576318860 groups=["equipment_slot"]]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 texture = ExtResource("3_ldpf6")
@@ -228,7 +228,7 @@ expand_mode = 1
 script = ExtResource("5_tu1q3")
 SLOT_TYPE = ExtResource("8_60vy0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/LeftSIdeEquipment/Armor"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/LeftSIdeEquipment/Armor" unique_id=597442520]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 1
 anchors_preset = 15
@@ -238,7 +238,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Back" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/LeftSIdeEquipment" groups=["equipment_slot"]]
+[node name="Back" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/LeftSIdeEquipment" unique_id=682900095 groups=["equipment_slot"]]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 texture = ExtResource("4_rxrur")
@@ -246,7 +246,7 @@ expand_mode = 1
 script = ExtResource("5_tu1q3")
 SLOT_TYPE = ExtResource("10_0486i")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/LeftSIdeEquipment/Back"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/LeftSIdeEquipment/Back" unique_id=1559974779]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 1
 anchors_preset = 15
@@ -256,7 +256,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="MainHand" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/LeftSIdeEquipment" node_paths=PackedStringArray("main_hand_slot_ui", "off_hand_slot_ui") groups=["equipment_slot"]]
+[node name="MainHand" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/LeftSIdeEquipment" unique_id=193971043 node_paths=PackedStringArray("main_hand_slot_ui", "off_hand_slot_ui") groups=["equipment_slot"]]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 texture = ExtResource("6_0qu8c")
@@ -266,7 +266,7 @@ SLOT_TYPE = ExtResource("12_gwtsw")
 main_hand_slot_ui = NodePath(".")
 off_hand_slot_ui = NodePath("../../RightSideEquipment/OffHand")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/LeftSIdeEquipment/MainHand"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/LeftSIdeEquipment/MainHand" unique_id=910829504]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 1
 anchors_preset = 15
@@ -276,32 +276,32 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="CharacterPreview" type="MarginContainer" parent="HBoxContainer/Main/Armor and Desiplay"]
+[node name="CharacterPreview" type="MarginContainer" parent="HBoxContainer/Main/Armor and Desiplay" unique_id=1537892439]
 custom_minimum_size = Vector2(215.1, 0)
 layout_mode = 2
 
-[node name="SubViewPortContainter" type="SubViewportContainer" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview"]
+[node name="SubViewPortContainter" type="SubViewportContainer" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview" unique_id=83151469]
 layout_mode = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter"]
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter" unique_id=1142228923]
 own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(215, 312)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport" unique_id=679906903]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032718182, 1.2633109, 2.4992468)
 current = true
 
-[node name="CharacterSheetCharacter" type="Node3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport"]
+[node name="CharacterSheetCharacter" type="Node3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport" unique_id=499951774]
 unique_name_in_owner = true
 script = ExtResource("7_tkgd0")
 
-[node name="Rig_Medium" type="Node3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter"]
+[node name="Rig_Medium" type="Node3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter" unique_id=131321592]
 
-[node name="Skeleton3D" type="Skeleton3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium"]
+[node name="Skeleton3D" type="Skeleton3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium" unique_id=155617181]
 bones/0/name = "root"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 2.3841855e-07, 0, 1, 0, -2.3841855e-07, 0, 1, 0, 0, 0)
@@ -464,71 +464,69 @@ bones/22/position = Vector3(2.1323326e-10, 0.16565003, 5.1714e-09)
 bones/22/rotation = Quaternion(2.1219819e-08, 0.92035496, -0.39108413, 6.450591e-08)
 bones/22/scale = Vector3(1, 0.9999966, 1.0000037)
 
-[node name="mesh_arm_left" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D"]
+[node name="mesh_arm_left" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D" unique_id=918825436]
 skin = SubResource("Skin_ls7sj")
 
-[node name="mesh_arm_right" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D"]
+[node name="mesh_arm_right" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D" unique_id=580821223]
 skin = SubResource("Skin_ls7sj")
 
-[node name="mesh_helm" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D"]
+[node name="mesh_helm" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D" unique_id=1952512888]
 skin = SubResource("Skin_ls7sj")
 
-[node name="mesh_helm_addon" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D"]
+[node name="mesh_helm_addon" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D" unique_id=1559871250]
 skin = SubResource("Skin_ls7sj")
 
-[node name="mesh_back" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D"]
+[node name="mesh_back" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D" unique_id=368633269]
 skin = SubResource("Skin_ls7sj")
 
-[node name="mesh_armor" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D"]
+[node name="mesh_armor" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D" unique_id=105882026]
 skin = SubResource("Skin_ls7sj")
 
-[node name="mesh_head" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D"]
+[node name="mesh_head" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D" unique_id=1168178103]
 skin = SubResource("Skin_ls7sj")
 
-[node name="mesh_leg_left" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D"]
+[node name="mesh_leg_left" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D" unique_id=2002909161]
 skin = SubResource("Skin_ls7sj")
 
-[node name="mesh_leg_right" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D"]
+[node name="mesh_leg_right" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D" unique_id=1677497508]
 skin = SubResource("Skin_ls7sj")
 
-[node name="mesh_accessory1" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D"]
+[node name="mesh_accessory1" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D" unique_id=464174791]
 
-[node name="mesh_accessory2" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D"]
+[node name="mesh_accessory2" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D" unique_id=1605103946]
 
-[node name="mesh_accessory3" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D"]
+[node name="mesh_accessory3" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D" unique_id=503512921]
 
-[node name="MainHand" type="BoneAttachment3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D"]
+[node name="MainHand" type="BoneAttachment3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D" unique_id=754724981]
 transform = Transform3D(-0.999999, 4.6839318e-07, 4.5751068e-07, 3.9800034e-07, -5.8875344e-07, 0.99999946, 3.9761645e-07, 0.99999946, 5.358822e-07, -0.8831323, 1.0492611, -7.2884757e-07)
 bone_name = "handslot.r"
 bone_idx = 14
 
-[node name="mesh" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D/MainHand"]
+[node name="mesh" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D/MainHand" unique_id=741966898]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="OffHand" type="BoneAttachment3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D"]
+[node name="OffHand" type="BoneAttachment3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D" unique_id=1444301237]
 transform = Transform3D(-0.99999887, -3.9761176e-07, -3.6810383e-07, -4.6604322e-07, -5.3096744e-07, 0.99999934, -4.758466e-07, 0.99999934, 6.2344856e-07, 0.88313216, 1.0492611, -6.824021e-07)
 bone_name = "handslot.l"
 bone_idx = 8
 
-[node name="mesh" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D/OffHand"]
+[node name="mesh" type="MeshInstance3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter/Rig_Medium/Skeleton3D/OffHand" unique_id=1303236792]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter"]
-libraries = {
-&"CharacterSheetIdle": SubResource("AnimationLibrary_7nsqm")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter" unique_id=925522051]
+libraries/CharacterSheetIdle = SubResource("AnimationLibrary_7nsqm")
 
-[node name="AnimationTree" type="AnimationTree" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter"]
+[node name="AnimationTree" type="AnimationTree" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter" unique_id=1589914792]
 tree_root = SubResource("AnimationNodeBlendTree_cl0yh")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport" unique_id=1180997181]
 
-[node name="RightSideEquipment" type="VBoxContainer" parent="HBoxContainer/Main/Armor and Desiplay"]
+[node name="RightSideEquipment" type="VBoxContainer" parent="HBoxContainer/Main/Armor and Desiplay" unique_id=443389739]
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="Accessory1" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/RightSideEquipment" groups=["equipment_slot"]]
+[node name="Accessory1" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/RightSideEquipment" unique_id=835207177 groups=["equipment_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -538,7 +536,7 @@ script = ExtResource("5_tu1q3")
 SLOT_TYPE = ExtResource("17_tcolc")
 accessory_index = 0
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/RightSideEquipment/Accessory1"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/RightSideEquipment/Accessory1" unique_id=1631566310]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -547,7 +545,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Accessory2" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/RightSideEquipment" groups=["equipment_slot"]]
+[node name="Accessory2" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/RightSideEquipment" unique_id=1824862997 groups=["equipment_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -557,7 +555,7 @@ script = ExtResource("5_tu1q3")
 SLOT_TYPE = ExtResource("17_tcolc")
 accessory_index = 1
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/RightSideEquipment/Accessory2"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/RightSideEquipment/Accessory2" unique_id=880411730]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -566,7 +564,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Accessory3" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/RightSideEquipment" groups=["equipment_slot"]]
+[node name="Accessory3" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/RightSideEquipment" unique_id=203444440 groups=["equipment_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -576,7 +574,7 @@ script = ExtResource("5_tu1q3")
 SLOT_TYPE = ExtResource("17_tcolc")
 accessory_index = 2
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/RightSideEquipment/Accessory3"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/RightSideEquipment/Accessory3" unique_id=1858007785]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -585,7 +583,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="OffHand" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/RightSideEquipment" node_paths=PackedStringArray("main_hand_slot_ui", "off_hand_slot_ui") groups=["equipment_slot"]]
+[node name="OffHand" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/RightSideEquipment" unique_id=1876017244 node_paths=PackedStringArray("main_hand_slot_ui", "off_hand_slot_ui") groups=["equipment_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -597,7 +595,7 @@ hand_role = "off"
 main_hand_slot_ui = NodePath("../../LeftSIdeEquipment/MainHand")
 off_hand_slot_ui = NodePath(".")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/RightSideEquipment/OffHand"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Armor and Desiplay/RightSideEquipment/OffHand" unique_id=292195998]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -606,23 +604,23 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="BreakPoint" type="MarginContainer" parent="HBoxContainer/Main"]
+[node name="BreakPoint" type="MarginContainer" parent="HBoxContainer/Main" unique_id=766383500]
 custom_minimum_size = Vector2(0, 44.11)
 layout_mode = 2
 
-[node name="Inventory" type="ScrollContainer" parent="HBoxContainer/Main"]
+[node name="Inventory" type="ScrollContainer" parent="HBoxContainer/Main" unique_id=1395541654]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 mouse_filter = 0
 
-[node name="GridContainer" type="GridContainer" parent="HBoxContainer/Main/Inventory"]
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/Main/Inventory" unique_id=141628115]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 3
 columns = 5
 
-[node name="Slot1" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot1" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=568119569 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -632,7 +630,7 @@ expand_mode = 1
 script = ExtResource("13_tkgd0")
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot1"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot1" unique_id=1531455039]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -641,7 +639,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot2" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot2" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=280010272 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -652,7 +650,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 1
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot2"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot2" unique_id=1770099115]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -661,7 +659,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot3" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot3" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=1846385214 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -672,7 +670,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 2
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot3"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot3" unique_id=1811489186]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -681,7 +679,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot4" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot4" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=794368292 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -692,7 +690,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 3
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot4"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot4" unique_id=1815381635]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -701,7 +699,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot5" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot5" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=1759377282 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -712,7 +710,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 4
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot5"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot5" unique_id=755311444]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -721,7 +719,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot6" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot6" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=538476727 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -732,7 +730,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 5
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot6"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot6" unique_id=188969481]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -741,7 +739,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot7" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot7" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=1488400023 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -752,7 +750,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 6
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot7"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot7" unique_id=1199490663]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -761,7 +759,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot8" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot8" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=1500381727 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -772,7 +770,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 7
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot8"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot8" unique_id=640547976]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -781,7 +779,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot9" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot9" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=483051020 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -792,7 +790,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 8
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot9"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot9" unique_id=36153483]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -801,7 +799,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot10" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot10" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=804268706 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -812,7 +810,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 9
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot10"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot10" unique_id=1137520312]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -821,7 +819,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot11" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot11" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=190298750 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -832,7 +830,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 10
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot11"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot11" unique_id=2147242429]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -841,7 +839,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot12" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot12" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=673718256 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -852,7 +850,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 11
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot12"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot12" unique_id=1145187416]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -861,7 +859,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot13" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot13" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=510188825 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -872,7 +870,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 12
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot13"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot13" unique_id=2130300775]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -881,7 +879,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot14" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot14" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=372934295 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -892,7 +890,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 13
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot14"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot14" unique_id=282730952]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -901,7 +899,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot15" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot15" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=1183081496 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -912,7 +910,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 14
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot15"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot15" unique_id=605482398]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -921,7 +919,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot16" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot16" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=1747756003 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -932,7 +930,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 15
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot16"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot16" unique_id=957855472]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -941,7 +939,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot17" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot17" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=2090220078 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -952,7 +950,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 16
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot17"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot17" unique_id=1267516005]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -961,7 +959,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot18" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot18" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=1753351691 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -972,7 +970,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 17
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot18"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot18" unique_id=212136483]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -981,7 +979,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot19" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot19" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=1065525663 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -992,7 +990,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 18
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot19"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot19" unique_id=2012507387]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1001,7 +999,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot20" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot20" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=148914061 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -1012,7 +1010,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 19
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot20"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot20" unique_id=960027170]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1021,7 +1019,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot21" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot21" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=698217873 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -1032,7 +1030,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 20
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot21"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot21" unique_id=657322303]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1041,7 +1039,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot22" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot22" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=577252981 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -1052,7 +1050,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 21
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot22"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot22" unique_id=789925862]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1061,7 +1059,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot23" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot23" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=891938412 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -1072,7 +1070,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 22
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot23"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot23" unique_id=1613614647]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1081,7 +1079,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot24" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot24" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=1901396574 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -1092,7 +1090,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 23
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot24"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot24" unique_id=1580333479]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1101,7 +1099,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot25" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot25" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=2085241718 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -1112,7 +1110,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 24
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot25"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot25" unique_id=940990576]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1121,7 +1119,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot26" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot26" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=757594454 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -1132,7 +1130,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 25
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot26"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot26" unique_id=1184980177]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1141,7 +1139,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot27" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot27" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=950150710 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -1152,7 +1150,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 26
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot27"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot27" unique_id=2011678895]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1161,7 +1159,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot28" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot28" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=417572466 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -1172,7 +1170,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 27
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot28"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot28" unique_id=1084119179]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1181,7 +1179,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot29" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot29" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=1071802505 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -1192,7 +1190,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 28
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot29"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot29" unique_id=619607093]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1201,7 +1199,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Slot30" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" groups=["inventory_slot"]]
+[node name="Slot30" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer" unique_id=1114533803 groups=["inventory_slot"]]
 clip_contents = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
@@ -1212,7 +1210,7 @@ script = ExtResource("13_tkgd0")
 slot_index = 29
 inventory = ExtResource("2_tkgd0")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot30"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Main/Inventory/GridContainer/Slot30" unique_id=1709752039]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1221,11 +1219,11 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Right" type="MarginContainer" parent="HBoxContainer"]
+[node name="Right" type="MarginContainer" parent="HBoxContainer" unique_id=336782177]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
-[node name="Forground" type="TextureRect" parent="."]
+[node name="Forground" type="TextureRect" parent="." unique_id=1314103423]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1237,7 +1235,7 @@ mouse_behavior_recursive = 1
 texture = ExtResource("27_5oqxr")
 expand_mode = 1
 
-[node name="LevelDisplay" type="Label" parent="."]
+[node name="LevelDisplay" type="Label" parent="." unique_id=491905083]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 279.0
@@ -1254,10 +1252,10 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1355813008]
 volume_db = -4.16
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=274961951]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1272,18 +1270,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer" unique_id=2062859022]
 layout_mode = 2
 columns = 4
 
-[node name="Strength" type="Label" parent="MarginContainer/GridContainer"]
+[node name="Strength" type="Label" parent="MarginContainer/GridContainer" unique_id=476593908]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("28_lgmnu")
 text = "Str:"
 
-[node name="StrengthVal" type="Label" parent="MarginContainer/GridContainer"]
+[node name="StrengthVal" type="Label" parent="MarginContainer/GridContainer" unique_id=1745363391]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1291,14 +1289,14 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("28_lgmnu")
 text = "0"
 
-[node name="Intellect" type="Label" parent="MarginContainer/GridContainer"]
+[node name="Intellect" type="Label" parent="MarginContainer/GridContainer" unique_id=2029434027]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("28_lgmnu")
 text = "Int:"
 
-[node name="IntelectVal" type="Label" parent="MarginContainer/GridContainer"]
+[node name="IntelectVal" type="Label" parent="MarginContainer/GridContainer" unique_id=461450139]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1306,14 +1304,14 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("28_lgmnu")
 text = "0"
 
-[node name="Dexterity" type="Label" parent="MarginContainer/GridContainer"]
+[node name="Dexterity" type="Label" parent="MarginContainer/GridContainer" unique_id=1862855346]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("28_lgmnu")
 text = "Dex:"
 
-[node name="DexterityVal" type="Label" parent="MarginContainer/GridContainer"]
+[node name="DexterityVal" type="Label" parent="MarginContainer/GridContainer" unique_id=43063431]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1321,14 +1319,14 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("28_lgmnu")
 text = "0"
 
-[node name="Vitality" type="Label" parent="MarginContainer/GridContainer"]
+[node name="Vitality" type="Label" parent="MarginContainer/GridContainer" unique_id=257033551]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("28_lgmnu")
 text = "Vit:"
 
-[node name="VitalityVal" type="Label" parent="MarginContainer/GridContainer"]
+[node name="VitalityVal" type="Label" parent="MarginContainer/GridContainer" unique_id=391499314]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1336,14 +1334,14 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("28_lgmnu")
 text = "0"
 
-[node name="Wisdom" type="Label" parent="MarginContainer/GridContainer"]
+[node name="Wisdom" type="Label" parent="MarginContainer/GridContainer" unique_id=1807118402]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("28_lgmnu")
 text = "Wis:"
 
-[node name="WisdomVal" type="Label" parent="MarginContainer/GridContainer"]
+[node name="WisdomVal" type="Label" parent="MarginContainer/GridContainer" unique_id=2146952897]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1351,14 +1349,14 @@ theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("28_lgmnu")
 text = "0"
 
-[node name="Health" type="Label" parent="MarginContainer/GridContainer"]
+[node name="Health" type="Label" parent="MarginContainer/GridContainer" unique_id=68455668]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("28_lgmnu")
 text = "Hth:"
 
-[node name="HealthVal" type="Label" parent="MarginContainer/GridContainer"]
+[node name="HealthVal" type="Label" parent="MarginContainer/GridContainer" unique_id=783209274]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
