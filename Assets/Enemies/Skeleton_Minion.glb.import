@@ -37,6 +37,90 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"meshes": {
+"Skeleton_Minion_Skeleton_Minion_ArmLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_ArmLeft.res",
+"save_to_file/path": "uid://d01ndj3c3ta30"
+},
+"Skeleton_Minion_Skeleton_Minion_ArmRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_ArmRight.res",
+"save_to_file/path": "uid://ox08f6nl6b56"
+},
+"Skeleton_Minion_Skeleton_Minion_Body": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_Body.res",
+"save_to_file/path": "uid://c6agxkr5ygykf"
+},
+"Skeleton_Minion_Skeleton_Minion_Cloak": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_Cloak.res",
+"save_to_file/path": "uid://duwdqinn651m"
+},
+"Skeleton_Minion_Skeleton_Minion_Eyes": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_Eyes.res",
+"save_to_file/path": "uid://b64hof77amm24"
+},
+"Skeleton_Minion_Skeleton_Minion_Head": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_Head.res",
+"save_to_file/path": "uid://d3j2mhpcbgflo"
+},
+"Skeleton_Minion_Skeleton_Minion_Jaw": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_Jaw.res",
+"save_to_file/path": "uid://c8kiju3tdrm5p"
+},
+"Skeleton_Minion_Skeleton_Minion_LegLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_LegLeft.res",
+"save_to_file/path": "uid://cd88bva0aq8mx"
+},
+"Skeleton_Minion_Skeleton_Minion_LegRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_LegRight.res",
+"save_to_file/path": "uid://dmyhjvr5nk7gh"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

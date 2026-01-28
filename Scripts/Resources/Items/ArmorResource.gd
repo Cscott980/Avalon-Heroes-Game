@@ -22,6 +22,9 @@ enum ArmorType {Light, Medium, Heavy, Shield}
 @export var mesh_leg_left: Mesh
 @export var mesh_leg_right: Mesh
 
+@export_group("Shield")
+@export var shield: Mesh
+
 @export_group("Skin")
 @export var skin: Skin
 
@@ -36,6 +39,8 @@ enum ArmorType {Light, Medium, Heavy, Shield}
 	"druid",
 	"engineer"
 ) var allowed_classes = 0
+
+
 
 func get_item_kind() -> String:
 	return "armor"

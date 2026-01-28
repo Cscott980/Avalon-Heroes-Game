@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=5 format=3 uid="uid://s7nfclvo45yt"]
+[gd_resource type="Resource" script_class="WeaponResource" format=3 uid="uid://s7nfclvo45yt"]
 
 [ext_resource type="Texture2D" uid="uid://hsk2nqtyvaci" path="res://Assets/Icons/Weapons/Greatswords/Avalonian_Greatsword_Common.png" id="1_5uj5d"]
-[ext_resource type="Script" uid="uid://c50kbrwa28ffs" path="res://Scripts/Resources/WeaponResource.gd" id="1_n0ctw"]
+[ext_resource type="Script" uid="uid://c50kbrwa28ffs" path="res://Scripts/Resources/Items/WeaponResource.gd" id="1_n0ctw"]
 [ext_resource type="Shape3D" uid="uid://d2ixrfwi8suha" path="res://Assets/CollissionShape/Avalonian_Greatsword_Collission_Shape.tres" id="1_yyi05"]
 [ext_resource type="ArrayMesh" uid="uid://b1d0n0b8nkjb3" path="res://Assets/WeaponMeshes/Greatswords/sword_2handed_sword_2handed.res" id="3_evudf"]
 

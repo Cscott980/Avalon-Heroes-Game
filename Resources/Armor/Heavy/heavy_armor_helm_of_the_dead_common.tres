@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="ArmorResource" load_steps=7 format=3 uid="uid://cr8u81urruvtn"]
+[gd_resource type="Resource" script_class="ArmorResource" format=3 uid="uid://cr8u81urruvtn"]
 
-[ext_resource type="Script" uid="uid://bccu0u1b1jjyl" path="res://Scripts/Resources/ArmorResource.gd" id="1_mnca8"]
+[ext_resource type="Script" uid="uid://bccu0u1b1jjyl" path="res://Scripts/Resources/Items/ArmorResource.gd" id="1_mnca8"]
 [ext_resource type="Resource" uid="uid://cmy6g7nguvjj5" path="res://Resources/CharacterSheet/HelmSlot.tres" id="1_muadn"]
 [ext_resource type="ArrayMesh" uid="uid://brrsgnm555mgk" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/Helm_Of_The_Dead.res" id="2_fphdg"]
 [ext_resource type="StyleBox" uid="uid://byvl1non8ldy2" path="res://Resources/ItemPanels/UncommonPanel.tres" id="2_kbhhr"]
-[ext_resource type="Script" uid="uid://dmfryqfoa5wve" path="res://Scripts/Resources/StatBonusResource.gd" id="5_kbhhr"]
+[ext_resource type="Script" uid="uid://dmfryqfoa5wve" path="res://Scripts/Resources/General/StatBonusResource.gd" id="5_kbhhr"]
 
 [sub_resource type="Resource" id="Resource_ix6im"]
 script = ExtResource("5_kbhhr")

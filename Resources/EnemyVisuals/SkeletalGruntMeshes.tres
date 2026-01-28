@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="EnemyVisualsResource" format=3 uid="uid://bd8kuxeor8xsk"]
+
+[ext_resource type="ArrayMesh" uid="uid://bmhf1le430lrb" path="res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_Cloak.res" id="1_65l7v"]
+[ext_resource type="Script" uid="uid://mrv0rwb4lf7b" path="res://Scripts/Resources/Enemies/EnemeyVisualsResource.gd" id="1_a5cfq"]
+[ext_resource type="ArrayMesh" uid="uid://2lk4d4nl5sde" path="res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_Eyes.res" id="2_hikj5"]
+[ext_resource type="ArrayMesh" uid="uid://bajidm88e4j1q" path="res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_Jaw.res" id="3_ncxqw"]
+[ext_resource type="ArrayMesh" uid="uid://7dpxt1xeecl6" path="res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_Body.res" id="4_c5ksl"]
+[ext_resource type="ArrayMesh" uid="uid://cy4kqpxn8srsx" path="res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_Head.res" id="5_3bmt2"]
+[ext_resource type="ArrayMesh" uid="uid://bym36e6krk6uo" path="res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_ArmLeft.res" id="6_2wgpk"]
+[ext_resource type="ArrayMesh" uid="uid://6606xida1t53" path="res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_LegLeft.res" id="7_4alne"]
+[ext_resource type="ArrayMesh" uid="uid://bd42fksirk810" path="res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_ArmRight.res" id="8_6n3e0"]
+[ext_resource type="ArrayMesh" uid="uid://b3djarhhiqiut" path="res://Assets/EnemyMeshes/SkeletalGrunt/Skeleton_Minion_Skeleton_Minion_LegRight.res" id="9_ud3ax"]
+
+[resource]
+script = ExtResource("1_a5cfq")
+head = ExtResource("5_3bmt2")
+body = ExtResource("4_c5ksl")
+left_arm = ExtResource("6_2wgpk")
+right_arm = ExtResource("8_6n3e0")
+left_leg = ExtResource("7_4alne")
+right_leg = ExtResource("9_ud3ax")
+accessory1 = ExtResource("1_65l7v")
+accessory2 = ExtResource("2_hikj5")
+accessory3 = ExtResource("3_ncxqw")
+metadata/_custom_type_script = "uid://mrv0rwb4lf7b"

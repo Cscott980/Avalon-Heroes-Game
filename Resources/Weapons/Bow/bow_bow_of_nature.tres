@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=5 format=3 uid="uid://y2ys4ocs3r4t"]
+[gd_resource type="Resource" script_class="WeaponResource" format=3 uid="uid://y2ys4ocs3r4t"]
 
 [ext_resource type="Texture2D" uid="uid://bo0tkrr27iioh" path="res://Assets/Icons/Weapons/Bows/Avalonian_Bow_Common.png" id="1_0if76"]
-[ext_resource type="Script" uid="uid://c50kbrwa28ffs" path="res://Scripts/Resources/WeaponResource.gd" id="1_yf8ii"]
+[ext_resource type="Script" uid="uid://c50kbrwa28ffs" path="res://Scripts/Resources/Items/WeaponResource.gd" id="1_yf8ii"]
 [ext_resource type="ArrayMesh" uid="uid://d2et5vnjqbnnn" path="res://Assets/WeaponMeshes/Bow/bow_avalonian_bow.res" id="2_8ol54"]
 [ext_resource type="ArrayMesh" uid="uid://dei16c4shy6mb" path="res://Assets/Projectiles/Meshes/arrow_bow_arrow_bow.res" id="3_vr41n"]
 

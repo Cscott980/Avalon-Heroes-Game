@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ResourcePoolResource" format=3 uid="uid://ca4huyt6gh3vi"]
+
+[ext_resource type="Script" uid="uid://emgwnj0rkamw" path="res://Scripts/Resources/Player/ResourcePoolResource.gd" id="1_qgcfo"]
+
+[resource]
+script = ExtResource("1_qgcfo")
+name = "Energy"
+color = Color(1, 0.9814682, 0.32226563, 1)
+start_value = 100
+gain_on_hit = true
+gain_on_kill = true
+gain_out_of_combat = true
+metadata/_custom_type_script = "uid://emgwnj0rkamw"

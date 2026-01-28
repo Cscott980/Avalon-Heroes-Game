@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="AbilityResource" load_steps=6 format=3 uid="uid://cqjgndtdbd44"]
+[gd_resource type="Resource" script_class="AbilityResource" format=3 uid="uid://cqjgndtdbd44"]
 
-[ext_resource type="Script" uid="uid://bnvu7uffua2aj" path="res://Scripts/Resources/AbilityResource.gd" id="1_qid6i"]
+[ext_resource type="Script" uid="uid://bnvu7uffua2aj" path="res://Scripts/Resources/Abilities/AbilityResource.gd" id="1_qid6i"]
 [ext_resource type="Texture2D" uid="uid://oanefjsfn4v2" path="res://Assets/GUI/UI/Icons/WarriorAbilities/BattleShoutIcon.png" id="1_tctgf"]
 [ext_resource type="Texture2D" uid="uid://be4s6isjimtj5" path="res://Assets/GUI/UI/Icons/WarriorAbilities/BattleShoutIconLocked.png" id="2_ncjn2"]
 [ext_resource type="Texture2D" uid="uid://cdwbyfl0qrebx" path="res://Assets/GUI/UI/Icons/WarriorAbilities/BattleShoutIconPressed.png" id="3_kpb80"]

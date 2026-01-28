@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="EquipmentSlotResource" load_steps=2 format=3 uid="uid://dfhs3gii54www"]
+[gd_resource type="Resource" script_class="EquipmentSlotResource" format=3 uid="uid://dfhs3gii54www"]
 
-[ext_resource type="Script" uid="uid://dgwcs3qe6ckep" path="res://Scripts/Resources/EqupimentSlotResource.gd" id="1_j4xwp"]
+[ext_resource type="Script" uid="uid://dgwcs3qe6ckep" path="res://Scripts/Resources/UI/EqupimentSlotResource.gd" id="1_j4xwp"]
 
 [resource]
 script = ExtResource("1_j4xwp")

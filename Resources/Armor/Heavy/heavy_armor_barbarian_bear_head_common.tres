@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="ArmorResource" load_steps=7 format=3 uid="uid://b6j7vv5640p35"]
+[gd_resource type="Resource" script_class="ArmorResource" format=3 uid="uid://b6j7vv5640p35"]
 
 [ext_resource type="Resource" uid="uid://cmy6g7nguvjj5" path="res://Resources/CharacterSheet/HelmSlot.tres" id="1_3iehq"]
 [ext_resource type="Texture2D" uid="uid://cx34eivnpg6ef" path="res://Assets/Icons/Armor/Heavy/BarbarianBearHeadCommon.png" id="2_ce6p0"]
 [ext_resource type="StyleBox" uid="uid://d2hluo0relbhx" path="res://Resources/ItemPanels/CommonPanel.tres" id="3_ce6p0"]
 [ext_resource type="ArrayMesh" uid="uid://d3c8edw3q482a" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/The_Barbarian_Bear_Head.res" id="3_f6sly"]
-[ext_resource type="Script" uid="uid://bccu0u1b1jjyl" path="res://Scripts/Resources/ArmorResource.gd" id="4_vqnk7"]
+[ext_resource type="Script" uid="uid://bccu0u1b1jjyl" path="res://Scripts/Resources/Items/ArmorResource.gd" id="4_vqnk7"]
 [ext_resource type="Skin" uid="uid://krk1ouqog26y" path="res://Resources/MeshSkins/WarriorSkin.tres" id="5_f7s7d"]
 
 [resource]

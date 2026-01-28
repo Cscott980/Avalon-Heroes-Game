@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="ArmorResource" load_steps=11 format=3 uid="uid://bscx7ayylksqy"]
+[gd_resource type="Resource" script_class="ArmorResource" format=3 uid="uid://bscx7ayylksqy"]
 
-[ext_resource type="Script" uid="uid://bccu0u1b1jjyl" path="res://Scripts/Resources/ArmorResource.gd" id="1_1fbar"]
+[ext_resource type="Script" uid="uid://bccu0u1b1jjyl" path="res://Scripts/Resources/Items/ArmorResource.gd" id="1_1fbar"]
 [ext_resource type="Resource" uid="uid://dfhs3gii54www" path="res://Resources/CharacterSheet/ArmorSlot.tres" id="1_eaqua"]
 [ext_resource type="Texture2D" uid="uid://bvbem61xxioug" path="res://Assets/Icons/Armor/Heavy/AvalonianKnightArmorCommon.png" id="2_qjarb"]
 [ext_resource type="ArrayMesh" uid="uid://bulcvp4m6swut" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/Avalonian_Knight_ArmLeft.res" id="3_h37km"]

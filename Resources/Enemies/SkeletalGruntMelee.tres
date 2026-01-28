@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://bl1tb2vhb2btc"]
+
+[ext_resource type="Script" uid="uid://bnvu7uffua2aj" path="res://Scripts/Resources/Abilities/AbilityResource.gd" id="1_cyf13"]
+[ext_resource type="Script" uid="uid://cbal6j63qy6dv" path="res://Scripts/Resources/Player/ResourceVisualsResource.gd" id="2_tst70"]
+[ext_resource type="Script" uid="uid://3qgvo0fy12ei" path="res://Scripts/Resources/Enemies/EnemyResource.gd" id="3_ko468"]
+[ext_resource type="Resource" uid="uid://bd8kuxeor8xsk" path="res://Resources/EnemyVisuals/SkeletalGruntMeshes.tres" id="3_tst70"]
+[ext_resource type="Resource" uid="uid://dc6vfo02h0n3q" path="res://Resources/Weapons/Sword/sword_of_the_dead_common.tres" id="4_wl4v6"]
+[ext_resource type="Resource" uid="uid://cl17nw3u3uqvx" path="res://Resources/EnemyStats/SkeletalGruntStats.tres" id="6_yw4b4"]
+
+[resource]
+script = ExtResource("3_ko468")
+name = "Skeletal Grunt"
+enemy_mesh = ExtResource("3_tst70")
+main_hand = ExtResource("4_wl4v6")
+movement_speed = 1.0
+turn_speed = 0.5
+wander_speed = 1.0
+stats = ExtResource("6_yw4b4")
+metadata/_custom_type_script = "uid://3qgvo0fy12ei"

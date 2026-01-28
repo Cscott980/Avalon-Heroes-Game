@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="HeadData" load_steps=3 format=3 uid="uid://do2w48g68125w"]
+[gd_resource type="Resource" script_class="HeadData" format=3 uid="uid://do2w48g68125w"]
 
 [ext_resource type="ArrayMesh" uid="uid://b44oif0kgwupv" path="res://Assets/Characters/Character Hero Meshes/Heads/Male_Head_2.res" id="1_kvpx7"]
-[ext_resource type="Script" uid="uid://d1m0832qarn13" path="res://Scripts/Resources/CharacterHeadResource.gd" id="2_68wnl"]
+[ext_resource type="Script" uid="uid://d1m0832qarn13" path="res://Scripts/Resources/Player/Apperance/CharacterHeadResource.gd" id="2_68wnl"]
 
 [resource]
 script = ExtResource("2_68wnl")
