@@ -14,6 +14,8 @@ render_priority = 0
 shader = ExtResource("1_0fa72")
 shader_parameter/swirl_tex = ExtResource("2_0uh1l")
 shader_parameter/pivot = Vector2(0.5, 0.5)
+shader_parameter/fade = 1.0
+shader_parameter/fade_softness = 1.0
 shader_parameter/color_bottom = Color(0.765625, 1, 0.9584769, 1)
 shader_parameter/color_top = Color(0.78515625, 0.7860296, 1, 1)
 shader_parameter/spin_speed = 15.0
@@ -26,6 +28,8 @@ render_priority = 0
 shader = ExtResource("1_0fa72")
 shader_parameter/swirl_tex = ExtResource("5_0p4fq")
 shader_parameter/pivot = Vector2(0.5, 0.5)
+shader_parameter/fade = 1.0
+shader_parameter/fade_softness = 1.0
 shader_parameter/color_bottom = Color(1, 0.22460938, 0.4517746, 1)
 shader_parameter/color_top = Color(0.8359375, 0.9038696, 1, 1)
 shader_parameter/spin_speed = 15.0
@@ -95,13 +99,13 @@ color_ramp = SubResource("Gradient_31a5e")
 
 [node name="HitBox" type="Area3D" parent="." unique_id=1352090829]
 unique_name_in_owner = true
+collision_layer = 16
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox" unique_id=1805302347]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8617377, 0)
 shape = SubResource("CylinderShape3D_0uh1l")
 debug_color = Color(1, 0, 0, 0.41960785)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1570660371]
 
 [node name="DPS" type="Timer" parent="." unique_id=1882412994]
 unique_name_in_owner = true

@@ -4,6 +4,8 @@ render_mode unshaded, cull_disabled, blend_mix;
 uniform sampler2D swirl_tex : source_color;
 
 uniform vec2 pivot = vec2(0.5, 0.5);
+uniform float fade = 1.0;        // 1 = visible, 0 = invisible
+uniform float fade_softness = 1.0;
 
 uniform vec3 color_bottom : source_color = vec3(0.2, 0.8, 1.0);
 uniform vec3 color_top    : source_color = vec3(0.9, 0.4, 1.0);
@@ -53,7 +55,8 @@ void fragment() {
 
 
     ALBEDO = pulsed;
-	ALPHA  = mask * alpha_strength;
+	ALPHA = mask * alpha_strength * pow(fade, fade_softness);
+
 
 
 }
