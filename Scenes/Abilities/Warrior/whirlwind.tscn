@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://cb2nxh08im3od"]
+
+[ext_resource type="Shader" uid="uid://bdoldt80walo3" path="res://Assets/Shaders/Whirlwind.gdshader" id="1_0fa72"]
+[ext_resource type="Script" uid="uid://et2hd648a4h2" path="res://Scripts/Abilities/whirlwind.gd" id="1_h413s"]
+[ext_resource type="Texture2D" uid="uid://b8jgehliubn34" path="res://Assets/Textures/Misc/T_VFX_Spiral07.jpg" id="2_0uh1l"]
+[ext_resource type="ArrayMesh" uid="uid://cdjpbvlrlme1h" path="res://Assets/Misc/Whirlwind.obj" id="3_0fa72"]
+[ext_resource type="Shader" uid="uid://dbf54pvjfduka" path="res://Assets/Shaders/SmokeShader.gdshader" id="4_1akb4"]
+[ext_resource type="Texture2D" uid="uid://w4alclilyqd8" path="res://Assets/Textures/Misc/twirl_01.png" id="5_0p4fq"]
+[ext_resource type="Texture2D" uid="uid://f1mfwrdudlho" path="res://Assets/Textures/Misc/T_NKQ443.png" id="5_h413s"]
+[ext_resource type="ArrayMesh" uid="uid://7vuqsdwag5nh" path="res://Assets/Misc/staticmeshsmoke.obj" id="6_0p4fq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hasjt"]
+render_priority = 0
+shader = ExtResource("1_0fa72")
+shader_parameter/swirl_tex = ExtResource("2_0uh1l")
+shader_parameter/pivot = Vector2(0.5, 0.5)
+shader_parameter/color_bottom = Color(0.765625, 1, 0.9584769, 1)
+shader_parameter/color_top = Color(0.78515625, 0.7860296, 1, 1)
+shader_parameter/spin_speed = 15.0
+shader_parameter/scroll_speed = 0.8
+shader_parameter/alpha_strength = 1.0
+shader_parameter/gradient_power = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ofxau"]
+render_priority = 0
+shader = ExtResource("1_0fa72")
+shader_parameter/swirl_tex = ExtResource("5_0p4fq")
+shader_parameter/pivot = Vector2(0.5, 0.5)
+shader_parameter/color_bottom = Color(1, 0.22460938, 0.4517746, 1)
+shader_parameter/color_top = Color(0.8359375, 0.9038696, 1, 1)
+shader_parameter/spin_speed = 15.0
+shader_parameter/scroll_speed = 0.8
+shader_parameter/alpha_strength = 1.0
+shader_parameter/gradient_power = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_slf7f"]
+render_priority = 0
+shader = ExtResource("4_1akb4")
+shader_parameter/noise_tex = ExtResource("5_h413s")
+shader_parameter/color_light = Color(0.9, 0.9, 0.95, 1)
+shader_parameter/color_dark = Color(0.55, 0.55, 0.65, 1)
+shader_parameter/grad_bottom = Color(1, 1, 1, 1)
+shader_parameter/grad_top = Color(1, 1, 1, 1)
+shader_parameter/alpha_strength = 1.0
+shader_parameter/scroll_speed = 0.15
+shader_parameter/swirl_strength = 0.06
+shader_parameter/noise_scale = 1.5
+shader_parameter/softness = 0.25
+shader_parameter/threshold = 0.45
+shader_parameter/toon_steps = 4.0
+shader_parameter/outline_width = 0.1
+
+[sub_resource type="Curve" id="Curve_ofxau"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.5023582, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_31a5e"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0uh1l"]
+height = 3.7470703
+radius = 4.8339844
+
+[node name="Whirlwind" type="Node3D" unique_id=293363116]
+script = ExtResource("1_h413s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1413235445]
+material_override = SubResource("ShaderMaterial_hasjt")
+cast_shadow = 0
+mesh = ExtResource("3_0fa72")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=458048075]
+material_override = SubResource("ShaderMaterial_ofxau")
+cast_shadow = 0
+mesh = ExtResource("3_0fa72")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1019805825]
+material_override = SubResource("ShaderMaterial_slf7f")
+amount = 30
+lifetime = 1.5
+explosiveness = 0.2
+randomness = 0.4
+mesh = ExtResource("6_0p4fq")
+emission_shape = 1
+emission_sphere_radius = 0.3
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0.3, 0)
+initial_velocity_min = 0.8
+initial_velocity_max = 1.5
+tangential_accel_min = 5.0
+tangential_accel_max = 5.0
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_ofxau")
+color_ramp = SubResource("Gradient_31a5e")
+
+[node name="HitBox" type="Area3D" parent="." unique_id=1352090829]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox" unique_id=1805302347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8617377, 0)
+shape = SubResource("CylinderShape3D_0uh1l")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1570660371]
+
+[node name="DPS" type="Timer" parent="." unique_id=1882412994]
+unique_name_in_owner = true
+autostart = true
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="timeout" from="DPS" to="." method="_on_dps_timeout"]
