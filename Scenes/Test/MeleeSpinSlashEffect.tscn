@@ -1,0 +1,182 @@
+[gd_scene format=3 uid="uid://bw0pu5dankdke"]
+
+[ext_resource type="Texture2D" uid="uid://w4alclilyqd8" path="res://Assets/Textures/Misc/twirl_01.png" id="1_qu0w3"]
+[ext_resource type="ArrayMesh" uid="uid://cdjpbvlrlme1h" path="res://Assets/Misc/Whirlwind.obj" id="2_apotj"]
+
+[sub_resource type="Shader" id="Shader_gfv71"]
+code = "shader_type spatial;
+render_mode unshaded, cull_disabled, blend_mix;
+
+uniform sampler2D swirl_tex : source_color;
+
+uniform vec2 pivot = vec2(0.5, 0.5);
+uniform float fade = 1.0;
+uniform float fade_softness = 1.0;
+
+uniform vec3 color_bottom : source_color = vec3(0.2, 0.8, 1.0);
+uniform vec3 color_top    : source_color = vec3(0.9, 0.4, 1.0);
+
+// ---- Spin control ----
+uniform float auto_spin : hint_range(0.0, 1.0) = 1.0;     // 1 = TIME-based, 0 = manual only
+uniform float spin_speed = 4.0;                           // radians/sec when auto_spin=1
+uniform float spin_angle = 0.0;                           // MANUAL angle in radians
+
+uniform float alpha_strength = 1.0;
+uniform float gradient_power = 1.0;
+
+void fragment() {
+    vec2 uv = UV;
+
+    // --- spin around pivot (manual + optional auto) ---
+    vec2 p = uv - pivot;
+
+    float ang = spin_angle + (TIME * spin_speed * auto_spin);
+
+    float c = cos(ang);
+    float s = sin(ang);
+
+    vec2 rotated;
+    rotated.x = c * p.x - s * p.y;
+    rotated.y = s * p.x + c * p.y;
+
+    uv = rotated + pivot;
+
+    vec4 tex = texture(swirl_tex, uv);
+
+    // brightness mask (black invisible)
+    float mask = dot(tex.rgb, vec3(0.3333));
+
+    // vertical gradient
+    float t = clamp(pow(UV.y, gradient_power), 0.0, 1.0);
+    vec3 grad = mix(color_bottom, color_top, t);
+
+    // center pulse (still auto by TIME — if you want manual pulse too, say so)
+    float dist = length(UV - pivot);
+    float center_mask = 1.0 - smoothstep(0.0, 0.6, dist);
+
+    float pulse = sin(TIME * TAU) * 0.5 + 0.5;
+    pulse = pow(pulse, 3.0);
+
+    vec3 pulsed = grad + grad * center_mask * pulse * 0.6;
+
+    ALBEDO = pulsed;
+    ALPHA = mask * alpha_strength * pow(fade, fade_softness);
+}
+// ---- Alpha gradient along local axis ----
+// axis_select: 0 = X, 1 = Z
+uniform float axis_select : hint_range(0.0, 1.0) = 1.0;
+
+// Local-space range (set these to your mesh bounds or desired fade window)
+uniform float grad_start = -1.0;  // where alpha begins (0)
+uniform float grad_end   =  1.0;  // where alpha becomes 1
+
+uniform float grad_softness : hint_range(0.001, 1.0) = 0.15; // smooth edge
+uniform float grad_power : hint_range(0.1, 8.0) = 1.0;       // curve shaping
+uniform float grad_invert : hint_range(0.0, 1.0) = 0.0;      // flip fade direction
+
+varying float axis01;
+
+void vertex() {
+    // choose X or Z in local space
+    float a = mix(VERTEX.x, VERTEX.z, axis_select);
+
+    // normalize to 0..1 based on grad_start/end
+    axis01 = clamp((a - grad_start) / max(0.0001, (grad_end - grad_start)), 0.0, 1.0);
+
+    // optional invert
+    axis01 = mix(axis01, 1.0 - axis01, grad_invert);
+}
+
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jaaj6"]
+render_priority = 0
+shader = SubResource("Shader_gfv71")
+shader_parameter/swirl_tex = ExtResource("1_qu0w3")
+shader_parameter/pivot = Vector2(0.5, 0.5)
+shader_parameter/fade = 1.0
+shader_parameter/fade_softness = 1.0
+shader_parameter/color_bottom = Color(1, 1, 1, 1)
+shader_parameter/color_top = Color(1, 1, 1, 1)
+shader_parameter/auto_spin = 0.0
+shader_parameter/spin_speed = 4.0
+shader_parameter/spin_angle = 0.485
+shader_parameter/alpha_strength = 1.0
+shader_parameter/gradient_power = 1.0
+shader_parameter/axis_select = 1.0
+shader_parameter/grad_start = -1.0
+shader_parameter/grad_end = 1.0
+shader_parameter/grad_softness = 0.15
+shader_parameter/grad_power = 1.0
+shader_parameter/grad_invert = 0.0
+
+[sub_resource type="Animation" id="Animation_gfv71"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2:material_override:shader_parameter/spin_angle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.485]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D2:material_override:shader_parameter/fade")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_jaaj6"]
+resource_name = "SpinSlash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2:material_override:shader_parameter/spin_angle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.485, 8.035, 9.455]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D2:material_override:shader_parameter/fade")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v7jcj"]
+_data = {
+&"RESET": SubResource("Animation_gfv71"),
+&"SpinSlash": SubResource("Animation_jaaj6")
+}
+
+[node name="SpinSlash" type="Node3D" unique_id=832250008]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=7965114]
+transform = Transform3D(0.43449965, 0, 0, 0, 0.39999998, 0, 0, 0, 0.4338193, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_jaaj6")
+cast_shadow = 0
+mesh = ExtResource("2_apotj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1523856792]
+libraries/ = SubResource("AnimationLibrary_v7jcj")

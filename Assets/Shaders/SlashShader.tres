@@ -21,7 +21,7 @@ operator = 2
 parameter_name = "ColorParameter"
 
 [sub_resource type="Gradient" id="Gradient_pvylx"]
-offsets = PackedFloat32Array(0.33862433, 0.6851852, 1)
+offsets = PackedFloat32Array(0.19582665, 0.5939005, 1)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_fnr6u"]
@@ -47,14 +47,7 @@ operator = 2
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_3cxnp"]
 operator = 2
 
-[sub_resource type="Gradient" id="Gradient_gskas"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_dw72o"]
-gradient = SubResource("Gradient_gskas")
-fill_from = Vector2(0, 1)
-
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_henah"]
-texture = SubResource("GradientTexture2D_dw72o")
 
 [resource]
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_7n3nv")

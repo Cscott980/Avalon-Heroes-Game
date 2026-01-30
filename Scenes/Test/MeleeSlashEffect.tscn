@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://dde7qwwu1tf76"]
+
+[ext_resource type="Script" uid="uid://np78fbu8py3p" path="res://Scripts/Others/slash.gd" id="1_ypxok"]
+[ext_resource type="ArrayMesh" uid="uid://dve5g0ibb7jse" path="res://Assets/Misc/SlashMesh.obj" id="2_qscc0"]
+[ext_resource type="Shader" uid="uid://c75egq2357kku" path="res://Assets/Shaders/SlashNew.gdshader" id="3_7aotf"]
+[ext_resource type="Texture2D" uid="uid://n1iyw2xhnnxf" path="res://Assets/Textures/Misc/T_Wave66.png" id="4_6xiwc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o61ax"]
+render_priority = 0
+shader = ExtResource("3_7aotf")
+shader_parameter/slash_tex = ExtResource("4_6xiwc")
+shader_parameter/tint = Color(0.45, 0.9, 1, 1)
+shader_parameter/intensity = 10.0
+shader_parameter/uv_offset = Vector2(0.92, 0)
+shader_parameter/auto_scroll_enabled = 0.0
+shader_parameter/scroll_speed = 3.852001132969999
+shader_parameter/flow_scale = 0.60800002562012
+shader_parameter/use_repeat = 0.0
+shader_parameter/core_width = 0.39000001782648
+shader_parameter/edge_softness = 0.0010000000475
+shader_parameter/taper = 0.25
+shader_parameter/tip_glow = 1.2
+shader_parameter/tip_length = 0.25
+shader_parameter/progress = 0.50000002375
+shader_parameter/fade_in = 0.06
+shader_parameter/fade_out = 0.18
+shader_parameter/end_softness = 0.06
+
+[sub_resource type="Animation" id="Animation_cwxi1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlashMesh:surface_material_override/0:shader_parameter/gradient_1_para")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlashMesh:surface_material_override/0:shader_parameter/uv_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.92, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SlashMesh:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mcc6n"]
+resource_name = "Slash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlashMesh:surface_material_override/0:shader_parameter/gradient_1_para")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlashMesh:surface_material_override/0:shader_parameter/uv_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.92, 0), Vector2(-0.505, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SlashMesh:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.21211506),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ltly"]
+_data = {
+&"RESET": SubResource("Animation_cwxi1"),
+&"Slash": SubResource("Animation_mcc6n")
+}
+
+[node name="Slash" type="Node3D" unique_id=1841827712]
+script = ExtResource("1_ypxok")
+
+[node name="SlashMesh" type="MeshInstance3D" parent="." unique_id=1247585431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5572704, 0.031957388, 0.5865531)
+visible = false
+mesh = ExtResource("2_qscc0")
+surface_material_override/0 = SubResource("ShaderMaterial_o61ax")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1096344427]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_3ltly")
