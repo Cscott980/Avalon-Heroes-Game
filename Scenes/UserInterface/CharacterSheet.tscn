@@ -288,7 +288,7 @@ stretch = true
 own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(2, 2)
+size = Vector2i(215, 312)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport" unique_id=679906903]
@@ -1248,7 +1248,7 @@ theme_override_colors/font_outline_color = Color(0.3504552, 0.32965088, 0.958984
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("28_lgmnu")
 theme_override_font_sizes/font_size = 40
-text = "1"
+text = "30"
 horizontal_alignment = 1
 vertical_alignment = 1
 

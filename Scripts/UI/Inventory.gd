@@ -11,7 +11,7 @@ class_name CharacterSheetandInventory extends Control
 @onready var level_display: Label = %LevelDisplay
 
 @onready var strength_val: Label = %StrengthVal
-@onready var intelect_val: Label = %IntelectVal
+@onready var intellect_val: Label = %IntelectVal
 @onready var dexterity_val: Label = %DexterityVal
 @onready var vitality_val: Label = %VitalityVal
 @onready var wisdom_val: Label = %WisdomVal
