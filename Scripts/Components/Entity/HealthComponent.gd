@@ -8,6 +8,7 @@ class_name HealthComponent extends Node
 
 @export var target: CharacterBody3D = null
 @export var stats: StatComponent = null
+@export var out_health_bar: ProgressBar
 
 
 var max_health: int = 100
@@ -18,5 +19,5 @@ var hp_per_vit: int = 5
 func _ready() -> void:
 	pass
 
-func _update_hp_bar() -> void:
+func _update_hp_bar(current_health: int) -> void:
 	pass

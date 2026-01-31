@@ -41,14 +41,14 @@ func physics_process(delta: float) -> void:
 	
 	if enemy.current_target == null or not is_instance_valid(enemy.current_target) or enemy.current_target.is_dead:
 		enemy.current_target = null
-		state_machine.change_state("IdleState")
+		state_machine.change_state("EnemyIdleState")
 		return
 		
 	if enemy.nav_agent.distance_to_target() <= enemy.attack_range:
-		state_machine.change_state("AttackState")
+		state_machine.change_state("EnemyAttackState")
 	
 	if enemy.player_list.is_empty():
-		state_machine.change_state("IdleState")
+		state_machine.change_state("EnemyIdleState")
 
 func _on_target_position_timer_timeout() -> void:
 	enemy._set_new_target()

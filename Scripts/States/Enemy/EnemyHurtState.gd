@@ -26,12 +26,12 @@ func physics_process(delta: float) -> void:
 			return
 			
 		if enemy.nav_agent.distance_to_target() <= enemy.attack_range and enemy.current_target != null:
-			state_machine.change_state("AttackState")
+			state_machine.change_state("EnemyAttackState")
 			return
 		
 		
 		if enemy.current_target == null or not is_instance_valid(enemy.current_target) or enemy.current_target.is_dead:
-			state_machine.change_state("IdleState")
+			state_machine.change_state("EnemyIdleState")
 			return
 
 

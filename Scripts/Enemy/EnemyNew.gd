@@ -13,7 +13,7 @@ class_name Enemy
 @onready var weapon_shield_relic: MeshInstance3D = %WeaponShieldRelic
 
 @onready var highlight: Material = preload("uid://cfrxegokeyufx")
-@onready var state_machine: EnemyStateMachine = %StateMachine
+@onready var state_machine: EnemyStateMachine = %EnemyStateMachine
 @onready var hit_box: Area3D = %HitBox
 @onready var world_collision: CollisionShape3D = %WorldCollision
 @onready var hurt_box: Area3D = %HurtBox
@@ -140,19 +140,12 @@ func level_up(_world_level: int) -> void:
 func take_damage(amount: int) -> void:
 	health -= amount
 	enemy_health_bar.value = health
-	state_machine.change_state("HurtState")
+	state_machine.change_state("EnemyHurtState")
 	
 	if health <= 0:
 		health = 0
 		is_dead = true
-		state_machine.change_state("DeathState")
-
-func _on_hit_box_body_entered(body: Node3D) -> void:
-		body.take_damage(damage)
-
-func _on_hurt_box_area_entered(area: Area3D) -> void:
-	state_machine.change_state("HurtState")
-
+		state_machine.change_state("EnemyDeathState")
 
 func highlighter_on() -> void:
 	for mesh in skin_list:

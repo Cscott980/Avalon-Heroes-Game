@@ -6,6 +6,14 @@
 [ext_resource type="ArrayMesh" uid="uid://c1v6d7aitav73" path="res://Assets/WeaponMeshes/Swords/Skeleton_Blade_Cube_007.res" id="2_2w5kk"]
 [ext_resource type="ArrayMesh" uid="uid://c3ak1i3pflgge" path="res://Assets/WeaponMeshes/Shields/Skeleton_Shield_Small_A_Cylinder_010.res" id="4_yx5yr"]
 [ext_resource type="Animation" uid="uid://br3s0es5pxblt" path="res://Assets/Animations/Rig_Mid_Animations/Hit_A.res" id="7_1t02k"]
+[ext_resource type="Script" uid="uid://clpdh1kycougo" path="res://Scripts/States/Enemy/EnemyStateMachine.gd" id="21_qftrk"]
+[ext_resource type="Script" uid="uid://x750bv18pvyd" path="res://Scripts/States/Enemy/EnemyAttackState.gd" id="22_f0d0o"]
+[ext_resource type="Script" uid="uid://dn1amjcrgp8js" path="res://Scripts/States/Enemy/EnemyDeathState.gd" id="23_28sd0"]
+[ext_resource type="Script" uid="uid://bxw52waakorp4" path="res://Scripts/States/Enemy/ChaseState.gd" id="23_f0d0o"]
+[ext_resource type="Script" uid="uid://do1a4autu2wf" path="res://Scripts/States/Enemy/EnemyHurtState.gd" id="24_ry2iq"]
+[ext_resource type="Script" uid="uid://m4bf0em28x6e" path="res://Scripts/States/Enemy/EnemyIdleState.gd" id="25_vaf0m"]
+[ext_resource type="Script" uid="uid://drv5baf7stthb" path="res://Scripts/States/Enemy/EnemyReviveState.gd" id="26_5ftil"]
+[ext_resource type="Script" uid="uid://cu61533nfc245" path="res://Scripts/States/Enemy/EnemySpawnState.gd" id="27_8b74x"]
 [ext_resource type="Animation" uid="uid://cchtwwoohiw84" path="res://Assets/Animations/Rig_Mid_Animations/T-Pose.res" id="43_fl4k6"]
 [ext_resource type="Animation" uid="uid://bcq2ntobuwv3s" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Awaken_Floor_Long.res" id="51_7moyh"]
 [ext_resource type="Animation" uid="uid://qlanctwguxmg" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Awaken_Standing.res" id="52_e8aj4"]
@@ -741,6 +749,40 @@ unique_name_in_owner = true
 root_node = NodePath("%AnimationTree/..")
 tree_root = SubResource("AnimationNodeBlendTree_28wce")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="EnemyStateMachine" type="Node" parent="." unique_id=1778949660]
+unique_name_in_owner = true
+script = ExtResource("21_qftrk")
+initial_state_path = NodePath("EnemySpawnState")
+metadata/_custom_type_script = "uid://clpdh1kycougo"
+
+[node name="EnemyAttackState" type="Node" parent="EnemyStateMachine" unique_id=579614038]
+script = ExtResource("22_f0d0o")
+metadata/_custom_type_script = "uid://x750bv18pvyd"
+
+[node name="ChaseState" type="Node" parent="EnemyStateMachine" unique_id=1446124849]
+script = ExtResource("23_f0d0o")
+metadata/_custom_type_script = "uid://bxw52waakorp4"
+
+[node name="EnemyDeathState" type="Node" parent="EnemyStateMachine" unique_id=188342315]
+script = ExtResource("23_28sd0")
+metadata/_custom_type_script = "uid://dn1amjcrgp8js"
+
+[node name="EnemyHurtState" type="Node" parent="EnemyStateMachine" unique_id=1505290992]
+script = ExtResource("24_ry2iq")
+metadata/_custom_type_script = "uid://do1a4autu2wf"
+
+[node name="EnemyIdleState" type="Node" parent="EnemyStateMachine" unique_id=1076236444]
+script = ExtResource("25_vaf0m")
+metadata/_custom_type_script = "uid://m4bf0em28x6e"
+
+[node name="EnemyReviveState" type="Node" parent="EnemyStateMachine" unique_id=2100457164]
+script = ExtResource("26_5ftil")
+metadata/_custom_type_script = "uid://drv5baf7stthb"
+
+[node name="EnemySpawnState" type="Node" parent="EnemyStateMachine" unique_id=1104971217]
+script = ExtResource("27_8b74x")
+metadata/_custom_type_script = "uid://cu61533nfc245"
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=809785273]
 transparent_bg = true

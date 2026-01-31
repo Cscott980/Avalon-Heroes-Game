@@ -294,17 +294,21 @@ func _on_level_up_pressed() -> void:
 func inventory_open(open: bool) -> void:
 	input_locked = open
 
-func weapon_hit_box_on() -> void:
-	if main_hand_weapon:
-		main_hand_weapon.hit_box.monitoring = true
+func off_hand_hit_box_on() -> void:
 	if off_hand_weapon and not off_hand_weapon.is_in_group("shield"):
 		off_hand_weapon.hit_box.monitoring = true
 		
+func off_hand_hit_box_off() -> void:
+	if off_hand_weapon and not off_hand_weapon.is_in_group("shield"):
+		off_hand_weapon.hit_box.monitoring = false
+		
+func weapon_hit_box_on() -> void:
+	if main_hand_weapon:
+		main_hand_weapon.hit_box.monitoring = true
+
 func weapon_hit_box_off() -> void:
 	if main_hand_weapon:
 		main_hand_weapon.hit_box.monitoring = false
-	if off_hand_weapon and not off_hand_weapon.is_in_group("shield"):
-		off_hand_weapon.hit_box.monitoring = false
 
 func _update_closest_target() -> void:
 	for i in range(enemies_in_range.size() -1, -1, -1):

@@ -52,21 +52,10 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0.92, 0)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SlashMesh:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_mcc6n"]
 resource_name = "Slash"
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -91,18 +80,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0.92, 0), Vector2(-0.505, 0)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SlashMesh:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.21211506),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ltly"]
 _data = {
@@ -115,7 +92,6 @@ script = ExtResource("1_ypxok")
 
 [node name="SlashMesh" type="MeshInstance3D" parent="." unique_id=1247585431]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5572704, 0.031957388, 0.5865531)
-visible = false
 mesh = ExtResource("2_qscc0")
 surface_material_override/0 = SubResource("ShaderMaterial_o61ax")
 

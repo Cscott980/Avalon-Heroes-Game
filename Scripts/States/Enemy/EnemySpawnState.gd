@@ -14,8 +14,8 @@ func physics_process(_delta: float) -> void:
 	if enemy.current_target:
 		state_machine.change_state("ChaseState")
 	else:
-		state_machine.change_state("IdleState")
+		state_machine.change_state("EnemyIdleState")
 		
 	if enemy.nav_agent.distance_to_target() <= enemy.attack_range:
-		state_machine.change_state("AttackState")
+		state_machine.change_state("EnemyAttackState")
 	
