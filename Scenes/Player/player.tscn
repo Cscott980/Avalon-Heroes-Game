@@ -84,7 +84,7 @@
 [ext_resource type="Animation" uid="uid://cwknayapi1mai" path="res://Assets/Animations/Rig_Mid_Animations/Running_Strafe_Right.res" id="70_r61b0"]
 [ext_resource type="Animation" uid="uid://rmvb5lr67m3s" path="res://Assets/Animations/Rig_Mid_Animations/Sneaking.res" id="84_gnyfh"]
 [ext_resource type="Shader" uid="uid://dihks774ogble" path="res://Assets/Shaders/PircingSlashEffect.gdshader" id="85_7ve27"]
-[ext_resource type="Script" uid="uid://esf7dpw2havr" path="res://Scripts/PriceEffect.gd" id="85_ldt7q"]
+[ext_resource type="Script" uid="uid://esf7dpw2havr" path="res://Scripts/VFX/PriceEffect.gd" id="85_ldt7q"]
 [ext_resource type="Animation" uid="uid://baoj0o3vjaocg" path="res://Assets/Animations/Rig_Mid_Animations/Spawn_Air.res" id="85_ucj1b"]
 [ext_resource type="Animation" uid="uid://b8qm7mng43cbg" path="res://Assets/Animations/Rig_Mid_Animations/Spawn_Ground.res" id="86_63fcs"]
 [ext_resource type="Texture2D" uid="uid://n1iyw2xhnnxf" path="res://Assets/Textures/Misc/T_Wave66.png" id="86_ldt7q"]
@@ -103,6 +103,7 @@
 [ext_resource type="Script" uid="uid://mltur7xac0xi" path="res://Scripts/Components/Entity/AbilityComponent.gd" id="100_81gu5"]
 [ext_resource type="ArrayMesh" uid="uid://dve5g0ibb7jse" path="res://Assets/Misc/SlashMesh.obj" id="100_ujqdw"]
 [ext_resource type="Script" uid="uid://bdch6582i2bvt" path="res://Scripts/Components/Entity/HealthComponent.gd" id="106_7bej3"]
+[ext_resource type="Script" uid="uid://c5l5du3uioa4l" path="res://Scripts/Components/Entity/StatComponent.gd" id="107_8b85g"]
 [ext_resource type="Script" uid="uid://ctr7taoyv2xth" path="res://Scripts/States/Player/AttackState2.gd" id="109_yylel"]
 [ext_resource type="Script" uid="uid://dass1u87mgpxb" path="res://Scripts/States/Player/AttackState3.gd" id="110_t53un"]
 [ext_resource type="Script" uid="uid://bos7mhqtacmin" path="res://Scripts/UI/CameraEffects.gd" id="111_ddxso"]
@@ -1813,26 +1814,6 @@ script = ExtResource("111_ddxso")
 [node name="PlayerUI" parent="." unique_id=714406961 instance=ExtResource("4_74mp2")]
 unique_name_in_owner = true
 
-[node name="AttackCooldown" type="Timer" parent="." unique_id=913160004]
-unique_name_in_owner = true
-process_callback = 0
-one_shot = true
-
-[node name="ComboTimer" type="Timer" parent="." unique_id=1406325620]
-unique_name_in_owner = true
-process_callback = 0
-wait_time = 0.6
-one_shot = true
-
-[node name="AbilityCooldownTimer1" type="Timer" parent="." unique_id=1529047690]
-unique_name_in_owner = true
-
-[node name="AbilityCooldownTimer2" type="Timer" parent="." unique_id=1962582599]
-unique_name_in_owner = true
-
-[node name="AbilityCooldownTimer3" type="Timer" parent="." unique_id=1574670960]
-unique_name_in_owner = true
-
 [node name="TargetsInRange" type="Area3D" parent="." unique_id=45460391]
 unique_name_in_owner = true
 collision_layer = 2
@@ -1907,9 +1888,33 @@ script = ExtResource("106_7bej3")
 out_health_bar = NodePath("../Username/WorldVisualPLayerData/VBoxContainer/HBoxContainer/OutHealthBar")
 metadata/_custom_type_script = "uid://bdch6582i2bvt"
 
+[node name="StatComponent" type="Node" parent="." unique_id=2020628456]
+script = ExtResource("107_8b85g")
+metadata/_custom_type_script = "uid://c5l5du3uioa4l"
+
+[node name="AttackCooldown" type="Timer" parent="." unique_id=913160004]
+unique_name_in_owner = true
+process_callback = 0
+one_shot = true
+
+[node name="ComboTimer" type="Timer" parent="." unique_id=1406325620]
+unique_name_in_owner = true
+process_callback = 0
+wait_time = 0.6
+one_shot = true
+
+[node name="AbilityCooldownTimer1" type="Timer" parent="." unique_id=1529047690]
+unique_name_in_owner = true
+
+[node name="AbilityCooldownTimer2" type="Timer" parent="." unique_id=1962582599]
+unique_name_in_owner = true
+
+[node name="AbilityCooldownTimer3" type="Timer" parent="." unique_id=1574670960]
+unique_name_in_owner = true
+
 [connection signal="area_entered" from="Model/Rig_Medium/Skeleton3D/BoneAttachment3D/HurtBox" to="StateMachine/IdleState" method="_on_hurt_box_area_entered"]
 [connection signal="area_entered" from="Model/Rig_Medium/Skeleton3D/BoneAttachment3D/HurtBox" to="StateMachine/MoveState" method="_on_hurt_box_area_entered"]
-[connection signal="timeout" from="AttackCooldown" to="StateMachine" method="_on_attack_cooldown_timeout"]
-[connection signal="timeout" from="ComboTimer" to="StateMachine" method="_on_combo_timer_timeout"]
 [connection signal="body_entered" from="TargetsInRange" to="." method="_on_targets_in_range_body_entered"]
 [connection signal="body_exited" from="TargetsInRange" to="." method="_on_targets_in_range_body_exited"]
+[connection signal="timeout" from="AttackCooldown" to="StateMachine" method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="ComboTimer" to="StateMachine" method="_on_combo_timer_timeout"]

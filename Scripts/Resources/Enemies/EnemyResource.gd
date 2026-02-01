@@ -14,9 +14,10 @@ enum EnemyType {
 @export var enemy_mesh: EnemyVisualsResource
 
 @export_group("Weapons")
-@export var main_hand: WeaponResource
-@export var off_hand: WeaponResource
+@export var main_hand: Mesh
+@export var off_hand: Mesh
 @export var other: Mesh
+@export var damage: int
 
 @export_group("Movement")
 @export var movement_speed: float

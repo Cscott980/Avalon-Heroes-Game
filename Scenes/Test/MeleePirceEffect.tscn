@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://brnam2n3peqfm"]
 
-[ext_resource type="Script" uid="uid://esf7dpw2havr" path="res://Scripts/PriceEffect.gd" id="1_ggokf"]
+[ext_resource type="Script" uid="uid://esf7dpw2havr" path="res://Scripts/VFX/PriceEffect.gd" id="1_ggokf"]
 [ext_resource type="Shader" uid="uid://dihks774ogble" path="res://Assets/Shaders/PircingSlashEffect.gdshader" id="1_qg2d6"]
 [ext_resource type="Texture2D" uid="uid://n1iyw2xhnnxf" path="res://Assets/Textures/Misc/T_Wave66.png" id="2_y4st1"]
 [ext_resource type="ArrayMesh" uid="uid://bw2ywdqcs3112" path="res://Assets/Misc/DaimonMesh.obj" id="3_yej2q"]

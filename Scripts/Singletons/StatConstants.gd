@@ -8,7 +8,7 @@ enum STATS {
 	WISDOM
 }
 
-const STAT_REFERANCE: Dictionary = {
+const STAT_REFERENCE: Dictionary = {
 	STATS.STRENGTH: "strength",
 	STATS.INTELLECT: "intellect",
 	STATS.DEXTERITY: "dexterity",
@@ -25,4 +25,4 @@ const STAT_FLAG_MAP: Dictionary = {
 }
 
 func load_stats_ref(stat: int) -> String:
-	return STAT_REFERANCE.get(stat, "")
+	return STAT_REFERENCE.get(stat, "")
