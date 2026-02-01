@@ -1,0 +1,169 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://rbmwyo7obf61"
+path="res://.godot/imported/Hoarder.glb-3176ed7122646fecc780cefbe6de31cc.scn"
+
+[deps]
+
+source_file="res://Assets/PlayableCharacterBodies/Hoarder.glb"
+dest_files=["res://.godot/imported/Hoarder.glb-3176ed7122646fecc780cefbe6de31cc.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"hoarder": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Materials/Hero/hoarder.tres",
+"use_external/path": "uid://y1mfnjwftlgp"
+}
+},
+"meshes": {
+"Hoarder_Hoarder_ArmLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/AdventuresArmor/Hoarder_Hoarder_ArmLeft.res",
+"save_to_file/path": "uid://b2lm8wawdkh8u"
+},
+"Hoarder_Hoarder_ArmRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/AdventuresArmor/Hoarder_Hoarder_ArmRight.res",
+"save_to_file/path": "uid://dvdqpfjk84140"
+},
+"Hoarder_Hoarder_Backpack": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/AdventuresArmor/Hoarder_Hoarder_Backpack.res",
+"save_to_file/path": "uid://fim4ibevx3uc"
+},
+"Hoarder_Hoarder_Body": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/AdventuresArmor/Hoarder_Hoarder_Body.res",
+"save_to_file/path": "uid://bolsrrehygkyp"
+},
+"Hoarder_Hoarder_CollarArmor": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/AdventuresArmor/Hoarder_Hoarder_CollarArmor.res",
+"save_to_file/path": "uid://bl8uyji03k5vs"
+},
+"Hoarder_Hoarder_FaceMask": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/AdventuresArmor/Hoarder_Hoarder_FaceMask.res",
+"save_to_file/path": "uid://decag6pd5ixx4"
+},
+"Hoarder_Hoarder_FrontPouch": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/AdventuresArmor/Hoarder_Hoarder_FrontPouch.res",
+"save_to_file/path": "uid://noxe37tlp1vw"
+},
+"Hoarder_Hoarder_FrontPouch_Sword": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/AdventuresArmor/Hoarder_Hoarder_FrontPouch_Sword.res",
+"save_to_file/path": "uid://nlyh2ywe244e"
+},
+"Hoarder_Hoarder_Head": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/AdventuresArmor/Hoarder_Hoarder_Head.res",
+"save_to_file/path": "uid://baefybhjx8uyj"
+},
+"Hoarder_Hoarder_HipPouch_Left": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/AdventuresArmor/Hoarder_Hoarder_HipPouch_Left.res",
+"save_to_file/path": "uid://bgxhedavd0ms5"
+},
+"Hoarder_Hoarder_HipPouch_Right": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/AdventuresArmor/Hoarder_Hoarder_HipPouch_Right.res",
+"save_to_file/path": "uid://cqhhbbdy8kq4h"
+},
+"Hoarder_Hoarder_LegLeft": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/AdventuresArmor/Hoarder_Hoarder_LegLeft.res",
+"save_to_file/path": "uid://6m4apnyi50vg"
+},
+"Hoarder_Hoarder_LegRight": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Characters/Character Hero Meshes/MediumArmor/AdventuresArmor/Hoarder_Hoarder_LegRight.res",
+"save_to_file/path": "uid://cl45h0kgf3ddj"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

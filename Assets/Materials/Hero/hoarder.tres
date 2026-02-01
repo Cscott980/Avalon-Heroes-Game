@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://y1mfnjwftlgp"]
+
+[ext_resource type="Texture2D" uid="uid://b1r6xvbomy2l0" path="res://Assets/PlayableCharacterBodies/Hoarder_hoarder_texture.png" id="1_5d70h"]
+
+[resource]
+resource_name = "hoarder"
+cull_mode = 2
+albedo_texture = ExtResource("1_5d70h")
+roughness = 0.5
