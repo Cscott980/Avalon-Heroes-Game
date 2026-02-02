@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmqo550jk2hkw"]
 
-[ext_resource type="Script" uid="uid://ctyuj2px1mfc" path="res://Scenes/UserInterface/MainUI.gd" id="1_8r1g1"]
+[ext_resource type="Script" uid="uid://ctyuj2px1mfc" path="res://Scripts/MainUI.gd" id="1_8r1g1"]
 [ext_resource type="Script" uid="uid://bhv2dcsa3a88s" path="res://Scripts/UI/AbilityBar.gd" id="1_hffhc"]
 [ext_resource type="Texture2D" uid="uid://ckh816q7qkh1r" path="res://Assets/GUI/AbilityBarTexture.png" id="1_ighag"]
 [ext_resource type="Texture2D" uid="uid://b3f230utu3e0j" path="res://Assets/Keys/keyboard_q.png" id="6_8r1g1"]

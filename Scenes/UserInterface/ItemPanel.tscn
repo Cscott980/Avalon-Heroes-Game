@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://days71eyd4igm"]
+[gd_scene format=3 uid="uid://days71eyd4igm"]
 
 [ext_resource type="StyleBox" uid="uid://d2hluo0relbhx" path="res://Resources/ItemPanels/CommonPanel.tres" id="1_h6je7"]
-[ext_resource type="Script" uid="uid://cqak41i6rt4jr" path="res://Scenes/UserInterface/ItemPanel.gd" id="2_d0vok"]
+[ext_resource type="Script" uid="uid://cqak41i6rt4jr" path="res://Scripts/ItemPanel.gd" id="2_d0vok"]
 [ext_resource type="Texture2D" uid="uid://bj47ar0qvkdnk" path="res://Assets/GUI/gold.png" id="3_h6je7"]
 
 [sub_resource type="FontFile" id="FontFile_od7a3"]

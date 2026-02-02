@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://caavhwhvoqvqm"]
+
+[ext_resource type="Script" uid="uid://darx8xm44dpc5" path="res://Scripts/Components/DisplayStatChoiceComponent.gd" id="1_so8dy"]
+[ext_resource type="Texture2D" uid="uid://brg8dkr6fqm3e" path="res://Assets/GUI/UI/Icons/EmptySlot.png" id="2_mub4i"]
+[ext_resource type="StyleBox" uid="uid://vhfawbbim2h2" path="res://Styles/CommonStatBox.tres" id="3_joe0m"]
+[ext_resource type="Texture2D" uid="uid://oanefjsfn4v2" path="res://Assets/GUI/UI/Icons/WarriorAbilities/BattleShoutIcon.png" id="4_v4vkj"]
+
+[sub_resource type="FontFile" id="FontFile_t53un"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+
+[node name="DisplayStatChoiceComponent" type="Control" unique_id=1654775370]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -117.0
+offset_right = 20.0
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+script = ExtResource("1_so8dy")
+metadata/_custom_type_script = "uid://darx8xm44dpc5"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=243478469]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 26
+
+[node name="ChoiceBtnOne" type="TextureButton" parent="HBoxContainer" unique_id=1092519621]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("2_mub4i")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/ChoiceBtnOne" unique_id=505066324]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_joe0m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ChoiceBtnOne/PanelContainer" unique_id=1144704638]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="StatOneIcon" type="TextureRect" parent="HBoxContainer/ChoiceBtnOne/PanelContainer/VBoxContainer" unique_id=566360972]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+texture = ExtResource("4_v4vkj")
+expand_mode = 1
+
+[node name="StatOneName" type="Label" parent="HBoxContainer/ChoiceBtnOne/PanelContainer/VBoxContainer" unique_id=2037673427]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 49
+text = "Stat Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatOneDisc" type="Label" parent="HBoxContainer/ChoiceBtnOne/PanelContainer/VBoxContainer" unique_id=1372064475]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_t53un")
+theme_override_font_sizes/font_size = 25
+text = "This is stat description"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChoiceBtnOne2" type="TextureButton" parent="HBoxContainer" unique_id=933671269]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("2_mub4i")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/ChoiceBtnOne2" unique_id=606630375]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_joe0m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ChoiceBtnOne2/PanelContainer" unique_id=1303802923]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="StatTwoIcon" type="TextureRect" parent="HBoxContainer/ChoiceBtnOne2/PanelContainer/VBoxContainer" unique_id=903207442]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+texture = ExtResource("4_v4vkj")
+expand_mode = 1
+
+[node name="StatTwoName" type="Label" parent="HBoxContainer/ChoiceBtnOne2/PanelContainer/VBoxContainer" unique_id=1867525333]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 49
+text = "Stat Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatTwoDisc" type="Label" parent="HBoxContainer/ChoiceBtnOne2/PanelContainer/VBoxContainer" unique_id=1036545135]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_t53un")
+theme_override_font_sizes/font_size = 25
+text = "This is stat description."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChoiceBtnOne3" type="TextureButton" parent="HBoxContainer" unique_id=1085838483]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("2_mub4i")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/ChoiceBtnOne3" unique_id=1548503218]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_joe0m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ChoiceBtnOne3/PanelContainer" unique_id=1911776571]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="StatThreeIcon" type="TextureRect" parent="HBoxContainer/ChoiceBtnOne3/PanelContainer/VBoxContainer" unique_id=1291181485]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+texture = ExtResource("4_v4vkj")
+expand_mode = 1
+
+[node name="StatThreeName" type="Label" parent="HBoxContainer/ChoiceBtnOne3/PanelContainer/VBoxContainer" unique_id=1679996920]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 49
+text = "Stat Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatThreeDisc" type="Label" parent="HBoxContainer/ChoiceBtnOne3/PanelContainer/VBoxContainer" unique_id=1575121114]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_t53un")
+theme_override_font_sizes/font_size = 25
+text = "This is stat description"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/ChoiceBtnOne" to="." method="_on_choice_btn_one_pressed"]
+[connection signal="pressed" from="HBoxContainer/ChoiceBtnOne2" to="." method="_on_choice_btn_one_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/ChoiceBtnOne3" to="." method="_on_choice_btn_one_3_pressed"]

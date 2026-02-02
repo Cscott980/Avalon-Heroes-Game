@@ -6,7 +6,7 @@ signal exp_collected(amount: int)
 signal stat_choices(options: Array[Dictionary])
 
 #@export var exp_collector: DropCollectorComponent
-#var random_stat: RandomStatResource
+@export var level_up_choice: int = 3
 
 var xp_amount: int = 0
 var pending_choices: Array = []
@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func level_up(current_level: int) -> void:
 	var new_level = current_level + 1
-	var result: Dictionary = random_stat_selector(3)
+	var result: Dictionary = {}
 	if not has_pending_choices:
 		emit_signal("stat_selected", StatConst.load_stats_int(result.get("stat", "")), result.get("value", 0))
 		emit_signal("level", new_level)
@@ -36,13 +36,6 @@ func random_stat_generator(count: int) -> Array[Dictionary]:
 		})
 	emit_signal("stat_choices",choices)
 	return choices
-	
-	
-func random_stat_selector(index: int) -> void:
-	if not has_pending_choices:
-		return 
-	#if index
-	
-	return 
-	
-	
+
+func _on_display_stat_choice_component_selected_choice(choice: Dictionary) -> void:
+	pass # Replace with function body.
