@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b5b6ea8b5673k"]
 
 [ext_resource type="Script" uid="uid://3t0iviceiewt" path="res://Scripts/Player/Player.gd" id="1_xpcdj"]
+[ext_resource type="Resource" uid="uid://bob2ix1bteewn" path="res://Resources/Classes/WarriorResource.tres" id="2_2crlr"]
 [ext_resource type="PackedScene" uid="uid://d18vbkkww6e0i" path="res://Scenes/Weapons/MainHandWeapon.tscn" id="3_7ve27"]
 [ext_resource type="Animation" uid="uid://2qo5t34oq5u0" path="res://Assets/Animations/Rig_Mid_Animations/Crawling.res" id="3_gpqv3"]
 [ext_resource type="Script" uid="uid://b580uwxkgp4uh" path="res://Scripts/States/Player/PlayerStateMachine.gd" id="3_mtuoh"]
@@ -102,13 +103,10 @@
 [ext_resource type="Script" uid="uid://np78fbu8py3p" path="res://Scripts/Others/slash.gd" id="99_xvldo"]
 [ext_resource type="Script" uid="uid://mltur7xac0xi" path="res://Scripts/Components/Entity/AbilityComponent.gd" id="100_81gu5"]
 [ext_resource type="ArrayMesh" uid="uid://dve5g0ibb7jse" path="res://Assets/Misc/SlashMesh.obj" id="100_ujqdw"]
+[ext_resource type="PackedScene" uid="uid://caavhwhvoqvqm" path="res://Scenes/UserInterface/DisplayStatChoiceComponent.tscn" id="105_w6yxy"]
 [ext_resource type="Script" uid="uid://bdch6582i2bvt" path="res://Scripts/Components/Entity/HealthComponent.gd" id="106_7bej3"]
-[ext_resource type="Texture2D" uid="uid://brg8dkr6fqm3e" path="res://Assets/GUI/UI/Icons/EmptySlot.png" id="106_ujqdw"]
 [ext_resource type="Script" uid="uid://c5l5du3uioa4l" path="res://Scripts/Components/Entity/StatComponent.gd" id="107_8b85g"]
-[ext_resource type="StyleBox" uid="uid://vhfawbbim2h2" path="res://Styles/CommonStatBox.tres" id="107_ddxso"]
 [ext_resource type="Script" uid="uid://bb280644mkjrc" path="res://Scripts/Components/Entity/PregressionComponent.gd" id="108_56b0b"]
-[ext_resource type="Texture2D" uid="uid://oanefjsfn4v2" path="res://Assets/GUI/UI/Icons/WarriorAbilities/BattleShoutIcon.png" id="108_yylel"]
-[ext_resource type="Script" uid="uid://darx8xm44dpc5" path="res://Scripts/Components/DisplayStatChoiceComponent.gd" id="109_w6yxy"]
 [ext_resource type="Script" uid="uid://ctr7taoyv2xth" path="res://Scripts/States/Player/AttackState2.gd" id="109_yylel"]
 [ext_resource type="Script" uid="uid://dass1u87mgpxb" path="res://Scripts/States/Player/AttackState3.gd" id="110_t53un"]
 [ext_resource type="Script" uid="uid://bos7mhqtacmin" path="res://Scripts/UI/CameraEffects.gd" id="111_ddxso"]
@@ -1381,27 +1379,6 @@ height = 2.3289604
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_22q81"]
 
-[sub_resource type="FontFile" id="FontFile_t53un"]
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/25/0/ascent = 0.0
-cache/0/25/0/descent = 0.0
-cache/0/25/0/underline_position = 0.0
-cache/0/25/0/underline_thickness = 0.0
-cache/0/25/0/scale = 1.0
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_88f1v"]
 radius = 6.0
 
@@ -1451,6 +1428,7 @@ corner_radius_bottom_left = 10
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_xpcdj")
+hero_class = ExtResource("2_2crlr")
 move_speed = 5.0
 turn_speed = 5.0
 
@@ -1840,177 +1818,8 @@ script = ExtResource("111_ddxso")
 [node name="PlayerUI" parent="." unique_id=714406961 instance=ExtResource("4_74mp2")]
 unique_name_in_owner = true
 
-[node name="DisplayStatChoiceComponent" type="Control" parent="PlayerUI" unique_id=823422280]
+[node name="DisplayStatChoiceComponent" parent="PlayerUI" unique_id=1654775370 instance=ExtResource("105_w6yxy")]
 visible = false
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -117.0
-offset_right = 20.0
-offset_bottom = -77.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-mouse_filter = 1
-script = ExtResource("109_w6yxy")
-metadata/_custom_type_script = "uid://darx8xm44dpc5"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PlayerUI/DisplayStatChoiceComponent" unique_id=1435129182]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 26
-
-[node name="ChoiceBtnOne" type="TextureButton" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer" unique_id=1924151540]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 500)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-action_mode = 0
-texture_normal = ExtResource("106_ujqdw")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="PanelContainer" type="PanelContainer" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer/ChoiceBtnOne" unique_id=1820394784]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("107_ddxso")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer/ChoiceBtnOne/PanelContainer" unique_id=945107462]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="TextureRect" type="TextureRect" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer/ChoiceBtnOne/PanelContainer/VBoxContainer" unique_id=488095799]
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 2
-texture = ExtResource("108_yylel")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer/ChoiceBtnOne/PanelContainer/VBoxContainer" unique_id=1655658396]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 49
-text = "Stat Name"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer/ChoiceBtnOne/PanelContainer/VBoxContainer" unique_id=1743895533]
-layout_mode = 2
-theme_override_fonts/font = SubResource("FontFile_t53un")
-theme_override_font_sizes/font_size = 25
-text = "This is stat description"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ChoiceBtnOne2" type="TextureButton" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer" unique_id=1076536210]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 500)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-action_mode = 0
-texture_normal = ExtResource("106_ujqdw")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="PanelContainer" type="PanelContainer" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer/ChoiceBtnOne2" unique_id=1084188834]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("107_ddxso")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer/ChoiceBtnOne2/PanelContainer" unique_id=164917185]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="TextureRect" type="TextureRect" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer/ChoiceBtnOne2/PanelContainer/VBoxContainer" unique_id=1732150827]
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 2
-texture = ExtResource("108_yylel")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer/ChoiceBtnOne2/PanelContainer/VBoxContainer" unique_id=568119805]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 49
-text = "Stat Name"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer/ChoiceBtnOne2/PanelContainer/VBoxContainer" unique_id=1599742061]
-layout_mode = 2
-theme_override_fonts/font = SubResource("FontFile_t53un")
-theme_override_font_sizes/font_size = 25
-text = "This is stat description"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ChoiceBtnOne3" type="TextureButton" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer" unique_id=954126761]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 500)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-action_mode = 0
-texture_normal = ExtResource("106_ujqdw")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="PanelContainer" type="PanelContainer" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer/ChoiceBtnOne3" unique_id=1077989403]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("107_ddxso")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer/ChoiceBtnOne3/PanelContainer" unique_id=2006643280]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="TextureRect" type="TextureRect" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer/ChoiceBtnOne3/PanelContainer/VBoxContainer" unique_id=860921061]
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 2
-texture = ExtResource("108_yylel")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer/ChoiceBtnOne3/PanelContainer/VBoxContainer" unique_id=1088637606]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 49
-text = "Stat Name"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="PlayerUI/DisplayStatChoiceComponent/HBoxContainer/ChoiceBtnOne3/PanelContainer/VBoxContainer" unique_id=1925423885]
-layout_mode = 2
-theme_override_fonts/font = SubResource("FontFile_t53un")
-theme_override_font_sizes/font_size = 25
-text = "This is stat description"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="TargetsInRange" type="Area3D" parent="." unique_id=45460391]
 unique_name_in_owner = true
@@ -2056,6 +1865,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="LevelDisplay" type="Label" parent="Username/WorldVisualPLayerData/VBoxContainer/HBoxContainer" unique_id=1191655326]
+unique_name_in_owner = true
 texture_filter = 2
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -2090,8 +1900,9 @@ metadata/_custom_type_script = "uid://bdch6582i2bvt"
 script = ExtResource("107_8b85g")
 metadata/_custom_type_script = "uid://c5l5du3uioa4l"
 
-[node name="ProgressionComponent" type="Node" parent="." unique_id=948234148]
+[node name="ProgressionComponent" type="Node" parent="." unique_id=948234148 node_paths=PackedStringArray("out_level_display")]
 script = ExtResource("108_56b0b")
+out_level_display = NodePath("../Username/WorldVisualPLayerData/VBoxContainer/HBoxContainer/LevelDisplay")
 metadata/_custom_type_script = "uid://bb280644mkjrc"
 
 [node name="AttackCooldown" type="Timer" parent="." unique_id=913160004]
@@ -2116,9 +1927,8 @@ unique_name_in_owner = true
 
 [connection signal="area_entered" from="Model/Rig_Medium/Skeleton3D/BoneAttachment3D/HurtBox" to="StateMachine/IdleState" method="_on_hurt_box_area_entered"]
 [connection signal="area_entered" from="Model/Rig_Medium/Skeleton3D/BoneAttachment3D/HurtBox" to="StateMachine/MoveState" method="_on_hurt_box_area_entered"]
-[connection signal="selected_choice" from="PlayerUI/DisplayStatChoiceComponent" to="ProgressionComponent" method="_on_display_stat_choice_component_selected_choice"]
 [connection signal="body_entered" from="TargetsInRange" to="." method="_on_targets_in_range_body_entered"]
 [connection signal="body_exited" from="TargetsInRange" to="." method="_on_targets_in_range_body_exited"]
-[connection signal="stat_choices" from="ProgressionComponent" to="PlayerUI/DisplayStatChoiceComponent" method="_on_progression_component_stat_choices"]
+[connection signal="stat_selected" from="ProgressionComponent" to="StatComponent" method="_on_progression_component_stat_selected"]
 [connection signal="timeout" from="AttackCooldown" to="StateMachine" method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="ComboTimer" to="StateMachine" method="_on_combo_timer_timeout"]

@@ -1,6 +1,6 @@
 extends CharacterBody3D
 class_name Player
-
+@export var hero_class: HeroClassResource
 @onready var hero_class_data: Dictionary = {} 
 @onready var player_inventory: CharacterSheetandInventory
 @onready var state_machine: PlayerStateMachine = %StateMachine
@@ -190,12 +190,6 @@ func is_moving() -> bool:
 	var h := Vector2(velocity.x, velocity.z).length()
 	return h > 0.1
 
-func exp_shard_collected(exp_value: int) -> void:
-	player_exp_collected += exp_value
-	exp_bar.value = player_exp_collected
-	if player_exp_collected >= required_exp:
-		level_up()
-
 func sheeth_weapon() -> void:
 	if main_hand_weapon.WEAPON_TYPE == null and off_hand_weapon.WEAPON_TYPE == null: 
 		return
@@ -264,12 +258,6 @@ func take_damage(amount: int) -> void:
 		velocity = Vector3.ZERO
 		state_machine.change_state("DeadState")
 
-func level_up() -> void:
-	player_level += 1
-	if player_level <= 30:
-		level_display.text = "%s" % player_level
-	ability_unlock()
-
 func recalculate_stats() -> void:
 	pass
 
@@ -287,21 +275,17 @@ func ability_unlock() -> void:
 			else:
 				return
 
-func _on_level_up_pressed() -> void:
-	level_up()
-	print("%s" %player_level)
-
 func inventory_open(open: bool) -> void:
 	input_locked = open
 
 func off_hand_hit_box_on() -> void:
 	if off_hand_weapon and not off_hand_weapon.is_in_group("shield"):
 		off_hand_weapon.hit_box.monitoring = true
-		
+
 func off_hand_hit_box_off() -> void:
 	if off_hand_weapon and not off_hand_weapon.is_in_group("shield"):
 		off_hand_weapon.hit_box.monitoring = false
-		
+
 func weapon_hit_box_on() -> void:
 	if main_hand_weapon:
 		main_hand_weapon.hit_box.monitoring = true

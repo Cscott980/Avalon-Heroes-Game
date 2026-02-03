@@ -1,4 +1,4 @@
-class_name ApperanceTypeResource extends Resource
+class_name SkinAndHairColorResource extends Resource
 
 enum SkinColor {
 	WHITE,

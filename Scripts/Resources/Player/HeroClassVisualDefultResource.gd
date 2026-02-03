@@ -6,3 +6,7 @@ class_name HeroClassVisualDefaultResource extends Resource
 @export var right_arm: Mesh
 @export var left_leg:Mesh
 @export var right_leg:Mesh
+
+func apply_defults(slot_type:int) -> void:
+	pass
+	

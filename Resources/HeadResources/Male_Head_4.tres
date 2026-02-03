@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="HeadData" format=3 uid="uid://cb7qe32y68lcu"]
+
+[ext_resource type="Script" uid="uid://d1m0832qarn13" path="res://Scripts/Resources/Player/Apperance/CharacterHeadResource.gd" id="1_2h2kb"]
+
+[resource]
+script = ExtResource("1_2h2kb")
+metadata/_custom_type_script = "uid://d1m0832qarn13"

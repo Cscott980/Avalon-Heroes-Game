@@ -31,6 +31,15 @@ const STAT_FLAG_MAP: Dictionary = {
 	"wisdom": 1 << 3,
 	"vitality": 1 << 4,
 }
+#TODO: set up staticon UID
+const ICON_REFERANCE: Dictionary = {
+	STATS.STRENGTH: "something",
+	STATS.INTELLECT: "something",
+	STATS.DEXTERITY: "something",
+	STATS.VITALITY: "something",
+	STATS.WISDOM: "something"	
+}
+
 
 func load_stats_ref(stat: int) -> String:
 	return STAT_REFERENCE.get(stat, "")
