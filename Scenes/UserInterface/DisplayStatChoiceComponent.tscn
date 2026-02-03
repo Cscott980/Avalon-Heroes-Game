@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://darx8xm44dpc5" path="res://Scripts/Components/DisplayStatChoiceComponent.gd" id="1_so8dy"]
 [ext_resource type="Texture2D" uid="uid://brg8dkr6fqm3e" path="res://Assets/GUI/UI/Icons/EmptySlot.png" id="2_mub4i"]
 [ext_resource type="StyleBox" uid="uid://vhfawbbim2h2" path="res://Styles/CommonStatBox.tres" id="3_joe0m"]
+[ext_resource type="Script" uid="uid://cjejxa4hnbunn" path="res://Scripts/UI/ChoiceBtn.gd" id="3_romyj"]
 [ext_resource type="Texture2D" uid="uid://oanefjsfn4v2" path="res://Assets/GUI/UI/Icons/WarriorAbilities/BattleShoutIcon.png" id="4_v4vkj"]
 
 [sub_resource type="FontFile" id="FontFile_t53un"]
@@ -72,6 +73,7 @@ action_mode = 0
 texture_normal = ExtResource("2_mub4i")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("3_romyj")
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/ChoiceBtnOne" unique_id=505066324]
 layout_mode = 1
@@ -86,15 +88,13 @@ theme_override_styles/panel = ExtResource("3_joe0m")
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="StatOneIcon" type="TextureRect" parent="HBoxContainer/ChoiceBtnOne/PanelContainer/VBoxContainer" unique_id=566360972]
-unique_name_in_owner = true
+[node name="StatIcon" type="TextureRect" parent="HBoxContainer/ChoiceBtnOne/PanelContainer/VBoxContainer" unique_id=566360972]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 texture = ExtResource("4_v4vkj")
 expand_mode = 1
 
-[node name="StatOneName" type="Label" parent="HBoxContainer/ChoiceBtnOne/PanelContainer/VBoxContainer" unique_id=2037673427]
-unique_name_in_owner = true
+[node name="StatName" type="Label" parent="HBoxContainer/ChoiceBtnOne/PanelContainer/VBoxContainer" unique_id=2037673427]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 49
@@ -102,8 +102,7 @@ text = "Stat Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatOneDisc" type="Label" parent="HBoxContainer/ChoiceBtnOne/PanelContainer/VBoxContainer" unique_id=1372064475]
-unique_name_in_owner = true
+[node name="StatDisc" type="Label" parent="HBoxContainer/ChoiceBtnOne/PanelContainer/VBoxContainer" unique_id=1372064475]
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_t53un")
 theme_override_font_sizes/font_size = 25
@@ -121,6 +120,7 @@ action_mode = 0
 texture_normal = ExtResource("2_mub4i")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("3_romyj")
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/ChoiceBtnOne2" unique_id=606630375]
 layout_mode = 1
@@ -135,15 +135,13 @@ theme_override_styles/panel = ExtResource("3_joe0m")
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="StatTwoIcon" type="TextureRect" parent="HBoxContainer/ChoiceBtnOne2/PanelContainer/VBoxContainer" unique_id=903207442]
-unique_name_in_owner = true
+[node name="StatIcon" type="TextureRect" parent="HBoxContainer/ChoiceBtnOne2/PanelContainer/VBoxContainer" unique_id=903207442]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 texture = ExtResource("4_v4vkj")
 expand_mode = 1
 
-[node name="StatTwoName" type="Label" parent="HBoxContainer/ChoiceBtnOne2/PanelContainer/VBoxContainer" unique_id=1867525333]
-unique_name_in_owner = true
+[node name="StatName" type="Label" parent="HBoxContainer/ChoiceBtnOne2/PanelContainer/VBoxContainer" unique_id=1867525333]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 49
@@ -151,8 +149,7 @@ text = "Stat Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatTwoDisc" type="Label" parent="HBoxContainer/ChoiceBtnOne2/PanelContainer/VBoxContainer" unique_id=1036545135]
-unique_name_in_owner = true
+[node name="StatDisc" type="Label" parent="HBoxContainer/ChoiceBtnOne2/PanelContainer/VBoxContainer" unique_id=1036545135]
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_t53un")
 theme_override_font_sizes/font_size = 25
@@ -170,6 +167,7 @@ action_mode = 0
 texture_normal = ExtResource("2_mub4i")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("3_romyj")
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/ChoiceBtnOne3" unique_id=1548503218]
 layout_mode = 1
@@ -184,15 +182,13 @@ theme_override_styles/panel = ExtResource("3_joe0m")
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="StatThreeIcon" type="TextureRect" parent="HBoxContainer/ChoiceBtnOne3/PanelContainer/VBoxContainer" unique_id=1291181485]
-unique_name_in_owner = true
+[node name="StatIcon" type="TextureRect" parent="HBoxContainer/ChoiceBtnOne3/PanelContainer/VBoxContainer" unique_id=1291181485]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 texture = ExtResource("4_v4vkj")
 expand_mode = 1
 
-[node name="StatThreeName" type="Label" parent="HBoxContainer/ChoiceBtnOne3/PanelContainer/VBoxContainer" unique_id=1679996920]
-unique_name_in_owner = true
+[node name="StatName" type="Label" parent="HBoxContainer/ChoiceBtnOne3/PanelContainer/VBoxContainer" unique_id=1679996920]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 49
@@ -200,8 +196,7 @@ text = "Stat Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatThreeDisc" type="Label" parent="HBoxContainer/ChoiceBtnOne3/PanelContainer/VBoxContainer" unique_id=1575121114]
-unique_name_in_owner = true
+[node name="StatDisc" type="Label" parent="HBoxContainer/ChoiceBtnOne3/PanelContainer/VBoxContainer" unique_id=1575121114]
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_t53un")
 theme_override_font_sizes/font_size = 25
