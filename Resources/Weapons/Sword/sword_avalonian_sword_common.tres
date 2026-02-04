@@ -7,12 +7,12 @@
 
 [resource]
 script = ExtResource("1_w3odh")
-weapon_type = "Sword"
+weapon_type = 5
 mesh = ExtResource("3_4fwxc")
 collision_shape = ExtResource("1_ud53f")
 can_be_equippable = 3
 damage = 8
-scale_on_stat = 1
+scale_on_stat = 5
 scale_percentage = 0.2
 weapon_speed = 1.0
 allowed_classes = 19
@@ -20,5 +20,4 @@ name = "Avalonian Sword"
 description = "A finely balanced blade forged in Avalon’s ancient forges, glowing faintly with shard-light and trusted by heroes of the realm."
 icon = ExtResource("2_x4qt2")
 rarity = "Common"
-item_type = 0
 metadata/_custom_type_script = "uid://c50kbrwa28ffs"

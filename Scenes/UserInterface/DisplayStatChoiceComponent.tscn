@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://caavhwhvoqvqm"]
 
-[ext_resource type="Script" uid="uid://darx8xm44dpc5" path="res://Scripts/Components/DisplayStatChoiceComponent.gd" id="1_so8dy"]
+[ext_resource type="Script" uid="uid://darx8xm44dpc5" path="res://Scripts/Components/Player/DisplayStatChoiceComponent.gd" id="1_so8dy"]
 [ext_resource type="Texture2D" uid="uid://brg8dkr6fqm3e" path="res://Assets/GUI/UI/Icons/EmptySlot.png" id="2_mub4i"]
 [ext_resource type="StyleBox" uid="uid://vhfawbbim2h2" path="res://Styles/CommonStatBox.tres" id="3_joe0m"]
 [ext_resource type="Script" uid="uid://cjejxa4hnbunn" path="res://Scripts/UI/ChoiceBtn.gd" id="3_romyj"]

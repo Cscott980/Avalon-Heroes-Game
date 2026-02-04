@@ -3,27 +3,27 @@
 [ext_resource type="Texture2D" uid="uid://bo0tkrr27iioh" path="res://Assets/Icons/Weapons/Bows/Avalonian_Bow_Common.png" id="1_0if76"]
 [ext_resource type="Script" uid="uid://c50kbrwa28ffs" path="res://Scripts/Resources/Items/WeaponResource.gd" id="1_yf8ii"]
 [ext_resource type="ArrayMesh" uid="uid://d2et5vnjqbnnn" path="res://Assets/WeaponMeshes/Bow/bow_avalonian_bow.res" id="2_8ol54"]
-[ext_resource type="ArrayMesh" uid="uid://dei16c4shy6mb" path="res://Assets/Projectiles/Meshes/arrow_bow_arrow_bow.res" id="3_vr41n"]
+[ext_resource type="ArrayMesh" uid="uid://dei16c4shy6mb" path="res://Assets/WeaponMeshes/BowCompliments/arrow_bow_arrow_bow.res" id="3_8ol54"]
 
 [resource]
 script = ExtResource("1_yf8ii")
-weapon_type = "Bow"
-mesh = ExtResource("2_8ol54")
-off_hand_compliment_mesh = ExtResource("3_vr41n")
-muzzle_position = null
+weapon_type = 9
 handedness = 1
-can_be_equiped = 1
+mesh = ExtResource("2_8ol54")
+off_hand_complement_mesh = ExtResource("3_8ol54")
+muzzle_position = null
+can_be_equippable = 1
 damage = 8
 scale_on_stat = 4
 scale_percentage = 0.2
 weapon_speed = 1.0
+allowed_classes = 8
 stat_info = null
 name = "Avalonian Bow"
 id = "bow_avalonian_bow_common"
-description = null
+description = "A simple wooden bow made in Avalon. Reliable, well-balanced, and easy to use."
 icon = ExtResource("1_0if76")
 rarity = "Common"
-item_type = 0
 stackable = null
 max_stack = null
 metadata/_custom_type_script = "uid://c50kbrwa28ffs"

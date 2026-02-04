@@ -7,10 +7,10 @@
 
 [resource]
 script = ExtResource("4_ekhv6")
-weapon_type = "Battleaxe"
+weapon_type = 4
+handedness = 1
 mesh = ExtResource("3_oei2y")
 collision_shape = ExtResource("1_0gux8")
-handedness = 1
 can_be_equippable = 1
 damage = 12
 scale_on_stat = 1
@@ -23,5 +23,4 @@ id = "battleaxe_avalonian_battleaxe_common"
 description = "A brutal axe forged for close combat. Favoured by Avalonian warriors who value strength over finesse."
 icon = ExtResource("2_f122p")
 rarity = "Common"
-item_type = 0
 metadata/_custom_type_script = "uid://c50kbrwa28ffs"

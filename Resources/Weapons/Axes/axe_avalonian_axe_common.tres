@@ -8,19 +8,20 @@
 
 [resource]
 script = ExtResource("4_rb87r")
-weapon_type = "Axe"
+weapon_type = 3
 mesh = ExtResource("3_4maxg")
 collision_shape = ExtResource("1_3uhxd")
+can_be_equippable = 3
 damage = 8
 scale_on_stat = 1
 scale_percentage = 0.2
 weapon_speed = 1.0
+allowed_classes = 1
 stat_info = "Increassed damage based on heroes total strength by  20%."
 name = "Avalonian Axe"
 id = "axe_avalonian_axe_common"
 description = "A reliable one-handed axe forged for everyday battle in Avalon."
 icon = ExtResource("2_weryp")
 rarity = "Common"
-item_type = 0
 item_panel = ExtResource("3_weryp")
 metadata/_custom_type_script = "uid://c50kbrwa28ffs"

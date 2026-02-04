@@ -7,11 +7,11 @@
 
 [resource]
 script = ExtResource("1_56s1m")
-weapon_type = "Sword"
+weapon_type = 5
 mesh = ExtResource("3_wsqft")
 can_be_equippable = 3
 damage = 8
-scale_on_stat = 1
+scale_on_stat = 5
 scale_percentage = 0.2
 weapon_speed = 1.0
 allowed_classes = 19

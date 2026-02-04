@@ -1894,8 +1894,6 @@ metadata/_custom_type_script = "uid://mltur7xac0xi"
 [node name="HealthComponent" type="Node" parent="." unique_id=173475775 node_paths=PackedStringArray("out_health_bar")]
 script = ExtResource("106_7bej3")
 out_health_bar = NodePath("../Username/WorldVisualPLayerData/VBoxContainer/HBoxContainer/OutHealthBar")
-max_health = null
-hp_per_vit = null
 metadata/_custom_type_script = "uid://bdch6582i2bvt"
 
 [node name="StatComponent" type="Node" parent="." unique_id=2020628456]

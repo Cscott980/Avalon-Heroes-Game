@@ -7,10 +7,10 @@
 
 [resource]
 script = ExtResource("1_n0ctw")
-weapon_type = "Greatsword"
+weapon_type = 6
+handedness = 1
 mesh = ExtResource("3_evudf")
 collision_shape = ExtResource("1_yyi05")
-handedness = 1
 can_be_equippable = 1
 damage = 12
 scale_on_stat = 1
@@ -23,5 +23,4 @@ id = "greatsword_avalonian_greatsword"
 description = "A massive blade forged in Avalon’s early wars. Heavy, brutal, and unwavering—only the strong may wield it."
 icon = ExtResource("1_5uj5d")
 rarity = "Common"
-item_type = 0
 metadata/_custom_type_script = "uid://c50kbrwa28ffs"

@@ -3,10 +3,7 @@ class_name Player
 
 
 @export var hero_class: HeroClassResource
-@onready var hero_class_data: Dictionary = {} 
-@onready var player_inventory: CharacterSheetandInventory
 @onready var state_machine: PlayerStateMachine = %StateMachine
-@onready var hurt_box: Area3D = %HurtBox
 @onready var targets_in_range: Area3D = %TargetsInRange
 @onready var model: Node3D = %Model
 @onready var anim_tree: AnimationTree = %AnimationTree
@@ -18,9 +15,7 @@ class_name Player
 @onready var exp_bar: ProgressBar = %PlayerUI/Control/AbilityBar/VBoxContainer/HBoxContainer/ExperianceBar as ProgressBar
 @onready var level_display: Label = %PlayerUI/Control/AbilityBar/VBoxContainer/HBoxContainer/ExperianceBar/TextureRect/Label as Label
 
-@onready var ability_1: TextureButton = %PlayerUI/Control/AbilityBar/HBoxContainer/Ability1
-@onready var ability_2: TextureButton = %PlayerUI/Control/AbilityBar/HBoxContainer/Ability2
-@onready var ability_3: TextureButton = %PlayerUI/Control/AbilityBar/HBoxContainer/Ability3
+
 
 var world_gravity = ProjectSettings.get_setting("physics/3d/default_gravity") 
 #-------- Inventory -------
@@ -28,8 +23,8 @@ var inv_data: Array = []
 
 #-------- Item Equip -----
 
-@onready var main_hand_weapon: InitWeapon = %MainHandWeapon as Node3D
-@onready var off_hand_weapon: InitWeapon = %OffHandWeapon as Node3D
+@onready var main_hand_weapon: WeaponComponent = %MainHandWeapon as Node3D
+@onready var off_hand_weapon: WeaponComponent = %OffHandWeapon as Node3D
 @onready var main_hand_slot: BoneAttachment3D = %MainHand
 @onready var off_hand_slot: BoneAttachment3D = %OffHand
 @onready var sheath_back: BoneAttachment3D = %SheathBack as Node3D
@@ -86,52 +81,6 @@ var is_getting_hit: bool = false
 var player_id: int = 0
 
 func _ready() -> void:
-	
-	level_display.text = "%s" % player_level
-	hero_class_data = ClassData.classdb
-	exp_bar.value = player_exp_collected
-	player_inventory = get_tree().get_first_node_in_group("playersheet")
-	
-	
-	if hero_class_data.is_empty():
-		push_error("Player: No ClassDB found.")
-		return
-	var class_key: String = ClassData.load_class_id(class_picked)
-	if class_key == "":
-		push_error("Player: Unknown class_picked: %s" % [class_picked])
-		return
-
-	var class_hero = hero_class_data.get(class_key,{})
-	player_class = class_hero.get("class", "")
-	print(player_class)
-	
-	var stats = class_hero.get("stats", {})
-	if player_class == "warrior":
-		player_resource = stats.get("rage", 0)
-	elif player_class in ["mage", "paladin", "ranger", "druid"]:
-		player_resource = stats.get("mana", 0)
-	elif player_class == "rogue":
-		player_resource = stats.get("energy", 0)
-	elif player_class == "engineer":
-		player_resource = stats.get("scraps", 0)
-	
-	resource_bar.value = player_resource
-	max_health = stats.get("health", 0)
-	health = max_health
-	health_bar.max_value = health
-	health_bar.value = health
-	player_stats = {
-		"strength": stats.get("strength", 0),
-		"intellect": stats.get("intellect", 0),
-		"dexterity": stats.get("dexterity", 0),
-		"vitality": stats.get("vitality", 0),
-		"wisdom": stats.get("wisdom", 0)
-	}
-	player_abilities = class_hero.get("abilities", [])
-	player_allowed_armor = class_hero.get("allowed_armor_types", [])
-	player_allowed_offhand = class_hero.get("allowed_off_hand", [])
-	player_allowed_weapons = class_hero.get("allowed_weapons", [])
-		
 	for child in state_machine.get_children():
 		if child is PlayerState:
 			child.player = self
@@ -249,38 +198,6 @@ func unsheeth_weapon() -> void:
 		off_hand_slot.transform = Transform3D.IDENTITY
 		off_hand_weapon.mesh.transform = off_hand_weapon.weapon_defult_position
 	weapon_is_sheathed = false
-
-func take_damage(amount: int) -> void:
-	if is_dead:
-		return
-	
-	health -= amount
-	health_bar.value = health
-	if not state_machine.is_attacking:
-		state_machine.change_state("HurtState")
-	
-	if health <= 0:
-		is_dead = true
-		health = 0
-		velocity = Vector3.ZERO
-		state_machine.change_state("DeadState")
-
-func recalculate_stats() -> void:
-	pass
-
-func ability_unlock() -> void:
-	if player_level > 30:
-		return
-	for ability in player_abilities:
-		if ability.get("level", 0) >= player_level:
-			if player_level == 10:
-				ability_1.disabled = false
-			elif  player_level == 20:
-				ability_2.disabled = false
-			elif  player_level == 30:
-				ability_3.disabled = false
-			else:
-				return
 
 func inventory_open(open: bool) -> void:
 	input_locked = open
