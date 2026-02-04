@@ -51,9 +51,9 @@ func _ready() -> void:
 		equipment.accessory3
 	]
 	_connect_equipment_slots()
-
-	close()
 	
+	self.visible = false
+
 func play_pick_up_sound() -> void:
 	audio_stream_player.stream = pick_up_sound
 	audio_stream_player.play()

@@ -1,5 +1,7 @@
 extends CharacterBody3D
 class_name Player
+
+
 @export var hero_class: HeroClassResource
 @onready var hero_class_data: Dictionary = {} 
 @onready var player_inventory: CharacterSheetandInventory
@@ -50,6 +52,8 @@ var current_target: Node3D = null
 var input_locked: bool = false
 #--------- Stats ---------
 @export var class_picked: ClassData.HERO_CLASS
+@export var player_uuid: String = ""
+@export var multiplayer_id: int = 1
 @export var move_speed: float = 10.0
 @export var turn_speed: float = 10.0
 @export var max_health: int = 0
@@ -79,7 +83,10 @@ var is_getting_hit: bool = false
 
 #----------------------------------
 
-func _ready() -> void:	
+var player_id: int = 0
+
+func _ready() -> void:
+	
 	level_display.text = "%s" % player_level
 	hero_class_data = ClassData.classdb
 	exp_bar.value = player_exp_collected

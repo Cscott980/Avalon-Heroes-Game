@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ctyuj2px1mfc" path="res://Scripts/UI/MainUI.gd" id="1_8r1g1"]
 [ext_resource type="PackedScene" uid="uid://3lbs1k6glmge" path="res://Scenes/UserInterface/AbilityBar.tscn" id="2_cwop8"]
+[ext_resource type="PackedScene" uid="uid://caavhwhvoqvqm" path="res://Scenes/UserInterface/DisplayStatChoiceComponent.tscn" id="4_at26v"]
 [ext_resource type="PackedScene" uid="uid://lhsufnuhcrv4" path="res://Scenes/UserInterface/CharacterSheet.tscn" id="17_xmfmo"]
 
 [node name="PlayerUI" type="CanvasLayer" unique_id=651787803]
@@ -11,4 +12,12 @@ script = ExtResource("1_8r1g1")
 unique_name_in_owner = true
 
 [node name="InventoryEquipment" parent="." unique_id=1189334509 instance=ExtResource("17_xmfmo")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 600.0
+offset_bottom = 700.0
+
+[node name="DisplayStatChoiceComponent" parent="." unique_id=1654775370 instance=ExtResource("4_at26v")]
 visible = false

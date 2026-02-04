@@ -28,6 +28,7 @@ EnemyData="*res://Scripts/Singletons/EnemyDataManager.gd"
 GameState="*res://Scripts/Singletons/GameState.gd"
 ClassData="*res://Scripts/Singletons/ClassData.gd"
 StatConst="*res://Scripts/Singletons/StatConstants.gd"
+GameSignals="*uid://ctj1uonhq2fp"
 
 [display]
 

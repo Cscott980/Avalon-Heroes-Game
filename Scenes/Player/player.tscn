@@ -185,7 +185,7 @@ bind/22/bone = -1
 bind/22/pose = Transform3D(-1, -1.5343467e-07, 1.0123822e-14, 3.0390822e-12, 5.960463e-08, 0.99999976, -1.5343463e-07, 1, -2.9802315e-08, -0.17094503, -0.09639277, -0.025990315)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xpcdj"]
-radius = 0.7114258
+radius = 0.7055664
 height = 2.481018
 
 [sub_resource type="Animation" id="Animation_pxqwv"]
@@ -1669,19 +1669,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40566343, 0)
 bone_name = "hips"
 bone_idx = 1
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=646255324]
+[node name="HitBoxBone" type="BoneAttachment3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=646255324]
 transform = Transform3D(1, 0, 1.4210854e-14, 0, 0.99999994, 0, -1.4210854e-14, 0, 1, 0, 1.2414254, 0)
 bone_name = "head"
 bone_idx = 9
 
-[node name="HurtBox" type="Area3D" parent="Model/Rig_Medium/Skeleton3D/BoneAttachment3D" unique_id=1434029573]
+[node name="HurtBox" type="Area3D" parent="Model/Rig_Medium/Skeleton3D/HitBoxBone" unique_id=1434029573]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, -1.4210855e-14, 0, 1.0000001, 0, 1.4210855e-14, 0, 1, 0, -1.2414255, 0)
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("10_74mp2")
 
-[node name="HurtCollission" type="CollisionShape3D" parent="Model/Rig_Medium/Skeleton3D/BoneAttachment3D/HurtBox" unique_id=2003613439]
+[node name="HurtCollission" type="CollisionShape3D" parent="Model/Rig_Medium/Skeleton3D/HitBoxBone/HurtBox" unique_id=2003613439]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07724, 0)
 shape = SubResource("CapsuleShape3D_xpcdj")
@@ -1818,7 +1818,7 @@ script = ExtResource("111_ddxso")
 [node name="PlayerUI" parent="." unique_id=714406961 instance=ExtResource("4_74mp2")]
 unique_name_in_owner = true
 
-[node name="DisplayStatChoiceComponent" parent="PlayerUI" unique_id=1654775370 instance=ExtResource("105_w6yxy")]
+[node name="DisplayStatChoiceComponent2" parent="PlayerUI" unique_id=1654775370 instance=ExtResource("105_w6yxy")]
 visible = false
 
 [node name="TargetsInRange" type="Area3D" parent="." unique_id=45460391]
@@ -1894,6 +1894,8 @@ metadata/_custom_type_script = "uid://mltur7xac0xi"
 [node name="HealthComponent" type="Node" parent="." unique_id=173475775 node_paths=PackedStringArray("out_health_bar")]
 script = ExtResource("106_7bej3")
 out_health_bar = NodePath("../Username/WorldVisualPLayerData/VBoxContainer/HBoxContainer/OutHealthBar")
+max_health = null
+hp_per_vit = null
 metadata/_custom_type_script = "uid://bdch6582i2bvt"
 
 [node name="StatComponent" type="Node" parent="." unique_id=2020628456]
@@ -1925,8 +1927,9 @@ unique_name_in_owner = true
 [node name="AbilityCooldownTimer3" type="Timer" parent="." unique_id=1574670960]
 unique_name_in_owner = true
 
-[connection signal="area_entered" from="Model/Rig_Medium/Skeleton3D/BoneAttachment3D/HurtBox" to="StateMachine/IdleState" method="_on_hurt_box_area_entered"]
-[connection signal="area_entered" from="Model/Rig_Medium/Skeleton3D/BoneAttachment3D/HurtBox" to="StateMachine/MoveState" method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="Model/Rig_Medium/Skeleton3D/HitBoxBone/HurtBox" to="StateMachine/IdleState" method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="Model/Rig_Medium/Skeleton3D/HitBoxBone/HurtBox" to="StateMachine/MoveState" method="_on_hurt_box_area_entered"]
+[connection signal="take_damage" from="Model/Rig_Medium/Skeleton3D/HitBoxBone/HurtBox" to="HealthComponent" method="_on_hurt_box_take_damage"]
 [connection signal="body_entered" from="TargetsInRange" to="." method="_on_targets_in_range_body_entered"]
 [connection signal="body_exited" from="TargetsInRange" to="." method="_on_targets_in_range_body_exited"]
 [connection signal="stat_selected" from="ProgressionComponent" to="StatComponent" method="_on_progression_component_stat_selected"]
