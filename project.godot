@@ -130,6 +130,8 @@ equipandremove={
 3d_physics/layer_3="Enemy"
 3d_physics/layer_4="Weapon"
 3d_physics/layer_5="PlayerAbility"
+3d_physics/layer_6="EnemyProjectiles"
+3d_physics/layer_7="EnemyAbilities"
 
 [rendering]
 

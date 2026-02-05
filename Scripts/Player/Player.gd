@@ -123,7 +123,7 @@ func update_dual_wielding_state() -> void:
 	if oh.handedness != WeaponResource.HANDEDNESS.ONE_HANDED:
 		return
 	
-	if oh.weapon_type == "Shield":
+	if oh.weapon_type == ArmorResource.ArmorType.Shield:
 		return
 	
 	is_dual_wielding = true

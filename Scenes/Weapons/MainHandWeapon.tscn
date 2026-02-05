@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d18vbkkww6e0i"]
 
-[ext_resource type="Script" uid="uid://3om3gcr1t84c" path="res://Scripts/Components/Entity/WeaponComponent.gd" id="1_a3v8c"]
+[ext_resource type="Script" uid="uid://3om3gcr1t84c" path="res://Scripts/Components/Items/WeaponComponent.gd" id="1_a3v8c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qv81b"]
 

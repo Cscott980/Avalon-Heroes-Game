@@ -17,7 +17,7 @@ func update_dual_wielding_state() -> void:
 		emit_signal("is_dual_wielding", false)
 	if oh.handedness != WeaponResource.HANDEDNESS.ONE_HANDED:
 		emit_signal("is_dual_wielding", false)
-	if oh.weapon_type == WeaponResource.:
+	if oh.weapon_type == ArmorResource.ArmorType.Shield:
 		emit_signal("is_dual_wielding", false)
 	
 	emit_signal("is_dual_wielding", true)
