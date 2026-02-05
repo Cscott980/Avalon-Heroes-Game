@@ -24,6 +24,8 @@ enum ArmorType {Light, Medium, Heavy, Shield}
 
 @export_group("Shield")
 @export var shield: Mesh
+@export var shield_block_value: int
+@export var shield_cooldown: int
 
 @export_group("Skin")
 @export var skin: Skin

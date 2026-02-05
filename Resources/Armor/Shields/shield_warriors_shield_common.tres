@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dgwcs3qe6ckep" path="res://Scripts/Resources/UI/EqupimentSlotResource.gd" id="1_birps"]
 [ext_resource type="Script" uid="uid://bccu0u1b1jjyl" path="res://Scripts/Resources/Items/ArmorResource.gd" id="1_oyr5t"]
-[ext_resource type="ArrayMesh" uid="uid://dsgbst4y3d18" path="res://Assets/WeaponMeshes/Shields/shield_round_shield_round.res" id="3_wrffu"]
+[ext_resource type="StyleBox" uid="uid://d2hluo0relbhx" path="res://Resources/ItemPanels/CommonPanel.tres" id="2_wrffu"]
+[ext_resource type="ArrayMesh" uid="uid://bp6mblyk0yibl" path="res://Assets/WeaponMeshes/Shields/shield_round_shield_round.res" id="3_wrffu"]
 
 [sub_resource type="Resource" id="Resource_8e8ib"]
 script = ExtResource("1_birps")
@@ -14,4 +15,10 @@ script = ExtResource("1_oyr5t")
 armor_slot_type = SubResource("Resource_8e8ib")
 armor_type = 3
 shield = ExtResource("3_wrffu")
+shield_block_value = 60
+shield_cooldown = 20
+name = "Warriors Shield"
+id = "shield_warriors_shield_common"
+rarity = "Common"
+item_panel = ExtResource("2_wrffu")
 metadata/_custom_type_script = "uid://bccu0u1b1jjyl"
