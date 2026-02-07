@@ -102,13 +102,16 @@
 [ext_resource type="Texture2D" uid="uid://w4alclilyqd8" path="res://Assets/Textures/Misc/twirl_01.png" id="93_7bej3"]
 [ext_resource type="Animation" uid="uid://iuwul71pvd0j" path="res://Assets/Animations/Rig_Mid_Animations/Walking_C.res" id="93_gfejc"]
 [ext_resource type="ArrayMesh" uid="uid://cdjpbvlrlme1h" path="res://Assets/Misc/Whirlwind.obj" id="94_8b85g"]
+[ext_resource type="Script" uid="uid://c4a3rb2rhw7sr" path="res://Scripts/Components/Player/PlayerAnimationComponent.gd" id="97_yylel"]
 [ext_resource type="Script" uid="uid://np78fbu8py3p" path="res://Scripts/Others/slash.gd" id="99_xvldo"]
 [ext_resource type="Script" uid="uid://mltur7xac0xi" path="res://Scripts/Components/Entity/AbilityComponent.gd" id="100_81gu5"]
 [ext_resource type="ArrayMesh" uid="uid://dve5g0ibb7jse" path="res://Assets/Misc/SlashMesh.obj" id="100_ujqdw"]
 [ext_resource type="Script" uid="uid://bdch6582i2bvt" path="res://Scripts/Components/Entity/HealthComponent.gd" id="106_7bej3"]
 [ext_resource type="Script" uid="uid://c5l5du3uioa4l" path="res://Scripts/Components/Entity/StatComponent.gd" id="107_8b85g"]
 [ext_resource type="Script" uid="uid://bb280644mkjrc" path="res://Scripts/Components/Entity/PregressionComponent.gd" id="108_56b0b"]
+[ext_resource type="PackedScene" uid="uid://bjv6y8b4ce3an" path="res://Scenes/Components/TargetInRangeComponent.tscn" id="109_t53un"]
 [ext_resource type="Script" uid="uid://ctr7taoyv2xth" path="res://Scripts/States/Player/AttackState2.gd" id="109_yylel"]
+[ext_resource type="Script" uid="uid://bu0m334de7h23" path="res://Scripts/Components/Entity/CombatComponent.gd" id="110_88f1v"]
 [ext_resource type="Script" uid="uid://dass1u87mgpxb" path="res://Scripts/States/Player/AttackState3.gd" id="110_t53un"]
 [ext_resource type="Script" uid="uid://bos7mhqtacmin" path="res://Scripts/UI/CameraEffects.gd" id="111_ddxso"]
 [ext_resource type="Script" uid="uid://y4ls1anc10kw" path="res://Scripts/Components/Player/ResourcePoolComponent.gd" id="111_yylel"]
@@ -1383,9 +1386,6 @@ height = 2.3289604
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_22q81"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_88f1v"]
-radius = 6.0
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_ujqdw"]
 viewport_path = NodePath("WorldVisualPlayerData/PlayerData")
 
@@ -1780,10 +1780,15 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 1.1524184, 0)
 shape = SubResource("CapsuleShape3D_a3d8c")
 
+[node name="PlyaerAnimationComponent" type="Node" parent="." unique_id=1601696624 node_paths=PackedStringArray("anim_tree")]
+script = ExtResource("97_yylel")
+anim_tree = NodePath("../Model/AnimationTree")
+metadata/_custom_type_script = "uid://c4a3rb2rhw7sr"
+
 [node name="StateMachine" type="Node" parent="." unique_id=784395840]
 unique_name_in_owner = true
 script = ExtResource("3_mtuoh")
-initial_state_path = NodePath("IdleState")
+initial_state_path = NodePath("SpawnState")
 
 [node name="SpawnState" type="Node" parent="StateMachine" unique_id=215209568]
 
@@ -1831,14 +1836,8 @@ stat_comp = NodePath("../StatComponent")
 health_comp = NodePath("../HealthComponent")
 equip_visuals_comp = NodePath("../Model/Rig_Medium")
 
-[node name="TargetsInRange" type="Area3D" parent="." unique_id=45460391]
-unique_name_in_owner = true
-collision_layer = 2
-collision_mask = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TargetsInRange" unique_id=803894742]
-shape = SubResource("SphereShape3D_88f1v")
-debug_color = Color(0, 0.8655743, 0.70000815, 0.42000002)
+[node name="TargetsInRangeComponent" parent="." unique_id=811212893 node_paths=PackedStringArray("player") instance=ExtResource("109_t53un")]
+player = NodePath("..")
 
 [node name="WorldVisualPlayerData" type="Sprite3D" parent="." unique_id=319263515]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056162834, 2.9541044, 0)
@@ -1893,6 +1892,15 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_7bej3")
 value = 50.0
 show_percentage = false
 
+[node name="CombatComponent" type="Node" parent="." unique_id=1694776968 node_paths=PackedStringArray("melee_main_hand_comp", "melee_off_hand_comp", "shield_comp", "ability_comp")]
+unique_name_in_owner = true
+script = ExtResource("110_88f1v")
+melee_main_hand_comp = NodePath("../Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon")
+melee_off_hand_comp = NodePath("../Model/Rig_Medium/Skeleton3D/OffHand/OffHandWeapon")
+shield_comp = NodePath("../Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent")
+ability_comp = NodePath("../AbilityComponent")
+metadata/_custom_type_script = "uid://bu0m334de7h23"
+
 [node name="AbilityComponent" type="Node" parent="." unique_id=98724773 node_paths=PackedStringArray("target")]
 unique_name_in_owner = true
 script = ExtResource("100_81gu5")
@@ -1944,8 +1952,6 @@ volume_db = -8.667
 
 [connection signal="take_damage" from="Model/Rig_Medium/Skeleton3D/HitBoxBone/HurtBox" to="." method="_on_hurt_box_take_damage"]
 [connection signal="take_damage" from="Model/Rig_Medium/Skeleton3D/HitBoxBone/HurtBox" to="HealthComponent" method="_on_hurt_box_take_damage"]
-[connection signal="body_entered" from="TargetsInRange" to="." method="_on_targets_in_range_body_entered"]
-[connection signal="body_exited" from="TargetsInRange" to="." method="_on_targets_in_range_body_exited"]
 [connection signal="stat_selected" from="ProgressionComponent" to="StatComponent" method="_on_progression_component_stat_selected"]
 [connection signal="block" from="PlayerInputComponent" to="Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent" method="_on_player_input_component_block"]
 [connection signal="not_blocking" from="PlayerInputComponent" to="Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent" method="_on_player_input_component_not_blocking"]

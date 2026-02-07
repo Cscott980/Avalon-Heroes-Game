@@ -52,14 +52,15 @@ func load_weapon(weapon_id: WeaponResource) -> void:
 		self.transform = Transform3D.IDENTITY
 	
 	weapon_attack_speed = weapon_id.weapon_speed
-	
 
-func get_stat_effect_damage(target: Node3D) -> int:
-	if target == null:
-		return 0
-	return WEAPON_TYPE.stat_effect.calculate_dot(target)
+func weapon_hit_box_on() -> void:
+	if hit_box:
+		hit_box.monitoring = true
+
+func weapon_hit_box_off() -> void:
+	if hit_box:
+		hit_box.monitoring = false
 
 func _on_hit_box_body_entered(body: Node3D) -> void:
-	if not body.is_in_group("enemy"):
-		return
-	emit_signal("weapon_hit", body, WEAPON_TYPE)
+	if body.is_in_group("enemy"):
+		weapon_hit.emit(body, WEAPON_TYPE)

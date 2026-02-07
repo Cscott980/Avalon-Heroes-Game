@@ -159,7 +159,7 @@ func sheeth_weapon() -> void:
 	var use_hips := false
 	if mh != null and mh.handedness == WeaponResource.HANDEDNESS.ONE_HANDED:
 		use_hips = true
-	if oh != null and oh.handedness == WeaponResource.HANDEDNESS.ONE_HANDED and oh.weapon_type != "Shield":
+	#if oh != null and oh.handedness == WeaponResource.HANDEDNESS.ONE_HANDED and oh.weapon_type != "Shield":
 		use_hips = true
 	
 	if use_hips:
@@ -179,7 +179,7 @@ func sheeth_weapon() -> void:
 			sheath_back.add_child(main_hand_weapon)
 			main_hand_slot.transform = Transform3D.IDENTITY
 			main_hand_weapon.mesh.transform = main_hand_weapon.back_sheath.transform
-		if oh != null and off_hand_weapon.get_parent() == off_hand_slot and oh.weapon_type == "Shield":
+		#if oh != null and off_hand_weapon.get_parent() == off_hand_slot and oh.weapon_type == "Shield":
 			sheath_back.add_child(off_hand_weapon)
 			off_hand_slot.transform = Transform3D.IDENTITY
 			off_hand_weapon.mesh.transform = main_hand_weapon.back_sheath.transform
