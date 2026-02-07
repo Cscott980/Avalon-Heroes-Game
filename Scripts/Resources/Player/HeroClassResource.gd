@@ -1,18 +1,8 @@
 class_name HeroClassResource extends Resource
 
-enum HeroClasses {
-	WARRIOR,
-	PALADIN,
-	MAGE,
-	RANGER,
-	ROGUE,
-	DRUID,
-	ENGINEER
-}
-
 @export_group("Settings")
-@export var hero_class: HeroClasses = HeroClasses.WARRIOR
-@export var display_name: String = "Warrior"
+@export var hero_class:HeroClassConstants.HERO_CLASS
+var display_name: String = HeroClassConst.load_class_to_string(hero_class)
 @export_multiline var description: String = ""
 @export var icon: Texture2D
 
@@ -24,19 +14,13 @@ enum HeroClasses {
 @export var max_health: int = 100
 
 @export_group("Stats/Base Stats")
-@export var strength: int = 0
-@export var intellect: int = 0
-@export var dexterity: int = 0
-@export var vitality: int = 0
-@export var wisdom: int = 0
+@export var hero_stats: StatResource
 
 @export_group("Stats/ResourcePool")
 @export var resource_pool: ResourcePoolResource
 
 @export_group("Abilities")
-@export var ability_1: AbilityResource
-@export var ability_2: Array[AbilityResource]
-@export var ability_3: AbilityResource
+@export var hero_abilities: HeroClassAbilitiesResource
 
 @export_group("Equipment Rules")
 @export var starting_equipment: PlayerEquipmentResource
@@ -45,7 +29,7 @@ enum HeroClasses {
 	"Medium",
 	"Heavy",
 	"Shield"
-) var allowed_armor = 0
+) var allowed_armor_types = 0
 
 @export_flags(
 	"Dagger",

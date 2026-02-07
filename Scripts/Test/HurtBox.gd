@@ -1,6 +1,3 @@
-extends Area3D
-class_name HurtBox
+class_name HurtBoxComponent extends Area3D
 
 signal take_damage(amount: int)
-
-var player: Player

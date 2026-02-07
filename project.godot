@@ -24,9 +24,8 @@ config/icon="uid://50sg5etxtio2"
 [autoload]
 
 GameData="*res://Scripts/Singletons/GameData.gd"
-EnemyData="*res://Scripts/Singletons/EnemyDataManager.gd"
 GameState="*res://Scripts/Singletons/GameState.gd"
-ClassData="*res://Scripts/Singletons/ClassData.gd"
+HeroClassConst="*res://Scripts/Singletons/HeroClassConstants.gd"
 StatConst="*res://Scripts/Singletons/StatConstants.gd"
 GameSignals="*uid://ctj1uonhq2fp"
 

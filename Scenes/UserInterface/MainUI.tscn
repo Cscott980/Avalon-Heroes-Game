@@ -12,6 +12,7 @@ script = ExtResource("1_8r1g1")
 unique_name_in_owner = true
 
 [node name="InventoryEquipment" parent="." unique_id=1189334509 instance=ExtResource("17_xmfmo")]
+unique_name_in_owner = true
 visible = false
 anchors_preset = 0
 anchor_right = 0.0
@@ -20,4 +21,5 @@ offset_right = 600.0
 offset_bottom = 700.0
 
 [node name="DisplayStatChoiceComponent" parent="." unique_id=1654775370 instance=ExtResource("4_at26v")]
+unique_name_in_owner = true
 visible = false

@@ -1,5 +1,5 @@
-class_name PlayerStateMachine
-extends Node
+@icon("uid://bcmnnidtwjut6")
+class_name PlayerStateMachine extends Node
 
 @onready var attack_cooldown: Timer = %AttackCooldown
 @onready var combo_timer: Timer = %ComboTimer

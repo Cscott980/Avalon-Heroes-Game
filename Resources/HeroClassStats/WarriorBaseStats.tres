@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="StatResource" format=3 uid="uid://djooacegpapmv"]
+
+[ext_resource type="Script" uid="uid://uef8gtc7nwmh" path="res://Scripts/Resources/General/StatResource.gd" id="1_uk5va"]
+
+[resource]
+script = ExtResource("1_uk5va")
+strength = 10
+intellect = 2
+dexterity = 4
+vitality = 7
+wisdom = 2
+metadata/_custom_type_script = "uid://uef8gtc7nwmh"

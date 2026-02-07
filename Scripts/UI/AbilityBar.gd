@@ -8,14 +8,17 @@ class_name AbilityBar extends Control
 @onready var ability_3: TextureButton = %Ability3
 @onready var cooldown_3: TextureProgressBar = %Cooldown3
 
+@onready var ability_one_cooldown_timer: Timer = %AbilityOneCooldownTimer
+@onready var ability_two_cooldown_timer: Timer = %AbilityTwoCooldownTimer
+@onready var ability_three_cooldown_timer: Timer = %AbilityThreeCooldownTimer
+
 #------- Bars and Levels --------
 @onready var player_health: ProgressBar = %PlayerHealth
 @onready var resource_bar: ProgressBar = %ResourceBar
 @onready var experiance_bar: ProgressBar = %ExperianceBar
 @onready var level_ui_dis: Label = %Label
 
-#Controller Icons
-#TODO: Set up sungleton with Btn IMG.
+#-------- Controller Icons -------
 @onready var btn_label_1: TextureRect = %BtnLabel1
 @onready var btn_label_2: TextureRect = %BtnLabel2
 @onready var btn_label_3: TextureRect = %BtnLabel3

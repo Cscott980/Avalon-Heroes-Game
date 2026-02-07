@@ -1,4 +1,4 @@
-#@icon("")
+@icon("uid://d06el7ga76urj")
 class_name ProgressionComponent extends Node
 
 signal level(current_level:int)

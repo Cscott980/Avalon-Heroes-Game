@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://lmgi15iuxr7s" path="res://Assets/GUI/UI/Icons/WarriorAbilities/EarthShatterIcon.png" id="1_hw6hb"]
 [ext_resource type="Script" uid="uid://bnvu7uffua2aj" path="res://Scripts/Resources/Abilities/AbilityResource.gd" id="1_qxi3j"]
-[ext_resource type="Texture2D" uid="uid://0qwo6yvojd25" path="res://Assets/GUI/UI/Icons/WarriorAbilities/EarthShatterLocked.png" id="2_iaxmj"]
 [ext_resource type="Texture2D" uid="uid://dbgjwpxipjdwv" path="res://Assets/GUI/UI/Icons/WarriorAbilities/EarthShatterIconPressed.png" id="3_5vm5c"]
 [ext_resource type="PackedScene" uid="uid://cagx6o6yd0qag" path="res://Scenes/Abilities/Warrior/EarthShatter.tscn" id="4_je2g3"]
 
@@ -19,7 +18,6 @@ Unlocks at: Level 30
 Cooldown: 60 seconds"
 active_icon = ExtResource("1_hw6hb")
 pressed_icon = ExtResource("3_5vm5c")
-disabled_icon = ExtResource("2_iaxmj")
 vfx = ExtResource("4_je2g3")
 base_damage = 30
 metadata/_custom_type_script = "uid://bnvu7uffua2aj"

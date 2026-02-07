@@ -1,3 +1,4 @@
+@icon("uid://y6xubei2ho8r")
 class_name PlayerInputComponent extends Node
 
 signal block

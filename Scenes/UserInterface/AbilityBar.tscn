@@ -319,3 +319,12 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 texture = ExtResource("20_1pdho")
 expand_mode = 1
+
+[node name="AbilityOneCooldownTimer" type="Timer" parent="." unique_id=1482180262]
+unique_name_in_owner = true
+
+[node name="AbilityTwoCooldownTimer" type="Timer" parent="." unique_id=1700690232]
+unique_name_in_owner = true
+
+[node name="AbilityThreeCooldownTimer" type="Timer" parent="." unique_id=1311654977]
+unique_name_in_owner = true

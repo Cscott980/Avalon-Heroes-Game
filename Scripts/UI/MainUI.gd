@@ -1,6 +1,14 @@
 class_name MainUI extends CanvasLayer
-@onready var inventory_equipment: CharacterSheetandInventory = $InventoryEquipment
+
+@onready var inventory_equipment: CharacterSheetandInventory = %InventoryEquipment
 @onready var ability_bar: AbilityBar = %AbilityBar
+@onready var display_stat_choice_component: DisplayStatChoiceComponent = %DisplayStatChoiceComponent
+
+@export var stat_comp: StatComponent
+@export var ability_comp: AbilityComponent
+@export var health_comp: HealthComponent
+@export var equip_visuals_comp: EquipmentVisualComponent
+
 
 var ability_1_btn: TextureButton
 var ability_2_btn: TextureButton
@@ -23,7 +31,14 @@ func _ready() -> void:
 	resource_pool_bar = ability_bar.resource_bar
 	ability_bar.level_ui_dis.text = level_dis
 	inventory_equipment.level_display.text = level_dis
-	
+	if stat_comp == null:
+		return
+	if ability_comp == null:
+		return
+	if health_comp == null:
+		return
+	if equip_visuals_comp == null:
+		return
 func update_level_display(new_level: String) -> void:
 	ability_bar.level_ui_dis.text = new_level
 	inventory_equipment.level_display.text = new_level

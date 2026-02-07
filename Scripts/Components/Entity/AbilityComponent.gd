@@ -1,4 +1,4 @@
-@icon("uid://b1r23qck8dqn7")
+@icon("uid://d1kvwucvgso6m")
 class_name AbilityComponent extends Node
 
 signal cast_ability(animation: String, duration: float)

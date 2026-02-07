@@ -9,6 +9,7 @@ enum ResourceType {
 }
 
 @export_group("Settings")
+@export var resource_type: ResourceType
 @export var name: String = "Mana"
 @export var color: Color = Color.DODGER_BLUE #UI Bar
 

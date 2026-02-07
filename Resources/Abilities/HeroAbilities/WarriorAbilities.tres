@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="HeroClassAbilitiesResource" format=3 uid="uid://b2mg63s1f3ctj"]
+
+[ext_resource type="Script" uid="uid://bnvu7uffua2aj" path="res://Scripts/Resources/Abilities/AbilityResource.gd" id="1_fnt6f"]
+[ext_resource type="Resource" uid="uid://cqjgndtdbd44" path="res://Resources/Abilities/WarriorAbilities/WarCry.tres" id="2_k5mj2"]
+[ext_resource type="Script" uid="uid://crxshimb3uphv" path="res://Scripts/Resources/Player/HeroClassAbilitiesResource.gd" id="2_kqqlr"]
+[ext_resource type="Resource" uid="uid://dp5ubux2y0efp" path="res://Resources/Abilities/WarriorAbilities/Whirlwind.tres" id="3_ii1dc"]
+[ext_resource type="Resource" uid="uid://dxw84vkrvq8lb" path="res://Resources/Abilities/WarriorAbilities/EarthShatter.tres" id="4_khoyr"]
+
+[resource]
+script = ExtResource("2_kqqlr")
+ability_1 = Array[ExtResource("1_fnt6f")]([ExtResource("2_k5mj2")])
+ability_2 = Array[ExtResource("1_fnt6f")]([ExtResource("3_ii1dc")])
+ability_3 = Array[ExtResource("1_fnt6f")]([ExtResource("4_khoyr")])
+metadata/_custom_type_script = "uid://crxshimb3uphv"

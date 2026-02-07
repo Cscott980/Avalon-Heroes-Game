@@ -37,6 +37,7 @@ var is_open: bool = false
 var equipment_equiped: Array
 
 func _ready() -> void:
+	is_open = false
 	await  get_tree().process_frame
 	player = get_tree().get_first_node_in_group("player") as Player
 	

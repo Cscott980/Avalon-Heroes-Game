@@ -1,4 +1,4 @@
-@icon("uid://b2rmumt45lw3m")
+@icon("uid://b6vioyh5wceoi")
 class_name HealthComponent extends Node
 
 signal dead(owner: Node)

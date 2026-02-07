@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d18vbkkww6e0i" path="res://Scenes/Weapons/MainHandWeapon.tscn" id="3_7ve27"]
 [ext_resource type="Animation" uid="uid://2qo5t34oq5u0" path="res://Assets/Animations/Rig_Mid_Animations/Crawling.res" id="3_gpqv3"]
 [ext_resource type="Script" uid="uid://b580uwxkgp4uh" path="res://Scripts/States/Player/PlayerStateMachine.gd" id="3_mtuoh"]
+[ext_resource type="Script" uid="uid://bglhntwrd1fs5" path="res://Scripts/Components/Player/EquipmentVisualsComponent.gd" id="3_ujqdw"]
 [ext_resource type="ArrayMesh" uid="uid://bdprwh32lrmik" path="res://Assets/Characters/Character Hero Meshes/Heads/Female_Head_1.res" id="4_5opb0"]
 [ext_resource type="Animation" uid="uid://bevsbcounnh4r" path="res://Assets/Animations/Rig_Mid_Animations/Crouching.res" id="4_7ve27"]
 [ext_resource type="PackedScene" uid="uid://dmqo550jk2hkw" path="res://Scenes/UserInterface/MainUI.tscn" id="4_74mp2"]
@@ -104,13 +105,13 @@
 [ext_resource type="Script" uid="uid://np78fbu8py3p" path="res://Scripts/Others/slash.gd" id="99_xvldo"]
 [ext_resource type="Script" uid="uid://mltur7xac0xi" path="res://Scripts/Components/Entity/AbilityComponent.gd" id="100_81gu5"]
 [ext_resource type="ArrayMesh" uid="uid://dve5g0ibb7jse" path="res://Assets/Misc/SlashMesh.obj" id="100_ujqdw"]
-[ext_resource type="PackedScene" uid="uid://caavhwhvoqvqm" path="res://Scenes/UserInterface/DisplayStatChoiceComponent.tscn" id="105_w6yxy"]
 [ext_resource type="Script" uid="uid://bdch6582i2bvt" path="res://Scripts/Components/Entity/HealthComponent.gd" id="106_7bej3"]
 [ext_resource type="Script" uid="uid://c5l5du3uioa4l" path="res://Scripts/Components/Entity/StatComponent.gd" id="107_8b85g"]
 [ext_resource type="Script" uid="uid://bb280644mkjrc" path="res://Scripts/Components/Entity/PregressionComponent.gd" id="108_56b0b"]
 [ext_resource type="Script" uid="uid://ctr7taoyv2xth" path="res://Scripts/States/Player/AttackState2.gd" id="109_yylel"]
 [ext_resource type="Script" uid="uid://dass1u87mgpxb" path="res://Scripts/States/Player/AttackState3.gd" id="110_t53un"]
 [ext_resource type="Script" uid="uid://bos7mhqtacmin" path="res://Scripts/UI/CameraEffects.gd" id="111_ddxso"]
+[ext_resource type="Script" uid="uid://y4ls1anc10kw" path="res://Scripts/Components/Player/ResourcePoolComponent.gd" id="111_yylel"]
 [ext_resource type="Script" uid="uid://c45o617x5qf67" path="res://Scripts/Components/Player/PlayerInputComponent.gd" id="112_ujqdw"]
 
 [sub_resource type="Skin" id="Skin_t53un"]
@@ -996,6 +997,7 @@ transitions = ["Start", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateM
 graph_offset = Vector2(-945, -294.19922)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cl0yh"]
+graph_offset = Vector2(16.673584, 11.630089)
 nodes/output/position = Vector2(680, 150)
 nodes/Movement/node = SubResource("AnimationNodeStateMachine_wes5h")
 nodes/Movement/position = Vector2(230, 130)
@@ -1385,7 +1387,7 @@ height = 2.3289604
 radius = 6.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ujqdw"]
-viewport_path = NodePath("Username/WorldVisualPLayerData")
+viewport_path = NodePath("WorldVisualPlayerData/PlayerData")
 
 [sub_resource type="FontFile" id="FontFile_22q81"]
 subpixel_positioning = 0
@@ -1428,16 +1430,15 @@ corner_radius_bottom_left = 10
 
 [node name="Player" type="CharacterBody3D" unique_id=2040381675 groups=["player"]]
 collision_layer = 2
-collision_mask = 7
 script = ExtResource("1_xpcdj")
 hero_class = ExtResource("2_2crlr")
-move_speed = 5.0
-turn_speed = 5.0
 
 [node name="Model" type="Node3D" parent="." unique_id=390292956]
 unique_name_in_owner = true
 
 [node name="Rig_Medium" type="Node3D" parent="Model" unique_id=849327112]
+unique_name_in_owner = true
+script = ExtResource("3_ujqdw")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Model/Rig_Medium" unique_id=125430146]
 bones/0/name = "root"
@@ -1654,6 +1655,7 @@ bone_idx = 8
 unique_name_in_owner = true
 
 [node name="ShieldComponent" parent="Model/Rig_Medium/Skeleton3D/OffHand" unique_id=1978894718 groups=["shield"] instance=ExtResource("7_xvldo")]
+unique_name_in_owner = true
 transform = Transform3D(1, -1.4373215e-27, 2.5285628e-14, 0, 1, 5.684342e-14, -2.5285628e-14, -5.684342e-14, 1, 4.6926646e-15, 9.688144e-15, 0.17043564)
 
 [node name="SheathBack" type="BoneAttachment3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1195600771]
@@ -1783,6 +1785,8 @@ unique_name_in_owner = true
 script = ExtResource("3_mtuoh")
 initial_state_path = NodePath("IdleState")
 
+[node name="SpawnState" type="Node" parent="StateMachine" unique_id=215209568]
+
 [node name="IdleState" type="Node" parent="StateMachine" unique_id=2082240196]
 script = ExtResource("4_mtuoh")
 
@@ -1812,19 +1816,20 @@ script = ExtResource("10_jhyir")
 
 [node name="QuizState" type="Node" parent="StateMachine" unique_id=2059857483]
 
-[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=371550858]
+[node name="Camera" type="SpringArm3D" parent="." unique_id=371550858]
+unique_name_in_owner = true
 transform = Transform3D(-1, 4.5900542e-08, -7.4403516e-08, -3.1962465e-08, 0.60019696, 0.79985225, 8.13704e-08, 0.79985225, -0.60019696, 0, 13.361129, -11.888992)
 shape = SubResource("SphereShape3D_22q81")
 
-[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1068808923]
+[node name="Camera3D" type="Camera3D" parent="Camera" unique_id=1068808923]
 transform = Transform3D(1, 1.4210855e-14, -3.5527137e-15, 0, 1, 0, 0, 0, 1, 1.5315607e-07, 1.5054884, -1.1296959)
 script = ExtResource("111_ddxso")
 
-[node name="PlayerUI" parent="." unique_id=714406961 instance=ExtResource("4_74mp2")]
+[node name="PlayerUI" parent="." unique_id=714406961 node_paths=PackedStringArray("stat_comp", "health_comp", "equip_visuals_comp") instance=ExtResource("4_74mp2")]
 unique_name_in_owner = true
-
-[node name="DisplayStatChoiceComponent2" parent="PlayerUI" unique_id=1654775370 instance=ExtResource("105_w6yxy")]
-visible = false
+stat_comp = NodePath("../StatComponent")
+health_comp = NodePath("../HealthComponent")
+equip_visuals_comp = NodePath("../Model/Rig_Medium")
 
 [node name="TargetsInRange" type="Area3D" parent="." unique_id=45460391]
 unique_name_in_owner = true
@@ -1835,24 +1840,21 @@ collision_mask = 4
 shape = SubResource("SphereShape3D_88f1v")
 debug_color = Color(0, 0.8655743, 0.70000815, 0.42000002)
 
-[node name="SoundEffects" type="AudioStreamPlayer" parent="." unique_id=190394363]
-volume_db = -8.667
-
-[node name="Username" type="Sprite3D" parent="." unique_id=319263515]
+[node name="WorldVisualPlayerData" type="Sprite3D" parent="." unique_id=319263515]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056162834, 2.9541044, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_ujqdw")
 
-[node name="WorldVisualPLayerData" type="SubViewport" parent="Username" unique_id=1209031691]
+[node name="PlayerData" type="SubViewport" parent="WorldVisualPlayerData" unique_id=1209031691]
 transparent_bg = true
 size = Vector2i(226, 56)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Username/WorldVisualPLayerData" unique_id=478891155]
+[node name="VBoxContainer" type="VBoxContainer" parent="WorldVisualPlayerData/PlayerData" unique_id=478891155]
 offset_right = 40.0
 offset_bottom = 40.0
 alignment = 1
 
-[node name="PlayerName" type="Label" parent="Username/WorldVisualPLayerData/VBoxContainer" unique_id=327976995]
+[node name="PlayerName" type="Label" parent="WorldVisualPlayerData/PlayerData/VBoxContainer" unique_id=327976995]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 6
@@ -1865,11 +1867,11 @@ text = "Player1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Username/WorldVisualPLayerData/VBoxContainer" unique_id=751803278]
+[node name="HBoxContainer" type="HBoxContainer" parent="WorldVisualPlayerData/PlayerData/VBoxContainer" unique_id=751803278]
 layout_mode = 2
 alignment = 1
 
-[node name="LevelDisplay" type="Label" parent="Username/WorldVisualPLayerData/VBoxContainer/HBoxContainer" unique_id=1191655326]
+[node name="LevelDisplay" type="Label" parent="WorldVisualPlayerData/PlayerData/VBoxContainer/HBoxContainer" unique_id=1191655326]
 unique_name_in_owner = true
 texture_filter = 2
 layout_mode = 2
@@ -1880,7 +1882,7 @@ text = "30"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OutHealthBar" type="ProgressBar" parent="Username/WorldVisualPLayerData/VBoxContainer/HBoxContainer" unique_id=824556768]
+[node name="HealthBar" type="ProgressBar" parent="WorldVisualPlayerData/PlayerData/VBoxContainer/HBoxContainer" unique_id=824556768]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
@@ -1892,25 +1894,37 @@ value = 50.0
 show_percentage = false
 
 [node name="AbilityComponent" type="Node" parent="." unique_id=98724773 node_paths=PackedStringArray("target")]
+unique_name_in_owner = true
 script = ExtResource("100_81gu5")
 target = NodePath("..")
 metadata/_custom_type_script = "uid://mltur7xac0xi"
 
-[node name="HealthComponent" type="Node" parent="." unique_id=173475775 node_paths=PackedStringArray("out_health_bar")]
+[node name="HealthComponent" type="Node" parent="." unique_id=173475775 node_paths=PackedStringArray("user", "out_health_bar")]
+unique_name_in_owner = true
 script = ExtResource("106_7bej3")
-out_health_bar = NodePath("../Username/WorldVisualPLayerData/VBoxContainer/HBoxContainer/OutHealthBar")
+user = NodePath("..")
+out_health_bar = NodePath("../WorldVisualPlayerData/PlayerData/VBoxContainer/HBoxContainer/HealthBar")
 metadata/_custom_type_script = "uid://bdch6582i2bvt"
 
-[node name="StatComponent" type="Node" parent="." unique_id=2020628456]
+[node name="StatComponent" type="Node" parent="." unique_id=2020628456 node_paths=PackedStringArray("user")]
+unique_name_in_owner = true
 script = ExtResource("107_8b85g")
+user = NodePath("..")
 metadata/_custom_type_script = "uid://c5l5du3uioa4l"
 
+[node name="ResourcePoolComponent" type="Node" parent="." unique_id=1007622278 node_paths=PackedStringArray("user")]
+script = ExtResource("111_yylel")
+user = NodePath("..")
+metadata/_custom_type_script = "uid://y4ls1anc10kw"
+
 [node name="ProgressionComponent" type="Node" parent="." unique_id=948234148 node_paths=PackedStringArray("out_level_display")]
+unique_name_in_owner = true
 script = ExtResource("108_56b0b")
-out_level_display = NodePath("../Username/WorldVisualPLayerData/VBoxContainer/HBoxContainer/LevelDisplay")
+out_level_display = NodePath("../WorldVisualPlayerData/PlayerData/VBoxContainer/HBoxContainer/LevelDisplay")
 metadata/_custom_type_script = "uid://bb280644mkjrc"
 
 [node name="PlayerInputComponent" type="Node" parent="." unique_id=1954393148]
+unique_name_in_owner = true
 script = ExtResource("112_ujqdw")
 metadata/_custom_type_script = "uid://c45o617x5qf67"
 
@@ -1925,17 +1939,10 @@ process_callback = 0
 wait_time = 0.6
 one_shot = true
 
-[node name="AbilityCooldownTimer1" type="Timer" parent="." unique_id=1529047690]
-unique_name_in_owner = true
+[node name="SoundEffects" type="AudioStreamPlayer" parent="." unique_id=190394363]
+volume_db = -8.667
 
-[node name="AbilityCooldownTimer2" type="Timer" parent="." unique_id=1962582599]
-unique_name_in_owner = true
-
-[node name="AbilityCooldownTimer3" type="Timer" parent="." unique_id=1574670960]
-unique_name_in_owner = true
-
-[connection signal="area_entered" from="Model/Rig_Medium/Skeleton3D/HitBoxBone/HurtBox" to="StateMachine/IdleState" method="_on_hurt_box_area_entered"]
-[connection signal="area_entered" from="Model/Rig_Medium/Skeleton3D/HitBoxBone/HurtBox" to="StateMachine/MoveState" method="_on_hurt_box_area_entered"]
+[connection signal="take_damage" from="Model/Rig_Medium/Skeleton3D/HitBoxBone/HurtBox" to="." method="_on_hurt_box_take_damage"]
 [connection signal="take_damage" from="Model/Rig_Medium/Skeleton3D/HitBoxBone/HurtBox" to="HealthComponent" method="_on_hurt_box_take_damage"]
 [connection signal="body_entered" from="TargetsInRange" to="." method="_on_targets_in_range_body_entered"]
 [connection signal="body_exited" from="TargetsInRange" to="." method="_on_targets_in_range_body_exited"]

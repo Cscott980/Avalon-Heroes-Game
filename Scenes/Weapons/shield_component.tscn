@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bfvlj3yf2tqkv"]
 
 [ext_resource type="Script" uid="uid://dqewapbugn7mi" path="res://Scripts/Components/Items/ShieldComponent.gd" id="1_o1djp"]
-[ext_resource type="ArrayMesh" uid="uid://caovb6kaecvh7" path="res://Assets/WeaponMeshes/Shields/shield_round_barbarian_shield_round_barbarian.res" id="1_vv1o8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o1djp"]
 size = Vector3(2.2712402, 2.1240234, 0.34716797)
@@ -11,7 +10,6 @@ transform = Transform3D(1, 0, -2.0517388e-14, 0, 1, 0, -2.5285628e-14, -5.684342
 script = ExtResource("1_o1djp")
 
 [node name="ShieldMesh" type="MeshInstance3D" parent="." unique_id=194158034]
-mesh = ExtResource("1_vv1o8")
 
 [node name="BlockBox" type="Area3D" parent="." unique_id=611679156]
 unique_name_in_owner = true
