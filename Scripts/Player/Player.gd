@@ -25,8 +25,19 @@ func hero_class_init() -> void:
 	if hero_class == null:
 		push_warning("Player: Missing hero_class.")
 		return
-	
-
+	stat_component.stats = hero_class.hero_stats
 
 func _on_hurt_box_take_damage(_amount: int) -> void:
 	state_machine.change_state("HurtState")
+
+
+
+func _on_player_input_component_attack() -> void:
+	state_machine.change_state("AttackState1")
+
+
+func _on_movement_component_moving(status: bool) -> void:
+	if status:
+		state_machine.change_state("MoveState")
+	else:
+		state_machine.change_state("IdleState")

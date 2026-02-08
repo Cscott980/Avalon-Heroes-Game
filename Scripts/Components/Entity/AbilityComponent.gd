@@ -7,7 +7,7 @@ signal ability_effect(vfx: AnimationPlayer)
 signal ability_icons(icons: Array[Texture2D])
 
 @export var target: CharacterBody3D = null
-var abilities: HeroClassAbilitiesResource
+var abilities_data: HeroClassAbilitiesResource
 
 var ability_1: Array[AbilityResource]
 var ability_2: Array[AbilityResource]

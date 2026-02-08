@@ -104,8 +104,10 @@
 [ext_resource type="ArrayMesh" uid="uid://cdjpbvlrlme1h" path="res://Assets/Misc/Whirlwind.obj" id="94_8b85g"]
 [ext_resource type="Script" uid="uid://c4a3rb2rhw7sr" path="res://Scripts/Components/Player/PlayerAnimationComponent.gd" id="97_yylel"]
 [ext_resource type="Script" uid="uid://np78fbu8py3p" path="res://Scripts/Others/slash.gd" id="99_xvldo"]
+[ext_resource type="Script" uid="uid://bq1n056q3fpu1" path="res://Scripts/States/Player/SpawnState.gd" id="99_yl4y1"]
 [ext_resource type="Script" uid="uid://mltur7xac0xi" path="res://Scripts/Components/Entity/AbilityComponent.gd" id="100_81gu5"]
 [ext_resource type="ArrayMesh" uid="uid://dve5g0ibb7jse" path="res://Assets/Misc/SlashMesh.obj" id="100_ujqdw"]
+[ext_resource type="Script" uid="uid://dmd21aqtrp0pf" path="res://Scripts/States/Player/BlockState.gd" id="102_ulp4i"]
 [ext_resource type="Script" uid="uid://bdch6582i2bvt" path="res://Scripts/Components/Entity/HealthComponent.gd" id="106_7bej3"]
 [ext_resource type="Script" uid="uid://c5l5du3uioa4l" path="res://Scripts/Components/Entity/StatComponent.gd" id="107_8b85g"]
 [ext_resource type="Script" uid="uid://bb280644mkjrc" path="res://Scripts/Components/Entity/PregressionComponent.gd" id="108_56b0b"]
@@ -115,6 +117,7 @@
 [ext_resource type="Script" uid="uid://dass1u87mgpxb" path="res://Scripts/States/Player/AttackState3.gd" id="110_t53un"]
 [ext_resource type="Script" uid="uid://bos7mhqtacmin" path="res://Scripts/UI/CameraEffects.gd" id="111_ddxso"]
 [ext_resource type="Script" uid="uid://y4ls1anc10kw" path="res://Scripts/Components/Player/ResourcePoolComponent.gd" id="111_yylel"]
+[ext_resource type="Script" uid="uid://jgliiq2fnm35" path="res://Scripts/Components/Entity/MovementComponent.gd" id="112_u23kb"]
 [ext_resource type="Script" uid="uid://c45o617x5qf67" path="res://Scripts/Components/Player/PlayerInputComponent.gd" id="112_ujqdw"]
 
 [sub_resource type="Skin" id="Skin_t53un"]
@@ -1432,6 +1435,8 @@ corner_radius_bottom_left = 10
 collision_layer = 2
 script = ExtResource("1_xpcdj")
 hero_class = ExtResource("2_2crlr")
+player_id = null
+multiplayer_id = null
 
 [node name="Model" type="Node3D" parent="." unique_id=390292956]
 unique_name_in_owner = true
@@ -1791,12 +1796,16 @@ script = ExtResource("3_mtuoh")
 initial_state_path = NodePath("SpawnState")
 
 [node name="SpawnState" type="Node" parent="StateMachine" unique_id=215209568]
+script = ExtResource("99_yl4y1")
 
 [node name="IdleState" type="Node" parent="StateMachine" unique_id=2082240196]
 script = ExtResource("4_mtuoh")
 
 [node name="MoveState" type="Node" parent="StateMachine" unique_id=1775966732]
 script = ExtResource("5_htcer")
+
+[node name="BlockState" type="Node" parent="StateMachine" unique_id=476476290]
+script = ExtResource("102_ulp4i")
 
 [node name="AttackState1" type="Node" parent="StateMachine" unique_id=1915949012]
 script = ExtResource("6_dd0ac")
@@ -1830,9 +1839,10 @@ shape = SubResource("SphereShape3D_22q81")
 transform = Transform3D(1, 1.4210855e-14, -3.5527137e-15, 0, 1, 0, 0, 0, 1, 1.5315607e-07, 1.5054884, -1.1296959)
 script = ExtResource("111_ddxso")
 
-[node name="PlayerUI" parent="." unique_id=714406961 node_paths=PackedStringArray("stat_comp", "health_comp", "equip_visuals_comp") instance=ExtResource("4_74mp2")]
+[node name="PlayerUI" parent="." unique_id=714406961 node_paths=PackedStringArray("stat_comp", "ability_comp", "health_comp", "equip_visuals_comp") instance=ExtResource("4_74mp2")]
 unique_name_in_owner = true
 stat_comp = NodePath("../StatComponent")
+ability_comp = NodePath("../AbilityComponent")
 health_comp = NodePath("../HealthComponent")
 equip_visuals_comp = NodePath("../Model/Rig_Medium")
 
@@ -1892,6 +1902,13 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_7bej3")
 value = 50.0
 show_percentage = false
 
+[node name="MovementComponent" type="Node" parent="." unique_id=1196397969 node_paths=PackedStringArray("user", "model")]
+script = ExtResource("112_u23kb")
+user = NodePath("..")
+model = NodePath("../Model")
+turn_speed = 6.0
+metadata/_custom_type_script = "uid://jgliiq2fnm35"
+
 [node name="CombatComponent" type="Node" parent="." unique_id=1694776968 node_paths=PackedStringArray("melee_main_hand_comp", "melee_off_hand_comp", "shield_comp", "ability_comp")]
 unique_name_in_owner = true
 script = ExtResource("110_88f1v")
@@ -1950,10 +1967,14 @@ one_shot = true
 [node name="SoundEffects" type="AudioStreamPlayer" parent="." unique_id=190394363]
 volume_db = -8.667
 
+[connection signal="is_blocking" from="Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent" to="." method="_on_shield_component_is_blocking"]
 [connection signal="take_damage" from="Model/Rig_Medium/Skeleton3D/HitBoxBone/HurtBox" to="." method="_on_hurt_box_take_damage"]
 [connection signal="take_damage" from="Model/Rig_Medium/Skeleton3D/HitBoxBone/HurtBox" to="HealthComponent" method="_on_hurt_box_take_damage"]
+[connection signal="target_change" from="TargetsInRangeComponent" to="StateMachine/AttackState1" method="_on_targets_in_range_component_target_change"]
+[connection signal="moving" from="MovementComponent" to="." method="_on_movement_component_moving"]
+[connection signal="dead" from="HealthComponent" to="MovementComponent" method="_on_health_component_dead"]
+[connection signal="revived" from="HealthComponent" to="MovementComponent" method="_on_health_component_revived"]
 [connection signal="stat_selected" from="ProgressionComponent" to="StatComponent" method="_on_progression_component_stat_selected"]
-[connection signal="block" from="PlayerInputComponent" to="Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent" method="_on_player_input_component_block"]
-[connection signal="not_blocking" from="PlayerInputComponent" to="Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent" method="_on_player_input_component_not_blocking"]
+[connection signal="move_intent_changed" from="PlayerInputComponent" to="MovementComponent" method="_on_player_input_component_move_intent_changed"]
 [connection signal="timeout" from="AttackCooldown" to="StateMachine" method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="ComboTimer" to="StateMachine" method="_on_combo_timer_timeout"]

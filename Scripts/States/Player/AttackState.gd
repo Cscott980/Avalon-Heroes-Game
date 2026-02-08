@@ -1,13 +1,14 @@
 extends PlayerState
 class_name Attack_State_1
 
-@export var step_in_distance: float = 1.2 #how close I want to end up
-@export var step_in_speed: float = 10.0 #how fast i want to step in
-@export var max_step_time: float = 0.15 #keep it snappy
+@export var step_in_distance: float = 1.2 #How close I want to end up
+@export var step_in_speed: float = 10.0 #How fast i want to step in
+@export var max_step_time: float = 0.15 #Keep it snappy
 
 @export var turn_speed: float = 14.0 
 @export var face_target_while_attacking: bool = true
 
+var current_target: CharacterBody3D
 var _step_target_pos: Vector3
 var _step_timer: float = 0.0
 var _do_step: bool = false
@@ -62,7 +63,7 @@ func physics_process(delta: float) -> void:
 		return
 	
 	if player.current_target != null and is_instance_valid(player.current_target):
-		var dir := player.current_target.global_position - player.global_position
+		var dir := current_target.global_position - player.global_position
 		player.face_direction(-dir, delta)
 		
 	if state_machine.attack_cooldown.is_stopped():
@@ -101,7 +102,11 @@ func physics_process(delta: float) -> void:
 func handle_input(event: InputEvent) -> void:
 	if event.is_action_pressed("base_attack") and not state_machine.combo_timer.is_stopped():
 		_queued_combo2 = true
-			
+	
 	if not state_machine.is_attacking:
 		if event.is_action_pressed("ability_1") or event.is_action_pressed("ability_2") or event.is_action_pressed("ability_3"):
 			state_machine.change_state("AbilityState")
+
+
+func _on_targets_in_range_component_target_change(new_target: CharacterBody3D) -> void:
+	current_target = new_target

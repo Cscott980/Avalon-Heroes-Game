@@ -138,6 +138,10 @@ block={
 3d_physics/layer_6="EnemyProjectiles"
 3d_physics/layer_7="EnemyAbilities"
 
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

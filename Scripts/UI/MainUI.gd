@@ -54,3 +54,7 @@ func update_stat_display(stats: Dictionary, health: int) -> void:
 	inventory_equipment.vitality_val.text = stats.get(StatConst.load_stats_ref(StatConst.STATS.VITALITY), 0)
 	
 	inventory_equipment.health_val.text = str(int(health_bar.max_value))
+
+
+func _on_player_input_component_charsheet() -> void:
+	pass # Replace with function body.

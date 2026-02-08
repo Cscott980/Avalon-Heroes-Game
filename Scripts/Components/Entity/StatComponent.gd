@@ -1,11 +1,23 @@
 @icon("uid://dgxgu38fy8hjs")
 class_name StatComponent extends Node
 
+signal current_stats(dic: Dictionary)
 
 @export var user: CharacterBody3D
 
-var stats: Dictionary = {}
+var stats: StatResource
 
+var player_stats: Dictionary = {}
 
+func _ready() -> void:
+	player_stats = {
+		StatConst.STATS.STRENGTH: stats.strength,
+		StatConst.STATS.INTELLECT: stats.intellect,
+		StatConst.STATS.DEXTERITY: stats.dexterity,
+		StatConst.STATS.VITALITY: stats.vitality,
+		StatConst.STATS.WISDOM: stats.strength,
+	}
+	
+	current_stats.emit(player_stats)
 func _on_progression_component_stat_selected(stat: int, amount: int) -> void:
-	pass # Replace with function body.
+	player_stats[stat] += amount
