@@ -6,3 +6,10 @@ class_name CombatComponent extends Node
 #@export var range_weapon_component: RangeWeaponComponent
 @export var shield_comp: ShieldComponent
 @export var ability_comp: AbilityComponent
+
+
+var damage_data: Dictionary = {}
+
+var damage: int
+var attack_speed: float
+var can_attack:bool

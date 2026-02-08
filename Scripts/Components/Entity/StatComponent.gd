@@ -19,5 +19,6 @@ func _ready() -> void:
 	}
 	
 	current_stats.emit(player_stats)
+	
 func _on_progression_component_stat_selected(stat: int, amount: int) -> void:
 	player_stats[stat] += amount

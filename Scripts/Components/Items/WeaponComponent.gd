@@ -1,6 +1,6 @@
 class_name WeaponComponent extends Node3D
 
-signal weapon_hit(target: Node3D, weapon: WeaponResource)
+signal weapon_hit(target: Node3D)
 
 @export var WEAPON_TYPE: WeaponResource
 @onready var mesh: MeshInstance3D = $mesh
@@ -29,7 +29,6 @@ func clear_weapon() -> void:
 	remove_from_group("two_handed_weapon")
 
 func load_weapon(weapon_id: WeaponResource) -> void:
-	WEAPON_TYPE = weapon_id
 	if WEAPON_TYPE == null:
 		return
 	
@@ -63,4 +62,4 @@ func weapon_hit_box_off() -> void:
 
 func _on_hit_box_body_entered(body: Node3D) -> void:
 	if body.is_in_group("enemy"):
-		weapon_hit.emit(body, WEAPON_TYPE)
+		weapon_hit.emit(body)

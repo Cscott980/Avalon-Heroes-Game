@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cop82ojcj1xkd"]
+
+[ext_resource type="ArrayMesh" uid="uid://d2et5vnjqbnnn" path="res://Assets/WeaponMeshes/Bow/bow_avalonian_bow.res" id="1_05foa"]
+
+[node name="RangeWeaponComponent" type="Node3D" unique_id=1742144103]
+
+[node name="StaffMesh" type="MeshInstance3D" parent="." unique_id=1898650290]
+
+[node name="BowMesh" type="MeshInstance3D" parent="." unique_id=922165437]
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0, 0, 0)
+mesh = ExtResource("1_05foa")
+blend_shapes/Draw = 0.0
+
+[node name="BowPositionOverride" type="Node3D" parent="." unique_id=667149221]
+
+[node name="StaffPositionOverride" type="Node3D" parent="." unique_id=1934671015]
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=2741136]
+transform = Transform3D(1, 0, 0, 0, -0.99999994, 8.742277e-08, 0, -8.742277e-08, -0.99999994, 0, 0, 0)
+target_position = Vector3(0, -10, 0)
+collision_mask = 4
+
+[node name="ProjectileComponent" type="Node" parent="." unique_id=1773192677]

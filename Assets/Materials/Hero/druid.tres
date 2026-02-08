@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c6dqlpuptgxdl"]
+
+[ext_resource type="Texture2D" uid="uid://swtute58npl1" path="res://Assets/PlayableCharacterBodies/Druid_druid_texture.png" id="1_5x86u"]
+
+[resource]
+resource_name = "druid"
+cull_mode = 2
+albedo_texture = ExtResource("1_5x86u")
+roughness = 0.5
