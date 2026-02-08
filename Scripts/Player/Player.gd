@@ -26,6 +26,7 @@ func hero_class_init() -> void:
 		push_warning("Player: Missing hero_class.")
 		return
 	stat_component.stats = hero_class.hero_stats
+	health_component.max_health = hero_class.max_health
 
 func _on_hurt_box_take_damage(_amount: int) -> void:
 	state_machine.change_state("HurtState")

@@ -1435,8 +1435,6 @@ corner_radius_bottom_left = 10
 collision_layer = 2
 script = ExtResource("1_xpcdj")
 hero_class = ExtResource("2_2crlr")
-player_id = null
-multiplayer_id = null
 
 [node name="Model" type="Node3D" parent="." unique_id=390292956]
 unique_name_in_owner = true
