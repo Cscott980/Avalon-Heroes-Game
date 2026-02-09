@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cop82ojcj1xkd"]
 
 [ext_resource type="ArrayMesh" uid="uid://d2et5vnjqbnnn" path="res://Assets/WeaponMeshes/Bow/bow_avalonian_bow.res" id="1_05foa"]
+[ext_resource type="Script" uid="uid://cu0anau7g7hqm" path="res://Scripts/Components/Weapons/ProjectileComponent.gd" id="2_xapyi"]
 
 [node name="RangeWeaponComponent" type="Node3D" unique_id=1742144103]
 
@@ -15,9 +16,15 @@ blend_shapes/Draw = 0.0
 
 [node name="StaffPositionOverride" type="Node3D" parent="." unique_id=1934671015]
 
-[node name="RayCast3D" type="RayCast3D" parent="." unique_id=2741136]
+[node name="StaffRayCast" type="RayCast3D" parent="." unique_id=2741136]
+transform = Transform3D(1, 0, 0, 0, -0.99999994, 8.742277e-08, 0, -8.742277e-08, -0.99999994, 0, 0, 0)
+target_position = Vector3(0, -10, 0)
+collision_mask = 4
+
+[node name="BowRayCast" type="RayCast3D" parent="." unique_id=726183182]
 transform = Transform3D(1, 0, 0, 0, -0.99999994, 8.742277e-08, 0, -8.742277e-08, -0.99999994, 0, 0, 0)
 target_position = Vector3(0, -10, 0)
 collision_mask = 4
 
 [node name="ProjectileComponent" type="Node" parent="." unique_id=1773192677]
+script = ExtResource("2_xapyi")
