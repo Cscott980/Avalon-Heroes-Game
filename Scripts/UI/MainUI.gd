@@ -58,3 +58,31 @@ func update_stat_display(stats: Dictionary, health: int) -> void:
 
 func _on_player_input_component_charsheet() -> void:
 	pass # Replace with function body.
+
+
+func _on_progression_component_stat_choices(options: Array[Dictionary]) -> void:
+	pass # Replace with function body.
+
+
+func _on_progression_component_level(current_level: int) -> void:
+	pass # Replace with function body.
+
+
+func _on_progression_component_exp_collected(amount: int) -> void:
+	pass # Replace with function body.
+
+
+func _on_resource_pool_component_current_resource_amount(amount: int) -> void:
+	pass # Replace with function body.
+
+
+func _on_resource_pool_component_resource_used(amount: int) -> void:
+	pass # Replace with function body.
+
+
+func _on_ability_component_on_cooldown(button: Button, time: float, disable: bool) -> void:
+	pass # Replace with function body.
+
+
+func _on_ability_component_ability_icons(icons: Array[Texture2D]) -> void:
+	pass # Replace with function body.

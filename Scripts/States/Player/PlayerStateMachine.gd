@@ -1,11 +1,7 @@
 @icon("uid://bcmnnidtwjut6")
 class_name PlayerStateMachine extends Node
 
-@onready var attack_cooldown: Timer = %AttackCooldown
-@onready var combo_timer: Timer = %ComboTimer
-@onready var ability_cooldown_timer_1: Timer = %AbilityCooldownTimer1
-@onready var ability_cooldown_timer_2: Timer = %AbilityCooldownTimer2
-@onready var ability_cooldown_timer_3: Timer = %AbilityCooldownTimer3
+
 
 
 var current_state: PlayerState

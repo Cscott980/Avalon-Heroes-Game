@@ -1,7 +1,7 @@
 class_name WeaponComponent extends Node3D
 
 signal weapon_hit(target: Node3D)
-
+signal weapon_data(data: WeaponResource)
 @export var WEAPON_TYPE: WeaponResource
 @onready var mesh: MeshInstance3D = $mesh
 @onready var hit_box: Area3D = %HitBox
@@ -17,6 +17,7 @@ var weapon_defult_position: Transform3D
 
 func _ready() -> void:	
 	weapon_slot = get_parent()
+	weapon_data.emit(WEAPON_TYPE)
 
 func clear_weapon() -> void:
 	WEAPON_TYPE = null
@@ -51,7 +52,6 @@ func load_weapon(weapon_id: WeaponResource) -> void:
 		self.transform = Transform3D.IDENTITY
 	
 	weapon_attack_speed = weapon_id.weapon_speed
-
 func weapon_hit_box_on() -> void:
 	if hit_box:
 		hit_box.monitoring = true

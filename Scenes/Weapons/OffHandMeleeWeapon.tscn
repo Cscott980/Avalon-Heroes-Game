@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dfv5odlic646l"]
 
-[ext_resource type="Script" uid="uid://3om3gcr1t84c" path="res://Scripts/Components/Items/WeaponComponent.gd" id="1_vli2i"]
+[ext_resource type="Script" uid="uid://3om3gcr1t84c" path="res://Scripts/Components/Weapons/WeaponComponent.gd" id="1_vli2i"]
 [ext_resource type="AudioStream" uid="uid://ea1n1dfai36d" path="res://Assets/Audio/SFX/MeleeSwingSound1.mp3" id="2_vli2i"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qv81b"]

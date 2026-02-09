@@ -27,6 +27,9 @@ func hero_class_init() -> void:
 		return
 	stat_component.stats = hero_class.hero_stats
 	health_component.max_health = hero_class.max_health
+	ability_component.abilities_data = hero_class.hero_abilities
+	equipment_visuals.player_equipment = hero_class.starting_equipment
+	equipment_visuals.class_defults = hero_class.class_defaults
 
 func _on_hurt_box_take_damage(_amount: int) -> void:
 	state_machine.change_state("HurtState")

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bobdp65lptiwq" path="res://Assets/PlayableCharacterBodies/Barbarian.glb" id="1_ge36b"]
 [ext_resource type="Skin" uid="uid://krk1ouqog26y" path="res://Resources/MeshSkins/WarriorSkin.tres" id="2_7pjml"]
-[ext_resource type="Script" uid="uid://3om3gcr1t84c" path="res://Scripts/Components/Items/WeaponComponent.gd" id="2_qgwn0"]
+[ext_resource type="Script" uid="uid://3om3gcr1t84c" path="res://Scripts/Components/Weapons/WeaponComponent.gd" id="2_qgwn0"]
 [ext_resource type="Resource" uid="uid://er0ka2ldae5f" path="res://Resources/Weapons/Axes/axe_avalonian_axe_common.tres" id="3_d4arl"]
 [ext_resource type="Animation" uid="uid://2qo5t34oq5u0" path="res://Assets/Animations/Rig_Mid_Animations/Crawling.res" id="3_rddfn"]
 [ext_resource type="ArrayMesh" uid="uid://p73js8prmce6" path="res://Assets/WeaponMeshes/Axes/Avalonian_Axe_Mesh.res" id="4_7pjml"]

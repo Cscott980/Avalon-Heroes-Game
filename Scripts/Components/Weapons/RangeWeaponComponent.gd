@@ -1,0 +1,1 @@
+class_name RangeWeaponComponent extends Node3D

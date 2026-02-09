@@ -21,6 +21,9 @@ class_name EquipmentVisualComponent extends Node3D
 @onready var mesh_accessory_2: MeshInstance3D = $Model/Rig_Medium/Skeleton3D/mesh_accessory2
 @onready var mesh_accessory_3: MeshInstance3D = $Model/Rig_Medium/Skeleton3D/mesh_accessory3
 
+var class_defults: HeroClassVisualDefaultResource
+var player_equipment: PlayerEquipmentResource
+
 func apply_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_index: int = -1, hand: StringName = &"main"):
 	match slot_res.equipment_slot_type:
 		EquipmentSlotResource.SlotType.Helm:

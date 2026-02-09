@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://u2hnr5wjn80c" path="res://Scripts/States/Player/AttackState.gd" id="6_dd0ac"]
 [ext_resource type="Script" uid="uid://dpqtrreackikg" path="res://Scripts/States/Player/AbilityState.gd" id="7_0u5uq"]
 [ext_resource type="Animation" uid="uid://pi7hexnyvexh" path="res://Assets/Animations/Rig_Mid_Animations/Death_B.res" id="7_8b85g"]
+[ext_resource type="PackedScene" uid="uid://cop82ojcj1xkd" path="res://Scenes/Weapons/RangeWeaponComponent.tscn" id="7_8filg"]
 [ext_resource type="PackedScene" uid="uid://bfvlj3yf2tqkv" path="res://Scenes/Weapons/ShieldComponent.tscn" id="7_xvldo"]
 [ext_resource type="Animation" uid="uid://d6ij81x7swsm" path="res://Assets/Animations/Rig_Mid_Animations/Death_B_Pose.res" id="8_56b0b"]
 [ext_resource type="Script" uid="uid://cc76tvcyemcjj" path="res://Scripts/States/Player/HurtState.gd" id="9_gk6dx"]
@@ -119,6 +120,7 @@
 [ext_resource type="Script" uid="uid://y4ls1anc10kw" path="res://Scripts/Components/Player/ResourcePoolComponent.gd" id="111_yylel"]
 [ext_resource type="Script" uid="uid://jgliiq2fnm35" path="res://Scripts/Components/Entity/MovementComponent.gd" id="112_u23kb"]
 [ext_resource type="Script" uid="uid://c45o617x5qf67" path="res://Scripts/Components/Player/PlayerInputComponent.gd" id="112_ujqdw"]
+[ext_resource type="Script" uid="uid://nfxhpdw3pn7w" path="res://Scripts/Components/Weapons/WeaponEquipComponent.gd" id="113_18yym"]
 
 [sub_resource type="Skin" id="Skin_t53un"]
 resource_name = "Skin"
@@ -1649,6 +1651,8 @@ unique_name_in_owner = true
 
 [node name="WeaponComplimentMesh" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D/MainHand" unique_id=1801318054]
 
+[node name="RangeWeaponComponent" parent="Model/Rig_Medium/Skeleton3D/MainHand" unique_id=1742144103 instance=ExtResource("7_8filg")]
+
 [node name="OffHand" type="BoneAttachment3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1804565808]
 unique_name_in_owner = true
 transform = Transform3D(-0.99999887, -3.9761176e-07, -3.6810383e-07, -4.6604322e-07, -5.3096744e-07, 0.99999934, -4.758466e-07, 0.99999934, 6.2344856e-07, 0.88313216, 1.0492611, -6.824021e-07)
@@ -1901,6 +1905,10 @@ show_percentage = false
 [node name="TargetsInRangeComponent" parent="." unique_id=811212893 node_paths=PackedStringArray("player") instance=ExtResource("109_t53un")]
 player = NodePath("..")
 
+[node name="WeaponEquipComponent" type="Node" parent="." unique_id=667596658]
+script = ExtResource("113_18yym")
+metadata/_custom_type_script = "uid://nfxhpdw3pn7w"
+
 [node name="MovementComponent" type="Node" parent="." unique_id=1196397969 node_paths=PackedStringArray("user", "model")]
 script = ExtResource("112_u23kb")
 user = NodePath("..")
@@ -1908,11 +1916,12 @@ model = NodePath("../Model")
 turn_speed = 6.0
 metadata/_custom_type_script = "uid://jgliiq2fnm35"
 
-[node name="CombatComponent" type="Node" parent="." unique_id=1694776968 node_paths=PackedStringArray("melee_main_hand_comp", "melee_off_hand_comp", "shield_comp", "ability_comp")]
+[node name="CombatComponent" type="Node" parent="." unique_id=1694776968 node_paths=PackedStringArray("melee_main_hand_comp", "melee_off_hand_comp", "range_weap_comp", "shield_comp", "ability_comp")]
 unique_name_in_owner = true
 script = ExtResource("110_88f1v")
 melee_main_hand_comp = NodePath("../Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon")
 melee_off_hand_comp = NodePath("../Model/Rig_Medium/Skeleton3D/OffHand/OffHandWeapon")
+range_weap_comp = NodePath("../Model/Rig_Medium/Skeleton3D/MainHand/RangeWeaponComponent")
 shield_comp = NodePath("../Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent")
 ability_comp = NodePath("../AbilityComponent")
 metadata/_custom_type_script = "uid://bu0m334de7h23"
@@ -1966,14 +1975,30 @@ one_shot = true
 [node name="SoundEffects" type="AudioStreamPlayer" parent="." unique_id=190394363]
 volume_db = -8.667
 
+[connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="CombatComponent" method="_on_main_hand_weapon_weapon_data"]
+[connection signal="weapon_hit" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="CombatComponent" method="_on_main_hand_weapon_weapon_hit"]
+[connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/OffHand/OffHandWeapon" to="CombatComponent" method="_on_off_hand_weapon_weapon_data"]
+[connection signal="weapon_hit" from="Model/Rig_Medium/Skeleton3D/OffHand/OffHandWeapon" to="CombatComponent" method="_on_off_hand_weapon_weapon_hit"]
 [connection signal="is_blocking" from="Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent" to="." method="_on_shield_component_is_blocking"]
 [connection signal="take_damage" from="Model/Rig_Medium/Skeleton3D/HitBoxBone/HurtBox" to="." method="_on_hurt_box_take_damage"]
 [connection signal="take_damage" from="Model/Rig_Medium/Skeleton3D/HitBoxBone/HurtBox" to="HealthComponent" method="_on_hurt_box_take_damage"]
 [connection signal="target_change" from="TargetsInRangeComponent" to="StateMachine/AttackState1" method="_on_targets_in_range_component_target_change"]
 [connection signal="moving" from="MovementComponent" to="." method="_on_movement_component_moving"]
+[connection signal="ability_icons" from="AbilityComponent" to="PlayerUI" method="_on_ability_component_ability_icons"]
+[connection signal="cast_ability" from="AbilityComponent" to="PlyaerAnimationComponent" method="_on_ability_component_cast_ability"]
+[connection signal="on_cooldown" from="AbilityComponent" to="PlayerUI" method="_on_ability_component_on_cooldown"]
 [connection signal="dead" from="HealthComponent" to="MovementComponent" method="_on_health_component_dead"]
 [connection signal="revived" from="HealthComponent" to="MovementComponent" method="_on_health_component_revived"]
+[connection signal="current_stats" from="StatComponent" to="CombatComponent" method="_on_stat_component_current_stats"]
+[connection signal="current_resource_amount" from="ResourcePoolComponent" to="PlayerUI" method="_on_resource_pool_component_current_resource_amount"]
+[connection signal="resource_used" from="ResourcePoolComponent" to="PlayerUI" method="_on_resource_pool_component_resource_used"]
+[connection signal="exp_collected" from="ProgressionComponent" to="PlayerUI" method="_on_progression_component_exp_collected"]
+[connection signal="level" from="ProgressionComponent" to="PlayerUI" method="_on_progression_component_level"]
+[connection signal="stat_choices" from="ProgressionComponent" to="PlayerUI" method="_on_progression_component_stat_choices"]
 [connection signal="stat_selected" from="ProgressionComponent" to="StatComponent" method="_on_progression_component_stat_selected"]
+[connection signal="attack_pressed" from="PlayerInputComponent" to="CombatComponent" method="_on_player_input_component_attack_pressed"]
 [connection signal="move_intent_changed" from="PlayerInputComponent" to="MovementComponent" method="_on_player_input_component_move_intent_changed"]
 [connection signal="timeout" from="AttackCooldown" to="StateMachine" method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="CombatComponent" method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="ComboTimer" to="StateMachine" method="_on_combo_timer_timeout"]
+[connection signal="timeout" from="ComboTimer" to="CombatComponent" method="_on_combo_timer_timeout"]

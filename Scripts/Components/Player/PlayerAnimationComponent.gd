@@ -66,3 +66,7 @@ func play_dualwielding_melee_attack_3_animation() -> void:
 #--------- Range Combat -----------
 
 #--------- Shield -----------
+
+
+func _on_ability_component_cast_ability(animation: String, duration: float) -> void:
+	pass # Replace with function body.
