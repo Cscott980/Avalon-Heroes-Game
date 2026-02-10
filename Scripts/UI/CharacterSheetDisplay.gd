@@ -98,4 +98,3 @@ func apply_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_in
 						anim_state.travel("BowIdle")
 				else:
 					return
-				

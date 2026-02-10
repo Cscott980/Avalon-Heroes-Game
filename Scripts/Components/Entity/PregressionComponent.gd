@@ -23,7 +23,6 @@ func level_up(current_level: int) -> void:
 	if not has_pending_choices:
 		emit_signal("stat_selected", StatConst.load_stats_int(result.get("stat", "")), result.get("value", 0))
 		emit_signal("level", new_level)
-		
 
 func random_stat_generator(count: int) -> Array[Dictionary]:
 	var choices: Array[Dictionary] = []
@@ -43,4 +42,4 @@ func random_stat_generator(count: int) -> Array[Dictionary]:
 
 func _on_display_stat_choice_component_selected_choice(choice: Dictionary) -> void:
 	"""This signal goes to StatComponent and adds new selected stat value by increasing base on the percentage of total stats"""
-	emit_signal("stat_choices",choice.get("stat",""), choice.get("value", 0.0))
+	stat_choices.emit(choice.get("stat",""), choice.get("value", 0.0))

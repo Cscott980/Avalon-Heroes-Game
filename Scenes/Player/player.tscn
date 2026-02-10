@@ -6,12 +6,10 @@
 [ext_resource type="Animation" uid="uid://2qo5t34oq5u0" path="res://Assets/Animations/Rig_Mid_Animations/Crawling.res" id="3_gpqv3"]
 [ext_resource type="Script" uid="uid://b580uwxkgp4uh" path="res://Scripts/States/Player/PlayerStateMachine.gd" id="3_mtuoh"]
 [ext_resource type="Script" uid="uid://bglhntwrd1fs5" path="res://Scripts/Components/Player/EquipmentVisualsComponent.gd" id="3_ujqdw"]
-[ext_resource type="ArrayMesh" uid="uid://bdprwh32lrmik" path="res://Assets/Characters/Character Hero Meshes/Heads/Female_Head_1.res" id="4_5opb0"]
 [ext_resource type="Animation" uid="uid://bevsbcounnh4r" path="res://Assets/Animations/Rig_Mid_Animations/Crouching.res" id="4_7ve27"]
 [ext_resource type="PackedScene" uid="uid://dmqo550jk2hkw" path="res://Scenes/UserInterface/MainUI.tscn" id="4_74mp2"]
 [ext_resource type="PackedScene" uid="uid://dfv5odlic646l" path="res://Scenes/Weapons/OffHandMeleeWeapon.tscn" id="4_ldt7q"]
 [ext_resource type="Script" uid="uid://bfq00nxcoephg" path="res://Scripts/States/Player/IdleState.gd" id="4_mtuoh"]
-[ext_resource type="Skin" uid="uid://cx78feasvle8d" path="res://Resources/MeshSkins/ElfFemaleSkin.tres" id="5_gpqv3"]
 [ext_resource type="Script" uid="uid://b6dx8gnr0qa16" path="res://Scripts/States/Player/MoveState.gd" id="5_htcer"]
 [ext_resource type="Animation" uid="uid://bnimkpt656j8j" path="res://Assets/Animations/Rig_Mid_Animations/Death_A.res" id="5_ldt7q"]
 [ext_resource type="Animation" uid="uid://cygmg61je73t3" path="res://Assets/Animations/Rig_Mid_Animations/Death_A_Pose.res" id="6_7bej3"]
@@ -1442,7 +1440,30 @@ unique_name_in_owner = true
 
 [node name="Rig_Medium" type="Node3D" parent="Model" unique_id=849327112]
 unique_name_in_owner = true
+
+[node name="EquipmentVisualComponent" type="Node" parent="Model/Rig_Medium" unique_id=542579935 node_paths=PackedStringArray("main_hand_weapon", "off_hand_weapon", "shield", "main_hand_slot", "off_hand_slot", "sheath_back", "sheath_hip_right", "sheath_hip_left", "arm_left", "arm_right", "helm", "helm_addon", "armor", "back", "head", "leg_left", "leg_right", "accessory_1", "accessory_2", "accessory_3")]
 script = ExtResource("3_ujqdw")
+main_hand_weapon = NodePath("../Skeleton3D/MainHand/MainHandWeapon")
+off_hand_weapon = NodePath("../Skeleton3D/OffHand/OffHandWeapon")
+shield = NodePath("../Skeleton3D/OffHand/ShieldComponent")
+main_hand_slot = NodePath("../Skeleton3D/MainHand")
+off_hand_slot = NodePath("../Skeleton3D/OffHand")
+sheath_back = NodePath("../Skeleton3D/SheathBack")
+sheath_hip_right = NodePath("../Skeleton3D/SheathHipRight")
+sheath_hip_left = NodePath("../Skeleton3D/SheathHipLeft")
+arm_left = NodePath("../Skeleton3D/arm_left")
+arm_right = NodePath("../Skeleton3D/arm_right")
+helm = NodePath("../Skeleton3D/helm")
+helm_addon = NodePath("../Skeleton3D/helm_addon")
+armor = NodePath("../Skeleton3D/armor")
+back = NodePath("../Skeleton3D/back")
+head = NodePath("../Skeleton3D/head")
+leg_left = NodePath("../Skeleton3D/leg_left")
+leg_right = NodePath("../Skeleton3D/leg_right")
+accessory_1 = NodePath("../Skeleton3D/accessory1")
+accessory_2 = NodePath("../Skeleton3D/accessory2")
+accessory_3 = NodePath("../Skeleton3D/accessory3")
+metadata/_custom_type_script = "uid://bglhntwrd1fs5"
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Model/Rig_Medium" unique_id=125430146]
 bones/0/name = "root"
@@ -1607,38 +1628,31 @@ bones/22/position = Vector3(2.1323326e-10, 0.16565003, 5.1714e-09)
 bones/22/rotation = Quaternion(2.1219819e-08, 0.92035496, -0.39108413, 6.450591e-08)
 bones/22/scale = Vector3(1, 0.9999966, 1.0000037)
 
-[node name="mesh_arm_left" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1219638130]
+[node name="arm_left" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1219638130]
 
-[node name="mesh_arm_right" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1418064587]
+[node name="arm_right" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1418064587]
 
-[node name="mesh_helm" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=964174438]
+[node name="helm" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=964174438]
 skin = SubResource("Skin_t53un")
 
-[node name="mesh_helm_addon" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1351904412]
+[node name="helm_addon" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1351904412]
 skin = SubResource("Skin_t53un")
 
-[node name="mesh_armor" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1648192857]
+[node name="armor" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1648192857]
 
-[node name="mesh_back" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=2082129891]
+[node name="back" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=2082129891]
 
-[node name="mesh_head" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=36897347]
-mesh = ExtResource("4_5opb0")
-skin = ExtResource("5_gpqv3")
+[node name="head" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=36897347]
 
-[node name="mesh_leg_left" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1491649248]
+[node name="leg_left" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1491649248]
 
-[node name="mesh_leg_right" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=130593502]
+[node name="leg_right" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=130593502]
 
-[node name="mesh_accessory1" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1165670448]
+[node name="accessory1" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1165670448]
 
-[node name="mesh_accessory2" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=693212931]
+[node name="accessory2" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=693212931]
 
-[node name="mesh_accessory3" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=348000495]
-
-[node name="Back" type="BoneAttachment3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=563824071]
-transform = Transform3D(1, 0, 1.4210855e-14, 0, 1, 0, -1.4210855e-14, 0, 1, 0, 0.59764093, 0)
-bone_name = "spine"
-bone_idx = 2
+[node name="accessory3" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=348000495]
 
 [node name="MainHand" type="BoneAttachment3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=2123921856]
 unique_name_in_owner = true

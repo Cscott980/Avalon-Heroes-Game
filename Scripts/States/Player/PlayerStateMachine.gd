@@ -1,19 +1,10 @@
 @icon("uid://bcmnnidtwjut6")
 class_name PlayerStateMachine extends Node
 
-
-
-
 var current_state: PlayerState
 var _states: Dictionary = {}
-var is_attacking: bool = false
-var combo_1_open: bool = true
-var combo_2_open: bool = false
-var combo_3_open: bool = false
-
 
 @export var initial_state_path: NodePath
-
 
 func _ready() -> void:	
 	for child in get_children():
@@ -45,13 +36,3 @@ func _change_state(new_state_name: String) -> void:
 	
 	current_state = new_state
 	current_state.enter()
-
-
-func _on_attack_cooldown_timeout() -> void:
-	pass
-
-
-func _on_combo_timer_timeout() -> void:
-	combo_1_open = true
-	combo_2_open = false
-	combo_3_open = false
