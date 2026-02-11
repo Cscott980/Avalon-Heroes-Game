@@ -7,7 +7,7 @@ signal exp_collected(amount: int)
 signal new_exp_max_value(value: int)
 signal stat_choices(options: Array[Dictionary])
 
-@export var player_ui: PlayerUI
+@export var player_ui: MainUI
 @export var out_level_display: Label
 #@export var exp_collector: DropCollectorComponent
 @export var level_up_choice: int = 3

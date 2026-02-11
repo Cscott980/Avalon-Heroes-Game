@@ -6,9 +6,15 @@ signal attack_pressed
 signal block_started
 signal block_ended
 signal charsheet_toggled
+signal sheath_weapon(sheath: bool)
+
 
 var move_intent: Vector3 = Vector3.ZERO
 var _last_move_intent: Vector3 = Vector3.ZERO
+var is_sheathed: bool
+
+func _ready() -> void:
+	is_sheathed = false
 
 func _process(_delta: float) -> void:
 	var x := Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -27,7 +33,14 @@ func _input(event: InputEvent) -> void:
 	#----- UI Input ---------
 	if event.is_action_pressed("inventory"):
 		charsheet_toggled.emit()
-
+	
+	if event.is_action_pressed("sheeth"):
+		if not is_sheathed:
+			sheath_weapon.emit(true)
+		else:
+			sheath_weapon.emit(false)
+		
+	
 	#----- Combat Input ---------
 	if event.is_action_pressed("base_attack"):
 		attack_pressed.emit()

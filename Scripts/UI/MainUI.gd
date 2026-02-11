@@ -52,7 +52,7 @@ func _on_ability_component_on_cooldown(button: Button, time: float, disable: boo
 
 
 func _on_ability_component_ability_icons(icons: Array[Texture2D]) -> void:
-	pass # Replace with function body.
+	pass
 
 
 func _on_inventory_equipment_current_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_index: int, hand: StringName) -> void:
@@ -62,3 +62,11 @@ func _on_inventory_equipment_current_equipment(slot_res: EquipmentSlotResource, 
 
 func _on_stat_component_current_stats(dic: Dictionary) -> void:
 	inventory_equipment.update_stat_display(dic, health_comp.max_health)
+
+
+func _on_quiz_display_component_questions_answered() -> void:
+	pass # Replace with function body.
+
+
+func _on_health_component_dead(_owner: Node) -> void:
+	pass # Replace with function body.

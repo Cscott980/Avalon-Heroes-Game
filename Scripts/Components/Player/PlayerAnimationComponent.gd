@@ -5,6 +5,9 @@ class_name PlyaerAnimationComponent extends Node
 @onready var playback: AnimationNodeStateMachinePlayback = (anim_tree.get("parameters/Movement/playback"))
 
 
+
+
+
 #--------- General -----------
 func play_idle_animation() -> void:
 	if playback:
@@ -91,11 +94,3 @@ func play_walking_shield_hit() -> void:
 func play_block_shatter() -> void:
 	if playback:
 		playback.travel("Block_Shatter")
-
-
-func _on_ability_component_cast_ability(animation: String, duration: float) -> void:
-	pass # Replace with function body.
-
-
-func _on_health_component_dead(_owner: Node) -> void:
-	play_death_animation()

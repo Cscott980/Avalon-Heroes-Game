@@ -32,3 +32,7 @@ func handle_input(event: InputEvent) -> void:
 	if event.is_action_released("ability_1") or event.is_action_released("ability_2") or event.is_action_released("ability_3"):
 		state_machine.change_state("AbilityState")
 	
+
+
+func _on_health_component_hurt() -> void:
+	pass # Replace with function body.

@@ -51,3 +51,7 @@ func _on_choice_btn_one_2_pressed() -> void:
 func _on_choice_btn_one_3_pressed() -> void:
 	data_box(2)
 	
+
+
+func _on_quiz_display_component_questions_answered() -> void:
+	pass # Replace with function body.

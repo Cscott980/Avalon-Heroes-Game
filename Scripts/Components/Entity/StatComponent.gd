@@ -17,7 +17,6 @@ func _ready() -> void:
 		StatConst.STATS.VITALITY: stats.vitality,
 		StatConst.STATS.WISDOM: stats.strength,
 	}
-	
 	current_stats.emit(player_stats)
 	
 func _on_progression_component_stat_selected(stat: int, amount: int) -> void:
