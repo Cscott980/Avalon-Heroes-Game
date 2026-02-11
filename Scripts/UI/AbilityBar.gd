@@ -1,6 +1,8 @@
 class_name AbilityBar extends Control
 
 
+@onready var player_yu: PlayerUI
+
 @onready var ability_1: TextureButton = %Ability1
 @onready var cooldown_1: TextureProgressBar = %Cooldown1
 @onready var ability_2: TextureButton = %Ability2
@@ -22,3 +24,12 @@ class_name AbilityBar extends Control
 @onready var btn_label_1: TextureRect = %BtnLabel1
 @onready var btn_label_2: TextureRect = %BtnLabel2
 @onready var btn_label_3: TextureRect = %BtnLabel3
+
+
+
+
+func _ready() -> void:
+	pass
+
+func add_xp(amount: int) ->void:
+	pass

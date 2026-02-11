@@ -2,6 +2,7 @@
 class_name HealthComponent extends Node
 
 signal dead(owner: Node)
+signal hurt
 signal revived(owner: Node)
 
 @export var user: CharacterBody3D = null
@@ -31,7 +32,7 @@ func on_revive(amount_percetage: float) -> void:
 	health += int(max_health * amount_percetage)
 	emit_signal("revived", true)
 
-func _on_hurt_box_take_damage(amount: int) -> void:
+func take_damge(amount: int) -> void:
 	if is_dead:
 		return
 	health -= amount
@@ -42,3 +43,6 @@ func _on_hurt_box_take_damage(amount: int) -> void:
 		health = 0
 		is_dead = true
 		emit_signal("dead")
+
+func _on_hurt_box_area_entered(_area: Area3D) -> void:
+	hurt.emit()

@@ -17,8 +17,6 @@ signal combo_window_open
 func _ready() -> void:
 	pass
 
-
-
 func _on_attack_cooldown_timeout() -> void:
 	pass # Replace with function body.
 

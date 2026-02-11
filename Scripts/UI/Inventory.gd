@@ -1,5 +1,8 @@
 class_name CharacterSheetandInventory extends Control
 
+signal current_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_index: int, hand: StringName)
+
+
 #------ Inventory and Equipment Brain -------
 @onready var inventorybox: GridContainer = %Inventory/GridContainer
 @onready var character_sheet_character: CharacterSheetDisplay = %CharacterSheetCharacter
@@ -20,10 +23,12 @@ class_name CharacterSheetandInventory extends Control
 #-------------------------
 
 
-@export var corner_size: int = 40
+@export var corner_size: int = 80
 @export var inv : InventoryResource
 @export var equipment: PlayerEquipmentResource
 
+
+#TODO: Move these to SoundBus
 var pick_up_sound := preload("uid://c5lxkt43uv5h0")
 var drop_sound := preload("uid://4r21t47kiawv")
 var open_inventory_sound := preload("uid://72d01r063eta")
@@ -38,7 +43,7 @@ var equipment_equiped: Array
 
 func _ready() -> void:
 	is_open = false
-	await  get_tree().process_frame
+	visible = false
 	player = get_tree().get_first_node_in_group("player") as Player
 	
 	equipment_equiped = [
@@ -51,13 +56,21 @@ func _ready() -> void:
 		equipment.accessory2,
 		equipment.accessory3
 	]
-	_connect_equipment_slots()
 	
-	self.visible = false
+	_connect_equipment_slots()
 
 func play_pick_up_sound() -> void:
 	audio_stream_player.stream = pick_up_sound
 	audio_stream_player.play()
+
+func update_stat_display(stats: Dictionary, health: int) -> void:
+	strength_val.text = stats.get(StatConst.load_stats_ref(StatConst.STATS.STRENGTH), 0)
+	intellect_val.text = stats.get(StatConst.load_stats_ref(StatConst.STATS.INTELLECT), 0)
+	dexterity_val.text = stats.get(StatConst.load_stats_ref(StatConst.STATS.DEXTERITY), 0)
+	wisdom_val.text = stats.get(StatConst.load_stats_ref(StatConst.STATS.WISDOM), 0)
+	vitality_val.text = stats.get(StatConst.load_stats_ref(StatConst.STATS.VITALITY), 0)
+	
+	health_val.text = str(health)
 
 func play_drop_sound() -> void:
 	audio_stream_player.stream = drop_sound
@@ -117,7 +130,6 @@ func _connect_equipment_slots() -> void:
 func _on_equipment_changed(slot_res: EquipmentSlotResource, item: ItemResource, sub_index: int, hand: StringName) -> void:
 	equipment.set_item(slot_res,item)
 	character_sheet_character.apply_equipment(slot_res, item, sub_index, hand)
-	if player != null:
-		player.apply_equipment(slot_res, item, sub_index, hand)
+	current_equipment.emit(slot_res, item, sub_index, hand)
 	for slot in get_tree().get_nodes_in_group("inventory_slot"):
 		slot._refresh()

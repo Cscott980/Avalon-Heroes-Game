@@ -23,3 +23,6 @@ offset_bottom = 700.0
 [node name="DisplayStatChoiceComponent" parent="." unique_id=1654775370 instance=ExtResource("4_at26v")]
 unique_name_in_owner = true
 visible = false
+mouse_filter = 2
+
+[connection signal="current_equipment" from="InventoryEquipment" to="." method="_on_inventory_equipment_current_equipment"]

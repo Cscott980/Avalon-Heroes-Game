@@ -4,11 +4,14 @@ class_name ProgressionComponent extends Node
 signal level(current_level:int)
 signal stat_selected(stat: int, amount: int)
 signal exp_collected(amount: int)
+signal new_exp_max_value(value: int)
 signal stat_choices(options: Array[Dictionary])
 
+@export var player_ui: PlayerUI
 @export var out_level_display: Label
 #@export var exp_collector: DropCollectorComponent
 @export var level_up_choice: int = 3
+
 var xp_amount: int = 0
 var pending_choices: Array = []
 var has_pending_choices: bool = false
@@ -21,8 +24,10 @@ func level_up(current_level: int) -> void:
 	out_level_display.text = str(new_level)
 	var result: Dictionary = {}
 	if not has_pending_choices:
-		emit_signal("stat_selected", StatConst.load_stats_int(result.get("stat", "")), result.get("value", 0))
-		emit_signal("level", new_level)
+		level.emit(new_level)
+
+func new_max_value() -> void:
+	pass
 
 func random_stat_generator(count: int) -> Array[Dictionary]:
 	var choices: Array[Dictionary] = []
@@ -39,7 +44,3 @@ func random_stat_generator(count: int) -> Array[Dictionary]:
 		})
 	emit_signal("stat_choices",choices)
 	return choices
-
-func _on_display_stat_choice_component_selected_choice(choice: Dictionary) -> void:
-	"""This signal goes to StatComponent and adds new selected stat value by increasing base on the percentage of total stats"""
-	stat_choices.emit(choice.get("stat",""), choice.get("value", 0.0))

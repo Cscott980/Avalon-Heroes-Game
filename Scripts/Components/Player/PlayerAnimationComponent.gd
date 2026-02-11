@@ -9,7 +9,11 @@ class_name PlyaerAnimationComponent extends Node
 func play_idle_animation() -> void:
 	if playback:
 		playback.travel("Idle")
-
+		
+func play_idle_bow_animation() -> void:
+	if playback:
+		playback.travel("Bow_Idle")
+		
 func play_two_handed_animation() -> void:
 	if playback:
 		playback.travel("2_Handed_Weapom_Idle")
@@ -65,8 +69,33 @@ func play_dualwielding_melee_attack_3_animation() -> void:
 
 #--------- Range Combat -----------
 
+
+
 #--------- Shield -----------
+func play_standing_block() -> void:
+	if playback:
+		playback.travel("Shield_Blcok")
+
+func play_walking_block() -> void:
+	if playback:
+		playback.travel("Walk_Shield_Block")
+
+func play_standing_shield_hit() -> void:
+	if playback:
+		playback.travel("Shield_Hit")
+
+func play_walking_shield_hit() -> void:
+	if playback:
+		playback.travel("Walk_Shield_Hit")
+
+func play_block_shatter() -> void:
+	if playback:
+		playback.travel("Block_Shatter")
 
 
 func _on_ability_component_cast_ability(animation: String, duration: float) -> void:
 	pass # Replace with function body.
+
+
+func _on_health_component_dead(_owner: Node) -> void:
+	play_death_animation()

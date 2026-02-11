@@ -3,7 +3,7 @@ class_name IdleState
 
 
 func enter() -> void:
-	player.play_idle_animation()
+	pass
 	
 func exit() -> void:
 	pass
