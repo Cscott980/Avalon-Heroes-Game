@@ -9,13 +9,15 @@ class_name MainUI extends CanvasLayer
 @export var health_comp: HealthComponent
 @export var equip_visuals_comp: EquipmentVisualComponent
 
+var defults: HeroClassVisualDefaultResource
+var equipment: PlayerEquipmentResource
 
 func _ready() -> void:
-	await  get_tree().process_frame
-	inventory_equipment.vs_data = get_player_visual_data()
+	pass
 
-func get_player_visual_data() -> Dictionary:
-	return equip_visuals_comp.visual_data
+func get_player_visual_data(defults_data: HeroClassVisualDefaultResource, equipment_resource: PlayerEquipmentResource) -> void:
+	defults = defults_data
+	equipment = equipment_resource
 
 func update_level_display(new_level: String) -> void:
 	ability_bar.level_ui_dis.text = new_level
@@ -74,3 +76,10 @@ func _on_quiz_display_component_questions_answered() -> void:
 
 func _on_health_component_dead(_owner: Node) -> void:
 	pass # Replace with function body.
+
+
+func _on_player_input_component_charsheet_toggled() -> void:
+	if inventory_equipment.is_open:
+		inventory_equipment.close()
+	else:
+		inventory_equipment.open()

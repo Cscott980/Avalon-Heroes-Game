@@ -25,7 +25,12 @@ func _ready() -> void:
 		return
 
 func hero_init() -> void: 
-	pass
+	if not is_instance_valid(hero_class):
+		return
+	stat_component.apply_stats(hero_class.hero_stats)
+	equipment_visuals.apply_defults(hero_class.class_defaults)
+	equipment_visuals.apply_starter_equipment(hero_class.starting_equipment)
+	
 
 func _physics_process(delta: float) -> void:
 	if state_machine.current_state:

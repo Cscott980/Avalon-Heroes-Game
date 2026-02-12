@@ -20,21 +20,17 @@ func _ready() -> void:
 func _on_attack_cooldown_timeout() -> void:
 	pass # Replace with function body.
 
-
 func _on_combo_timer_timeout() -> void:
 	pass # Replace with function body.
 
 func _on_off_hand_weapon_weapon_hit(target: Node3D) -> void:
 	pass # Replace with function body.
 
-
 func _on_main_hand_weapon_weapon_hit(target: Node3D) -> void:
 	pass # Replace with function body.
 
-
 func _on_player_input_component_attack_pressed() -> void:
 	pass # Replace with function body.
-
 
 func _on_stat_component_current_stats(dic: Dictionary) -> void:
 	pass # Replace with function body.

@@ -22,7 +22,6 @@
 [ext_resource type="Script" uid="uid://cc76tvcyemcjj" path="res://Scripts/States/Player/HurtState.gd" id="9_gk6dx"]
 [ext_resource type="Animation" uid="uid://bqlpn4yntuk6v" path="res://Assets/Animations/Rig_Mid_Animations/Dodge_Backward.res" id="9_w6yxy"]
 [ext_resource type="Animation" uid="uid://dlsbths02qc8f" path="res://Assets/Animations/Rig_Mid_Animations/Dodge_Forward.res" id="10_2crlr"]
-[ext_resource type="Script" uid="uid://bicrtgbp1x3fm" path="res://Scripts/Test/HurtBox.gd" id="10_74mp2"]
 [ext_resource type="Script" uid="uid://bnfwc04ttk55x" path="res://Scripts/States/Player/DeadState.gd" id="10_jhyir"]
 [ext_resource type="Animation" uid="uid://dq4uvgryfr1nn" path="res://Assets/Animations/Rig_Mid_Animations/Dodge_Left.res" id="11_xvldo"]
 [ext_resource type="Animation" uid="uid://dyb3otnbs4meh" path="res://Assets/Animations/Rig_Mid_Animations/Dodge_Right.res" id="12_ujqdw"]
@@ -1706,7 +1705,6 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, -1.4210855e-14, 0, 1.0000001, 0, 1.4210855e-14, 0, 1, 0, -1.2414255, 0)
 collision_layer = 2
 collision_mask = 8
-script = ExtResource("10_74mp2")
 
 [node name="HurtCollission" type="CollisionShape3D" parent="Model/Rig_Medium/Skeleton3D/HitBoxBone/HurtBox" unique_id=2003613439]
 unique_name_in_owner = true
@@ -2018,6 +2016,7 @@ volume_db = -8.667
 [connection signal="stat_choices" from="ProgressionComponent" to="PlayerUI" method="_on_progression_component_stat_choices"]
 [connection signal="stat_selected" from="ProgressionComponent" to="StatComponent" method="_on_progression_component_stat_selected"]
 [connection signal="attack_pressed" from="PlayerInputComponent" to="CombatComponent" method="_on_player_input_component_attack_pressed"]
+[connection signal="charsheet_toggled" from="PlayerInputComponent" to="PlayerUI" method="_on_player_input_component_charsheet_toggled"]
 [connection signal="move_intent_changed" from="PlayerInputComponent" to="MovementComponent" method="_on_player_input_component_move_intent_changed"]
 [connection signal="sheath_weapon" from="PlayerInputComponent" to="Model/Rig_Medium/EquipmentVisualComponent" method="_on_player_input_component_sheath_weapon"]
 [connection signal="sheath_weapon" from="PlayerInputComponent" to="StateMachine/IdleState" method="_on_player_input_component_sheath_weapon"]

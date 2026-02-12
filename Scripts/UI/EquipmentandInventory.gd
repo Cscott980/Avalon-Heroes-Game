@@ -41,20 +41,8 @@ func _ready() -> void:
 	await  get_tree().process_frame
 	is_open = false
 	visible = false
-	equipment = vs_data.get("equipment", null)
-	if equipment:
-		equipment_equiped = [
-			equipment.helm,
-			equipment.armor,
-			equipment.back,
-			equipment.main_hand,
-			equipment.off_hand,
-			equipment.accessory1,
-			equipment.accessory2,
-			equipment.accessory3
-		]
-	
 	_connect_equipment_slots()
+
 
 func play_pick_up_sound() -> void:
 	audio_stream_player.stream = pick_up_sound
@@ -72,25 +60,6 @@ func update_stat_display(stats: Dictionary, health: int) -> void:
 func play_drop_sound() -> void:
 	audio_stream_player.stream = drop_sound
 	audio_stream_player.play()
-
-func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed and _is_in_drag_corner(event.position):
-			dragging = true
-			drag_offset = get_global_mouse_position() - global_position
-		else:
-			dragging = false
-	elif  event is InputEventMouseMotion and dragging:
-		global_position = get_global_mouse_position() - drag_offset
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("inventory"):
-		if is_open:
-			close()
-			player.inventory_open(false)
-		else:
-			open()
-			player.inventory_open(true)
 
 func _is_in_drag_corner(local_pos: Vector2) -> bool:
 	var s := size

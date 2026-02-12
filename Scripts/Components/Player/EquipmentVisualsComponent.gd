@@ -3,6 +3,7 @@ class_name EquipmentVisualComponent extends Node
 
 signal weapon_sheathed
 signal weapon_unsheathed
+signal player_head_for_sheat(mesh: Mesh)
 
 @export var player_ui: MainUI
 
@@ -39,10 +40,13 @@ var is_sheathed: bool
 var visual_data: Dictionary = {}
 
 func _ready() -> void:
-	pass
+	player_head_for_sheat.emit(head.mesh)
 
-func apply_defults() ->void:
-	pass
+func apply_starter_equipment(equipment: PlayerEquipmentResource) -> void:
+	player_equipment = equipment
+
+func apply_defults(defults: HeroClassVisualDefaultResource) ->void:
+	class_defults = defults
 
 func sheeth_weapon() -> void:
 	if main_hand_weapon.WEAPON_TYPE == null and off_hand_weapon.WEAPON_TYPE == null: 
