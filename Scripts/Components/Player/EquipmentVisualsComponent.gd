@@ -4,6 +4,7 @@ class_name EquipmentVisualComponent extends Node
 signal weapon_sheathed
 signal weapon_unsheathed
 
+@export var player_ui: MainUI
 
 @export_group("Components")
 @export var main_hand_weapon: WeaponComponent
@@ -35,10 +36,14 @@ var class_defults: HeroClassVisualDefaultResource
 var player_equipment: PlayerEquipmentResource
 
 var is_sheathed: bool
+var visual_data: Dictionary = {}
+
+func _ready() -> void:
+	pass
 
 func apply_defults() ->void:
 	pass
-	
+
 func sheeth_weapon() -> void:
 	if main_hand_weapon.WEAPON_TYPE == null and off_hand_weapon.WEAPON_TYPE == null: 
 		return
@@ -90,6 +95,33 @@ func unsheeth_weapon() -> void:
 		
 	weapon_unsheathed.emit()
 
+func armor_visual_updater(a: ArmorResource) -> void:
+	if a == null:
+		armor.mesh = class_defults.armor
+		arm_left.mesh = class_defults.left_arm
+		arm_right.mesh = class_defults.right_arm
+		leg_left.mesh = class_defults.left_leg
+		leg_right.mesh = class_defults.right_leg
+		
+		armor.skin = class_defults.skin
+		arm_left.skin = class_defults.skin
+		arm_right.skin = class_defults.skin
+		leg_left.skin = class_defults.skin
+		leg_right.skin = class_defults.skin
+		return
+		
+	armor.mesh = a.armor
+	arm_left.mesh = a.arm_left
+	arm_right.mesh = a.arm_right
+	leg_left.mesh = a.leg_left
+	leg_right.mesh = a.leg_right
+	
+	armor.skin = a.skin
+	arm_left.skin = a.skin
+	arm_right.skin = a.skin
+	leg_left.skin = a.skin
+	leg_right.skin = a.skin
+
 func apply_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_index: int = -1, hand: StringName = &"main"):
 	match slot_res.equipment_slot_type:
 		EquipmentSlotResource.SlotType.Helm:
@@ -100,16 +132,8 @@ func apply_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_in
 			helm_addon.skin = a.skin if a != null else null
 		EquipmentSlotResource.SlotType.Armor:
 			var a := item as ArmorResource
-			arm_left.mesh = a.arm_left if a != null else null
-			arm_left.skin = a.skin if a != null else null
-			arm_right.mesh = a.arm_right if a != null else null
-			arm_right.skin = a.skin if a != null else null
-			armor.mesh = a.armor if a != null else null
-			armor.skin = a.skin if a != null else null
-			leg_left.mesh = a.leg_left if a != null else null
-			leg_left.skin = a.skin if a != null else null
-			leg_right.mesh = a.leg_right if a != null else null
-			leg_right.skin = a.skin if a != null else null
+			armor_visual_updater(a)
+			
 		EquipmentSlotResource.SlotType.Accessory:
 			var a := item as ArmorResource
 			var target: MeshInstance3D = null
@@ -142,7 +166,6 @@ func apply_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_in
 				if w != null and w.handedness == WeaponResource.HANDEDNESS.TWO_HANDED:
 					off_hand_weapon.clear_weapon()
 				main_hand_weapon.load_weapon(w)
-
 
 func _on_player_input_component_sheath_weapon(sheath: bool) -> void:
 	if sheath:

@@ -1,6 +1,6 @@
 class_name MainUI extends CanvasLayer
 
-@onready var inventory_equipment: CharacterSheetandInventory = %InventoryEquipment
+@onready var inventory_equipment: EquipmentandInventory = %InventoryEquipment
 @onready var ability_bar: AbilityBar = %AbilityBar
 @onready var display_stat_choice_component: DisplayStatChoiceComponent = %DisplayStatChoiceComponent
 
@@ -11,7 +11,11 @@ class_name MainUI extends CanvasLayer
 
 
 func _ready() -> void:
-	pass
+	await  get_tree().process_frame
+	inventory_equipment.vs_data = get_player_visual_data()
+
+func get_player_visual_data() -> Dictionary:
+	return equip_visuals_comp.visual_data
 
 func update_level_display(new_level: String) -> void:
 	ability_bar.level_ui_dis.text = new_level

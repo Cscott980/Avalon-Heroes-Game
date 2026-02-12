@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://emgwnj0rkamw" path="res://Scripts/Resources/Player/ResourcePoolResource.gd" id="1_15p1l"]
 [ext_resource type="Script" uid="uid://bsj17hheibsfy" path="res://Scripts/Resources/Player/HeroClassResource.gd" id="1_nlh6m"]
-[ext_resource type="ArrayMesh" uid="uid://b7exqulsw6emq" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Barbarian_Barbarian_Body.res" id="3_7oanv"]
 [ext_resource type="ArrayMesh" uid="uid://do1nwmqk61rdk" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Barbarian_Barbarian_ArmLeft.res" id="4_1bvxv"]
 [ext_resource type="ArrayMesh" uid="uid://du3jspdlsbi0j" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Barbarian_Barbarian_LegLeft.res" id="5_musjr"]
 [ext_resource type="ArrayMesh" uid="uid://cyurcj5g6i536" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Barbarian_Barbarian_ArmRight.res" id="6_it1mb"]
@@ -19,7 +18,6 @@
 [sub_resource type="Resource" id="Resource_vdy1k"]
 script = ExtResource("8_umk3e")
 skin = ExtResource("9_a6ax0")
-defult_armor = ExtResource("3_7oanv")
 left_arm = ExtResource("4_1bvxv")
 right_arm = ExtResource("6_it1mb")
 left_leg = ExtResource("5_musjr")

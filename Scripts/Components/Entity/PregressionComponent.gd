@@ -17,7 +17,7 @@ var pending_choices: Array = []
 var has_pending_choices: bool = false
 
 func _ready() -> void:
-	pass
+	await  get_tree().process_frame
 
 func level_up(current_level: int) -> void:
 	var new_level = current_level + 1

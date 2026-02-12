@@ -1,94 +1,100 @@
 class_name CharacterSheetDisplay extends Node3D
 
-@onready var mesh_arm_left: MeshInstance3D = $Rig_Medium/Skeleton3D/mesh_arm_left
-@onready var mesh_arm_right: MeshInstance3D = $Rig_Medium/Skeleton3D/mesh_arm_right
-@onready var mesh_helm: MeshInstance3D = $Rig_Medium/Skeleton3D/mesh_helm
-@onready var mesh_helm_addon: MeshInstance3D = $Rig_Medium/Skeleton3D/mesh_helm_addon
-@onready var mesh_armor: MeshInstance3D = $Rig_Medium/Skeleton3D/mesh_armor
-@onready var mesh_head: MeshInstance3D = $Rig_Medium/Skeleton3D/mesh_head
-@onready var mesh_leg_left: MeshInstance3D = $Rig_Medium/Skeleton3D/mesh_leg_left
-@onready var mesh_leg_right: MeshInstance3D = $Rig_Medium/Skeleton3D/mesh_leg_right
-@onready var mesh_accessory_1: MeshInstance3D = $Rig_Medium/Skeleton3D/mesh_accessory1
-@onready var mesh_accessory_2: MeshInstance3D = $Rig_Medium/Skeleton3D/mesh_accessory2
-@onready var mesh_accessory_3: MeshInstance3D = $Rig_Medium/Skeleton3D/mesh_accessory3
-@onready var mesh_mh: MeshInstance3D = $Rig_Medium/Skeleton3D/MainHand/mesh
-@onready var mesh_oh: MeshInstance3D = $Rig_Medium/Skeleton3D/OffHand/mesh
-@onready var mesh_back: MeshInstance3D = $Rig_Medium/Skeleton3D/mesh_back
+@onready var arm_left: MeshInstance3D = $Rig_Medium/Skeleton3D/arm_left
+@onready var arm_right: MeshInstance3D = $Rig_Medium/Skeleton3D/arm_right
+@onready var helm: MeshInstance3D = $Rig_Medium/Skeleton3D/helm
+@onready var helm_addon: MeshInstance3D = $Rig_Medium/Skeleton3D/helm_addon
+@onready var armor: MeshInstance3D = $Rig_Medium/Skeleton3D/armor
+@onready var head: MeshInstance3D = $Rig_Medium/Skeleton3D/head
+@onready var leg_left: MeshInstance3D = $Rig_Medium/Skeleton3D/leg_left
+@onready var leg_right: MeshInstance3D = $Rig_Medium/Skeleton3D/leg_right
+@onready var accessory_1: MeshInstance3D = $Rig_Medium/Skeleton3D/accessory1
+@onready var accessory_2: MeshInstance3D = $Rig_Medium/Skeleton3D/accessory2
+@onready var accessory_3: MeshInstance3D = $Rig_Medium/Skeleton3D/accessory3
+@onready var mh: MeshInstance3D = $Rig_Medium/Skeleton3D/MainHand/mesh
+@onready var oh: MeshInstance3D = $Rig_Medium/Skeleton3D/OffHand/mesh
+@onready var back: MeshInstance3D = $Rig_Medium/Skeleton3D/back
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var anim_state: AnimationNodeStateMachinePlayback = (animation_tree.get("parameters/IdleStates/playback"))
 
-
+@export var data: EquipmentandInventory
+var vs_defults: HeroClassVisualDefaultResource
 var armor_visulas_list: Array[MeshInstance3D] 
-var weapons_visuals_list: Array[MeshInstance3D] 
+var weapons_visuals_list: Array[MeshInstance3D]
 
-var player: Player = null
 func _ready() -> void:
 	await  get_tree().process_frame
-	player = get_tree().get_first_node_in_group("player")
+	vs_defults = data.vs_data.get("defults")
 	anim_state.travel("Idle")
 
-	if player.mesh_head != null:
-		mesh_head.mesh = player.mesh_head.mesh 
-		mesh_head.skin = player.mesh_head.skin
-		mesh_head.material_override = mesh_head.material_override
+	if head != null:
+		head.mesh = head.mesh 
+		head.skin = head.skin
+		head.material_override = head.material_override
 	else:
-		mesh_head.mesh = null
-		mesh_head.skim = null
+		head.mesh = null
+		head.skim = null
 
 func armor_visual_updater(a: ArmorResource) -> void:
 	if a == null:
-		mesh_armor.mesh = null
-		mesh_arm_left.mesh = null
-		mesh_arm_right.mesh = null
-		mesh_leg_left.mesh = null
-		mesh_leg_right.mesh = null
+		armor.mesh = vs_defults.armor
+		arm_left.mesh = vs_defults.left_arm
+		arm_right.mesh = vs_defults.right_arm
+		leg_left.mesh = vs_defults.left_leg
+		leg_right.mesh = vs_defults.right_leg
+		
+		armor.skin = vs_defults.skin
+		arm_left.skin = vs_defults.skin
+		arm_right.skin = vs_defults.skin
+		leg_left.skin = vs_defults.skin
+		leg_right.skin = vs_defults.skin
 		return
 		
-	mesh_armor.mesh = a.mesh_armor
-	mesh_arm_left.mesh = a.mesh_arm_left
-	mesh_arm_right.mesh = a.mesh_arm_right
-	mesh_leg_left.mesh = a.mesh_leg_left
-	mesh_leg_right.mesh = a.mesh_leg_right
+	armor.mesh = a.armor
+	arm_left.mesh = a.arm_left
+	arm_right.mesh = a.arm_right
+	leg_left.mesh = a.leg_left
+	leg_right.mesh = a.leg_right
 	
-	mesh_armor.skin = a.skin
-	mesh_arm_left.skin = a.skin
-	mesh_arm_right.skin = a.skin
-	mesh_leg_left.skin = a.skin
-	mesh_leg_right.skin = a.skin
+	armor.skin = a.skin
+	arm_left.skin = a.skin
+	arm_right.skin = a.skin
+	leg_left.skin = a.skin
+	leg_right.skin = a.skin
 
 func apply_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_index: int = -1, hand: StringName = &"main") -> void:
 	match slot_res.equipment_slot_type:
 		EquipmentSlotResource.SlotType.Helm:
 			var a := item as ArmorResource
-			mesh_helm.mesh = a.mesh_helm if a else null
-			mesh_helm_addon.mesh = a.mesh_helm_addon if a else null
-			mesh_helm.skin = a.skin if a else null
-			mesh_helm_addon.skin = a.skin if a else null
+			helm.mesh = a.helm if a else null
+			helm_addon.mesh = a.helm_addon if a else null
+			helm.skin = a.skin if a else null
+			helm_addon.skin = a.skin if a else null
 				
 		EquipmentSlotResource.SlotType.Armor:
 			armor_visual_updater(item as ArmorResource)
 		
 		EquipmentSlotResource.SlotType.Back:
 			var b := item as ArmorResource
-			mesh_back.mesh = b.mesh_back if b else null
-			mesh_back.skin = b.skin if b else null
+			back.mesh = b.back if b else null
+			back.skin = b.skin if b else null
 		
 		EquipmentSlotResource.SlotType.Accessory:
 			var a := item as ArmorResource
-			var target = [mesh_accessory_1, mesh_accessory_2, mesh_accessory_3][sub_index]
-			target.mesh = a.mesh_accessory if a else null
+			var target = [accessory_1, accessory_2, accessory_3][sub_index]
+			target.mesh = a.accessory if a else null
 			target.skin = a.skin if a else null
 		
 		EquipmentSlotResource.SlotType.Weapon:
 			var w = item as WeaponResource
 			if hand == &"off":
-				mesh_oh.mesh = w.mesh if w else null
+				oh.mesh = w.mesh if w else null
 				if w != null:
 					if w.handedness == WeaponResource.HANDEDNESS.ONE_HANDED:
 						anim_state.travel("Idle")
 			else:
-				mesh_mh.mesh = w.mesh if w else null
+				mh.mesh = w.mesh if w else null
 				if w != null:
 					if w.handedness == WeaponResource.HANDEDNESS.TWO_HANDED:
 						anim_state.travel("2HandIdle")

@@ -3,7 +3,7 @@ class_name InventorySlot extends TextureRect
 @export var slot_index: int = 0
 @export var inventory: InventoryResource
 
-var base: CharacterSheetandInventory
+var base: EquipmentandInventory
 
 @onready var icon: TextureRect = $Icon
 
@@ -24,6 +24,7 @@ func set_item(item: ItemResource) -> void:
 	_refresh()
 
 func _ready() -> void:
+	await  get_tree().process_frame
 	base = get_tree().get_first_node_in_group("playersheet")
 	_refresh()
 

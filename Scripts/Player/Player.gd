@@ -1,10 +1,18 @@
 class_name Player extends CharacterBody3D
 
 @onready var state_machine: PlayerStateMachine = %StateMachine
-@onready var equipment_visuals: EquipmentVisualComponent = %Rig_Medium
+@onready var equipment_visuals: EquipmentVisualComponent = %EquipmentVisualComponent
 @onready var health_component: HealthComponent = %HealthComponent
 @onready var stat_component: StatComponent = %StatComponent
 @onready var ability_component: AbilityComponent = %AbilityComponent
+@onready var targets_in_range_component: TargetsInRangeComponent = %TargetsInRangeComponent
+@onready var weapon_equip_component: WeaponEquipComponent = %WeaponEquipComponent
+@onready var movement_component: MovementComponent = %MovementComponent
+@onready var combat_component: CombatComponent = %CombatComponent
+@onready var resource_pool_component: ResourcePoolComponent = %ResourcePoolComponent
+@onready var progression_component: ProgressionComponent = %ProgressionComponent
+@onready var player_input_component: PlayerInputComponent = %PlayerInputComponent
+
 
 #@export var player_data: PlayerData
 @export var hero_class: HeroClassResource
@@ -15,30 +23,19 @@ class_name Player extends CharacterBody3D
 func _ready() -> void:
 	if not is_instance_valid(hero_class):
 		return
-	hero_class_init()
+
+func hero_init() -> void: 
+	pass
 
 func _physics_process(delta: float) -> void:
 	if state_machine.current_state:
 		state_machine.current_state.physics_process(delta)
 
-func hero_class_init() -> void:
-	if hero_class == null:
-		push_warning("Player: Missing hero_class.")
-		return
-	stat_component.stats = hero_class.hero_stats
-	health_component.max_health = hero_class.max_health
-	ability_component.abilities_data = hero_class.hero_abilities
-	equipment_visuals.player_equipment = hero_class.starting_equipment
-	equipment_visuals.class_defults = hero_class.class_defaults
-
 func _on_hurt_box_take_damage(_amount: int) -> void:
 	state_machine.change_state("HurtState")
 
-
-
 func _on_player_input_component_attack() -> void:
 	state_machine.change_state("AttackState1")
-
 
 func _on_movement_component_moving(status: bool) -> void:
 	if status:

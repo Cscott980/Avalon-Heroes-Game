@@ -1,4 +1,4 @@
-class_name CharacterSheetandInventory extends Control
+class_name EquipmentandInventory extends Control
 
 signal current_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_index: int, hand: StringName)
 
@@ -7,8 +7,6 @@ signal current_equipment(slot_res: EquipmentSlotResource, item: ItemResource, su
 @onready var inventorybox: GridContainer = %Inventory/GridContainer
 @onready var character_sheet_character: CharacterSheetDisplay = %CharacterSheetCharacter
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
-
-
 
 #------ Stats Value ----- 
 @onready var level_display: Label = %LevelDisplay
@@ -21,41 +19,40 @@ signal current_equipment(slot_res: EquipmentSlotResource, item: ItemResource, su
 @onready var health_val: Label = %HealthVal
 
 #-------------------------
-
-
 @export var corner_size: int = 80
 @export var inv : InventoryResource
-@export var equipment: PlayerEquipmentResource
 
-
-#TODO: Move these to SoundBus
+var equipment: PlayerEquipmentResource
 var pick_up_sound := preload("uid://c5lxkt43uv5h0")
 var drop_sound := preload("uid://4r21t47kiawv")
 var open_inventory_sound := preload("uid://72d01r063eta")
 
 var inventory_slot: InventorySlot
 
+var vs_data: Dictionary
 var dragging: bool = false
 var drag_offset := Vector2.ZERO
 var player: Player = null
 var is_open: bool = false
-var equipment_equiped: Array
+var equipment_equiped: Array = []
+
 
 func _ready() -> void:
+	await  get_tree().process_frame
 	is_open = false
 	visible = false
-	player = get_tree().get_first_node_in_group("player") as Player
-	
-	equipment_equiped = [
-		equipment.helm,
-		equipment.armor,
-		equipment.back,
-		equipment.main_hand,
-		equipment.off_hand,
-		equipment.accessory1,
-		equipment.accessory2,
-		equipment.accessory3
-	]
+	equipment = vs_data.get("equipment", null)
+	if equipment:
+		equipment_equiped = [
+			equipment.helm,
+			equipment.armor,
+			equipment.back,
+			equipment.main_hand,
+			equipment.off_hand,
+			equipment.accessory1,
+			equipment.accessory2,
+			equipment.accessory3
+		]
 	
 	_connect_equipment_slots()
 

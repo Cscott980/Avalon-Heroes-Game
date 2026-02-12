@@ -4,8 +4,8 @@ class_name HealthComponent extends Node
 signal dead(owner: Node)
 signal hurt
 signal revived(owner: Node)
+signal current_health(amount: int)
 
-@export var user: CharacterBody3D = null
 @export var out_health_bar: ProgressBar
 @export var max_health: int = 100
 @export var hp_per_vit: int = 5
@@ -15,18 +15,11 @@ var vitality: int = 10
 var is_dead: bool = false
 
 func _ready() -> void:
-	if not is_instance_valid(owner):
-		return
-	if is_dead:
-		return
-	if not out_health_bar:
-		push_warning("HealthComponent: Missing health bar export.")
-		return
-	health = max_health
-	
+	await  get_tree().process_frame
+	print(str(health))
 func _on_player_healed(amount_percetage: float) -> void:
 	health += int(max_health * amount_percetage)
-	GameSignals.emit_signal("current_health", user.multiplayer_id, health)
+	current_health.emit(health)
 
 func on_revive(amount_percetage: float) -> void:
 	health += int(max_health * amount_percetage)
@@ -36,7 +29,7 @@ func take_damge(amount: int) -> void:
 	if is_dead:
 		return
 	health -= amount
-	GameSignals.emit_signal("current_health", user.multiplayer_id, health )
+	current_health.emit(health)
 	emit_signal("is_hurt", true)
 	
 	if health == 0:

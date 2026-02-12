@@ -1241,6 +1241,9 @@ text = "30"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1355813008]
+volume_db = -4.16
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=274961951]
 layout_mode = 1
 anchors_preset = 8
@@ -1349,6 +1352,3 @@ size_flags_horizontal = 3
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("28_lgmnu")
 text = "0"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1355813008]
-volume_db = -4.16

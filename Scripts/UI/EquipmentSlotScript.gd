@@ -17,10 +17,11 @@ signal equipment_changed(slot_res: EquipmentSlotResource, item: ItemResource, su
 
 @export var accessory_index: int = -1
 
-var base: CharacterSheetandInventory
+var base: EquipmentandInventory
 var item: ItemResource = null
 
 func _ready() -> void:
+	await  get_tree().process_frame
 	base = get_tree().get_first_node_in_group("playersheet")
 	_refresh()
 
@@ -146,7 +147,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 					off_hand_slot_ui.clear_item()
 
 	if data.get("from") == "inventory":
-		var inv_ui := get_tree().get_first_node_in_group("playersheet") as CharacterSheetandInventory
+		var inv_ui := get_tree().get_first_node_in_group("playersheet") as EquipmentandInventory
 		if inv_ui != null and inv_ui.inv != null:
 			var from_i: int = data.get("from_index", -1)
 			if from_i != -1:

@@ -1952,9 +1952,10 @@ script = ExtResource("100_81gu5")
 target = NodePath("..")
 metadata/_custom_type_script = "uid://mltur7xac0xi"
 
-[node name="HealthComponent" type="Node" parent="." unique_id=173475775 node_paths=PackedStringArray("out_health_bar")]
+[node name="HealthComponent" type="Node" parent="." unique_id=173475775 node_paths=PackedStringArray("user", "out_health_bar")]
 unique_name_in_owner = true
 script = ExtResource("106_7bej3")
+user = NodePath("..")
 out_health_bar = NodePath("../WorldVisualPlayerData/PlayerData/VBoxContainer/HBoxContainer/HealthBar")
 metadata/_custom_type_script = "uid://bdch6582i2bvt"
 
@@ -1963,9 +1964,10 @@ unique_name_in_owner = true
 script = ExtResource("107_8b85g")
 metadata/_custom_type_script = "uid://c5l5du3uioa4l"
 
-[node name="ResourcePoolComponent" type="Node" parent="." unique_id=1007622278]
+[node name="ResourcePoolComponent" type="Node" parent="." unique_id=1007622278 node_paths=PackedStringArray("user")]
 unique_name_in_owner = true
 script = ExtResource("111_yylel")
+user = NodePath("..")
 metadata/_custom_type_script = "uid://y4ls1anc10kw"
 
 [node name="ProgressionComponent" type="Node" parent="." unique_id=948234148 node_paths=PackedStringArray("player_ui", "out_level_display")]

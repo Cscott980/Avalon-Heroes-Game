@@ -4,10 +4,6 @@ class_name PlyaerAnimationComponent extends Node
 @export var anim_tree: AnimationTree
 @onready var playback: AnimationNodeStateMachinePlayback = (anim_tree.get("parameters/Movement/playback"))
 
-
-
-
-
 #--------- General -----------
 func play_idle_animation() -> void:
 	if playback:
