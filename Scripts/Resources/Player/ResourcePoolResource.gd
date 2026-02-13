@@ -20,7 +20,9 @@ enum ResourceType {
 @export var regen_delay: float = 0.0 #delay after spending
 
 @export_group("Properties")
-@export var gain_on_hit: bool = false
-@export var gain_on_kill: bool = false
-@export var gain_on_take_damage: bool = false
-@export var gain_out_of_combat: bool = false
+@export_flags(
+	"On Hit", 
+	"On Kill", 
+	"On Take Damage", 
+	"Out of Combat"
+	) var gain_conditions: int = 0

@@ -23,6 +23,7 @@ class_name Player extends CharacterBody3D
 func _ready() -> void:
 	if not is_instance_valid(hero_class):
 		return
+	hero_init()
 
 func hero_init() -> void: 
 	if not is_instance_valid(hero_class):
@@ -30,6 +31,7 @@ func hero_init() -> void:
 	stat_component.apply_stats(hero_class.hero_stats)
 	equipment_visuals.apply_defults(hero_class.class_defaults)
 	equipment_visuals.apply_starter_equipment(hero_class.starting_equipment)
+	health_component.apply_player_health_data(hero_class.max_health)
 	
 
 func _physics_process(delta: float) -> void:
@@ -47,3 +49,9 @@ func _on_movement_component_moving(status: bool) -> void:
 		state_machine.change_state("MoveState")
 	else:
 		state_machine.change_state("IdleState")
+
+func _on_combat_component_combo_window_open() -> void:
+	pass # Replace with function body.
+
+func _on_combat_component_attack_window_ended() -> void:
+	pass # Replace with function body.

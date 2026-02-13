@@ -33,3 +33,15 @@ func _ready() -> void:
 
 func add_xp(amount: int) ->void:
 	pass
+
+
+func _on_ability_1_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_ability_2_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_ability_3_pressed() -> void:
+	pass # Replace with function body.

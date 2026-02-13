@@ -328,3 +328,7 @@ unique_name_in_owner = true
 
 [node name="AbilityThreeCooldownTimer" type="Timer" parent="." unique_id=1311654977]
 unique_name_in_owner = true
+
+[connection signal="pressed" from="AbilityBar/HBoxContainer/Ability1" to="." method="_on_ability_1_pressed"]
+[connection signal="pressed" from="AbilityBar/HBoxContainer/Ability2" to="." method="_on_ability_2_pressed"]
+[connection signal="pressed" from="AbilityBar/HBoxContainer/Ability3" to="." method="_on_ability_3_pressed"]

@@ -8,6 +8,7 @@ signal new_exp_max_value(value: int)
 signal stat_choices(options: Array[Dictionary])
 
 @export var player_ui: MainUI
+@export var player_level: int = 1
 @export var out_level_display: Label
 #@export var exp_collector: DropCollectorComponent
 @export var level_up_choice: int = 3
@@ -18,6 +19,8 @@ var has_pending_choices: bool = false
 
 func _ready() -> void:
 	await  get_tree().process_frame
+	level.emit(player_level)
+	exp_collected.emit(xp_amount)
 
 func level_up(current_level: int) -> void:
 	var new_level = current_level + 1

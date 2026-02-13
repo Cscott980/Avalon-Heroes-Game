@@ -43,19 +43,19 @@ func _ready() -> void:
 	visible = false
 	_connect_equipment_slots()
 
-
 func play_pick_up_sound() -> void:
 	audio_stream_player.stream = pick_up_sound
 	audio_stream_player.play()
 
-func update_stat_display(stats: Dictionary, health: int) -> void:
-	strength_val.text = stats.get(StatConst.load_stats_ref(StatConst.STATS.STRENGTH), 0)
-	intellect_val.text = stats.get(StatConst.load_stats_ref(StatConst.STATS.INTELLECT), 0)
-	dexterity_val.text = stats.get(StatConst.load_stats_ref(StatConst.STATS.DEXTERITY), 0)
-	wisdom_val.text = stats.get(StatConst.load_stats_ref(StatConst.STATS.WISDOM), 0)
-	vitality_val.text = stats.get(StatConst.load_stats_ref(StatConst.STATS.VITALITY), 0)
-	
-	health_val.text = str(health)
+func update_stat_display(stats: Dictionary) -> void:
+	strength_val.text = str(stats.get(StatConst.STATS.STRENGTH, 0))
+	intellect_val.text = str(stats.get(StatConst.STATS.INTELLECT, 0))
+	dexterity_val.text = str(stats.get(StatConst.STATS.DEXTERITY, 0))
+	wisdom_val.text = str(stats.get(StatConst.STATS.WISDOM, 0))
+	vitality_val.text = str(stats.get(StatConst.STATS.VITALITY, 0))
+
+func apply_health_data(amount: int) -> void:
+	health_val.text = str(amount)
 
 func play_drop_sound() -> void:
 	audio_stream_player.stream = drop_sound

@@ -10,7 +10,7 @@ var primary_stat: int
 var player_stats: Dictionary = {}
 
 func _ready() -> void:
-	pass
+	await  get_tree().process_frame
 
 func apply_stats(data: StatResource) -> void:
 	stats = data
@@ -22,6 +22,7 @@ func apply_stats(data: StatResource) -> void:
 		StatConst.STATS.WISDOM: stats.wisdom,
 	}
 	primary_stat = stats.entity_main_stat
+	current_stats.emit(player_stats)
 
 func _on_progression_component_stat_selected(stat: int, amount: int) -> void:
 	player_stats[stat] += amount

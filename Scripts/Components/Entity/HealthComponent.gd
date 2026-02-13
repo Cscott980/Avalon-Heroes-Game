@@ -4,7 +4,7 @@ class_name HealthComponent extends Node
 signal dead(owner: Node)
 signal hurt
 signal revived(owner: Node)
-signal current_health(amount: int)
+signal current_health(amount: int, max_player_health: int)
 
 @export var out_health_bar: ProgressBar
 @export var max_health: int = 100
@@ -15,8 +15,15 @@ var vitality: int = 10
 var is_dead: bool = false
 
 func _ready() -> void:
-	await  get_tree().process_frame
-	print(str(health))
+	pass
+	
+func apply_player_health_data(amount: int) -> void:
+	max_health = amount
+	health = max_health
+	out_health_bar.max_value = max_health
+	out_health_bar.value = health
+	current_health.emit(health, max_health)
+
 func _on_player_healed(amount_percetage: float) -> void:
 	health += int(max_health * amount_percetage)
 	current_health.emit(health)

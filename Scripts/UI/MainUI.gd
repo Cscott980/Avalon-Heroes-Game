@@ -38,11 +38,12 @@ func _on_progression_component_stat_choices(options: Array[Dictionary]) -> void:
 
 
 func _on_progression_component_level(current_level: int) -> void:
-	pass
+	inventory_equipment.level_display.text = str(current_level)
+	ability_bar.level_ui_dis.text = str(current_level)
 
 
 func _on_progression_component_exp_collected(amount: int) -> void:
-	pass
+	ability_bar.experiance_bar.value = amount
 
 
 func _on_resource_pool_component_current_resource_amount(amount: int) -> void:
@@ -66,9 +67,6 @@ func _on_inventory_equipment_current_equipment(slot_res: EquipmentSlotResource, 
 		equip_visuals_comp.apply_equipment(slot_res, item, sub_index, hand)
 
 
-func _on_stat_component_current_stats(dic: Dictionary) -> void:
-	inventory_equipment.update_stat_display(dic, health_comp.max_health)
-
 
 func _on_quiz_display_component_questions_answered() -> void:
 	pass # Replace with function body.
@@ -83,3 +81,12 @@ func _on_player_input_component_charsheet_toggled() -> void:
 		inventory_equipment.close()
 	else:
 		inventory_equipment.open()
+
+
+func _on_stat_component_current_stats(dic: Dictionary) -> void:
+	inventory_equipment.update_stat_display(dic)
+
+func _on_health_component_current_health(amount: int, _max_player_health: int) -> void:
+	inventory_equipment.apply_health_data(amount)
+	ability_bar.player_health.value = amount
+	ability_bar.player_health.max_value = float(amount)

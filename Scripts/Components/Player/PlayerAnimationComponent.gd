@@ -90,3 +90,7 @@ func play_walking_shield_hit() -> void:
 func play_block_shatter() -> void:
 	if playback:
 		playback.travel("Block_Shatter")
+
+
+func _on_weapon_equip_component_is_dual_wielding(status: bool) -> void:
+	pass # Replace with function body.
