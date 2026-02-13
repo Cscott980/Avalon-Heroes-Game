@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ResourcePoolResource" format=3 uid="uid://dnv22rucx6258"]
+
+[ext_resource type="Script" uid="uid://emgwnj0rkamw" path="res://Scripts/Resources/Player/ResourcePoolResource.gd" id="1_rbp51"]
+[ext_resource type="StyleBox" uid="uid://bjfjl62blabpt" path="res://Styles/Resource/RageFill.tres" id="2_76t5q"]
+
+[resource]
+script = ExtResource("1_rbp51")
+resource_type = 1
+name = "Rage"
+style_bar = ExtResource("2_76t5q")
+regen_rate = 5.0
+regen_delay = 0.1
+gain_conditions = 5
+metadata/_custom_type_script = "uid://emgwnj0rkamw"

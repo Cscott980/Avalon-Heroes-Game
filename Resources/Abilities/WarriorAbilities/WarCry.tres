@@ -10,6 +10,7 @@ script = ExtResource("1_qid6i")
 display_name = "War Cry"
 active_icon = ExtResource("1_tctgf")
 pressed_icon = ExtResource("3_kpb80")
+scale_on_stat = 3
 status_effect = ExtResource("5_tctgf")
 duration = 10.0
 dist_meters = 10.0

@@ -11,7 +11,13 @@ var abilities_data: HeroClassAbilitiesResource
 
 var ability_1: Array[AbilityResource]
 var ability_2: Array[AbilityResource]
-var ability_3: Array[AbilityResource]
+var ultimate: Array[AbilityResource]
 
 func _ready() -> void:
 	pass
+
+func apply_ability_data(data: HeroClassAbilitiesResource) -> void:
+	abilities_data = data
+	ability_1 = abilities_data.ability_1
+	ability_2 = abilities_data.ability_2
+	ultimate = abilities_data.ultimate

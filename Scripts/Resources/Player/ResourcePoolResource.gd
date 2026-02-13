@@ -11,7 +11,7 @@ enum ResourceType {
 @export_group("Settings")
 @export var resource_type: ResourceType
 @export var name: String = "Mana"
-@export var color: Color = Color.DODGER_BLUE #UI Bar
+@export var style_bar: StyleBox = null
 
 @export_group("Values")
 @export var max_value: int = 100
@@ -20,6 +20,7 @@ enum ResourceType {
 @export var regen_delay: float = 0.0 #delay after spending
 
 @export_group("Properties")
+
 @export_flags(
 	"On Hit", 
 	"On Kill", 

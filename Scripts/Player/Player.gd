@@ -32,6 +32,7 @@ func hero_init() -> void:
 	equipment_visuals.apply_defults(hero_class.class_defaults)
 	equipment_visuals.apply_starter_equipment(hero_class.starting_equipment)
 	health_component.apply_player_health_data(hero_class.max_health)
+	ability_component.apply_ability_data(hero_class.hero_abilities)
 	
 
 func _physics_process(delta: float) -> void:

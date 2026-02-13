@@ -1,6 +1,5 @@
 [gd_resource type="Resource" script_class="HeroClassResource" format=3 uid="uid://bob2ix1bteewn"]
 
-[ext_resource type="Script" uid="uid://emgwnj0rkamw" path="res://Scripts/Resources/Player/ResourcePoolResource.gd" id="1_15p1l"]
 [ext_resource type="Script" uid="uid://bsj17hheibsfy" path="res://Scripts/Resources/Player/HeroClassResource.gd" id="1_nlh6m"]
 [ext_resource type="ArrayMesh" uid="uid://do1nwmqk61rdk" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Barbarian_Barbarian_ArmLeft.res" id="4_1bvxv"]
 [ext_resource type="ArrayMesh" uid="uid://du3jspdlsbi0j" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Barbarian_Barbarian_LegLeft.res" id="5_musjr"]
@@ -9,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://b2mg63s1f3ctj" path="res://Resources/Abilities/HeroAbilities/WarriorAbilities.tres" id="8_1bvxv"]
 [ext_resource type="Script" uid="uid://b87vhgfg22fil" path="res://Scripts/Resources/Player/HeroClassVisualDefultResource.gd" id="8_umk3e"]
 [ext_resource type="Resource" uid="uid://djooacegpapmv" path="res://Resources/HeroClassStats/WarriorBaseStats.tres" id="9_1bvxv"]
+[ext_resource type="Resource" uid="uid://dnv22rucx6258" path="res://Resources/ResourcePool/Rage.tres" id="9_7oanv"]
 [ext_resource type="Skin" uid="uid://krk1ouqog26y" path="res://Resources/MeshSkins/WarriorSkin.tres" id="9_a6ax0"]
 [ext_resource type="Resource" uid="uid://cty400b0x2awl" path="res://Resources/Armor/Heavy/heavy_armor_barbarian_bear_armor_common.tres" id="10_umk3e"]
 [ext_resource type="Resource" uid="uid://er0ka2ldae5f" path="res://Resources/Weapons/Axes/axe_avalonian_axe_common.tres" id="11_a6ax0"]
@@ -23,15 +23,6 @@ right_arm = ExtResource("6_it1mb")
 left_leg = ExtResource("5_musjr")
 right_leg = ExtResource("7_e0yli")
 metadata/_custom_type_script = "uid://b87vhgfg22fil"
-
-[sub_resource type="Resource" id="Resource_6nlpa"]
-script = ExtResource("1_15p1l")
-resource_type = 1
-name = "Rage"
-color = Color(0.734375, 0.17785645, 0.23655176, 1)
-gain_on_hit = true
-gain_on_take_damage = true
-metadata/_custom_type_script = "uid://emgwnj0rkamw"
 
 [sub_resource type="Resource" id="Resource_6u6sx"]
 script = ExtResource("12_vdy1k")
@@ -50,7 +41,7 @@ Role: Tank / Melee DPS"
 class_defaults = SubResource("Resource_vdy1k")
 max_health = 120
 hero_stats = ExtResource("9_1bvxv")
-resource_pool = SubResource("Resource_6nlpa")
+resource_pool = ExtResource("9_7oanv")
 hero_abilities = ExtResource("8_1bvxv")
 starting_equipment = SubResource("Resource_6u6sx")
 allowed_armor_types = 15

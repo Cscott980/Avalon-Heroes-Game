@@ -1853,12 +1853,13 @@ shape = SubResource("SphereShape3D_22q81")
 transform = Transform3D(1, 1.4210855e-14, -3.5527137e-15, 0, 1, 0, 0, 0, 1, 1.5315607e-07, 1.5054884, -1.1296959)
 script = ExtResource("111_ddxso")
 
-[node name="PlayerUI" parent="." unique_id=714406961 node_paths=PackedStringArray("stat_comp", "ability_comp", "health_comp", "equip_visuals_comp") instance=ExtResource("4_74mp2")]
+[node name="PlayerUI" parent="." unique_id=714406961 node_paths=PackedStringArray("stat_comp", "ability_comp", "health_comp", "equip_visuals_comp", "resource_comp") instance=ExtResource("4_74mp2")]
 unique_name_in_owner = true
 stat_comp = NodePath("../StatComponent")
 ability_comp = NodePath("../AbilityComponent")
 health_comp = NodePath("../HealthComponent")
 equip_visuals_comp = NodePath("../Model/Rig_Medium")
+resource_comp = NodePath("../ResourcePoolComponent")
 
 [node name="WorldVisualPlayerData" type="Sprite3D" parent="." unique_id=319263515]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056162834, 2.9541044, 0)

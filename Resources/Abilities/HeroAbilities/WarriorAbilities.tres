@@ -10,5 +10,5 @@
 script = ExtResource("2_kqqlr")
 ability_1 = Array[ExtResource("1_fnt6f")]([ExtResource("2_k5mj2")])
 ability_2 = Array[ExtResource("1_fnt6f")]([ExtResource("3_ii1dc")])
-ability_3 = Array[ExtResource("1_fnt6f")]([ExtResource("4_khoyr")])
+ultimate = Array[ExtResource("1_fnt6f")]([ExtResource("4_khoyr")])
 metadata/_custom_type_script = "uid://crxshimb3uphv"

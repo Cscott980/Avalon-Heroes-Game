@@ -5,12 +5,7 @@ enum AbilityType {
 	PASSIVE,
 	ULTIMATE
 }
-enum ScaleOn{
-	STRENGTH,
-	INTELLECT,
-	DEXTERITY,
-	WISDOM
-}
+
 
 @export_group("Info")
 @export var display_name: String = ""
@@ -26,7 +21,7 @@ enum ScaleOn{
 @export_group("Properties")
 @export var level_to_unlock: int = 10
 @export var base_damage: int
-@export var scale_on_stat: ScaleOn
+@export var scale_on_stat: StatConst.STATS
 @export var status_effect: StatusEffectsResource
 @export var duration:float
 @export var dist_meters: float

@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://m4bf0em28x6e" path="res://Scripts/States/Enemy/EnemyIdleState.gd" id="13_rblcv"]
 [ext_resource type="Script" uid="uid://drv5baf7stthb" path="res://Scripts/States/Enemy/EnemyReviveState.gd" id="14_o5540"]
 [ext_resource type="Script" uid="uid://cu61533nfc245" path="res://Scripts/States/Enemy/EnemySpawnState.gd" id="15_j5l5s"]
-[ext_resource type="StyleBox" uid="uid://b48ll3i4j2q8c" path="res://Styles/EnemyHealthBarBackGround.tres" id="16_woysm"]
+[ext_resource type="StyleBox" uid="uid://b48ll3i4j2q8c" path="res://Styles/Bars/EnemyHealthBarBackGround.tres" id="16_woysm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eg3uj"]
 height = 2.2319336

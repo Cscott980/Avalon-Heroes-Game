@@ -8,6 +8,7 @@ class_name MainUI extends CanvasLayer
 @export var ability_comp: AbilityComponent
 @export var health_comp: HealthComponent
 @export var equip_visuals_comp: EquipmentVisualComponent
+@export var resource_comp: ResourcePoolComponent
 
 var defults: HeroClassVisualDefaultResource
 var equipment: PlayerEquipmentResource

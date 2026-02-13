@@ -4,10 +4,9 @@
 
 [resource]
 script = ExtResource("1_qgcfo")
+resource_type = 2
 name = "Energy"
 color = Color(1, 0.9814682, 0.32226563, 1)
 start_value = 100
-gain_on_hit = true
-gain_on_kill = true
-gain_out_of_combat = true
+gain_conditions = 1
 metadata/_custom_type_script = "uid://emgwnj0rkamw"
