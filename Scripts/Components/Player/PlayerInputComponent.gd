@@ -16,7 +16,7 @@ var is_sheathed: bool
 func _ready() -> void:
 	is_sheathed = false
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var x := Input.get_action_strength("right") - Input.get_action_strength("left")
 	var z := Input.get_action_strength("down") - Input.get_action_strength("up")
 	

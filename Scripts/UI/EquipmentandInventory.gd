@@ -19,7 +19,7 @@ signal current_equipment(slot_res: EquipmentSlotResource, item: ItemResource, su
 @onready var health_val: Label = %HealthVal
 
 #-------------------------
-@export var corner_size: int = 80
+@export var corner_size: int = 30
 @export var inv : InventoryResource
 
 var equipment: PlayerEquipmentResource
@@ -35,10 +35,10 @@ var drag_offset := Vector2.ZERO
 var player: Player = null
 var is_open: bool = false
 var equipment_equiped: Array = []
-
+var player_defults: HeroClassVisualDefaultResource
 
 func _ready() -> void:
-	await  get_tree().process_frame
+	await get_tree().process_frame
 	is_open = false
 	visible = false
 	_connect_equipment_slots()
@@ -46,6 +46,9 @@ func _ready() -> void:
 func play_pick_up_sound() -> void:
 	audio_stream_player.stream = pick_up_sound
 	audio_stream_player.play()
+
+func apply_player_defults_data(defults: HeroClassVisualDefaultResource) -> void:
+	player_defults = defults
 
 func update_stat_display(stats: Dictionary) -> void:
 	strength_val.text = str(stats.get(StatConst.STATS.STRENGTH, 0))

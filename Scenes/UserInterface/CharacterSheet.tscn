@@ -283,10 +283,9 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032718182, 1.2633109, 2.4992468)
 current = true
 
-[node name="CharacterSheetCharacter" type="Node3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport" unique_id=499951774 node_paths=PackedStringArray("data")]
+[node name="CharacterSheetCharacter" type="Node3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport" unique_id=499951774]
 unique_name_in_owner = true
 script = ExtResource("7_tkgd0")
-data = NodePath("../../../../../../..")
 
 [node name="Rig_Medium" type="Node3D" parent="HBoxContainer/Main/Armor and Desiplay/CharacterPreview/SubViewPortContainter/SubViewport/CharacterSheetCharacter" unique_id=131321592]
 

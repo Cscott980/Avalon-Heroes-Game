@@ -29,12 +29,10 @@ func hero_init() -> void:
 	if not is_instance_valid(hero_class):
 		return
 	stat_component.apply_stats(hero_class.hero_stats)
-	equipment_visuals.apply_defults(hero_class.class_defaults)
-	equipment_visuals.apply_starter_equipment(hero_class.starting_equipment)
+	equipment_visuals.apply_starter_equipment(hero_class.class_defaults,hero_class.starting_equipment)
 	health_component.apply_player_health_data(hero_class.max_health)
 	ability_component.apply_ability_data(hero_class.hero_abilities)
 	
-
 func _physics_process(delta: float) -> void:
 	if state_machine.current_state:
 		state_machine.current_state.physics_process(delta)

@@ -3,9 +3,10 @@ class_name EquipmentVisualComponent extends Node
 
 signal weapon_sheathed
 signal weapon_unsheathed
-signal player_head_for_sheat(mesh: Mesh)
+signal player_head_for_sheat(mesh: Mesh, skin: Skin)
 
 @export var player_ui: MainUI
+@export var weapon_equip_comp: WeaponEquipComponent
 
 @export_group("Components")
 @export var main_hand_weapon: WeaponComponent
@@ -40,10 +41,12 @@ var is_sheathed: bool
 var visual_data: Dictionary = {}
 
 func _ready() -> void:
-	player_head_for_sheat.emit(head.mesh)
+	await get_tree().process_frame
+	player_head_for_sheat.emit(head.mesh, head.skin)
 
-func apply_starter_equipment(equipment: PlayerEquipmentResource) -> void:
+func apply_starter_equipment(defults: HeroClassVisualDefaultResource, equipment:PlayerEquipmentResource) -> void:
 	player_equipment = equipment
+	class_defults = defults
 
 func apply_defults(defults: HeroClassVisualDefaultResource) ->void:
 	class_defults = defults
@@ -134,6 +137,7 @@ func apply_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_in
 			helm.skin = a.skin if a != null else null
 			helm_addon.mesh = a.helm_addon if a != null else null
 			helm_addon.skin = a.skin if a != null else null
+			
 		EquipmentSlotResource.SlotType.Armor:
 			var a := item as ArmorResource
 			armor_visual_updater(a)
@@ -170,6 +174,9 @@ func apply_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_in
 				if w != null and w.handedness == WeaponResource.HANDEDNESS.TWO_HANDED:
 					off_hand_weapon.clear_weapon()
 				main_hand_weapon.load_weapon(w)
+				
+			weapon_equip_comp.update_dual_wielding_state()
+			
 
 func _on_player_input_component_sheath_weapon(sheath: bool) -> void:
 	if sheath:

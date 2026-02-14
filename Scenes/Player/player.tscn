@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dmqo550jk2hkw" path="res://Scenes/UserInterface/MainUI.tscn" id="4_74mp2"]
 [ext_resource type="PackedScene" uid="uid://dfv5odlic646l" path="res://Scenes/Weapons/OffHandMeleeWeapon.tscn" id="4_ldt7q"]
 [ext_resource type="Script" uid="uid://bfq00nxcoephg" path="res://Scripts/States/Player/IdleState.gd" id="4_mtuoh"]
+[ext_resource type="ArrayMesh" uid="uid://2mh852i3ocjg" path="res://Assets/Characters/Character Hero Meshes/Heads/Male_Head_9.res" id="4_u23kb"]
+[ext_resource type="Skin" uid="uid://krk1ouqog26y" path="res://Resources/MeshSkins/WarriorSkin.tres" id="5_8filg"]
 [ext_resource type="Script" uid="uid://b6dx8gnr0qa16" path="res://Scripts/States/Player/MoveState.gd" id="5_htcer"]
 [ext_resource type="Animation" uid="uid://bnimkpt656j8j" path="res://Assets/Animations/Rig_Mid_Animations/Death_A.res" id="5_ldt7q"]
 [ext_resource type="Animation" uid="uid://cygmg61je73t3" path="res://Assets/Animations/Rig_Mid_Animations/Death_A_Pose.res" id="6_7bej3"]
@@ -1439,9 +1441,10 @@ unique_name_in_owner = true
 
 [node name="Rig_Medium" type="Node3D" parent="Model" unique_id=849327112]
 
-[node name="EquipmentVisualComponent" type="Node" parent="Model/Rig_Medium" unique_id=542579935 node_paths=PackedStringArray("main_hand_weapon", "off_hand_weapon", "shield", "main_hand_slot", "off_hand_slot", "sheath_back", "sheath_hip_right", "sheath_hip_left", "arm_left", "arm_right", "helm", "helm_addon", "armor", "back", "head", "leg_left", "leg_right", "accessory_1", "accessory_2", "accessory_3")]
+[node name="EquipmentVisualComponent" type="Node" parent="Model/Rig_Medium" unique_id=542579935 node_paths=PackedStringArray("player_ui", "main_hand_weapon", "off_hand_weapon", "shield", "main_hand_slot", "off_hand_slot", "sheath_back", "sheath_hip_right", "sheath_hip_left", "arm_left", "arm_right", "helm", "helm_addon", "armor", "back", "head", "leg_left", "leg_right", "accessory_1", "accessory_2", "accessory_3")]
 unique_name_in_owner = true
 script = ExtResource("3_ujqdw")
+player_ui = NodePath("../../../PlayerUI")
 main_hand_weapon = NodePath("../Skeleton3D/MainHand/MainHandWeapon")
 off_hand_weapon = NodePath("../Skeleton3D/OffHand/OffHandWeapon")
 shield = NodePath("../Skeleton3D/OffHand/ShieldComponent")
@@ -1642,6 +1645,8 @@ skin = SubResource("Skin_t53un")
 [node name="back" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=2082129891]
 
 [node name="head" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=36897347]
+mesh = ExtResource("4_u23kb")
+skin = ExtResource("5_8filg")
 
 [node name="leg_left" type="MeshInstance3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1491649248]
 
@@ -1862,7 +1867,7 @@ equip_visuals_comp = NodePath("../Model/Rig_Medium")
 resource_comp = NodePath("../ResourcePoolComponent")
 
 [node name="WorldVisualPlayerData" type="Sprite3D" parent="." unique_id=319263515]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.056162834, 2.9541044, 0)
+transform = Transform3D(1.92, 0, 0, 0, 1.92, 0, 0, 0, 1.92, 0.056, 3.749, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_ujqdw")
 
@@ -1993,6 +1998,7 @@ one_shot = true
 [node name="SoundEffects" type="AudioStreamPlayer" parent="." unique_id=190394363]
 volume_db = -8.667
 
+[connection signal="player_head_for_sheat" from="Model/Rig_Medium/EquipmentVisualComponent" to="PlayerUI" method="_on_equipment_visual_component_player_head_for_sheat"]
 [connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="CombatComponent" method="_on_main_hand_weapon_weapon_data"]
 [connection signal="weapon_hit" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="CombatComponent" method="_on_main_hand_weapon_weapon_hit"]
 [connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/OffHand/OffHandWeapon" to="CombatComponent" method="_on_off_hand_weapon_weapon_data"]

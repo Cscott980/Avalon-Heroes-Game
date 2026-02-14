@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Avalon Heroes Alpha"
-run/main_scene="uid://c5agwhvgqoogf"
+run/main_scene="uid://rdk300vjyqav"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0.19140625, 0.6588745, 1, 1)
 boot_splash/image="uid://50sg5etxtio2"

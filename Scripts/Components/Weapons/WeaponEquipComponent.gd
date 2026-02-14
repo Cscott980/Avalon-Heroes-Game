@@ -8,6 +8,9 @@ signal is_dual_wielding(status: bool)
 @export var range_weapon: RangeWeaponComponent
 @export var shield: ShieldComponent
 
+func _ready() -> void:
+	weapon_is_sheathed.emit(false)
+
 func update_dual_wielding_state() -> void:
 	
 	var mh := main_hand_weapon.WEAPON_TYPE

@@ -21,10 +21,12 @@ func _ready() -> void:
 	await  get_tree().process_frame
 	level.emit(player_level)
 	exp_collected.emit(xp_amount)
+	out_level_display.text = str(player_level)
 
 func level_up(current_level: int) -> void:
 	var new_level = current_level + 1
 	out_level_display.text = str(new_level)
+	
 	var result: Dictionary = {}
 	if not has_pending_choices:
 		level.emit(new_level)

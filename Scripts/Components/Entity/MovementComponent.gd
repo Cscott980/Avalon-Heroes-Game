@@ -15,6 +15,7 @@ var can_move: bool
 
 func _ready() -> void:
 	input_vec = Vector3.ZERO
+	can_move = true
 
 func _physics_process(delta: float) -> void:
 	if not can_move:
@@ -29,7 +30,6 @@ func _physics_process(delta: float) -> void:
 	
 	face_direction(dir,delta)
 	user.move_and_slide()
-	is_moving()
 
 func face_direction(dir: Vector3, delta: float) -> void: 
 	if dir == Vector3.ZERO:
@@ -57,5 +57,5 @@ func _on_player_input_component_move_intent_changed(intent: Vector3) -> void:
 func _on_health_component_dead(_owner: Node) -> void:
 	can_move = false
 
-func _on_health_component_revived(owner: Node) -> void:
+func _on_health_component_revived(_owner: Node) -> void:
 	can_move = true

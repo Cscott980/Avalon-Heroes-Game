@@ -18,14 +18,10 @@ class_name CharacterSheetDisplay extends Node3D
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var anim_state: AnimationNodeStateMachinePlayback = (animation_tree.get("parameters/IdleStates/playback"))
 
-@export var data: EquipmentandInventory
 var vs_defults: HeroClassVisualDefaultResource
-var armor_visulas_list: Array[MeshInstance3D] 
-var weapons_visuals_list: Array[MeshInstance3D]
 
 func _ready() -> void:
 	await  get_tree().process_frame
-	vs_defults = data.vs_data.get("defults")
 	anim_state.travel("Idle")
 
 	if head != null:
@@ -38,6 +34,7 @@ func _ready() -> void:
 
 func armor_visual_updater(a: ArmorResource) -> void:
 	if a == null:
+		#Apply Defult visuals if nothing is equiped.
 		armor.mesh = vs_defults.armor
 		arm_left.mesh = vs_defults.left_arm
 		arm_right.mesh = vs_defults.right_arm
