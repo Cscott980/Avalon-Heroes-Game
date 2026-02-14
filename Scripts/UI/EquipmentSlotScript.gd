@@ -18,7 +18,7 @@ signal equipment_changed(slot_res: EquipmentSlotResource, item: ItemResource, su
 @export var accessory_index: int = -1
 
 var base: EquipmentandInventory
-var item: ItemResource = null
+var item: ItemResource
 
 func _ready() -> void:
 	await  get_tree().process_frame

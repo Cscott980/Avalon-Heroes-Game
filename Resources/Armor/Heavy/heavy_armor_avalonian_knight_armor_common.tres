@@ -15,11 +15,11 @@
 script = ExtResource("1_1fbar")
 armor_slot_type = ExtResource("1_eaqua")
 armor_type = 2
-mesh_arm_left = ExtResource("3_h37km")
-mesh_arm_right = ExtResource("4_cjrg2")
-mesh_armor = ExtResource("5_32i1j")
-mesh_leg_left = ExtResource("6_htl5l")
-mesh_leg_right = ExtResource("7_3385m")
+arm_left = ExtResource("3_h37km")
+arm_right = ExtResource("4_cjrg2")
+armor = ExtResource("5_32i1j")
+leg_left = ExtResource("6_htl5l")
+leg_right = ExtResource("7_3385m")
 skin = ExtResource("9_qggvh")
 allowed_classes = 3
 name = "Avalonian Knight Armor"

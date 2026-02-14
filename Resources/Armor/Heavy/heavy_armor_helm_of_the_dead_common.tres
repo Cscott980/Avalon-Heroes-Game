@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bccu0u1b1jjyl" path="res://Scripts/Resources/Items/ArmorResource.gd" id="1_mnca8"]
 [ext_resource type="Resource" uid="uid://cmy6g7nguvjj5" path="res://Resources/CharacterSheet/HelmSlot.tres" id="1_muadn"]
-[ext_resource type="ArrayMesh" uid="uid://brrsgnm555mgk" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/Helm_Of_The_Dead.res" id="2_fphdg"]
 [ext_resource type="StyleBox" uid="uid://byvl1non8ldy2" path="res://Resources/ItemPanels/UncommonPanel.tres" id="2_kbhhr"]
 [ext_resource type="Script" uid="uid://dmfryqfoa5wve" path="res://Scripts/Resources/General/StatBonusResource.gd" id="5_kbhhr"]
 
@@ -16,7 +15,6 @@ metadata/_custom_type_script = "uid://dmfryqfoa5wve"
 script = ExtResource("1_mnca8")
 armor_slot_type = ExtResource("1_muadn")
 armor_type = 2
-mesh_helm = ExtResource("2_fphdg")
 stat_bonus = SubResource("Resource_ix6im")
 name = "Helm Of The Dead"
 id = "heavy_armor_helm_of_the_dead_common"

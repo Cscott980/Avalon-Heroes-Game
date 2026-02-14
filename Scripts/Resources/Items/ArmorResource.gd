@@ -6,21 +6,21 @@ enum ArmorType {Light, Medium, Heavy, Shield}
 @export var armor_exclusive_to: String #This is only for ItemPanel
 
 @export_group("Accessory Mesh")
-@export var mesh_accessory: Mesh
+@export var accessory: Mesh
 
 @export_group("Back Mesh")
-@export var mesh_back: Mesh
+@export var back: Mesh
 
 @export_group("Helm Mesh")
-@export var mesh_helm: Mesh
-@export var mesh_helm_addon: Mesh
+@export var helm: Mesh
+@export var helm_addon: Mesh
 
 @export_group("Armor Mesh Set")
-@export var mesh_arm_left: Mesh
-@export var mesh_arm_right: Mesh
-@export var mesh_armor: Mesh
-@export var mesh_leg_left: Mesh
-@export var mesh_leg_right: Mesh
+@export var arm_left: Mesh
+@export var arm_right: Mesh
+@export var armor: Mesh
+@export var leg_left: Mesh
+@export var leg_right: Mesh
 
 @export_group("Shield")
 @export var shield: Mesh

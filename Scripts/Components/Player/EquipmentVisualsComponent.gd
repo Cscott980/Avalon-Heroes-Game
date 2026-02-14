@@ -174,9 +174,6 @@ func apply_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_in
 				if w != null and w.handedness == WeaponResource.HANDEDNESS.TWO_HANDED:
 					off_hand_weapon.clear_weapon()
 				main_hand_weapon.load_weapon(w)
-				
-			weapon_equip_comp.update_dual_wielding_state()
-			
 
 func _on_player_input_component_sheath_weapon(sheath: bool) -> void:
 	if sheath:

@@ -1,8 +1,9 @@
 @icon("uid://mobiykq2mgwg")
-class_name PlyaerAnimationComponent extends Node
+class_name PlayerAnimationComponent extends Node
 
-@export var anim_tree: AnimationTree
-@onready var playback: AnimationNodeStateMachinePlayback = (anim_tree.get("parameters/Movement/playback"))
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var anim_tree: AnimationTree = %AnimationTree
+@onready var playback: AnimationNodeStateMachinePlayback = anim_tree.get("parameters/Movement/playback")
 
 #--------- General -----------
 func play_idle_animation() -> void:

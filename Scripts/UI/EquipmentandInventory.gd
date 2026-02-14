@@ -21,8 +21,8 @@ signal current_equipment(slot_res: EquipmentSlotResource, item: ItemResource, su
 #-------------------------
 @export var corner_size: int = 30
 @export var inv : InventoryResource
+@export var equipment: PlayerEquipmentResource
 
-var equipment: PlayerEquipmentResource
 var pick_up_sound := preload("uid://c5lxkt43uv5h0")
 var drop_sound := preload("uid://4r21t47kiawv")
 var open_inventory_sound := preload("uid://72d01r063eta")

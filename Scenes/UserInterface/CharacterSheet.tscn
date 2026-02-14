@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://x5hf3om51ne1" path="res://Scripts/UI/EquipmentandInventory.gd" id="1_ldpf6"]
 [ext_resource type="Texture2D" uid="uid://bbddt36loswn6" path="res://Assets/GUI/UI/Icons/EmptySlots/HelmSlot.png" id="2_4n6dp"]
 [ext_resource type="Resource" uid="uid://be2r8y3pbompl" path="res://Resources/Inventory/Player/PlayersInventory.tres" id="2_tkgd0"]
+[ext_resource type="Script" uid="uid://cu1r70sfgkndx" path="res://Scripts/Resources/Player/PlayerEquipmentResource.gd" id="3_gwtsw"]
 [ext_resource type="Texture2D" uid="uid://cx4jxtcsdn8pj" path="res://Assets/GUI/UI/Icons/EmptySlots/ArmorSlot.png" id="3_ldpf6"]
 [ext_resource type="Texture2D" uid="uid://dwlmxbxpgil5f" path="res://Assets/GUI/UI/Icons/EmptySlots/BackSlot.png" id="4_rxrur"]
 [ext_resource type="Texture2D" uid="uid://byn7bqqt53gb4" path="res://Assets/GUI/UI/Icons/EmptySlots/AccessorySlot.png" id="5_od6gi"]
@@ -24,6 +25,10 @@
 [ext_resource type="Animation" uid="uid://wyd6bbv82od5" path="res://Assets/Animations/Rig_Mid_Animations/Idle_A.res" id="21_464jw"]
 [ext_resource type="Texture2D" uid="uid://clqome72lrsce" path="res://Assets/GUI/Charactersheetboarder front2.png" id="27_5oqxr"]
 [ext_resource type="FontFile" uid="uid://bpj43a3io706v" path="res://Assets/Fonts/gomarice_no_continue.ttf" id="28_lgmnu"]
+
+[sub_resource type="Resource" id="Resource_tcolc"]
+script = ExtResource("3_gwtsw")
+metadata/_custom_type_script = "uid://cu1r70sfgkndx"
 
 [sub_resource type="Skin" id="Skin_ls7sj"]
 resource_name = "Skin"
@@ -147,6 +152,7 @@ offset_bottom = -659.84
 script = ExtResource("1_ldpf6")
 corner_size = 100
 inv = ExtResource("2_tkgd0")
+equipment = SubResource("Resource_tcolc")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1264212566]
 layout_mode = 1

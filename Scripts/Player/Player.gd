@@ -12,6 +12,7 @@ class_name Player extends CharacterBody3D
 @onready var resource_pool_component: ResourcePoolComponent = %ResourcePoolComponent
 @onready var progression_component: ProgressionComponent = %ProgressionComponent
 @onready var player_input_component: PlayerInputComponent = %PlayerInputComponent
+@onready var player_animation_component: PlayerAnimationComponent = %PlayerAnimationComponent
 
 
 #@export var player_data: PlayerData
@@ -19,6 +20,8 @@ class_name Player extends CharacterBody3D
 
 @export var player_id: int = 1
 @export var multiplayer_id: int = 0
+
+var combo_open: bool = false
 
 func _ready() -> void:
 	if not is_instance_valid(hero_class):
@@ -50,7 +53,7 @@ func _on_movement_component_moving(status: bool) -> void:
 		state_machine.change_state("IdleState")
 
 func _on_combat_component_combo_window_open() -> void:
-	pass # Replace with function body.
+	combo_open = true
 
 func _on_combat_component_attack_window_ended() -> void:
 	pass # Replace with function body.

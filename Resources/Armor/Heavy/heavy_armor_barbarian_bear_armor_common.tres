@@ -15,11 +15,11 @@
 script = ExtResource("1_unwup")
 armor_slot_type = ExtResource("1_ctinx")
 armor_type = 2
-mesh_arm_left = ExtResource("3_lyibb")
-mesh_arm_right = ExtResource("4_fjpfw")
-mesh_armor = ExtResource("5_cxtwl")
-mesh_leg_left = ExtResource("6_d8yt2")
-mesh_leg_right = ExtResource("7_kaeds")
+arm_left = ExtResource("3_lyibb")
+arm_right = ExtResource("4_fjpfw")
+armor = ExtResource("5_cxtwl")
+leg_left = ExtResource("6_d8yt2")
+leg_right = ExtResource("7_kaeds")
 skin = ExtResource("9_fjpfw")
 allowed_classes = 3
 name = "Barbarian Bear Armor"

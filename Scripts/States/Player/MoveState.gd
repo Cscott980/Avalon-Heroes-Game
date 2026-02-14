@@ -1,10 +1,10 @@
 extends PlayerState
 
 func enter() -> void:
-	pass
+	playback.play_run_animation()
+
 func exit() -> void:
 	pass
-func physics_process(delta: float) -> void:
-	state_machine.playback.play_run_animation()
-func handle_input(event: InputEvent) -> void:
+
+func physics_process(_delta: float) -> void:
 	pass

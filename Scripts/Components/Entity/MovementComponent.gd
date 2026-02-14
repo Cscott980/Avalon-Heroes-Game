@@ -21,15 +21,17 @@ func _physics_process(delta: float) -> void:
 	if not can_move:
 		return 
 
-	var dir = input_vec
-	var speed = move_speed
-
-	user.velocity.x = -dir.x * speed
-	user.velocity.z = -dir.z * speed
-	user.velocity.y -= world_gravity * delta
+	user.velocity.x = -input_vec.x * move_speed
+	user.velocity.z = -input_vec.z * move_speed
 	
-	face_direction(dir,delta)
+	if not user.is_on_floor():
+		user.velocity.y -= world_gravity * delta
+	else:
+		user.velocity.y = 0
+	
+	face_direction(input_vec, delta)
 	user.move_and_slide()
+	is_moving()
 
 func face_direction(dir: Vector3, delta: float) -> void: 
 	if dir == Vector3.ZERO:
@@ -51,11 +53,11 @@ func is_moving() -> void:
 	else:
 		moving.emit(false)
 
-func _on_player_input_component_move_intent_changed(intent: Vector3) -> void:
-	input_vec = intent
-
 func _on_health_component_dead(_owner: Node) -> void:
 	can_move = false
 
 func _on_health_component_revived(_owner: Node) -> void:
 	can_move = true
+
+func _on_player_input_component_move_intent_changed(intent: Vector3) -> void:
+	input_vec = intent

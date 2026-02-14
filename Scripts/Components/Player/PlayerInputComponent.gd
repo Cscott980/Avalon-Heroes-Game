@@ -17,8 +17,8 @@ func _ready() -> void:
 	is_sheathed = false
 
 func _physics_process(_delta: float) -> void:
-	var x := Input.get_action_strength("right") - Input.get_action_strength("left")
-	var z := Input.get_action_strength("down") - Input.get_action_strength("up")
+	var x: float = Input.get_action_strength("right") - Input.get_action_strength("left")
+	var z: float = Input.get_action_strength("down") - Input.get_action_strength("up")
 	
 	move_intent = Vector3(x, 0.0, z)
 	
@@ -49,5 +49,3 @@ func _input(event: InputEvent) -> void:
 		block_started.emit()
 	elif event.is_action_released("block"):
 		block_ended.emit()
-	
-	

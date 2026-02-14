@@ -3,7 +3,7 @@ class_name PlayerStateMachine extends Node
 
 var current_state: PlayerState
 var _states: Dictionary = {}
-@export var playback: PlyaerAnimationComponent
+
 @export var initial_state_path: NodePath
 
 func _ready() -> void:	

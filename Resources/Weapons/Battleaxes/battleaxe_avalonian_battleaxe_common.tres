@@ -2,6 +2,7 @@
 
 [ext_resource type="Shape3D" uid="uid://csh0mb4gx6t2k" path="res://Assets/CollissionShape/Avalonian_Battleaxe_Collision_Shape.tres" id="1_0gux8"]
 [ext_resource type="Texture2D" uid="uid://dg7r1xkpw8kgj" path="res://Assets/Icons/Weapons/Battleaxes/Avalonian Battleaxe Common.png" id="2_f122p"]
+[ext_resource type="StyleBox" uid="uid://camjb08wlgn4d" path="res://Styles/ItemBox/Common_Boarder.tres" id="3_f122p"]
 [ext_resource type="ArrayMesh" uid="uid://calgv4o8mab1h" path="res://Assets/WeaponMeshes/Battleaxes/Avalonian_Battleaxe_Mesh.res" id="3_oei2y"]
 [ext_resource type="Script" uid="uid://c50kbrwa28ffs" path="res://Scripts/Resources/Items/WeaponResource.gd" id="4_ekhv6"]
 
@@ -23,4 +24,5 @@ id = "battleaxe_avalonian_battleaxe_common"
 description = "A brutal axe forged for close combat. Favoured by Avalonian warriors who value strength over finesse."
 icon = ExtResource("2_f122p")
 rarity = "Common"
+item_panel = ExtResource("3_f122p")
 metadata/_custom_type_script = "uid://c50kbrwa28ffs"

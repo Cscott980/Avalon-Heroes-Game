@@ -12,8 +12,8 @@
 script = ExtResource("1_nvw50")
 armor_slot_type = ExtResource("1_j8sw0")
 armor_type = 2
-mesh_helm = ExtResource("3_hwavl")
-mesh_helm_addon = ExtResource("4_u5ntn")
+helm = ExtResource("3_hwavl")
+helm_addon = ExtResource("4_u5ntn")
 skin = ExtResource("6_lik8x")
 allowed_classes = 3
 name = "Avalonian Knight Helm"

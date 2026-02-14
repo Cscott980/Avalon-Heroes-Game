@@ -11,7 +11,7 @@
 script = ExtResource("4_vqnk7")
 armor_slot_type = ExtResource("1_3iehq")
 armor_type = 2
-mesh_helm = ExtResource("3_f6sly")
+helm = ExtResource("3_f6sly")
 skin = ExtResource("5_f7s7d")
 allowed_classes = 3
 name = "Barbarian Bear Head"

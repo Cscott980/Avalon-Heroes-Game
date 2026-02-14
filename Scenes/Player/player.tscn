@@ -1001,7 +1001,7 @@ states/Walk_Shield_Hit/position = Vector2(-1075, -373.69922)
 states/Whirlwind/node = SubResource("AnimationNodeAnimation_cl0yh")
 states/Whirlwind/position = Vector2(1179, 1209.9148)
 transitions = ["Start", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_66jch"), "2_Handed_Weapom_Idle", "Run", SubResource("AnimationNodeStateMachineTransition_wes5h"), "Run", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_cl0yh"), "Whirlwind", "Run", SubResource("AnimationNodeStateMachineTransition_mij8h"), "Run", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_xeu2l"), "2_Handed_Weapom_Idle", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_vg1os"), "Whirlwind", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_0py1s"), "Running_Hurt", "Run", SubResource("AnimationNodeStateMachineTransition_4vhnl"), "Hurt", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_wrrhs"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_0h6up"), "2_Handed_Weapom_Idle", "Death", SubResource("AnimationNodeStateMachineTransition_kko1s"), "Whirlwind", "Death", SubResource("AnimationNodeStateMachineTransition_62wj3"), "Hurt", "Death", SubResource("AnimationNodeStateMachineTransition_vvnfo"), "Running_Hurt", "Death", SubResource("AnimationNodeStateMachineTransition_tt2ql"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_b40aq"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_uq4tq"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_5o7vn"), "2_Handed_Weapom_Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_bcm2w"), "2_Handed_Weapom_Idle", "Idle", SubResource("AnimationNodeStateMachineTransition_asj4a"), "Idle", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_puj4n"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_yeo2o"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_5jtjq"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_xykyk"), "Earth_Shatter", "Death", SubResource("AnimationNodeStateMachineTransition_yqh8n"), "Running_Hurt", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_eb31d"), "2_Handed_Weapom_Idle", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_xg6st"), "Earth_Shatter", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_epvue"), "Running_Hurt", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_fbi5p"), "Earth_Shatter", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_11f17"), "Whirlwind", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_ybb3w"), "Run", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_h384g"), "Run", "Hurt", SubResource("AnimationNodeStateMachineTransition_rddfn"), "Hurt", "Run", SubResource("AnimationNodeStateMachineTransition_smnfa"), "Spawn", "Idle", SubResource("AnimationNodeStateMachineTransition_88f1v"), "Dualwield_Attack_1", "Dualwield_Attack_2", SubResource("AnimationNodeStateMachineTransition_yl4y1"), "Dualwield_Attack_2", "Dualwield_Attack_3", SubResource("AnimationNodeStateMachineTransition_ulp4i"), "Dualwield_Attack_1", "Idle", SubResource("AnimationNodeStateMachineTransition_u23kb"), "Idle", "Dualwield_Attack_1", SubResource("AnimationNodeStateMachineTransition_8filg"), "Dualwield_Attack_2", "Idle", SubResource("AnimationNodeStateMachineTransition_18yym"), "Dualwield_Attack_3", "Idle", SubResource("AnimationNodeStateMachineTransition_pxqwv"), "Dualwield_Attack_1", "Run", SubResource("AnimationNodeStateMachineTransition_x3h74"), "Dualwield_Attack_2", "Run", SubResource("AnimationNodeStateMachineTransition_cywur"), "Dualwield_Attack_3", "Run", SubResource("AnimationNodeStateMachineTransition_guy8i"), "Dualwield_Attack_1", "Death", SubResource("AnimationNodeStateMachineTransition_slg74"), "Dualwield_Attack_2", "Death", SubResource("AnimationNodeStateMachineTransition_b37a0"), "Dualwield_Attack_3", "Death", SubResource("AnimationNodeStateMachineTransition_44cd3"), "Dualwield_Attack_3", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_ey7ov"), "Dualwield_Attack_2", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_efbrg"), "Dualwield_Attack_1", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_1isov"), "Earth_Shatter", "Dualwield_Attack_1", SubResource("AnimationNodeStateMachineTransition_3vkvo"), "2_Hand_Attack_1", "2_Hand_Attack_2", SubResource("AnimationNodeStateMachineTransition_yymo2"), "2_Hand_Attack_2", "2_Hand_Attack_3", SubResource("AnimationNodeStateMachineTransition_bwx41"), "2_Hand_Attack_1", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_osx4f"), "2_Hand_Attack_2", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_edegh"), "2_Hand_Attack_3", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_63fet"), "2_Handed_Weapom_Idle", "2_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_14803"), "2_Hand_Attack_1", "Death", SubResource("AnimationNodeStateMachineTransition_4pjp3"), "2_Hand_Attack_2", "Death", SubResource("AnimationNodeStateMachineTransition_i1fur"), "2_Hand_Attack_3", "Death", SubResource("AnimationNodeStateMachineTransition_uqsid"), "2_Hand_Attack_1", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_omi1v"), "Whirlwind", "2_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_diadi"), "2_Hand_Attack_2", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_hwgj8"), "Whirlwind", "2_Hand_Attack_2", SubResource("AnimationNodeStateMachineTransition_e12vc"), "2_Hand_Attack_3", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_bpp7b"), "Whirlwind", "2_Hand_Attack_3", SubResource("AnimationNodeStateMachineTransition_4f6ck"), "2_Hand_Attack_1", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_gce3k"), "Earth_Shatter", "2_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_djm72"), "2_Hand_Attack_2", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_x8mvv"), "2_Hand_Attack_3", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_4n8rx"), "1_Hand_Attack_1", "1_Hand_Attack_2", SubResource("AnimationNodeStateMachineTransition_t60a6"), "1_Hand_Attack_2", "1_Hand_Attack_3", SubResource("AnimationNodeStateMachineTransition_8khdx"), "1_Hand_Attack_1", "Idle", SubResource("AnimationNodeStateMachineTransition_3mqxc"), "Idle", "1_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_oesaj"), "2_Hand_Attack_1", "Run", SubResource("AnimationNodeStateMachineTransition_6y551"), "Run", "2_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_6r325"), "2_Hand_Attack_2", "Run", SubResource("AnimationNodeStateMachineTransition_3wbre"), "2_Hand_Attack_3", "Run", SubResource("AnimationNodeStateMachineTransition_2moa1"), "Run", "Dualwield_Attack_1", SubResource("AnimationNodeStateMachineTransition_sbpp2"), "1_Hand_Attack_1", "Run", SubResource("AnimationNodeStateMachineTransition_tj1ua"), "Run", "1_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_jgebe"), "1_Hand_Attack_2", "Run", SubResource("AnimationNodeStateMachineTransition_1xm38"), "1_Hand_Attack_3", "Run", SubResource("AnimationNodeStateMachineTransition_auonf"), "Hurt", "2_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_q00iq"), "1_Hand_Attack_1", "Death", SubResource("AnimationNodeStateMachineTransition_pwfmx"), "1_Hand_Attack_2", "Death", SubResource("AnimationNodeStateMachineTransition_va8yg"), "1_Hand_Attack_3", "Death", SubResource("AnimationNodeStateMachineTransition_r61b0"), "1_Hand_Attack_1", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_e3cpj"), "Earth_Shatter", "1_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_suvnt"), "1_Hand_Attack_2", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_hkxid"), "1_Hand_Attack_3", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_iae8j"), "Run", "Running_Hurt", SubResource("AnimationNodeStateMachineTransition_km4gb"), "Start", "Bow_Idle", SubResource("AnimationNodeStateMachineTransition_7vj6g"), "Bow_Running", "Bow_Idle", SubResource("AnimationNodeStateMachineTransition_nagfp"), "Bow_Idle", "Bow_Running", SubResource("AnimationNodeStateMachineTransition_slqv6"), "Bow_Idle", "Death", SubResource("AnimationNodeStateMachineTransition_rkeid"), "Bow_Idle", "Idle", SubResource("AnimationNodeStateMachineTransition_81gu5"), "Idle", "Bow_Idle", SubResource("AnimationNodeStateMachineTransition_pf3rq"), "Shield_Block", "Shield_Hit", SubResource("AnimationNodeStateMachineTransition_5opb0"), "Shield_Hit", "Shield_Block", SubResource("AnimationNodeStateMachineTransition_gpqv3"), "Idle", "Shield_Block", SubResource("AnimationNodeStateMachineTransition_7ve27"), "Shield_Block", "Idle", SubResource("AnimationNodeStateMachineTransition_ldt7q"), "Shield_Block", "Hurt", SubResource("AnimationNodeStateMachineTransition_7bej3"), "Hurt", "Shield_Block", SubResource("AnimationNodeStateMachineTransition_8b85g"), "Shield_Block", "Death", SubResource("AnimationNodeStateMachineTransition_56b0b"), "Shield_Hit", "Block_Shatter", SubResource("AnimationNodeStateMachineTransition_w6yxy"), "Block_Shatter", "Idle", SubResource("AnimationNodeStateMachineTransition_2crlr"), "Block_Shatter", "Death", SubResource("AnimationNodeStateMachineTransition_xvldo"), "Block_Shatter", "Hurt", SubResource("AnimationNodeStateMachineTransition_ujqdw"), "Shield_Block", "Walk_Shield_Block", SubResource("AnimationNodeStateMachineTransition_ddxso"), "Walk_Shield_Block", "Shield_Block", SubResource("AnimationNodeStateMachineTransition_yylel"), "Walk_Shield_Block", "Shield_Hit", SubResource("AnimationNodeStateMachineTransition_t53un"), "Shield_Hit", "Walk_Shield_Block", SubResource("AnimationNodeStateMachineTransition_ibntm"), "Walk_Shield_Hit", "Walk_Shield_Block", SubResource("AnimationNodeStateMachineTransition_cndt5"), "Walk_Shield_Block", "Walk_Shield_Hit", SubResource("AnimationNodeStateMachineTransition_34vqf"), "Walk_Shield_Hit", "Shield_Hit", SubResource("AnimationNodeStateMachineTransition_c5ebt"), "Shield_Hit", "Walk_Shield_Hit", SubResource("AnimationNodeStateMachineTransition_gnyfh"), "Shield_Hit", "Death", SubResource("AnimationNodeStateMachineTransition_ucj1b"), "Walk_Shield_Hit", "Block_Shatter", SubResource("AnimationNodeStateMachineTransition_63fcs")]
-graph_offset = Vector2(1170, -928.1992)
+graph_offset = Vector2(-1051, -5.1992188)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cl0yh"]
 nodes/output/position = Vector2(680, 150)
@@ -1441,10 +1441,11 @@ unique_name_in_owner = true
 
 [node name="Rig_Medium" type="Node3D" parent="Model" unique_id=849327112]
 
-[node name="EquipmentVisualComponent" type="Node" parent="Model/Rig_Medium" unique_id=542579935 node_paths=PackedStringArray("player_ui", "main_hand_weapon", "off_hand_weapon", "shield", "main_hand_slot", "off_hand_slot", "sheath_back", "sheath_hip_right", "sheath_hip_left", "arm_left", "arm_right", "helm", "helm_addon", "armor", "back", "head", "leg_left", "leg_right", "accessory_1", "accessory_2", "accessory_3")]
+[node name="EquipmentVisualComponent" type="Node" parent="Model/Rig_Medium" unique_id=542579935 node_paths=PackedStringArray("player_ui", "weapon_equip_comp", "main_hand_weapon", "off_hand_weapon", "shield", "main_hand_slot", "off_hand_slot", "sheath_back", "sheath_hip_right", "sheath_hip_left", "arm_left", "arm_right", "helm", "helm_addon", "armor", "back", "head", "leg_left", "leg_right", "accessory_1", "accessory_2", "accessory_3")]
 unique_name_in_owner = true
 script = ExtResource("3_ujqdw")
 player_ui = NodePath("../../../PlayerUI")
+weapon_equip_comp = NodePath("../../../WeaponEquipComponent")
 main_hand_weapon = NodePath("../Skeleton3D/MainHand/MainHandWeapon")
 off_hand_weapon = NodePath("../Skeleton3D/OffHand/OffHandWeapon")
 shield = NodePath("../Skeleton3D/OffHand/ShieldComponent")
@@ -1803,47 +1804,56 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 1.1524184, 0)
 shape = SubResource("CapsuleShape3D_a3d8c")
 
-[node name="PlyaerAnimationComponent" type="Node" parent="." unique_id=1601696624 node_paths=PackedStringArray("anim_tree")]
+[node name="PlayerAnimationComponent" type="Node" parent="." unique_id=1601696624]
+unique_name_in_owner = true
 script = ExtResource("97_yylel")
-anim_tree = NodePath("../Model/AnimationTree")
 metadata/_custom_type_script = "uid://c4a3rb2rhw7sr"
 
-[node name="StateMachine" type="Node" parent="." unique_id=784395840 node_paths=PackedStringArray("playback")]
+[node name="StateMachine" type="Node" parent="." unique_id=784395840]
 unique_name_in_owner = true
 script = ExtResource("3_mtuoh")
-playback = NodePath("../PlyaerAnimationComponent")
-initial_state_path = NodePath("SpawnState")
+initial_state_path = NodePath("IdleState")
 
-[node name="SpawnState" type="Node" parent="StateMachine" unique_id=215209568]
+[node name="SpawnState" type="Node" parent="StateMachine" unique_id=215209568 node_paths=PackedStringArray("playback")]
 script = ExtResource("99_yl4y1")
+playback = NodePath("../../PlayerAnimationComponent")
 
-[node name="IdleState" type="Node" parent="StateMachine" unique_id=2082240196]
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=2082240196 node_paths=PackedStringArray("playback")]
 script = ExtResource("4_mtuoh")
+playback = NodePath("../../PlayerAnimationComponent")
 
-[node name="MoveState" type="Node" parent="StateMachine" unique_id=1775966732]
+[node name="MoveState" type="Node" parent="StateMachine" unique_id=1775966732 node_paths=PackedStringArray("playback")]
 script = ExtResource("5_htcer")
+playback = NodePath("../../PlayerAnimationComponent")
 
-[node name="BlockState" type="Node" parent="StateMachine" unique_id=476476290]
+[node name="BlockState" type="Node" parent="StateMachine" unique_id=476476290 node_paths=PackedStringArray("playback")]
 script = ExtResource("102_ulp4i")
+playback = NodePath("../../PlayerAnimationComponent")
 
-[node name="AttackState1" type="Node" parent="StateMachine" unique_id=1915949012]
+[node name="AttackState1" type="Node" parent="StateMachine" unique_id=1915949012 node_paths=PackedStringArray("playback")]
 script = ExtResource("6_dd0ac")
 step_in_speed = 20.0
+playback = NodePath("../../PlayerAnimationComponent")
 
-[node name="AttackState2" type="Node" parent="StateMachine" unique_id=1753463908]
+[node name="AttackState2" type="Node" parent="StateMachine" unique_id=1753463908 node_paths=PackedStringArray("playback")]
 script = ExtResource("109_yylel")
+playback = NodePath("../../PlayerAnimationComponent")
 
-[node name="AttackState3" type="Node" parent="StateMachine" unique_id=1819353206]
+[node name="AttackState3" type="Node" parent="StateMachine" unique_id=1819353206 node_paths=PackedStringArray("playback")]
 script = ExtResource("110_t53un")
+playback = NodePath("../../PlayerAnimationComponent")
 
-[node name="AbilityState" type="Node" parent="StateMachine" unique_id=1149044750]
+[node name="AbilityState" type="Node" parent="StateMachine" unique_id=1149044750 node_paths=PackedStringArray("playback")]
 script = ExtResource("7_0u5uq")
+playback = NodePath("../../PlayerAnimationComponent")
 
-[node name="HurtState" type="Node" parent="StateMachine" unique_id=137205970]
+[node name="HurtState" type="Node" parent="StateMachine" unique_id=137205970 node_paths=PackedStringArray("playback")]
 script = ExtResource("9_gk6dx")
+playback = NodePath("../../PlayerAnimationComponent")
 
-[node name="DeadState" type="Node" parent="StateMachine" unique_id=461590499]
+[node name="DeadState" type="Node" parent="StateMachine" unique_id=461590499 node_paths=PackedStringArray("playback")]
 script = ExtResource("10_jhyir")
+playback = NodePath("../../PlayerAnimationComponent")
 
 [node name="ReviveState" type="Node" parent="StateMachine" unique_id=578469262]
 
@@ -1863,7 +1873,7 @@ unique_name_in_owner = true
 stat_comp = NodePath("../StatComponent")
 ability_comp = NodePath("../AbilityComponent")
 health_comp = NodePath("../HealthComponent")
-equip_visuals_comp = NodePath("../Model/Rig_Medium")
+equip_visuals_comp = NodePath("../Model/Rig_Medium/EquipmentVisualComponent")
 resource_comp = NodePath("../ResourcePoolComponent")
 
 [node name="WorldVisualPlayerData" type="Sprite3D" parent="." unique_id=319263515]
@@ -1937,6 +1947,7 @@ unique_name_in_owner = true
 script = ExtResource("112_u23kb")
 user = NodePath("..")
 model = NodePath("../Model")
+move_speed = 4.5
 turn_speed = 6.0
 metadata/_custom_type_script = "uid://jgliiq2fnm35"
 
@@ -1999,6 +2010,7 @@ one_shot = true
 volume_db = -8.667
 
 [connection signal="player_head_for_sheat" from="Model/Rig_Medium/EquipmentVisualComponent" to="PlayerUI" method="_on_equipment_visual_component_player_head_for_sheat"]
+[connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/IdleState" method="_on_main_hand_weapon_weapon_data"]
 [connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="CombatComponent" method="_on_main_hand_weapon_weapon_data"]
 [connection signal="weapon_hit" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="CombatComponent" method="_on_main_hand_weapon_weapon_hit"]
 [connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/OffHand/OffHandWeapon" to="CombatComponent" method="_on_off_hand_weapon_weapon_data"]
@@ -2006,7 +2018,7 @@ volume_db = -8.667
 [connection signal="is_blocking" from="Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent" to="." method="_on_shield_component_is_blocking"]
 [connection signal="area_entered" from="Model/Rig_Medium/Skeleton3D/HitBoxBone/HurtBox" to="HealthComponent" method="_on_hurt_box_area_entered"]
 [connection signal="target_change" from="TargetsInRangeComponent" to="StateMachine/AttackState1" method="_on_targets_in_range_component_target_change"]
-[connection signal="is_dual_wielding" from="WeaponEquipComponent" to="PlyaerAnimationComponent" method="_on_weapon_equip_component_is_dual_wielding"]
+[connection signal="is_dual_wielding" from="WeaponEquipComponent" to="PlayerAnimationComponent" method="_on_weapon_equip_component_is_dual_wielding"]
 [connection signal="moving" from="MovementComponent" to="." method="_on_movement_component_moving"]
 [connection signal="attack_window_ended" from="CombatComponent" to="." method="_on_combat_component_attack_window_ended"]
 [connection signal="combo_window_open" from="CombatComponent" to="." method="_on_combat_component_combo_window_open"]
