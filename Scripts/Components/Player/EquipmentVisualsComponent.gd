@@ -1,8 +1,6 @@
 @icon("uid://dlmhywsisedbf")
 class_name EquipmentVisualComponent extends Node
 
-signal weapon_sheathed
-signal weapon_unsheathed
 signal player_head_for_sheat(mesh: Mesh, skin: Skin)
 
 @export var player_ui: MainUI
@@ -35,33 +33,26 @@ signal player_head_for_sheat(mesh: Mesh, skin: Skin)
 @export var accessory_3: MeshInstance3D
 
 var class_defults: HeroClassVisualDefaultResource
-var player_equipment: PlayerEquipmentResource
 
 var is_sheathed: bool
 var visual_data: Dictionary = {}
 
+var main_hand_data: WeaponResource
+var off_hand_data: WeaponResource
+
 func _ready() -> void:
 	await get_tree().process_frame
 	player_head_for_sheat.emit(head.mesh, head.skin)
+	
 
-func apply_starter_equipment(defults: HeroClassVisualDefaultResource, equipment:PlayerEquipmentResource) -> void:
-	player_equipment = equipment
-	class_defults = defults
-
-func apply_defults(defults: HeroClassVisualDefaultResource) ->void:
-	class_defults = defults
-
-func sheeth_weapon() -> void:
-	if main_hand_weapon.WEAPON_TYPE == null and off_hand_weapon.WEAPON_TYPE == null: 
-		return
-		
-	var mh := main_hand_weapon.WEAPON_TYPE
-	var oh := off_hand_weapon.WEAPON_TYPE
+func sheath_weapon() -> void:
+	var mh := main_hand_data
+	var oh := off_hand_data
 	
 	var use_hips := false
 	if mh != null and mh.handedness == WeaponResource.HANDEDNESS.ONE_HANDED:
 		use_hips = true
-	#if oh != null and oh.handedness == WeaponResource.HANDEDNESS.ONE_HANDED and oh.weapon_type != "Shield":
+	if oh != null and oh.handedness == WeaponResource.HANDEDNESS.ONE_HANDED:
 		use_hips = true
 	
 	if use_hips:
@@ -81,26 +72,26 @@ func sheeth_weapon() -> void:
 			sheath_back.add_child(main_hand_weapon)
 			main_hand_slot.transform = Transform3D.IDENTITY
 			main_hand_weapon.mesh.transform = main_hand_weapon.back_sheath.transform
-		#if oh != null and off_hand_weapon.get_parent() == off_hand_slot and oh.weapon_type == "Shield":
+		if oh != null and off_hand_weapon.get_parent() == off_hand_slot:
 			sheath_back.add_child(off_hand_weapon)
 			off_hand_slot.transform = Transform3D.IDENTITY
 			off_hand_weapon.mesh.transform = main_hand_weapon.back_sheath.transform
-			
-	weapon_sheathed.emit()
+	
 
-func unsheeth_weapon() -> void:
-	if main_hand_weapon.WEAPON_TYPE != null and main_hand_weapon.get_parent() != main_hand_slot:
+func unsheath_weapon() -> void:
+	if main_hand_data != null and main_hand_weapon.get_parent() != main_hand_slot:
 		main_hand_weapon.get_parent().remove_child(main_hand_weapon)
 		main_hand_slot.add_child(main_hand_weapon)
 		main_hand_slot.transform = Transform3D.IDENTITY
 		main_hand_weapon.mesh.transform = main_hand_weapon.weapon_defult_position
-	if off_hand_weapon.WEAPON_TYPE != null and off_hand_weapon.get_parent() != off_hand_slot:
+	if off_hand_data != null and off_hand_weapon.get_parent() != off_hand_slot:
 		off_hand_weapon.get_parent().remove_child(off_hand_weapon)
 		off_hand_slot.add_child(off_hand_weapon)
 		off_hand_slot.transform = Transform3D.IDENTITY
 		off_hand_weapon.mesh.transform = off_hand_weapon.weapon_defult_position
-		
-	weapon_unsheathed.emit()
+
+func get_defults(defults:HeroClassVisualDefaultResource) -> void:
+	class_defults = defults
 
 func armor_visual_updater(a: ArmorResource) -> void:
 	if a == null:
@@ -154,11 +145,15 @@ func apply_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_in
 				target.skin = a.skin if a != null else null
 			
 		EquipmentSlotResource.SlotType.Weapon:
+			if is_sheathed:
+				unsheath_weapon()
 			if item == null:
 				if hand == &"off":
 					off_hand_weapon.clear_weapon()
+					off_hand_data = null
 				else:
 					main_hand_weapon.clear_weapon()
+					main_hand_data = null
 				return
 				
 			var w:= item as WeaponResource
@@ -169,14 +164,20 @@ func apply_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_in
 				var mh := main_hand_weapon.WEAPON_TYPE
 				if mh != null and mh.handedness == WeaponResource.HANDEDNESS.TWO_HANDED:
 					main_hand_weapon.clear_weapon()
+				off_hand_data = w
 				off_hand_weapon.load_weapon(w)
 			else:
 				if w != null and w.handedness == WeaponResource.HANDEDNESS.TWO_HANDED:
 					off_hand_weapon.clear_weapon()
+				main_hand_data = w
 				main_hand_weapon.load_weapon(w)
+			
+			if is_sheathed:
+				sheath_weapon()
 
 func _on_player_input_component_sheath_weapon(sheath: bool) -> void:
-	if sheath:
-		unsheeth_weapon()
-	else:
-		sheeth_weapon()
+	is_sheathed = sheath
+	if is_sheathed:  # When true
+		sheath_weapon()  # Sheaths the weapon
+	else:  # When false
+		unsheath_weapon()  # Unsheathes the weapon

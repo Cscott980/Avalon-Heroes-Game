@@ -23,9 +23,16 @@ enum HANDEDNESS {
 	ONE_HANDED,
 	TWO_HANDED
 	}
+	
+enum ATTCK_TYPE {
+	MELEE,
+	RANGED
+}
+
 @export_group("Settings")
 @export var weapon_type: WEAPON_TYPE
 @export var handedness: HANDEDNESS = HANDEDNESS.ONE_HANDED
+@export var attack_type: ATTCK_TYPE
 @export var mesh: Mesh
 @export var off_hand_complement_mesh: Mesh
 @export var projectile: ProjectileResource
@@ -38,7 +45,6 @@ enum HANDEDNESS {
 ) var can_be_equippable = 0
 
 @export_group("Stats")
-
 @export var damage: int = 0
 @export var stat_effect: StatusEffectsResource
 @export_flags(
@@ -59,6 +65,10 @@ enum HANDEDNESS {
 	"druid",
 	"engineer"
 ) var allowed_classes = 0
+
+@export_group("Combat Data")
+@export var attack_combo: Array[AttackDataResource] = []  # NEW: 3 attacks for the combo
+
 
 @export_group("Text")
 @export_multiline var stat_info: String

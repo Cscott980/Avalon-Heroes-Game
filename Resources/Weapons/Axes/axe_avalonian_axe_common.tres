@@ -1,10 +1,29 @@
 [gd_resource type="Resource" script_class="WeaponResource" format=3 uid="uid://er0ka2ldae5f"]
 
 [ext_resource type="Shape3D" uid="uid://ct5ylgdyutiow" path="res://Assets/CollissionShape/Avalonian_Axe_Collision_shape.tres" id="1_3uhxd"]
+[ext_resource type="Script" uid="uid://dcdjpy78qdbga" path="res://Scripts/Resources/General/AttackDataResource.gd" id="1_4maxg"]
 [ext_resource type="Texture2D" uid="uid://dj4pvvs1mcbbn" path="res://Assets/Icons/Weapons/Axes/Avalonian_Axe_Common.png" id="2_weryp"]
 [ext_resource type="ArrayMesh" uid="uid://p73js8prmce6" path="res://Assets/WeaponMeshes/Axes/Avalonian_Axe_Mesh.res" id="3_4maxg"]
 [ext_resource type="StyleBox" uid="uid://d2hluo0relbhx" path="res://Resources/ItemPanels/CommonPanel.tres" id="3_weryp"]
 [ext_resource type="Script" uid="uid://c50kbrwa28ffs" path="res://Scripts/Resources/Items/WeaponResource.gd" id="4_rb87r"]
+
+[sub_resource type="Resource" id="Resource_4maxg"]
+script = ExtResource("1_4maxg")
+animation_name = "1_Hand_Attack_1"
+dualwield_animation_name = "Dualwield_Attack_1"
+metadata/_custom_type_script = "uid://dcdjpy78qdbga"
+
+[sub_resource type="Resource" id="Resource_rb87r"]
+script = ExtResource("1_4maxg")
+animation_name = "1_Hand_Attack_2"
+dualwield_animation_name = "Dualwield_Attack_2"
+metadata/_custom_type_script = "uid://dcdjpy78qdbga"
+
+[sub_resource type="Resource" id="Resource_axsyj"]
+script = ExtResource("1_4maxg")
+animation_name = "1_Hand_Attack_3"
+dualwield_animation_name = "Dualwield_Attack_3"
+metadata/_custom_type_script = "uid://dcdjpy78qdbga"
 
 [resource]
 script = ExtResource("4_rb87r")
@@ -17,6 +36,7 @@ scale_on_stat = 1
 scale_percentage = 0.2
 weapon_speed = 1.0
 allowed_classes = 1
+attack_combo = Array[ExtResource("1_4maxg")]([SubResource("Resource_4maxg"), SubResource("Resource_rb87r"), SubResource("Resource_axsyj")])
 stat_info = "Increassed damage based on heroes total strength by  20%."
 name = "Avalonian Axe"
 id = "axe_avalonian_axe_common"

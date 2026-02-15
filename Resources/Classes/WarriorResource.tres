@@ -1,35 +1,11 @@
 [gd_resource type="Resource" script_class="HeroClassResource" format=3 uid="uid://bob2ix1bteewn"]
 
+[ext_resource type="Resource" uid="uid://fu10eh47v2p5" path="res://Resources/VisualDefults/WarriorDefults.tres" id="1_ksieg"]
 [ext_resource type="Script" uid="uid://bsj17hheibsfy" path="res://Scripts/Resources/Player/HeroClassResource.gd" id="1_nlh6m"]
-[ext_resource type="ArrayMesh" uid="uid://do1nwmqk61rdk" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Barbarian_Barbarian_ArmLeft.res" id="4_1bvxv"]
-[ext_resource type="ArrayMesh" uid="uid://du3jspdlsbi0j" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Barbarian_Barbarian_LegLeft.res" id="5_musjr"]
-[ext_resource type="ArrayMesh" uid="uid://cyurcj5g6i536" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Barbarian_Barbarian_ArmRight.res" id="6_it1mb"]
-[ext_resource type="ArrayMesh" uid="uid://djk03wvf47cqc" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Barbarian_Barbarian_LegRight.res" id="7_e0yli"]
+[ext_resource type="Resource" uid="uid://cbdv6lraljqpb" path="res://Resources/StartingEquipment/WarriorEquipment.tres" id="6_3ou10"]
 [ext_resource type="Resource" uid="uid://b2mg63s1f3ctj" path="res://Resources/Abilities/HeroAbilities/WarriorAbilities.tres" id="8_1bvxv"]
-[ext_resource type="Script" uid="uid://b87vhgfg22fil" path="res://Scripts/Resources/Player/HeroClassVisualDefultResource.gd" id="8_umk3e"]
 [ext_resource type="Resource" uid="uid://djooacegpapmv" path="res://Resources/HeroClassStats/WarriorBaseStats.tres" id="9_1bvxv"]
 [ext_resource type="Resource" uid="uid://dnv22rucx6258" path="res://Resources/ResourcePool/Rage.tres" id="9_7oanv"]
-[ext_resource type="Skin" uid="uid://krk1ouqog26y" path="res://Resources/MeshSkins/WarriorSkin.tres" id="9_a6ax0"]
-[ext_resource type="Resource" uid="uid://cty400b0x2awl" path="res://Resources/Armor/Heavy/heavy_armor_barbarian_bear_armor_common.tres" id="10_umk3e"]
-[ext_resource type="Resource" uid="uid://er0ka2ldae5f" path="res://Resources/Weapons/Axes/axe_avalonian_axe_common.tres" id="11_a6ax0"]
-[ext_resource type="Script" uid="uid://cu1r70sfgkndx" path="res://Scripts/Resources/Player/PlayerEquipmentResource.gd" id="12_vdy1k"]
-[ext_resource type="Resource" uid="uid://blwm1pr4rqi6x" path="res://Resources/Armor/Shields/shield_warriors_shield_common.tres" id="17_it1mb"]
-
-[sub_resource type="Resource" id="Resource_vdy1k"]
-script = ExtResource("8_umk3e")
-skin = ExtResource("9_a6ax0")
-left_arm = ExtResource("4_1bvxv")
-right_arm = ExtResource("6_it1mb")
-left_leg = ExtResource("5_musjr")
-right_leg = ExtResource("7_e0yli")
-metadata/_custom_type_script = "uid://b87vhgfg22fil"
-
-[sub_resource type="Resource" id="Resource_6u6sx"]
-script = ExtResource("12_vdy1k")
-armor = ExtResource("10_umk3e")
-main_hand = ExtResource("11_a6ax0")
-shield = ExtResource("17_it1mb")
-metadata/_custom_type_script = "uid://cu1r70sfgkndx"
 
 [resource]
 script = ExtResource("1_nlh6m")
@@ -38,12 +14,12 @@ description = "A frontline fighter forged in battle, the Warrior thrives where c
 Playstyle: Frontline bruiser
 Strengths: High durability, crowd control, close-range damage
 Role: Tank / Melee DPS"
-class_defaults = SubResource("Resource_vdy1k")
+class_defaults = ExtResource("1_ksieg")
 max_health = 120
 hero_stats = ExtResource("9_1bvxv")
 resource_pool = ExtResource("9_7oanv")
 hero_abilities = ExtResource("8_1bvxv")
-starting_equipment = SubResource("Resource_6u6sx")
+starting_equipment = ExtResource("6_3ou10")
 allowed_armor_types = 15
 allowed_weapons = 1022
 metadata/_custom_type_script = "uid://bsj17hheibsfy"

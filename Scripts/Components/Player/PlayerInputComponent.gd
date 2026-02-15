@@ -2,7 +2,7 @@
 class_name PlayerInputComponent extends Node
 
 signal move_intent_changed(intent: Vector3)
-signal attack_pressed
+signal attack
 signal block_started
 signal block_ended
 signal charsheet_toggled
@@ -11,10 +11,10 @@ signal sheath_weapon(sheath: bool)
 
 var move_intent: Vector3 = Vector3.ZERO
 var _last_move_intent: Vector3 = Vector3.ZERO
-var is_sheathed: bool
+var is_sheathed: bool = false
 
 func _ready() -> void:
-	is_sheathed = false
+	pass
 
 func _physics_process(_delta: float) -> void:
 	var x: float = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -36,14 +36,15 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("sheeth"):
 		if not is_sheathed:
-			sheath_weapon.emit(true)
+			is_sheathed = true
+			sheath_weapon.emit(is_sheathed)
 		else:
-			sheath_weapon.emit(false)
-		
-	
+			is_sheathed = false
+			sheath_weapon.emit(is_sheathed)
+
 	#----- Combat Input ---------
 	if event.is_action_pressed("base_attack"):
-		attack_pressed.emit()
+		attack.emit()
 	
 	if event.is_action_pressed("block"):
 		block_started.emit()

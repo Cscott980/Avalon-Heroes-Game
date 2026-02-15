@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerEquipmentResource" format=3 uid="uid://cbdv6lraljqpb"]
+
+[ext_resource type="Resource" uid="uid://cty400b0x2awl" path="res://Resources/Armor/Heavy/heavy_armor_barbarian_bear_armor_common.tres" id="1_x3qss"]
+[ext_resource type="Resource" uid="uid://er0ka2ldae5f" path="res://Resources/Weapons/Axes/axe_avalonian_axe_common.tres" id="2_pbumn"]
+[ext_resource type="Script" uid="uid://cu1r70sfgkndx" path="res://Scripts/Resources/Player/PlayerEquipmentResource.gd" id="3_yxsnb"]
+
+[resource]
+script = ExtResource("3_yxsnb")
+armor = ExtResource("1_x3qss")
+main_hand = ExtResource("2_pbumn")
+metadata/_custom_type_script = "uid://cu1r70sfgkndx"

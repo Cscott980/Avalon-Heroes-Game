@@ -31,45 +31,12 @@ func play_hurt_animation() -> void:
 		playback.travel("Hurt")
 
 #--------- Melee Combat -----------
-func play_1_handed_melee_attack_1_animation() -> void:
-	if playback:
-		playback.travel("1_Hand_Attack_1")
 
-func play_1_handed_melee_attack_2_animation() -> void:
+func play_attack_animation(animation: String) -> void:
 	if playback:
-		playback.travel("1_Hand_Attack_2")
-
-func play_1_handed_melee_attack_3_animation() -> void:
-	if playback:
-		playback.travel("1_Hand_Attack_3")
-
-func play_2_handed_melee_attack_1_animation() -> void:
-	if playback:
-		playback.travel("2_Hand_Attack_1")
-
-func play_2_handed_melee_attack_2_animation() -> void:
-	if playback:
-		playback.travel("2_Hand_Attack_2")
-
-func play_2_handed_melee_attack_3_animation() -> void:
-	if playback:
-		playback.travel("2_Hand_Attack_3")
-
-func play_dualwielding_melee_attack_1_animation() -> void:
-	if playback:
-		playback.travel("Dualwield_Attack_1")
-
-func play_dualwielding_melee_attack_2_animation() -> void:
-	if playback:
-		playback.travel("Dualwield_Attack_2")
-
-func play_dualwielding_melee_attack_3_animation() -> void:
-	if playback:
-		playback.travel("Dualwield_Attack_3")
+		playback.travel(animation)
 
 #--------- Range Combat -----------
-
-
 
 #--------- Shield -----------
 func play_standing_block() -> void:

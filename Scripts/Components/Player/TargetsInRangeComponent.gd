@@ -5,10 +5,24 @@ signal target_change(new_target: CharacterBody3D)
 signal targets_updated(count: int)
 
 @onready var detector: Area3D = %TargetsInRange
-
 @export var player: CharacterBody3D
+
 var targets_in_range: Array[CharacterBody3D] = []
 var current_target: CharacterBody3D
+
+
+func get_closets_target() -> CharacterBody3D:
+	return current_target
+
+func get_distance_to_current_target() -> float:
+	if current_target == null or not is_instance_valid(current_target):
+		return INF
+	return player.global_position.distance_to(current_target.global_position)
+
+func get_direction_to_current_target() -> Vector3:
+	if current_target == null or not is_instance_valid(current_target):
+		return Vector3.ZERO
+	return (current_target.global_position - player.global_position).normalized()
 
 func _update_closest_target() -> void:
 	for i in range(targets_in_range.size() -1, -1, -1):

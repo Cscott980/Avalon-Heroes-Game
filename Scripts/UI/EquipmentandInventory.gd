@@ -2,7 +2,6 @@ class_name EquipmentandInventory extends Control
 
 signal current_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_index: int, hand: StringName)
 
-
 #------ Inventory and Equipment Brain -------
 @onready var inventorybox: GridContainer = %Inventory/GridContainer
 @onready var character_sheet_character: CharacterSheetDisplay = %CharacterSheetCharacter
@@ -29,7 +28,6 @@ var open_inventory_sound := preload("uid://72d01r063eta")
 
 var inventory_slot: InventorySlot
 
-var vs_data: Dictionary
 var dragging: bool = false
 var drag_offset := Vector2.ZERO
 var player: Player = null
@@ -41,11 +39,15 @@ func _ready() -> void:
 	await get_tree().process_frame
 	is_open = false
 	visible = false
+	print(equipment.armor.name)
 	_connect_equipment_slots()
 
 func play_pick_up_sound() -> void:
 	audio_stream_player.stream = pick_up_sound
 	audio_stream_player.play()
+
+func apply_player_equipment(equip: PlayerEquipmentResource) -> void:
+	equipment = equip
 
 func apply_player_defults_data(defults: HeroClassVisualDefaultResource) -> void:
 	player_defults = defults
@@ -97,7 +99,7 @@ func _connect_equipment_slots() -> void:
 			node.equipment_changed.connect(_on_equipment_changed)
 
 func _on_equipment_changed(slot_res: EquipmentSlotResource, item: ItemResource, sub_index: int, hand: StringName) -> void:
-	equipment.set_item(slot_res,item)
+	equipment.set_item(slot_res, item)
 	character_sheet_character.apply_equipment(slot_res, item, sub_index, hand)
 	current_equipment.emit(slot_res, item, sub_index, hand)
 	for slot in get_tree().get_nodes_in_group("inventory_slot"):

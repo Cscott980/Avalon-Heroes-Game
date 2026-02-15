@@ -10,14 +10,11 @@ class_name MainUI extends CanvasLayer
 @export var equip_visuals_comp: EquipmentVisualComponent
 @export var resource_comp: ResourcePoolComponent
 
-var defults: HeroClassVisualDefaultResource
-var equipment: PlayerEquipmentResource
-
 func _ready() -> void:
 	pass
 
 func get_player_visual_data(defults_data: HeroClassVisualDefaultResource, equipment_resource: PlayerEquipmentResource) -> void:
-	inventory_equipment.player_defults = defults_data
+	inventory_equipment.character_sheet_character.vs_defults = defults_data
 	inventory_equipment.equipment = equipment_resource
 
 func update_level_display(new_level: String) -> void:

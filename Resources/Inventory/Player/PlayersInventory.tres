@@ -5,8 +5,9 @@
 [ext_resource type="Script" uid="uid://c71q22lqo6ptg" path="res://Scripts/Resources/UI/InventoryResource.gd" id="2_qrrdq"]
 [ext_resource type="Resource" uid="uid://b6j7vv5640p35" path="res://Resources/Armor/Heavy/heavy_armor_barbarian_bear_head_common.tres" id="3_fg4g1"]
 [ext_resource type="Resource" uid="uid://ux3318iq802s" path="res://Resources/Weapons/Battleaxes/battleaxe_avalonian_battleaxe_common.tres" id="4_3op43"]
+[ext_resource type="Resource" uid="uid://b7cnlw8hglnd6" path="res://Resources/Weapons/Sword/sword_avalonian_sword_common.tres" id="5_fg4g1"]
 
 [resource]
 script = ExtResource("2_qrrdq")
-items = Array[ExtResource("1_0sf2v")]([ExtResource("2_krumf"), ExtResource("3_fg4g1"), ExtResource("4_3op43"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+items = Array[ExtResource("1_0sf2v")]([ExtResource("2_krumf"), ExtResource("3_fg4g1"), ExtResource("4_3op43"), ExtResource("5_fg4g1"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 metadata/_custom_type_script = "uid://c71q22lqo6ptg"

@@ -24,13 +24,14 @@ var display_name: String = HeroClassConst.load_class_to_string(hero_class)
 
 @export_group("Equipment Rules")
 @export var starting_equipment: PlayerEquipmentResource
+@export_group("Equipment Rules/Allowed Armor Types")
 @export_flags(
 	"Light",
 	"Medium",
 	"Heavy",
 	"Shield"
 ) var allowed_armor_types = 0
-
+@export_group("Equipment Rules/Allowed Weapon Types")
 @export_flags(
 	"Dagger",
 	"Fist Weapon",

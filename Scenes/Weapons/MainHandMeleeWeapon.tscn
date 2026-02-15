@@ -36,10 +36,4 @@ transform = Transform3D(-3.388277e-08, 5.103928e-08, -1, 0.9819587, -0.18909545,
 unique_name_in_owner = true
 transform = Transform3D(-3.388277e-08, 5.103928e-08, -1, 0.9819587, -0.18909545, -4.292278e-08, -0.18909545, -0.9819587, -4.371139e-08, 0.41839337, 0.2205565, 0.08834767)
 
-[node name="StaffSheathPos" type="Node3D" parent="PositionOverrides" unique_id=629076391]
-unique_name_in_owner = true
-
-[node name="ShieldPos" type="Node3D" parent="PositionOverrides" unique_id=72932332]
-unique_name_in_owner = true
-
 [connection signal="body_entered" from="mesh/HitBox" to="." method="_on_hit_box_body_entered"]

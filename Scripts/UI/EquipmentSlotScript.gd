@@ -21,9 +21,45 @@ var base: EquipmentandInventory
 var item: ItemResource
 
 func _ready() -> void:
-	await  get_tree().process_frame
+	await get_tree().process_frame
 	base = get_tree().get_first_node_in_group("playersheet")
+	_check_existing_equipment()
 	_refresh()
+
+func _check_existing_equipment() -> void:
+	if base == null:
+		return
+	# Check if there's already an item equipped in this slot
+	match SLOT_TYPE.equipment_slot_type:
+		EquipmentSlotResource.SlotType.Weapon:
+			if hand_role == "main" and base.equipment.main_hand != null:
+				item = base.equipment.main_hand
+			elif hand_role == "off" and base.equipment.off_hand != null:
+				item = base.equipment.off_hand
+		
+		EquipmentSlotResource.SlotType.Helm:
+			if base.equipment.helm != null:
+				item = base.equipment.helm
+		
+		EquipmentSlotResource.SlotType.Armor:
+			if base.equipment.armor != null:
+				item = base.equipment.armor
+		
+		EquipmentSlotResource.SlotType.Back:
+			if base.equipment.back != null:
+				item = base.equipment.back
+		
+		EquipmentSlotResource.SlotType.Accessory:
+			if accessory_index >= 0:
+				if accessory_index == 0:
+					item = base.equipment.accessory1
+				if accessory_index == 1:
+					item = base.equipment.accessory2
+				if accessory_index == 2:
+					item = base.equipment.accessory3
+	equipment_changed.emit(SLOT_TYPE, item, accessory_index, StringName(hand_role))
+	base.character_sheet_character.apply_equipment(SLOT_TYPE, item, accessory_index, StringName(hand_role))
+	base.current_equipment.emit(SLOT_TYPE, item, accessory_index, StringName(hand_role))
 
 func _refresh() -> void:
 	if item != null:
@@ -35,6 +71,8 @@ func clear_item() -> void:
 	item = null
 	_refresh()
 	equipment_changed.emit(SLOT_TYPE, null, accessory_index, StringName(hand_role))
+	base.character_sheet_character.apply_equipment(SLOT_TYPE, null, accessory_index, StringName(hand_role))
+	base.current_equipment.emit(SLOT_TYPE, null, accessory_index, StringName(hand_role))
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_RIGHT and item != null:

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="HeroClassVisualDefaultResource" format=3 uid="uid://fu10eh47v2p5"]
+
+[ext_resource type="ArrayMesh" uid="uid://d2tf34kixfh3q" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/The_Barbarian_Bear_Chest.res" id="1_vu7b1"]
+[ext_resource type="ArrayMesh" uid="uid://do1nwmqk61rdk" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Barbarian_Barbarian_ArmLeft.res" id="2_l370y"]
+[ext_resource type="ArrayMesh" uid="uid://du3jspdlsbi0j" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Barbarian_Barbarian_LegLeft.res" id="3_26eeq"]
+[ext_resource type="ArrayMesh" uid="uid://cyurcj5g6i536" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Barbarian_Barbarian_ArmRight.res" id="4_raimj"]
+[ext_resource type="ArrayMesh" uid="uid://djk03wvf47cqc" path="res://Assets/Characters/Character Hero Meshes/HeavyArmor/BaseMeshesHeavy/Barbarian_Barbarian_LegRight.res" id="5_ssylo"]
+[ext_resource type="Script" uid="uid://b87vhgfg22fil" path="res://Scripts/Resources/Player/HeroClassVisualDefultResource.gd" id="6_8ntgl"]
+[ext_resource type="Skin" uid="uid://krk1ouqog26y" path="res://Resources/MeshSkins/WarriorSkin.tres" id="7_1wuwk"]
+
+[resource]
+script = ExtResource("6_8ntgl")
+skin = ExtResource("7_1wuwk")
+armor = ExtResource("1_vu7b1")
+left_arm = ExtResource("2_l370y")
+right_arm = ExtResource("4_raimj")
+left_leg = ExtResource("3_26eeq")
+right_leg = ExtResource("5_ssylo")
+metadata/_custom_type_script = "uid://b87vhgfg22fil"
