@@ -11,18 +11,27 @@
 script = ExtResource("1_4maxg")
 animation_name = "1_Hand_Attack_1"
 dualwield_animation_name = "Dualwield_Attack_1"
+combo_window_start = 0.6
+attack_duration = 1.0
+root_motion_speed = 0.0
 metadata/_custom_type_script = "uid://dcdjpy78qdbga"
 
 [sub_resource type="Resource" id="Resource_rb87r"]
 script = ExtResource("1_4maxg")
 animation_name = "1_Hand_Attack_2"
 dualwield_animation_name = "Dualwield_Attack_2"
+combo_window_start = 0.6
+attack_duration = 1.0
+root_motion_speed = 0.0
 metadata/_custom_type_script = "uid://dcdjpy78qdbga"
 
 [sub_resource type="Resource" id="Resource_axsyj"]
 script = ExtResource("1_4maxg")
 animation_name = "1_Hand_Attack_3"
 dualwield_animation_name = "Dualwield_Attack_3"
+combo_window_start = 0.6
+attack_duration = 1.0
+root_motion_speed = 0.0
 metadata/_custom_type_script = "uid://dcdjpy78qdbga"
 
 [resource]

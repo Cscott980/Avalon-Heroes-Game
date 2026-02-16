@@ -6,16 +6,16 @@ var lunge_direction: Vector3 = Vector3.ZERO
 var attack_data: AttackDataResource
 
 func enter() -> void:
-	var combo = player.combat_component.get_current_weapon_combo()
+	var combo = combat_comp.get_current_weapon_combo()
 	if combo.is_empty() or combo.size() < 3:
 		state_machine.change_state("IdleState")
 		return
 	
 	attack_data = combo[2]
 	
-	player.combat_component.start_attack(2)
+	combat_comp.base_melee_attack_started(2)
 	
-	if not player.weapon_equip_component.is_dual_wielding:
+	if not weap_equip_comp.is_dual_wielding:
 		playback.play_attack_animation(attack_data.animation_name)
 	else:
 		playback.play_attack_animation(attack_data.dualwield_animation_name)
@@ -29,7 +29,7 @@ func _setup_lunge() -> void:
 	if not attack_data.lunge_to_target:
 		return
 	
-	var weapon_type = player.weapon_equip_component.main_hand_weapon.WEAPON_TYPE
+	var weapon_type = weap_equip_comp.main_hand_weapon.WEAPON_TYPE
 	if weapon_type == null:
 		return
 	
@@ -48,9 +48,14 @@ func _setup_lunge() -> void:
 			player.rotation.y = target_rotation
 
 func _finish_attack() -> void:
-	player.combat_component.complete_attack()
+	combat_comp.base_melee_complete_attack()
 
 func physics_process(delta: float) -> void:
+	# Safety check
+	if not is_instance_valid(player):
+		return
+	
+	# Handle lunge movement
 	if is_lunging and lunge_timer > 0:
 		lunge_timer -= delta
 		player.velocity = lunge_direction * attack_data.lunge_speed
@@ -58,9 +63,12 @@ func physics_process(delta: float) -> void:
 		
 		if lunge_timer <= 0:
 			is_lunging = false
+	# Handle root motion - FIXED: Check if player transform is valid
 	elif attack_data.root_motion_speed > 0:
-		player.velocity = player.transform.basis.z * attack_data.root_motion_speed
+		# Use -Z forward direction (Godot convention)
+		player.velocity = -player.transform.basis.z * attack_data.root_motion_speed
 		player.move_and_slide()
+	# Apply gravity when not lunging or using root motion
 	else:
 		if not player.is_on_floor():
 			player.velocity.y -= 9.8 * delta

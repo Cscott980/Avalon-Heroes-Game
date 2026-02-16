@@ -75,7 +75,7 @@ func open_combo_window() -> void:
 	if attack_queued:
 		attack_queued = false
 		combo_window_open.emit()
-	
+
 func close_combo_window() -> void:
 	can_combo = false
 	combo_window_closed.emit()
@@ -101,7 +101,7 @@ func reset_combo() -> void:
 	if not combo_timer.is_stopped():
 		combo_timer.stop()
 	combo_broken.emit()
-	
+
 func _on_attack_cooldown_timeout() -> void:
 	pass # Replace with function body.
 
@@ -128,4 +128,3 @@ func _on_main_hand_weapon_weapon_data(data: WeaponResource, group: String) -> vo
 		main_hand_data = data
 	else:
 		off_hand_data = data
-		

@@ -37,10 +37,14 @@ func clear_weapon() -> void:
 	no_weapon_equiped.emit(true)
 	
 func load_weapon(weapon_id: WeaponResource) -> void:
-	if weapon_slot.name == "OffHand":
+	# Determine weapon group
+	var group_name: String = ""
+	if weapon_slot and weapon_slot.name == "OffHand":
 		add_to_group("off_hand")
+		group_name = "OffHand"
 	else:
 		add_to_group("main_hand")
+		group_name = "MainHand"
 	
 	weapon_handedness = weapon_id.handedness
 	
@@ -48,17 +52,21 @@ func load_weapon(weapon_id: WeaponResource) -> void:
 		add_to_group("one_handed_weapon")
 	else:
 		add_to_group("two_handed_weapon")
+	
 	weapon_damage = weapon_id.damage
 	attack_type = weapon_id.attack_type
 	attack_data = weapon_id.attack_combo
 	mesh.mesh = weapon_id.mesh
 	collision_shape_3d.shape = weapon_id.collision_shape
 	weapon_defult_position = mesh.transform
+	
 	if is_in_group("main_hand"):
 		self.transform = Transform3D.IDENTITY
 	
 	weapon_attack_speed = weapon_id.weapon_speed
-	weapon_data.emit(weapon_id, weapon_slot.name)
+	
+	# FIXED: Properly emit with both arguments
+	weapon_data.emit(weapon_id, group_name)
 	no_weapon_equiped.emit(false)
 
 func weapon_hit_box_on() -> void:
