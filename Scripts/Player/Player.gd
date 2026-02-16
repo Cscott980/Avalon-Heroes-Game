@@ -45,6 +45,8 @@ func _on_hurt_box_take_damage(_amount: int) -> void:
 	state_machine.change_state("HurtState")
 
 func _on_player_input_component_attack() -> void:
+	if equipment_visuals.is_sheathed or player_ui.invetory_open:
+		return
 	var attack_index = combat_component.request_attack()
 	
 	if attack_index == -1:
@@ -81,12 +83,10 @@ func _on_combat_component_attack_window_ended() -> void:
 	else:
 		state_machine.change_state("IdleState")
 
-## Optional: Handle combo completion
+
 func _on_combat_component_combo_completed() -> void:
 	print("Full combo completed!")
 	if movement_component.is_moving:
 		state_machine.change_state("MoveState")
 	else:
 		state_machine.change_state("IdleState")
-
-## Optional: Handle combo break/reset

@@ -10,6 +10,7 @@ signal is_dual_wielding(status: bool)
 
 var main_hand_data: WeaponResource
 var off_hand_data: WeaponResource
+
 var dual_wielding: bool = false
 func _ready() -> void:
 	pass
@@ -20,13 +21,13 @@ func update_dual_wielding_state() -> void:
 		is_dual_wielding.emit(false)
 		return
 		
-	if main_hand_weapon.WEAPON_TYPE == null or off_hand_weapon.WEAPON_TYPE == null:
+	if main_hand_data == null or off_hand_data == null:
 		dual_wielding = false
 		is_dual_wielding.emit(false)
 		return
 	
-	var mh := main_hand_weapon.WEAPON_TYPE
-	var oh := off_hand_weapon.WEAPON_TYPE
+	var mh := main_hand_data
+	var oh := off_hand_data
 	
 	if mh == null or oh == null:
 		dual_wielding = false
@@ -47,3 +48,10 @@ func update_dual_wielding_state() -> void:
 	print("here i am")
 	dual_wielding = true
 	is_dual_wielding.emit(true)
+
+func _on_main_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
+	main_hand_data = data
+	
+func _on_off_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
+	off_hand_data = data
+	

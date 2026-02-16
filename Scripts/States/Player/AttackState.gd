@@ -6,6 +6,7 @@ var is_lunging: bool = false
 var lunge_direction: Vector3 = Vector3.ZERO
 var attack_data: AttackDataResource
 var combo: Array[AttackDataResource]
+var no_weapon_equiped: bool
 
 func enter() -> void:
 	combo = combat_comp.get_current_weapon_combo()
@@ -82,3 +83,7 @@ func physics_process(delta: float) -> void:
 		if not player.is_on_floor():
 			player.velocity.y -= 9.8 * delta
 			player.move_and_slide()
+
+
+func _on_main_hand_weapon_no_weapon_equiped(status: bool) -> void:
+	no_weapon_equiped = status

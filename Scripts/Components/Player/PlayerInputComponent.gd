@@ -12,6 +12,7 @@ signal sheath_weapon(sheath: bool)
 var move_intent: Vector3 = Vector3.ZERO
 var _last_move_intent: Vector3 = Vector3.ZERO
 var is_sheathed: bool = false
+var inventroy_open: bool = false
 
 func _ready() -> void:
 	pass

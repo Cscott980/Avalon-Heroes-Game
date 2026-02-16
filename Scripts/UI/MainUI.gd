@@ -10,6 +10,8 @@ class_name MainUI extends CanvasLayer
 @export var equip_visuals_comp: EquipmentVisualComponent
 @export var resource_comp: ResourcePoolComponent
 
+var invetory_open = false
+
 func _ready() -> void:
 	pass
 
@@ -65,8 +67,10 @@ func _on_health_component_dead(_owner: Node) -> void:
 
 func _on_player_input_component_charsheet_toggled() -> void:
 	if inventory_equipment.is_open:
+		invetory_open = false
 		inventory_equipment.close()
 	else:
+		invetory_open = true
 		inventory_equipment.open()
 
 func _on_stat_component_current_stats(dic: Dictionary) -> void:

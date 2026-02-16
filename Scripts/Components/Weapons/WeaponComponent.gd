@@ -24,6 +24,7 @@ var attack_type: int
 func _ready() -> void:
 	if WEAPON_TYPE == null:
 		return 
+	weapon_slot = get_parent()
 	
 func clear_weapon() -> void:
 	WEAPON_TYPE = null
@@ -68,7 +69,7 @@ func load_weapon(weapon_id: WeaponResource) -> void:
 	# FIXED: Properly emit with both arguments
 	weapon_data.emit(weapon_id, group_name)
 	no_weapon_equiped.emit(false)
-
+	
 func weapon_hit_box_on() -> void:
 	if hit_box:
 		hit_box.monitoring = true

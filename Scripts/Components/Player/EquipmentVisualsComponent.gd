@@ -172,6 +172,8 @@ func apply_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_in
 				main_hand_data = w
 				main_hand_weapon.load_weapon(w)
 			
+			
+			weapon_equip_comp.update_dual_wielding_state()
 			if is_sheathed:
 				sheath_weapon()
 

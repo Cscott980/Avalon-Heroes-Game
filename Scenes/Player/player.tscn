@@ -512,9 +512,6 @@ animation = &"Player/Melee_Dualwield_Attack_Stab"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kko1s"]
 animation = &"Player/Melee_1H_Attack_Jump_Chop"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lbgqg"]
-animation = &"Player/Hit_B"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0h6up"]
 animation = &"Player/Idle_A"
 
@@ -619,9 +616,6 @@ xfade_time = 0.2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4vhnl"]
 xfade_time = 0.5
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wrrhs"]
-xfade_time = 0.5
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0h6up"]
 xfade_time = 0.2
 
@@ -631,22 +625,10 @@ xfade_time = 0.2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_62wj3"]
 xfade_time = 0.2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vvnfo"]
-xfade_time = 0.2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tt2ql"]
 xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b40aq"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uq4tq"]
-xfade_time = 0.5
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5o7vn"]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bcm2w"]
-xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_asj4a"]
 xfade_time = 0.2
@@ -685,12 +667,6 @@ xfade_time = 0.2
 xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h384g"]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rddfn"]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_smnfa"]
 xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_88f1v"]
@@ -840,9 +816,6 @@ xfade_time = 0.2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_auonf"]
 xfade_time = 0.2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q00iq"]
-xfade_time = 0.2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pwfmx"]
 xfade_time = 0.2
 
@@ -896,12 +869,6 @@ xfade_time = 0.2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ldt7q"]
 xfade_time = 0.2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7bej3"]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8b85g"]
-xfade_time = 0.2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_56b0b"]
 xfade_time = 0.2
 
@@ -911,9 +878,6 @@ xfade_time = 0.2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2crlr"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xvldo"]
-xfade_time = 0.2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ujqdw"]
 xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ddxso"]
@@ -946,19 +910,46 @@ xfade_time = 0.2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_63fcs"]
 xfade_time = 0.2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c5fsd"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vi5bc"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q00iq"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f54jg"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cqneq"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8kunj"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ydgc"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tso75"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b1evd"]
+xfade_time = 0.2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_wes5h"]
 states/1_Hand_Attack_1/node = SubResource("AnimationNodeAnimation_yl4y1")
-states/1_Hand_Attack_1/position = Vector2(-1028.8438, 1286.5239)
+states/1_Hand_Attack_1/position = Vector2(-1206.3438, 1309.5239)
 states/1_Hand_Attack_2/node = SubResource("AnimationNodeAnimation_ulp4i")
-states/1_Hand_Attack_2/position = Vector2(-1112.625, 1174.4683)
+states/1_Hand_Attack_2/position = Vector2(-1272.125, 1010.1345)
 states/1_Hand_Attack_3/node = SubResource("AnimationNodeAnimation_u23kb")
-states/1_Hand_Attack_3/position = Vector2(-1085.5469, 1040.4124)
+states/1_Hand_Attack_3/position = Vector2(-1122.5469, 787.85657)
 states/2_Hand_Attack_1/node = SubResource("AnimationNodeAnimation_2crlr")
-states/2_Hand_Attack_1/position = Vector2(-163.75, 788.3008)
+states/2_Hand_Attack_1/position = Vector2(-447.75, 1635.8008)
 states/2_Hand_Attack_2/node = SubResource("AnimationNodeAnimation_xvldo")
-states/2_Hand_Attack_2/position = Vector2(-163.875, 899.8008)
+states/2_Hand_Attack_2/position = Vector2(-89.375, 1756.3008)
 states/2_Hand_Attack_3/node = SubResource("AnimationNodeAnimation_ujqdw")
-states/2_Hand_Attack_3/position = Vector2(-163.8125, 1007.8008)
+states/2_Hand_Attack_3/position = Vector2(-178.3125, 1897.8008)
 states/2_Handed_Weapom_Idle/node = SubResource("AnimationNodeAnimation_gjpn1")
 states/2_Handed_Weapom_Idle/position = Vector2(-382.5, 440.24255)
 states/Block_Shatter/node = SubResource("AnimationNodeAnimation_22q81")
@@ -970,16 +961,14 @@ states/Bow_Running/position = Vector2(1524, -882.1992)
 states/Death/node = SubResource("AnimationNodeAnimation_ge36b")
 states/Death/position = Vector2(378.25, -105.97832)
 states/Dualwield_Attack_1/node = SubResource("AnimationNodeAnimation_ddxso")
-states/Dualwield_Attack_1/position = Vector2(-404, 1173.3008)
+states/Dualwield_Attack_1/position = Vector2(-1081, 1742.3008)
 states/Dualwield_Attack_2/node = SubResource("AnimationNodeAnimation_yylel")
-states/Dualwield_Attack_2/position = Vector2(-404, 1041.3008)
+states/Dualwield_Attack_2/position = Vector2(-1225.5, 1651.3008)
 states/Dualwield_Attack_3/node = SubResource("AnimationNodeAnimation_88f1v")
-states/Dualwield_Attack_3/position = Vector2(-404, 931.8008)
+states/Dualwield_Attack_3/position = Vector2(-1288.375, 1497.8008)
 states/Earth_Shatter/node = SubResource("AnimationNodeAnimation_kko1s")
 states/Earth_Shatter/position = Vector2(1674, 1328.1935)
 states/End/position = Vector2(2138.5, 79.41815)
-states/Hurt/node = SubResource("AnimationNodeAnimation_lbgqg")
-states/Hurt/position = Vector2(76.5, -665.44055)
 states/Idle/node = SubResource("AnimationNodeAnimation_0h6up")
 states/Idle/position = Vector2(-771.5, 108.80081)
 states/Run/node = SubResource("AnimationNodeAnimation_pe6bo")
@@ -998,9 +987,9 @@ states/Walk_Shield_Block/position = Vector2(-819, -372.69922)
 states/Walk_Shield_Hit/node = SubResource("AnimationNodeBlendTree_w6yxy")
 states/Walk_Shield_Hit/position = Vector2(-1075, -373.69922)
 states/Whirlwind/node = SubResource("AnimationNodeAnimation_cl0yh")
-states/Whirlwind/position = Vector2(1179, 1209.9148)
-transitions = ["Start", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_66jch"), "2_Handed_Weapom_Idle", "Run", SubResource("AnimationNodeStateMachineTransition_wes5h"), "Run", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_cl0yh"), "Whirlwind", "Run", SubResource("AnimationNodeStateMachineTransition_mij8h"), "Run", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_xeu2l"), "2_Handed_Weapom_Idle", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_vg1os"), "Whirlwind", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_0py1s"), "Running_Hurt", "Run", SubResource("AnimationNodeStateMachineTransition_4vhnl"), "Hurt", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_wrrhs"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_0h6up"), "2_Handed_Weapom_Idle", "Death", SubResource("AnimationNodeStateMachineTransition_kko1s"), "Whirlwind", "Death", SubResource("AnimationNodeStateMachineTransition_62wj3"), "Hurt", "Death", SubResource("AnimationNodeStateMachineTransition_vvnfo"), "Running_Hurt", "Death", SubResource("AnimationNodeStateMachineTransition_tt2ql"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_b40aq"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_uq4tq"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_5o7vn"), "2_Handed_Weapom_Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_bcm2w"), "2_Handed_Weapom_Idle", "Idle", SubResource("AnimationNodeStateMachineTransition_asj4a"), "Idle", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_puj4n"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_yeo2o"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_5jtjq"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_xykyk"), "Earth_Shatter", "Death", SubResource("AnimationNodeStateMachineTransition_yqh8n"), "Running_Hurt", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_eb31d"), "2_Handed_Weapom_Idle", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_xg6st"), "Earth_Shatter", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_epvue"), "Running_Hurt", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_fbi5p"), "Earth_Shatter", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_11f17"), "Whirlwind", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_ybb3w"), "Run", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_h384g"), "Run", "Hurt", SubResource("AnimationNodeStateMachineTransition_rddfn"), "Hurt", "Run", SubResource("AnimationNodeStateMachineTransition_smnfa"), "Spawn", "Idle", SubResource("AnimationNodeStateMachineTransition_88f1v"), "Dualwield_Attack_1", "Dualwield_Attack_2", SubResource("AnimationNodeStateMachineTransition_yl4y1"), "Dualwield_Attack_2", "Dualwield_Attack_3", SubResource("AnimationNodeStateMachineTransition_ulp4i"), "Dualwield_Attack_1", "Idle", SubResource("AnimationNodeStateMachineTransition_u23kb"), "Idle", "Dualwield_Attack_1", SubResource("AnimationNodeStateMachineTransition_8filg"), "Dualwield_Attack_2", "Idle", SubResource("AnimationNodeStateMachineTransition_18yym"), "Dualwield_Attack_3", "Idle", SubResource("AnimationNodeStateMachineTransition_pxqwv"), "Dualwield_Attack_1", "Run", SubResource("AnimationNodeStateMachineTransition_x3h74"), "Dualwield_Attack_2", "Run", SubResource("AnimationNodeStateMachineTransition_cywur"), "Dualwield_Attack_3", "Run", SubResource("AnimationNodeStateMachineTransition_guy8i"), "Dualwield_Attack_1", "Death", SubResource("AnimationNodeStateMachineTransition_slg74"), "Dualwield_Attack_2", "Death", SubResource("AnimationNodeStateMachineTransition_b37a0"), "Dualwield_Attack_3", "Death", SubResource("AnimationNodeStateMachineTransition_44cd3"), "Dualwield_Attack_3", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_ey7ov"), "Dualwield_Attack_2", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_efbrg"), "Dualwield_Attack_1", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_1isov"), "Earth_Shatter", "Dualwield_Attack_1", SubResource("AnimationNodeStateMachineTransition_3vkvo"), "2_Hand_Attack_1", "2_Hand_Attack_2", SubResource("AnimationNodeStateMachineTransition_yymo2"), "2_Hand_Attack_2", "2_Hand_Attack_3", SubResource("AnimationNodeStateMachineTransition_bwx41"), "2_Hand_Attack_1", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_osx4f"), "2_Hand_Attack_2", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_edegh"), "2_Hand_Attack_3", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_63fet"), "2_Handed_Weapom_Idle", "2_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_14803"), "2_Hand_Attack_1", "Death", SubResource("AnimationNodeStateMachineTransition_4pjp3"), "2_Hand_Attack_2", "Death", SubResource("AnimationNodeStateMachineTransition_i1fur"), "2_Hand_Attack_3", "Death", SubResource("AnimationNodeStateMachineTransition_uqsid"), "2_Hand_Attack_1", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_omi1v"), "Whirlwind", "2_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_diadi"), "2_Hand_Attack_2", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_hwgj8"), "Whirlwind", "2_Hand_Attack_2", SubResource("AnimationNodeStateMachineTransition_e12vc"), "2_Hand_Attack_3", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_bpp7b"), "Whirlwind", "2_Hand_Attack_3", SubResource("AnimationNodeStateMachineTransition_4f6ck"), "2_Hand_Attack_1", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_gce3k"), "Earth_Shatter", "2_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_djm72"), "2_Hand_Attack_2", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_x8mvv"), "2_Hand_Attack_3", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_4n8rx"), "1_Hand_Attack_1", "1_Hand_Attack_2", SubResource("AnimationNodeStateMachineTransition_t60a6"), "1_Hand_Attack_2", "1_Hand_Attack_3", SubResource("AnimationNodeStateMachineTransition_8khdx"), "1_Hand_Attack_1", "Idle", SubResource("AnimationNodeStateMachineTransition_3mqxc"), "Idle", "1_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_oesaj"), "2_Hand_Attack_1", "Run", SubResource("AnimationNodeStateMachineTransition_6y551"), "Run", "2_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_6r325"), "2_Hand_Attack_2", "Run", SubResource("AnimationNodeStateMachineTransition_3wbre"), "2_Hand_Attack_3", "Run", SubResource("AnimationNodeStateMachineTransition_2moa1"), "Run", "Dualwield_Attack_1", SubResource("AnimationNodeStateMachineTransition_sbpp2"), "1_Hand_Attack_1", "Run", SubResource("AnimationNodeStateMachineTransition_tj1ua"), "Run", "1_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_jgebe"), "1_Hand_Attack_2", "Run", SubResource("AnimationNodeStateMachineTransition_1xm38"), "1_Hand_Attack_3", "Run", SubResource("AnimationNodeStateMachineTransition_auonf"), "Hurt", "2_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_q00iq"), "1_Hand_Attack_1", "Death", SubResource("AnimationNodeStateMachineTransition_pwfmx"), "1_Hand_Attack_2", "Death", SubResource("AnimationNodeStateMachineTransition_va8yg"), "1_Hand_Attack_3", "Death", SubResource("AnimationNodeStateMachineTransition_r61b0"), "1_Hand_Attack_1", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_e3cpj"), "Earth_Shatter", "1_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_suvnt"), "1_Hand_Attack_2", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_hkxid"), "1_Hand_Attack_3", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_iae8j"), "Run", "Running_Hurt", SubResource("AnimationNodeStateMachineTransition_km4gb"), "Start", "Bow_Idle", SubResource("AnimationNodeStateMachineTransition_7vj6g"), "Bow_Running", "Bow_Idle", SubResource("AnimationNodeStateMachineTransition_nagfp"), "Bow_Idle", "Bow_Running", SubResource("AnimationNodeStateMachineTransition_slqv6"), "Bow_Idle", "Death", SubResource("AnimationNodeStateMachineTransition_rkeid"), "Bow_Idle", "Idle", SubResource("AnimationNodeStateMachineTransition_81gu5"), "Idle", "Bow_Idle", SubResource("AnimationNodeStateMachineTransition_pf3rq"), "Shield_Block", "Shield_Hit", SubResource("AnimationNodeStateMachineTransition_5opb0"), "Shield_Hit", "Shield_Block", SubResource("AnimationNodeStateMachineTransition_gpqv3"), "Idle", "Shield_Block", SubResource("AnimationNodeStateMachineTransition_7ve27"), "Shield_Block", "Idle", SubResource("AnimationNodeStateMachineTransition_ldt7q"), "Shield_Block", "Hurt", SubResource("AnimationNodeStateMachineTransition_7bej3"), "Hurt", "Shield_Block", SubResource("AnimationNodeStateMachineTransition_8b85g"), "Shield_Block", "Death", SubResource("AnimationNodeStateMachineTransition_56b0b"), "Shield_Hit", "Block_Shatter", SubResource("AnimationNodeStateMachineTransition_w6yxy"), "Block_Shatter", "Idle", SubResource("AnimationNodeStateMachineTransition_2crlr"), "Block_Shatter", "Death", SubResource("AnimationNodeStateMachineTransition_xvldo"), "Block_Shatter", "Hurt", SubResource("AnimationNodeStateMachineTransition_ujqdw"), "Shield_Block", "Walk_Shield_Block", SubResource("AnimationNodeStateMachineTransition_ddxso"), "Walk_Shield_Block", "Shield_Block", SubResource("AnimationNodeStateMachineTransition_yylel"), "Walk_Shield_Block", "Shield_Hit", SubResource("AnimationNodeStateMachineTransition_t53un"), "Shield_Hit", "Walk_Shield_Block", SubResource("AnimationNodeStateMachineTransition_ibntm"), "Walk_Shield_Hit", "Walk_Shield_Block", SubResource("AnimationNodeStateMachineTransition_cndt5"), "Walk_Shield_Block", "Walk_Shield_Hit", SubResource("AnimationNodeStateMachineTransition_34vqf"), "Walk_Shield_Hit", "Shield_Hit", SubResource("AnimationNodeStateMachineTransition_c5ebt"), "Shield_Hit", "Walk_Shield_Hit", SubResource("AnimationNodeStateMachineTransition_gnyfh"), "Shield_Hit", "Death", SubResource("AnimationNodeStateMachineTransition_ucj1b"), "Walk_Shield_Hit", "Block_Shatter", SubResource("AnimationNodeStateMachineTransition_63fcs")]
-graph_offset = Vector2(-873, 862.8008)
+states/Whirlwind/position = Vector2(1194, 1078.4148)
+transitions = ["Start", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_66jch"), "2_Handed_Weapom_Idle", "Run", SubResource("AnimationNodeStateMachineTransition_wes5h"), "Run", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_cl0yh"), "Whirlwind", "Run", SubResource("AnimationNodeStateMachineTransition_mij8h"), "Run", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_xeu2l"), "2_Handed_Weapom_Idle", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_vg1os"), "Whirlwind", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_0py1s"), "Running_Hurt", "Run", SubResource("AnimationNodeStateMachineTransition_4vhnl"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_0h6up"), "2_Handed_Weapom_Idle", "Death", SubResource("AnimationNodeStateMachineTransition_kko1s"), "Whirlwind", "Death", SubResource("AnimationNodeStateMachineTransition_62wj3"), "Running_Hurt", "Death", SubResource("AnimationNodeStateMachineTransition_tt2ql"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_b40aq"), "2_Handed_Weapom_Idle", "Idle", SubResource("AnimationNodeStateMachineTransition_asj4a"), "Idle", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_puj4n"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_yeo2o"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_5jtjq"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_xykyk"), "Earth_Shatter", "Death", SubResource("AnimationNodeStateMachineTransition_yqh8n"), "Running_Hurt", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_eb31d"), "2_Handed_Weapom_Idle", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_xg6st"), "Earth_Shatter", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_epvue"), "Running_Hurt", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_fbi5p"), "Earth_Shatter", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_11f17"), "Whirlwind", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_ybb3w"), "Run", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_h384g"), "Spawn", "Idle", SubResource("AnimationNodeStateMachineTransition_88f1v"), "Dualwield_Attack_1", "Dualwield_Attack_2", SubResource("AnimationNodeStateMachineTransition_yl4y1"), "Dualwield_Attack_2", "Dualwield_Attack_3", SubResource("AnimationNodeStateMachineTransition_ulp4i"), "Dualwield_Attack_1", "Idle", SubResource("AnimationNodeStateMachineTransition_u23kb"), "Idle", "Dualwield_Attack_1", SubResource("AnimationNodeStateMachineTransition_8filg"), "Dualwield_Attack_2", "Idle", SubResource("AnimationNodeStateMachineTransition_18yym"), "Dualwield_Attack_3", "Idle", SubResource("AnimationNodeStateMachineTransition_pxqwv"), "Dualwield_Attack_1", "Run", SubResource("AnimationNodeStateMachineTransition_x3h74"), "Dualwield_Attack_2", "Run", SubResource("AnimationNodeStateMachineTransition_cywur"), "Dualwield_Attack_3", "Run", SubResource("AnimationNodeStateMachineTransition_guy8i"), "Dualwield_Attack_1", "Death", SubResource("AnimationNodeStateMachineTransition_slg74"), "Dualwield_Attack_2", "Death", SubResource("AnimationNodeStateMachineTransition_b37a0"), "Dualwield_Attack_3", "Death", SubResource("AnimationNodeStateMachineTransition_44cd3"), "Dualwield_Attack_3", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_ey7ov"), "Dualwield_Attack_2", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_efbrg"), "Dualwield_Attack_1", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_1isov"), "Earth_Shatter", "Dualwield_Attack_1", SubResource("AnimationNodeStateMachineTransition_3vkvo"), "2_Hand_Attack_1", "2_Hand_Attack_2", SubResource("AnimationNodeStateMachineTransition_yymo2"), "2_Hand_Attack_2", "2_Hand_Attack_3", SubResource("AnimationNodeStateMachineTransition_bwx41"), "2_Hand_Attack_1", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_osx4f"), "2_Hand_Attack_2", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_edegh"), "2_Hand_Attack_3", "2_Handed_Weapom_Idle", SubResource("AnimationNodeStateMachineTransition_63fet"), "2_Handed_Weapom_Idle", "2_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_14803"), "2_Hand_Attack_1", "Death", SubResource("AnimationNodeStateMachineTransition_4pjp3"), "2_Hand_Attack_2", "Death", SubResource("AnimationNodeStateMachineTransition_i1fur"), "2_Hand_Attack_3", "Death", SubResource("AnimationNodeStateMachineTransition_uqsid"), "2_Hand_Attack_1", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_omi1v"), "Whirlwind", "2_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_diadi"), "2_Hand_Attack_2", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_hwgj8"), "Whirlwind", "2_Hand_Attack_2", SubResource("AnimationNodeStateMachineTransition_e12vc"), "2_Hand_Attack_3", "Whirlwind", SubResource("AnimationNodeStateMachineTransition_bpp7b"), "Whirlwind", "2_Hand_Attack_3", SubResource("AnimationNodeStateMachineTransition_4f6ck"), "2_Hand_Attack_1", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_gce3k"), "Earth_Shatter", "2_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_djm72"), "2_Hand_Attack_2", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_x8mvv"), "2_Hand_Attack_3", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_4n8rx"), "1_Hand_Attack_1", "1_Hand_Attack_2", SubResource("AnimationNodeStateMachineTransition_t60a6"), "1_Hand_Attack_2", "1_Hand_Attack_3", SubResource("AnimationNodeStateMachineTransition_8khdx"), "1_Hand_Attack_1", "Idle", SubResource("AnimationNodeStateMachineTransition_3mqxc"), "Idle", "1_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_oesaj"), "2_Hand_Attack_1", "Run", SubResource("AnimationNodeStateMachineTransition_6y551"), "Run", "2_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_6r325"), "2_Hand_Attack_2", "Run", SubResource("AnimationNodeStateMachineTransition_3wbre"), "2_Hand_Attack_3", "Run", SubResource("AnimationNodeStateMachineTransition_2moa1"), "Run", "Dualwield_Attack_1", SubResource("AnimationNodeStateMachineTransition_sbpp2"), "1_Hand_Attack_1", "Run", SubResource("AnimationNodeStateMachineTransition_tj1ua"), "Run", "1_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_jgebe"), "1_Hand_Attack_2", "Run", SubResource("AnimationNodeStateMachineTransition_1xm38"), "1_Hand_Attack_3", "Run", SubResource("AnimationNodeStateMachineTransition_auonf"), "1_Hand_Attack_1", "Death", SubResource("AnimationNodeStateMachineTransition_pwfmx"), "1_Hand_Attack_2", "Death", SubResource("AnimationNodeStateMachineTransition_va8yg"), "1_Hand_Attack_3", "Death", SubResource("AnimationNodeStateMachineTransition_r61b0"), "1_Hand_Attack_1", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_e3cpj"), "Earth_Shatter", "1_Hand_Attack_1", SubResource("AnimationNodeStateMachineTransition_suvnt"), "1_Hand_Attack_2", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_hkxid"), "1_Hand_Attack_3", "Earth_Shatter", SubResource("AnimationNodeStateMachineTransition_iae8j"), "Run", "Running_Hurt", SubResource("AnimationNodeStateMachineTransition_km4gb"), "Start", "Bow_Idle", SubResource("AnimationNodeStateMachineTransition_7vj6g"), "Bow_Running", "Bow_Idle", SubResource("AnimationNodeStateMachineTransition_nagfp"), "Bow_Idle", "Bow_Running", SubResource("AnimationNodeStateMachineTransition_slqv6"), "Bow_Idle", "Death", SubResource("AnimationNodeStateMachineTransition_rkeid"), "Bow_Idle", "Idle", SubResource("AnimationNodeStateMachineTransition_81gu5"), "Idle", "Bow_Idle", SubResource("AnimationNodeStateMachineTransition_pf3rq"), "Shield_Block", "Shield_Hit", SubResource("AnimationNodeStateMachineTransition_5opb0"), "Shield_Hit", "Shield_Block", SubResource("AnimationNodeStateMachineTransition_gpqv3"), "Idle", "Shield_Block", SubResource("AnimationNodeStateMachineTransition_7ve27"), "Shield_Block", "Idle", SubResource("AnimationNodeStateMachineTransition_ldt7q"), "Shield_Block", "Death", SubResource("AnimationNodeStateMachineTransition_56b0b"), "Shield_Hit", "Block_Shatter", SubResource("AnimationNodeStateMachineTransition_w6yxy"), "Block_Shatter", "Idle", SubResource("AnimationNodeStateMachineTransition_2crlr"), "Block_Shatter", "Death", SubResource("AnimationNodeStateMachineTransition_xvldo"), "Shield_Block", "Walk_Shield_Block", SubResource("AnimationNodeStateMachineTransition_ddxso"), "Walk_Shield_Block", "Shield_Block", SubResource("AnimationNodeStateMachineTransition_yylel"), "Walk_Shield_Block", "Shield_Hit", SubResource("AnimationNodeStateMachineTransition_t53un"), "Shield_Hit", "Walk_Shield_Block", SubResource("AnimationNodeStateMachineTransition_ibntm"), "Walk_Shield_Hit", "Walk_Shield_Block", SubResource("AnimationNodeStateMachineTransition_cndt5"), "Walk_Shield_Block", "Walk_Shield_Hit", SubResource("AnimationNodeStateMachineTransition_34vqf"), "Walk_Shield_Hit", "Shield_Hit", SubResource("AnimationNodeStateMachineTransition_c5ebt"), "Shield_Hit", "Walk_Shield_Hit", SubResource("AnimationNodeStateMachineTransition_gnyfh"), "Shield_Hit", "Death", SubResource("AnimationNodeStateMachineTransition_ucj1b"), "Walk_Shield_Hit", "Block_Shatter", SubResource("AnimationNodeStateMachineTransition_63fcs"), "1_Hand_Attack_2", "Idle", SubResource("AnimationNodeStateMachineTransition_c5fsd"), "Idle", "1_Hand_Attack_2", SubResource("AnimationNodeStateMachineTransition_vi5bc"), "1_Hand_Attack_3", "Idle", SubResource("AnimationNodeStateMachineTransition_q00iq"), "Idle", "1_Hand_Attack_3", SubResource("AnimationNodeStateMachineTransition_f54jg"), "2_Handed_Weapom_Idle", "2_Hand_Attack_2", SubResource("AnimationNodeStateMachineTransition_cqneq"), "2_Handed_Weapom_Idle", "2_Hand_Attack_3", SubResource("AnimationNodeStateMachineTransition_8kunj"), "Run", "Dualwield_Attack_2", SubResource("AnimationNodeStateMachineTransition_4ydgc"), "Idle", "Dualwield_Attack_2", SubResource("AnimationNodeStateMachineTransition_tso75"), "Idle", "Dualwield_Attack_3", SubResource("AnimationNodeStateMachineTransition_b1evd")]
+graph_offset = Vector2(-1658, 1111.8008)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_cl0yh"]
 nodes/output/position = Vector2(680, 150)
@@ -2019,9 +2008,14 @@ volume_db = -8.667
 
 [connection signal="player_head_for_sheat" from="Model/Rig_Medium/EquipmentVisualComponent" to="PlayerUI" method="_on_equipment_visual_component_player_head_for_sheat"]
 [connection signal="no_weapon_equiped" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/IdleState" method="_on_main_hand_weapon_no_weapon_equiped"]
+[connection signal="no_weapon_equiped" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/AttackState1" method="_on_main_hand_weapon_no_weapon_equiped"]
+[connection signal="no_weapon_equiped" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/AttackState2" method="_on_main_hand_weapon_no_weapon_equiped"]
+[connection signal="no_weapon_equiped" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/AttackState3" method="_on_main_hand_weapon_no_weapon_equiped"]
 [connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/IdleState" method="_on_main_hand_weapon_weapon_data"]
+[connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="WeaponEquipComponent" method="_on_main_hand_weapon_weapon_data"]
 [connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="CombatComponent" method="_on_main_hand_weapon_weapon_data"]
 [connection signal="weapon_hit" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="CombatComponent" method="_on_main_hand_weapon_weapon_hit"]
+[connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/OffHand/OffHandWeapon" to="WeaponEquipComponent" method="_on_off_hand_weapon_weapon_data"]
 [connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/OffHand/OffHandWeapon" to="CombatComponent" method="_on_off_hand_weapon_weapon_data"]
 [connection signal="weapon_hit" from="Model/Rig_Medium/Skeleton3D/OffHand/OffHandWeapon" to="CombatComponent" method="_on_off_hand_weapon_weapon_hit"]
 [connection signal="is_blocking" from="Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent" to="." method="_on_shield_component_is_blocking"]

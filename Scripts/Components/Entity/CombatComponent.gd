@@ -123,8 +123,8 @@ func _on_main_hand_weapon_weapon_hit(target: Node3D) -> void:
 func _on_stat_component_current_stats(dic: Dictionary) -> void:
 	pass # Replace with function body.
 
-func _on_main_hand_weapon_weapon_data(data: WeaponResource, group: String) -> void:
-	if group == "MainHand":
-		main_hand_data = data
-	else:
-		off_hand_data = data
+func _on_main_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
+	main_hand_data = data
+
+func _on_off_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
+	off_hand_data = data

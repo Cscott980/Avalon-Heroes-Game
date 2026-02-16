@@ -20,7 +20,8 @@ func physics_process(_delta: float) -> void:
 func _on_player_input_component_sheath_weapon(sheath: bool) -> void:
 	weapon_is_sheathed = sheath
 
-func _on_main_hand_weapon_weapon_data(data: WeaponResource) -> void:
+func _on_main_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
+	print(data.handedness)
 	handness = data.handedness
 
 func _on_main_hand_weapon_no_weapon_equiped(status: bool) -> void:

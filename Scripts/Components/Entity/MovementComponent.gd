@@ -64,4 +64,4 @@ func _on_player_input_component_move_intent_changed(intent: Vector3) -> void:
 
 
 func _on_combat_component_attack_started(attack_index: int) -> void:
-	pass # Replace with function body.
+	input_vec = Vector3.ZERO

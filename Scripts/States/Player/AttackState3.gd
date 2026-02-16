@@ -4,6 +4,7 @@ var lunge_timer: float = 0.0
 var is_lunging: bool = false
 var lunge_direction: Vector3 = Vector3.ZERO
 var attack_data: AttackDataResource
+var no_weapon_equiped: bool
 
 func enter() -> void:
 	var combo = combat_comp.get_current_weapon_combo()
@@ -15,7 +16,7 @@ func enter() -> void:
 	
 	combat_comp.base_melee_attack_started(2)
 	
-	if not weap_equip_comp.is_dual_wielding:
+	if not weap_equip_comp.dual_wielding:
 		playback.play_attack_animation(attack_data.animation_name)
 	else:
 		playback.play_attack_animation(attack_data.dualwield_animation_name)
@@ -77,3 +78,7 @@ func physics_process(delta: float) -> void:
 func exit() -> void:
 	is_lunging = false
 	lunge_timer = 0.0
+
+
+func _on_main_hand_weapon_no_weapon_equiped(status: bool) -> void:
+		no_weapon_equiped = status

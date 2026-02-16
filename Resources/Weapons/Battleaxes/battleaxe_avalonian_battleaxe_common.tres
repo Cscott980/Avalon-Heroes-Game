@@ -1,10 +1,35 @@
 [gd_resource type="Resource" script_class="WeaponResource" format=3 uid="uid://ux3318iq802s"]
 
 [ext_resource type="Shape3D" uid="uid://csh0mb4gx6t2k" path="res://Assets/CollissionShape/Avalonian_Battleaxe_Collision_Shape.tres" id="1_0gux8"]
+[ext_resource type="Script" uid="uid://dcdjpy78qdbga" path="res://Scripts/Resources/General/AttackDataResource.gd" id="1_oei2y"]
 [ext_resource type="Texture2D" uid="uid://dg7r1xkpw8kgj" path="res://Assets/Icons/Weapons/Battleaxes/Avalonian Battleaxe Common.png" id="2_f122p"]
 [ext_resource type="StyleBox" uid="uid://camjb08wlgn4d" path="res://Styles/ItemBox/Common_Boarder.tres" id="3_f122p"]
 [ext_resource type="ArrayMesh" uid="uid://calgv4o8mab1h" path="res://Assets/WeaponMeshes/Battleaxes/Avalonian_Battleaxe_Mesh.res" id="3_oei2y"]
 [ext_resource type="Script" uid="uid://c50kbrwa28ffs" path="res://Scripts/Resources/Items/WeaponResource.gd" id="4_ekhv6"]
+
+[sub_resource type="Resource" id="Resource_ekhv6"]
+script = ExtResource("1_oei2y")
+animation_name = "2_Hand_Attack_1"
+combo_window_start = 0.6
+attack_duration = 1.0
+root_motion_speed = 0.0
+metadata/_custom_type_script = "uid://dcdjpy78qdbga"
+
+[sub_resource type="Resource" id="Resource_5ubsh"]
+script = ExtResource("1_oei2y")
+animation_name = "2_Hand_Attack_2"
+combo_window_start = 0.6
+attack_duration = 1.0
+root_motion_speed = 0.0
+metadata/_custom_type_script = "uid://dcdjpy78qdbga"
+
+[sub_resource type="Resource" id="Resource_fa0v7"]
+script = ExtResource("1_oei2y")
+animation_name = "2_Hand_Attack_3"
+combo_window_start = 0.6
+attack_duration = 2.4
+root_motion_speed = 0.0
+metadata/_custom_type_script = "uid://dcdjpy78qdbga"
 
 [resource]
 script = ExtResource("4_ekhv6")
@@ -18,6 +43,7 @@ scale_on_stat = 1
 scale_percentage = 0.2
 weapon_speed = 1.0
 allowed_classes = 1
+attack_combo = Array[ExtResource("1_oei2y")]([SubResource("Resource_ekhv6"), SubResource("Resource_5ubsh"), SubResource("Resource_fa0v7")])
 stat_info = "Increassed damage based on heroes total strength by  20%."
 name = "Avalonian Battleaxe"
 id = "battleaxe_avalonian_battleaxe_common"
