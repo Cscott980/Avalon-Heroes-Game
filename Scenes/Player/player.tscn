@@ -1839,17 +1839,20 @@ playback = NodePath("../../PlayerAnimationComponent")
 script = ExtResource("102_ulp4i")
 playback = NodePath("../../PlayerAnimationComponent")
 
-[node name="AttackState1" type="Node" parent="StateMachine" unique_id=1915949012 node_paths=PackedStringArray("playback")]
+[node name="AttackState1" type="Node" parent="StateMachine" unique_id=1915949012 node_paths=PackedStringArray("playback", "combat_comp")]
 script = ExtResource("6_dd0ac")
 playback = NodePath("../../PlayerAnimationComponent")
+combat_comp = NodePath("../../CombatComponent")
 
-[node name="AttackState2" type="Node" parent="StateMachine" unique_id=1753463908 node_paths=PackedStringArray("playback")]
+[node name="AttackState2" type="Node" parent="StateMachine" unique_id=1753463908 node_paths=PackedStringArray("playback", "combat_comp")]
 script = ExtResource("109_yylel")
 playback = NodePath("../../PlayerAnimationComponent")
+combat_comp = NodePath("../../CombatComponent")
 
-[node name="AttackState3" type="Node" parent="StateMachine" unique_id=1819353206 node_paths=PackedStringArray("playback")]
+[node name="AttackState3" type="Node" parent="StateMachine" unique_id=1819353206 node_paths=PackedStringArray("playback", "combat_comp")]
 script = ExtResource("110_t53un")
 playback = NodePath("../../PlayerAnimationComponent")
+combat_comp = NodePath("../../CombatComponent")
 
 [node name="AbilityState" type="Node" parent="StateMachine" unique_id=1149044750 node_paths=PackedStringArray("playback")]
 script = ExtResource("7_0u5uq")

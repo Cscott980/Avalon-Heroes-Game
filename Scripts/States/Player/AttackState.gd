@@ -5,15 +5,14 @@ var lunge_timer: float = 0.0
 var is_lunging: bool = false
 var lunge_direction: Vector3 = Vector3.ZERO
 var attack_data: AttackDataResource
-
+var combo: Array[AttackDataResource]
 func enter() -> void:
-	#TODO: LINE UP DATA TO FIX NIL VALUE
-	var combo = player.combat_component.get_current_weapon_combo()
+	combat_comp.get_current_weapon_combo()
 	if combo.is_empty() or combo.size() < 1:
 		return
 	attack_data = combo[0]
 	
-	player.combat_component.base_melee_attack_started(0)
+	combat_comp.base_melee_attack_started(0)
 	
 	if not player.weapon_equip_component.is_dual_wielding:
 		playback.play_attack_animation(attack_data.animation_name)
@@ -41,11 +40,11 @@ func _setup_lunge() -> void:
 		player.movement_component.model.y = target_rotation
 
 func _open_combo_window() -> void:
-	player.combat_component.open_combo_window()
+	combat_comp.open_combo_window()
 
 func _finish_attack() -> void:
-	player.combat_component.close_combo_window()
-	player.combat_component.complete_attack()
+	combat_comp.close_combo_window()
+	combat_comp.complete_attack()
 	
 func exit() -> void:
 	is_lunging = false

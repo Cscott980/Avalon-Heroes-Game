@@ -3,6 +3,7 @@ class_name PlayerState
 
 var player: Player
 @export var playback: PlayerAnimationComponent
+@export var combat_comp: CombatComponent
 var state_machine: PlayerStateMachine
 
 func enter() -> void:
