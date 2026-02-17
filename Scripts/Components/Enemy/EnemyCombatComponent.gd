@@ -1,0 +1,3 @@
+class_name EnemyMeleeCombatComponent extends Node
+
+signal is_attacking

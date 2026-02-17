@@ -8,16 +8,18 @@ enum EnemyType {
 
 @export_group("Info")
 @export var name: String
-@export var enemy_type: EnemyType
 
 @export_group("Visuals")
 @export var enemy_mesh: EnemyVisualsResource
 
 @export_group("Weapons")
+@export var combat_type: EnemyType
 @export var main_hand: Mesh
 @export var off_hand: Mesh
 @export var other: Mesh
 @export var damage: int
+@export var attack_speed: float
+@export var attack_cooldown: float
 
 @export_group("Movement")
 @export var movement_speed: float
@@ -25,10 +27,8 @@ enum EnemyType {
 @export var wander_speed: float
 
 @export_group("Stats")
+@export var max_health: int
 @export var stats: StatResource
-
-@export_group("Stats/Resource Pool")
-@export var resource: ResourcePoolResource
 
 @export_group("Abilities")
 @export var abilities: Array[AbilityResource]

@@ -4,16 +4,22 @@
 [ext_resource type="Script" uid="uid://cbal6j63qy6dv" path="res://Scripts/Resources/Player/ResourceVisualsResource.gd" id="2_tst70"]
 [ext_resource type="Script" uid="uid://3qgvo0fy12ei" path="res://Scripts/Resources/Enemies/EnemyResource.gd" id="3_ko468"]
 [ext_resource type="Resource" uid="uid://bd8kuxeor8xsk" path="res://Resources/EnemyVisuals/SkeletalGruntMeshes.tres" id="3_tst70"]
-[ext_resource type="Resource" uid="uid://dc6vfo02h0n3q" path="res://Resources/Weapons/Sword/sword_of_the_dead_common.tres" id="4_wl4v6"]
+[ext_resource type="ArrayMesh" uid="uid://c1v6d7aitav73" path="res://Assets/WeaponMeshes/Swords/Skeleton_Blade_Cube_007.res" id="4_yw4b4"]
+[ext_resource type="ArrayMesh" uid="uid://c3ak1i3pflgge" path="res://Assets/WeaponMeshes/Shields/Skeleton_Shield_Small_A_Cylinder_010.res" id="5_fay48"]
 [ext_resource type="Resource" uid="uid://cl17nw3u3uqvx" path="res://Resources/EnemyStats/SkeletalGruntStats.tres" id="6_yw4b4"]
 
 [resource]
 script = ExtResource("3_ko468")
 name = "Skeletal Grunt"
 enemy_mesh = ExtResource("3_tst70")
-main_hand = ExtResource("4_wl4v6")
-movement_speed = 1.0
+main_hand = ExtResource("4_yw4b4")
+off_hand = ExtResource("5_fay48")
+damage = 8
+attack_speed = 1.0
+attack_cooldown = 1.5
+movement_speed = 3.0
 turn_speed = 0.5
-wander_speed = 1.0
+wander_speed = 2.0
+max_health = 50
 stats = ExtResource("6_yw4b4")
 metadata/_custom_type_script = "uid://3qgvo0fy12ei"

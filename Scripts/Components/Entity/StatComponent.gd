@@ -7,14 +7,14 @@ signal current_stats(dic: Dictionary)
 
 var stats: StatResource
 var primary_stat: int
-var player_stats: Dictionary = {}
+var target_stats: Dictionary = {}
 
 func _ready() -> void:
 	await  get_tree().process_frame
 
 func apply_stats(data: StatResource) -> void:
 	stats = data
-	player_stats = {
+	target_stats = {
 		StatConst.STATS.STRENGTH: stats.strength,
 		StatConst.STATS.INTELLECT: stats.intellect,
 		StatConst.STATS.DEXTERITY: stats.dexterity,
@@ -22,7 +22,7 @@ func apply_stats(data: StatResource) -> void:
 		StatConst.STATS.WISDOM: stats.wisdom,
 	}
 	primary_stat = stats.entity_main_stat
-	current_stats.emit(player_stats)
+	current_stats.emit(target_stats)
 
 func _on_progression_component_stat_selected(stat: int, amount: int) -> void:
-	player_stats[stat] += amount
+	target_stats[stat] += amount

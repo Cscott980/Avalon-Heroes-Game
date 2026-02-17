@@ -24,6 +24,8 @@ var attack_queued: bool = false
 var main_hand_data: WeaponResource
 var off_hand_data: WeaponResource
 
+var stat: StatComponent
+
 func _ready() -> void:
 	combo_timer.wait_time = combo_timeout
 	combo_timer.one_shot = true
@@ -103,7 +105,7 @@ func reset_combo() -> void:
 	combo_broken.emit()
 
 func _on_attack_cooldown_timeout() -> void:
-	pass # Replace with function body.
+	is_attacking = false
 
 func _on_combo_timer_timeout() -> void:
 	if not is_attacking:
@@ -120,11 +122,8 @@ func _on_main_hand_weapon_weapon_hit(target: Node3D) -> void:
 	var damage = main_hand_data.damage
 	attack_hit.emit(target, damage)
 
-func _on_stat_component_current_stats(dic: Dictionary) -> void:
-	pass # Replace with function body.
-
 func _on_main_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
 	main_hand_data = data
-
+	
 func _on_off_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
 	off_hand_data = data

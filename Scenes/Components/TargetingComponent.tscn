@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://chumvllowmp1y"]
+
+[ext_resource type="Script" uid="uid://gpjqkxlkf2ds" path="res://Scripts/Components/Enemy/TargetingComponent.gd" id="1_g728m"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rblcv"]
+radius = 11.001584
+
+[node name="TargetingComponent" type="Node" unique_id=497121743]
+script = ExtResource("1_g728m")
+metadata/_custom_type_script = "uid://gpjqkxlkf2ds"
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1646807079]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1174729622]
+unique_name_in_owner = true
+shape = SubResource("SphereShape3D_rblcv")

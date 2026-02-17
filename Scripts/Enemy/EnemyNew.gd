@@ -1,5 +1,5 @@
 extends CharacterBody3D
-class_name Enemy
+
 
 #-------- Visuals ---------
 @onready var skeleton_minion_arm_left: MeshInstance3D = %Skeleton_Minion_ArmLeft

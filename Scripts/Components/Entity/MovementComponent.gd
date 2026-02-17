@@ -62,6 +62,8 @@ func _on_health_component_revived(_owner: Node) -> void:
 func _on_player_input_component_move_intent_changed(intent: Vector3) -> void:
 	input_vec = intent
 
-
-func _on_combat_component_attack_started(attack_index: int) -> void:
-	input_vec = Vector3.ZERO
+func _on_combat_component_attack_started(_attack_index: int) -> void:
+	can_move = false
+	
+func _on_combat_component_attack_window_ended() -> void:
+	can_move = true

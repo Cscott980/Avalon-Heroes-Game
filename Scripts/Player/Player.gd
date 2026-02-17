@@ -57,7 +57,6 @@ func _on_player_input_component_attack() -> void:
 		1: state_machine.change_state("AttackState2")
 		2: state_machine.change_state("AttackState3")
 
-## ROBUST FIX: Check if currently attacking using CombatComponent state
 func _on_movement_component_moving(status: bool) -> void:
 	# Block movement state changes while attacking
 	# Use CombatComponent's is_attacking flag for reliable check
@@ -74,19 +73,6 @@ func _on_combat_component_combo_window_open() -> void:
 	if combat_component.attack_queued:
 		_on_player_input_component_attack()
 
-## CRITICAL: Return to Idle when attack window ends
-func _on_combat_component_attack_window_ended() -> void:
-	# Attack is complete, return to appropriate state
-	# Check movement AFTER attack finishes
-	if movement_component.is_moving:
-		state_machine.change_state("MoveState")
-	else:
-		state_machine.change_state("IdleState")
 
-
-func _on_combat_component_combo_completed() -> void:
-	print("Full combo completed!")
-	if movement_component.is_moving:
-		state_machine.change_state("MoveState")
-	else:
-		state_machine.change_state("IdleState")
+func _on_shield_component_block_broke(cooldown: float) -> void:
+	pass # Replace with function body.

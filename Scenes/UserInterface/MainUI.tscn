@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ctyuj2px1mfc" path="res://Scripts/UI/MainUI.gd" id="1_8r1g1"]
 [ext_resource type="PackedScene" uid="uid://3lbs1k6glmge" path="res://Scenes/UserInterface/AbilityBar.tscn" id="2_cwop8"]
 [ext_resource type="PackedScene" uid="uid://caavhwhvoqvqm" path="res://Scenes/UserInterface/DisplayStatChoiceComponent.tscn" id="4_at26v"]
-[ext_resource type="Script" uid="uid://bjp7tu24iy3pq" path="res://Scripts/Components/QuizDisplayComponent.gd" id="5_gfpoe"]
+[ext_resource type="Script" uid="uid://bjp7tu24iy3pq" path="res://Scripts/Components/Quiz/QuizDisplayComponent.gd" id="5_gfpoe"]
 [ext_resource type="PackedScene" uid="uid://lhsufnuhcrv4" path="res://Scenes/UserInterface/CharacterSheet.tscn" id="17_xmfmo"]
 
 [node name="PlayerUI" type="CanvasLayer" unique_id=651787803]

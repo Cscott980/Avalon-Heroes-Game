@@ -11,7 +11,6 @@ var no_weapon_equiped: bool
 func enter() -> void:
 	combo = combat_comp.get_current_weapon_combo()
 	if combo.is_empty() or combo.size() < 1:
-		state_machine.change_state("IdleState")
 		return
 	
 	attack_data = combo[0]
