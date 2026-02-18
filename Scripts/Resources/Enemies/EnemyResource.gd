@@ -14,12 +14,7 @@ enum EnemyType {
 
 @export_group("Weapons")
 @export var combat_type: EnemyType
-@export var main_hand: Mesh
-@export var off_hand: Mesh
-@export var other: Mesh
-@export var damage: int
-@export var attack_speed: float
-@export var attack_cooldown: float
+@export var weapon_data: EnemyWeaponResource
 
 @export_group("Movement")
 @export var movement_speed: float

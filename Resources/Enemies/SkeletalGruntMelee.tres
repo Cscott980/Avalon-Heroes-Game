@@ -7,16 +7,28 @@
 [ext_resource type="ArrayMesh" uid="uid://c1v6d7aitav73" path="res://Assets/WeaponMeshes/Swords/Skeleton_Blade_Cube_007.res" id="4_yw4b4"]
 [ext_resource type="ArrayMesh" uid="uid://c3ak1i3pflgge" path="res://Assets/WeaponMeshes/Shields/Skeleton_Shield_Small_A_Cylinder_010.res" id="5_fay48"]
 [ext_resource type="Resource" uid="uid://cl17nw3u3uqvx" path="res://Resources/EnemyStats/SkeletalGruntStats.tres" id="6_yw4b4"]
+[ext_resource type="Shape3D" uid="uid://boq5tagx70wx2" path="res://Assets/CollissionShape/Skeletal_Sword_Collisition.tres" id="7_mxhdf"]
+[ext_resource type="Script" uid="uid://maq73tggojj5" path="res://Scripts/Resources/Enemies/EnemyWeaponResource.gd" id="8_fay48"]
+
+[sub_resource type="Resource" id="Resource_mxhdf"]
+script = ExtResource("8_fay48")
+main_hand = ExtResource("4_yw4b4")
+main_hand_collision = ExtResource("7_mxhdf")
+off_hand = ExtResource("5_fay48")
+attack_animation = "OneHandedAttack"
+min_damage = 5
+max_damage = 10
+attack_speed = 1.0
+attack_cooldown = 1.5
+crit_chance = 0.01
+crit_multiplier = 0.05
+metadata/_custom_type_script = "uid://maq73tggojj5"
 
 [resource]
 script = ExtResource("3_ko468")
 name = "Skeletal Grunt"
 enemy_mesh = ExtResource("3_tst70")
-main_hand = ExtResource("4_yw4b4")
-off_hand = ExtResource("5_fay48")
-damage = 8
-attack_speed = 1.0
-attack_cooldown = 1.5
+weapon_data = SubResource("Resource_mxhdf")
 movement_speed = 3.0
 turn_speed = 0.5
 wander_speed = 2.0
