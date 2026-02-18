@@ -1,1 +1,0 @@
-class_name HurtBoxComponent extends Area3D

@@ -99,8 +99,7 @@ func _physics_process(delta: float) -> void:
 	
 	look_at(current_target.global_position, Vector3.UP)
 	rotate_y(deg_to_rad(rotation.y * turn_speed))
-	
-	enemy_chase()
+
 	move_and_slide()
 
 func _set_new_target() -> void:

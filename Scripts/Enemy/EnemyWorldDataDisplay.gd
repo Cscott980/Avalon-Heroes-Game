@@ -1,0 +1,17 @@
+class_name EnemyWorldDataDisplay extends Sprite3D
+
+@onready var entity_name: Label = %Entity_Name
+@onready var level: Label = %Level
+@onready var health_bar: ProgressBar = %HealthBar
+
+var max_health: int 
+
+func _ready() -> void:
+	pass
+
+func apply_world_display_data(entity: String, entity_level: int, entity_health: int) -> void:
+	entity_name.text = entity if entity != null else "Enemy"
+	level.text = str(entity_level) if entity != null else "0"
+	max_health = entity_health if entity_health != null else 10 #will spawn with only 10 health as max value
+	health_bar.max_value = max_health
+	health_bar.value = entity_health if entity_health != null else 5 #will spawn with half health active health.
