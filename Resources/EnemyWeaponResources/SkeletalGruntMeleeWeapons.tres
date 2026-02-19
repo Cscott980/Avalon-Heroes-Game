@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyWeaponResource" format=3 uid="uid://twlopc6dyht6"]
+
+[ext_resource type="ArrayMesh" uid="uid://c1v6d7aitav73" path="res://Assets/WeaponMeshes/Swords/Skeleton_Blade_Cube_007.res" id="1_nirfa"]
+[ext_resource type="Shape3D" uid="uid://boq5tagx70wx2" path="res://Assets/CollissionShape/Skeletal_Sword_Collisition.tres" id="2_k6tok"]
+[ext_resource type="ArrayMesh" uid="uid://c3ak1i3pflgge" path="res://Assets/WeaponMeshes/Shields/Skeleton_Shield_Small_A_Cylinder_010.res" id="3_738wb"]
+[ext_resource type="Script" uid="uid://maq73tggojj5" path="res://Scripts/Resources/Enemies/EnemyWeaponResource.gd" id="4_5wwjh"]
+
+[resource]
+script = ExtResource("4_5wwjh")
+main_hand = ExtResource("1_nirfa")
+main_hand_collision = ExtResource("2_k6tok")
+off_hand = ExtResource("3_738wb")
+attack_animation = "OneHandedAttack"
+min_damage = 5
+max_damage = 10
+attack_speed = 1.0
+attack_cooldown = 1.5
+crit_chance = 0.01
+crit_multiplier = 0.05
+metadata/_custom_type_script = "uid://maq73tggojj5"

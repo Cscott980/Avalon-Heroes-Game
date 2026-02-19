@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyMovementResource" format=3 uid="uid://bdv5wt313l18h"]
+
+[ext_resource type="Script" uid="uid://dde8uwqbq5eau" path="res://Scripts/Resources/Enemies/EnemyMovementResource.gd" id="1_miaiv"]
+
+[resource]
+script = ExtResource("1_miaiv")
+movement_speed = 4.0
+turn_speed = 2.0
+wander_speed = 2.0
+wander_radius = 10.0
+metadata/_custom_type_script = "uid://dde8uwqbq5eau"

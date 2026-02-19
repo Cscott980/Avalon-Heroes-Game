@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://gpjqkxlkf2ds" path="res://Scripts/Components/Enemy/TargetingComponent.gd" id="1_g728m"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rblcv"]
-radius = 11.001584
+radius = 22.912739
 
 [node name="TargetingComponent" type="Node" unique_id=497121743]
 script = ExtResource("1_g728m")
@@ -16,3 +16,5 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 shape = SubResource("SphereShape3D_rblcv")
 debug_color = Color(0.95703125, 1, 0, 0.41960785)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
