@@ -37,6 +37,17 @@ func play_attack() -> void:
 	if playback:
 		playback.travel(attack_animation)
 
+func play_spawn() -> void:
+	if playback:
+		playback.travel("Spawn")
+
+func play_wander() -> void:
+	playback.travel("Wander")
+
+func play_hurt() -> void:
+	if playback:
+		playback.travel("Hurt")
+
 func _on_enemy_main_hand_component_handedness(hand: int) -> void:
 	if hand == EnemyWeaponResource.HANDEDNESS.TWO_HANDED:
 		is_holding_2h = true

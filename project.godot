@@ -137,6 +137,7 @@ block={
 3d_physics/layer_5="PlayerAbility"
 3d_physics/layer_6="EnemyProjectiles"
 3d_physics/layer_7="EnemyAbilities"
+3d_physics/layer_8="EnemyWeapon"
 
 [physics]
 

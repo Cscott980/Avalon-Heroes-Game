@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cinc5v7t3uu3q"
-path="res://.godot/imported/axe_B.gltf-b17c755f52e43b39e6e9cc65a72a4be0.scn"
+uid="uid://c5itm3f7h8b6u"
+path="res://.godot/imported/scythe.gltf-b69121642734b3fcf151cf30a1c60240.scn"
 
 [deps]
 
-source_file="res://Assets/ModelWeapons/Axes/axe_B.gltf"
-dest_files=["res://.godot/imported/axe_B.gltf-b17c755f52e43b39e6e9cc65a72a4be0.scn"]
+source_file="res://Assets/ModelWeapons/Scythes/scythe.gltf"
+dest_files=["res://.godot/imported/scythe.gltf-b69121642734b3fcf151cf30a1c60240.scn"]
 
 [params]
 

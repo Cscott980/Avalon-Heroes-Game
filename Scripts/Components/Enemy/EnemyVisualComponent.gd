@@ -38,6 +38,7 @@ func _ready() -> void:
 		weapon_mesh,
 		weapon_shield_relic
 	]
+	highlighter_off()
 
 func apply_visuals(data: EnemyVisualsResource) -> void:
 	if data == null or not is_instance_valid(data):

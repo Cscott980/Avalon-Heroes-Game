@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_miaiv")
-movement_speed = 4.0
+movement_speed = 2.0
 turn_speed = 2.0
-wander_speed = 2.0
+wander_speed = 1.0
 wander_radius = 10.0
 metadata/_custom_type_script = "uid://dde8uwqbq5eau"

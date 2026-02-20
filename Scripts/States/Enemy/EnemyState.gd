@@ -1,6 +1,8 @@
 extends Node
 class_name EnemyState
 
+@export var playback: EnemyAnimationComponent
+
 var enemy: Enemy
 var state_machine: EnemyStateMachine
 

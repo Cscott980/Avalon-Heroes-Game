@@ -1811,51 +1811,78 @@ unique_name_in_owner = true
 script = ExtResource("3_mtuoh")
 initial_state_path = NodePath("IdleState")
 
-[node name="SpawnState" type="Node" parent="StateMachine" unique_id=215209568 node_paths=PackedStringArray("playback")]
+[node name="SpawnState" type="Node" parent="StateMachine" unique_id=215209568 node_paths=PackedStringArray("player", "playback", "combat_comp", "weap_equip_comp")]
 script = ExtResource("99_yl4y1")
+player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
+combat_comp = NodePath("../../CombatComponent")
+weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
-[node name="IdleState" type="Node" parent="StateMachine" unique_id=2082240196 node_paths=PackedStringArray("playback")]
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=2082240196 node_paths=PackedStringArray("player", "playback", "combat_comp", "weap_equip_comp")]
 script = ExtResource("4_mtuoh")
+player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
+combat_comp = NodePath("../../CombatComponent")
+weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
-[node name="MoveState" type="Node" parent="StateMachine" unique_id=1775966732 node_paths=PackedStringArray("playback")]
+[node name="MoveState" type="Node" parent="StateMachine" unique_id=1775966732 node_paths=PackedStringArray("player", "playback", "combat_comp", "weap_equip_comp")]
 script = ExtResource("5_htcer")
+player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
+combat_comp = NodePath("../../CombatComponent")
+weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
-[node name="BlockState" type="Node" parent="StateMachine" unique_id=476476290 node_paths=PackedStringArray("playback")]
+[node name="BlockState" type="Node" parent="StateMachine" unique_id=476476290 node_paths=PackedStringArray("player", "playback", "combat_comp", "weap_equip_comp")]
 script = ExtResource("102_ulp4i")
+player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
+combat_comp = NodePath("../../CombatComponent")
+weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
-[node name="AttackState1" type="Node" parent="StateMachine" unique_id=1915949012 node_paths=PackedStringArray("playback", "combat_comp", "weap_equip_comp")]
+[node name="AttackState1" type="Node" parent="StateMachine" unique_id=1915949012 node_paths=PackedStringArray("player", "playback", "combat_comp", "target_comp", "weap_equip_comp")]
 script = ExtResource("6_dd0ac")
+player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
+target_comp = NodePath("../../TargetsInRangeComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
-[node name="AttackState2" type="Node" parent="StateMachine" unique_id=1753463908 node_paths=PackedStringArray("playback", "combat_comp", "weap_equip_comp")]
+[node name="AttackState2" type="Node" parent="StateMachine" unique_id=1753463908 node_paths=PackedStringArray("player", "playback", "combat_comp", "target_comp", "weap_equip_comp")]
 script = ExtResource("109_yylel")
+player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
+target_comp = NodePath("../../TargetsInRangeComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
-[node name="AttackState3" type="Node" parent="StateMachine" unique_id=1819353206 node_paths=PackedStringArray("playback", "combat_comp", "weap_equip_comp")]
+[node name="AttackState3" type="Node" parent="StateMachine" unique_id=1819353206 node_paths=PackedStringArray("player", "playback", "combat_comp", "target_comp", "weap_equip_comp")]
 script = ExtResource("110_t53un")
+player = NodePath("../..")
+playback = NodePath("../../PlayerAnimationComponent")
+combat_comp = NodePath("../../CombatComponent")
+target_comp = NodePath("../../TargetsInRangeComponent")
+weap_equip_comp = NodePath("../../WeaponEquipComponent")
+
+[node name="AbilityState" type="Node" parent="StateMachine" unique_id=1149044750 node_paths=PackedStringArray("player", "playback", "combat_comp", "weap_equip_comp")]
+script = ExtResource("7_0u5uq")
+player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
-[node name="AbilityState" type="Node" parent="StateMachine" unique_id=1149044750 node_paths=PackedStringArray("playback")]
-script = ExtResource("7_0u5uq")
-playback = NodePath("../../PlayerAnimationComponent")
-
-[node name="HurtState" type="Node" parent="StateMachine" unique_id=137205970 node_paths=PackedStringArray("playback")]
+[node name="HurtState" type="Node" parent="StateMachine" unique_id=137205970 node_paths=PackedStringArray("player", "playback", "combat_comp", "weap_equip_comp")]
 script = ExtResource("9_gk6dx")
+player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
+combat_comp = NodePath("../../CombatComponent")
+weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
-[node name="DeadState" type="Node" parent="StateMachine" unique_id=461590499 node_paths=PackedStringArray("playback")]
+[node name="DeadState" type="Node" parent="StateMachine" unique_id=461590499 node_paths=PackedStringArray("player", "playback", "combat_comp", "weap_equip_comp")]
 script = ExtResource("10_jhyir")
+player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
+combat_comp = NodePath("../../CombatComponent")
+weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
 [node name="ReviveState" type="Node" parent="StateMachine" unique_id=578469262]
 
@@ -1936,11 +1963,12 @@ show_percentage = false
 unique_name_in_owner = true
 player = NodePath("..")
 
-[node name="WeaponEquipComponent" type="Node" parent="." unique_id=667596658 node_paths=PackedStringArray("main_hand_weapon", "off_hand_weapon")]
+[node name="WeaponEquipComponent" type="Node" parent="." unique_id=667596658 node_paths=PackedStringArray("main_hand_weapon", "off_hand_weapon", "shield")]
 unique_name_in_owner = true
 script = ExtResource("113_18yym")
 main_hand_weapon = NodePath("../Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon")
 off_hand_weapon = NodePath("../Model/Rig_Medium/Skeleton3D/OffHand/OffHandWeapon")
+shield = NodePath("../Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent")
 metadata/_custom_type_script = "uid://nfxhpdw3pn7w"
 
 [node name="MovementComponent" type="Node" parent="." unique_id=1196397969 node_paths=PackedStringArray("user", "model")]
@@ -2005,6 +2033,8 @@ one_shot = true
 
 [node name="SoundEffects" type="AudioStreamPlayer" parent="." unique_id=190394363]
 volume_db = -8.667
+
+[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=140289551]
 
 [connection signal="player_head_for_sheat" from="Model/Rig_Medium/EquipmentVisualComponent" to="PlayerUI" method="_on_equipment_visual_component_player_head_for_sheat"]
 [connection signal="no_weapon_equiped" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/IdleState" method="_on_main_hand_weapon_no_weapon_equiped"]

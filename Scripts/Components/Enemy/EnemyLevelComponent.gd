@@ -5,3 +5,6 @@ signal current_level(data: int)
 @export var level: int
 
 var world_diffuculty_level: int
+
+func _ready() -> void:
+	current_level.emit(level)

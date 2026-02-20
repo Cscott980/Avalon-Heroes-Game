@@ -38,3 +38,7 @@ func _on_hurt_box_area_entered(area: Area3D) -> void:
 		var dmg = area.get("damage")
 		if dmg != null:
 			take_damage(dmg)
+
+
+func _on_status_effect_component_dot(damage: int) -> void:
+	pass # Replace with function body.

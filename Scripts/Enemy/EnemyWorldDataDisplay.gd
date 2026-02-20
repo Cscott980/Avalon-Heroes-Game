@@ -15,3 +15,7 @@ func apply_world_display_data(entity: String, entity_level: int, entity_health: 
 	max_health = entity_health if entity_health != null else 10 #will spawn with only 10 health as max value
 	health_bar.max_value = max_health
 	health_bar.value = entity_health if entity_health != null else 5 #will spawn with half health active health.
+
+
+func _on_enemy_level_component_current_level(data: int) -> void:
+	level.text = str(data)

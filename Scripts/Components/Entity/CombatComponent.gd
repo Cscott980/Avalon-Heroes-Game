@@ -119,11 +119,14 @@ func _on_main_hand_weapon_weapon_hit(target: Node3D) -> void:
 	var combo_data = get_current_weapon_combo()
 	if combo_data.is_empty():
 		return
-	var damage = main_hand_data.damage
-	attack_hit.emit(target, damage)
+	if target.is_in_group("enemy"):
+		var damage = main_hand_data.damage
+		var do_dmg = target.get_node("EnemyHealthComponent") as EnemyHealthComponent
+		if do_dmg.has_method("take_damage"):
+			do_dmg.take_damage(damage)
 
 func _on_main_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
 	main_hand_data = data
-	
+
 func _on_off_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
 	off_hand_data = data

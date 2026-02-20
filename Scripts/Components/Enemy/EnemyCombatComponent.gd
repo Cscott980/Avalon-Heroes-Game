@@ -1,9 +1,6 @@
 class_name EnemyMeleeCombatComponent extends Node
 
-signal is_attacking(aniamtion: String, speed: float)
-
-
-
+signal is_attacking(speed: float, target: Player)
 
 var min_damage: int
 var max_damage: int
@@ -21,6 +18,8 @@ func apply_melee_weapon_data(data: EnemyWeaponResource) -> void:
 	attack_speed = data.attack_speed
 	anim = data.attack_animation
 
-
 func _on_enemy_main_hand_component_enemy_hit(body: Player) -> void:
-	pass # Replace with function body.
+	if body.is_in_group("player"):
+		var do_dmg = body.get_node("HealthComponent") as HealthComponent
+		if do_dmg.has_method("take_damage"):
+			do_dmg.take_damge(min_damage)

@@ -1,11 +1,12 @@
-class_name EnemyStateMachine
-extends Node
+class_name EnemyStateMachine extends Node
+
+@export var enemy: CharacterBody3D
+@export var initial_state_path: NodePath
 
 var current_state: EnemyState
 var _states: Dictionary = {}
 
-@export var initial_state_path: NodePath
-@onready var enemy: Enemy = get_parent()
+
 
 func _ready() -> void:	
 	for child in get_children():

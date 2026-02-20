@@ -30,14 +30,14 @@ func _setup_lunge() -> void:
 	if not attack_data.lunge_to_target:
 		return
 	
-	var weapon_type = weap_equip_comp.main_hand_weapon.WEAPON_TYPE
+	var weapon_type = combat_comp.main_hand_data
 	if weapon_type == null:
 		return
 	
 	if weapon_type.attack_type == WeaponResource.ATTCK_TYPE.RANGED:
 		return
 	
-	var target_distance = player.targets_in_range_component.get_distance_to_current_target()
+	var target_distance = target_comp.get_distance_to_current_target()
 	
 	if target_distance <= attack_data.lunge_distance_max and target_distance > 0.5:
 		is_lunging = true
@@ -82,7 +82,6 @@ func physics_process(delta: float) -> void:
 		if not player.is_on_floor():
 			player.velocity.y -= 9.8 * delta
 			player.move_and_slide()
-
 
 func _on_main_hand_weapon_no_weapon_equiped(status: bool) -> void:
 	no_weapon_equiped = status

@@ -1,9 +1,10 @@
 extends Node
 class_name PlayerState
 
-var player: Player
+@export var player: Player
 @export var playback: PlayerAnimationComponent
 @export var combat_comp: CombatComponent
+@export var target_comp: TargetsInRangeComponent
 @export var weap_equip_comp: WeaponEquipComponent
 
 var state_machine: PlayerStateMachine
