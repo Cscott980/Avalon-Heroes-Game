@@ -19,3 +19,7 @@ func apply_world_display_data(entity: String, entity_level: int, entity_health: 
 
 func _on_enemy_level_component_current_level(data: int) -> void:
 	level.text = str(data)
+
+
+func _on_enemy_health_component_hit(current_amount: int) -> void:
+	health_bar.value = current_amount

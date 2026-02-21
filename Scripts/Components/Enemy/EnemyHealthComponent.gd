@@ -24,6 +24,7 @@ func take_damage(amount: int) -> void:
 	if is_dead:
 		return
 	health -= amount
+	current_health.emit(health)
 	hit.emit(health)
 	
 	if health <= 0:

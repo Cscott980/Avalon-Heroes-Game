@@ -1,5 +1,4 @@
 extends CharacterBody3D
-class_name PlayerOld
 
 
 @export var hero_class: HeroClassResource

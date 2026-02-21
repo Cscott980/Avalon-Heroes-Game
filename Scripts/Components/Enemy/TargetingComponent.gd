@@ -10,16 +10,19 @@ signal new_target(target: CharacterBody3D)
 
 var targets: Array[Node]
 var current_target: CharacterBody3D
-
+var can_track: bool = false
 
 func _ready() -> void:
 	await  get_tree().process_frame
+	can_track = true
 	_set_new_target()
 
 func apply_targeting_data(range_of_attack: float) -> void:
 	attack_range = range_of_attack
 
 func _set_new_target() -> void:
+	if not can_track:
+		return
 	targets = get_tree().get_nodes_in_group("player")
 	var closest = null
 	var best_dis: float = INF
@@ -47,3 +50,11 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		targets_close.emit(false)
+
+
+func _on_enemy_health_component_dead() -> void:
+	can_track = false
+
+
+func _on_enemy_health_component_revived() -> void:
+	can_track = true

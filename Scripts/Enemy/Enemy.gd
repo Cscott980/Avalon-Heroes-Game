@@ -5,7 +5,7 @@ class_name Enemy extends CharacterBody3D
 @onready var enemy_health_component: EnemyHealthComponent = $EnemyHealthComponent
 @onready var enemy_visuals_component: EnemyVisualComponent = %EnemyVisualsComponent
 @onready var enemy_melee_combat_component: EnemyMeleeCombatComponent = %EnemyMeleeCombatComponent
-@onready var enemy_range_combat_component: Node = %EnemyRangeCombatComponent # missing comp
+#@onready var enemy_range_combat_component: Node = %EnemyRangeCombatComponent 
 @onready var ai_movement_component: AIControllerComponent = %AIControllerComponent
 @onready var status_effect_component: StatusEffectComponent = %StatusEffectComponent
 @onready var enemy_level_component: EnemyLevelComponent = %EnemyLevelComponent
@@ -37,6 +37,7 @@ func enemy_init() -> void:
 	enemy_animation_component.apply_animation_playback(enemy_data)
 	
 	
+	
 func _on_hurt_box_area_entered(_area: Area3D) -> void:
 	if state_machine:
 		state_machine.change_state("HurtState")
@@ -46,6 +47,8 @@ func _on_ai_controller_component_wandering() -> void:
 		state_machine.change_state("WanderState")
 
 func _on_ai_controller_component_moving(status: bool) -> void:
+	if enemy_health_component.is_dead: 
+		return
 	if state_machine:
 		if status:
 			state_machine.change_state("ChaseState")

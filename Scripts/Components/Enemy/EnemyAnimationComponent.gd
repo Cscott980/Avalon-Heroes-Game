@@ -31,7 +31,12 @@ func play_revive() -> void:
 func play_death() -> void:
 	if playback:
 		var death_number = randi_range(1,3)
-		playback.travel("Death_%s" % death_number)
+		if death_number == 1:
+			playback.travel("Death_1")
+		elif death_number == 2:
+			playback.travel("Death_2")
+		else:
+			playback.travel("Death_3")
 
 func play_attack() -> void:
 	if playback:

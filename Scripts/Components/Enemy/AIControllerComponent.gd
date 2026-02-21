@@ -3,7 +3,6 @@ class_name AIControllerComponent extends Node
 signal moving(status: bool)
 signal wandering
 signal target_in_attack_dist(status: bool)
-signal no_direction
 
 @onready var nav_agent: NavigationAgent3D = %NavigationAgent3D
 @onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -22,14 +21,18 @@ var attack_range: float
 var target_close: bool 
 
 func _ready() -> void:
+	await  get_tree().process_frame
 	can_move = true
 
 func _physics_process(delta: float) -> void:
+	if not can_move:
+		user.velocity = Vector3.ZERO
+		return
+		
 	if current_target != null:
 		_move_to_target(delta)
 	
 	if current_target == null:
-		user.velocity = Vector3.ZERO
 		wander(delta)
 
 func _move_to_target(delta: float) -> void:
@@ -132,10 +135,14 @@ func _on_enemy_spawn_component_spawn() -> void:
 func _on_enemy_spawn_component_spawned() -> void:
 	can_move = true
 
-
 func _on_hurt_box_component_hit() -> void:
 	can_move = false
 
-
 func _on_hurt_box_component_not_hits() -> void:
+	can_move = true
+
+func _on_enemy_health_component_dead() -> void:
+	can_move = false
+
+func _on_enemy_health_component_revived() -> void:
 	can_move = true

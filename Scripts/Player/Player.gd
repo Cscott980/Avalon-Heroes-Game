@@ -36,6 +36,7 @@ func hero_init() -> void:
 	ability_component.apply_ability_data(hero_class.hero_abilities)
 	player_ui.get_player_visual_data(hero_class.class_defaults, hero_class.starting_equipment)
 	equipment_visuals.get_defults(hero_class.class_defaults)
+	targets_in_range_component._update_closest_target()
 	
 func _physics_process(delta: float) -> void:
 	if state_machine.current_state:
