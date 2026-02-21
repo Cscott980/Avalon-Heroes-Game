@@ -73,10 +73,12 @@ func load_weapon(weapon_id: WeaponResource) -> void:
 func weapon_hit_box_on() -> void:
 	if hit_box:
 		hit_box.monitoring = true
+		hit_box.monitorable = true
 
 func weapon_hit_box_off() -> void:
 	if hit_box:
 		hit_box.monitoring = false
+		hit_box.monitorable = false
 
 func _on_hit_box_body_entered(body: Node3D) -> void:
 	if body.is_in_group("enemy"):

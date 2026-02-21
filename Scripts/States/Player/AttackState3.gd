@@ -45,7 +45,7 @@ func _setup_lunge() -> void:
 		
 		if lunge_direction != Vector3.ZERO:
 			var target_rotation = atan2(lunge_direction.x, lunge_direction.z)
-			player.rotation.y = target_rotation
+			player.movement_component.model.y = target_rotation
 
 func _finish_attack() -> void:
 	combat_comp.base_melee_complete_attack()
@@ -77,7 +77,6 @@ func physics_process(delta: float) -> void:
 func exit() -> void:
 	is_lunging = false
 	lunge_timer = 0.0
-
 
 func _on_main_hand_weapon_no_weapon_equiped(status: bool) -> void:
 		no_weapon_equiped = status

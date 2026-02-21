@@ -30,7 +30,7 @@ func get_direction_to_current_target() -> Vector3:
 func _update_closest_target() -> void:
 	for i in range(targets_in_range.size() -1, -1, -1):
 		var e := targets_in_range[i]
-		if e == null or not is_instance_valid(e) or e.is_dead:
+		if e == null or not is_instance_valid(e) or e.is_in_group("dead_enemies"):
 			targets_in_range.remove_at(i)
 		
 	var closest: Node3D = null
@@ -45,21 +45,21 @@ func _update_closest_target() -> void:
 		return
 		
 	if current_target != null and is_instance_valid(current_target):
-		if current_target.has_node("/root/EnemyVisualComponent"):
-			var highlighter = current_target.get_node("/root/EnemyVisualComponent") as EnemyVisualComponent
+		if current_target.has_node("EnemyVisualComponent"):
+			var highlighter = current_target.get_node("EnemyVisualComponent") as EnemyVisualComponent
 			highlighter.highlighter_off()
 	
 	current_target = closest
 	
 	if current_target != null:
-		if current_target.has_node("/root/EnemyVisualComponent"):
-			var highlighter = current_target.get_node("/root/EnemyVisualComponent") as EnemyVisualComponent
+		if current_target.has_node("EnemyVisualComponent"):
+			var highlighter = current_target.get_node("EnemyVisualComponent") as EnemyVisualComponent
 			highlighter.highlighter_on()
 	
 	for e in targets_in_range:
-		if e != current_target and e != null and is_instance_valid(e):
-			if e.has_node("/root/EnemyVisualComponent"):
-				var highlighter = e.get_node("/root/EnemyVisualComponent") as EnemyVisualComponent
+		if e == null or not is_instance_valid(e) or e.is_in_group("dead_enemies"):
+			if e.has_node("EnemyVisualComponent"):
+				var highlighter = e.get_node("EnemyVisualComponent") as EnemyVisualComponent
 				highlighter.highlighter_off()
 	get_direction_to_current_target()
 	get_distance_to_current_target()

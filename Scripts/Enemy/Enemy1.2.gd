@@ -14,6 +14,7 @@ class_name Enemy extends CharacterBody3D
 @onready var enemy_world_data_display: EnemyWorldDataDisplay = %EnemyWorldDataDisplay
 @onready var enemy_animation_component: EnemyAnimationComponent = %EnemyAnimationComponent
 @onready var enemy_main_hand_component: EnemyMainHandComponent = %EnemyMainHandComponent
+@onready var weapon_shield_relic: EnemyOffHandComponent = %WeaponShieldRelic
 
 @export var enemy_data: EnemyResource
 
@@ -29,6 +30,7 @@ func enemy_init() -> void:
 	ai_movement_component.apply_movement_data(enemy_data.movement_data, enemy_data.weapon_data)
 	enemy_visuals_component.apply_visuals(enemy_data.enemy_mesh)
 	enemy_main_hand_component.apply_mainhand_weapon_visual_data(enemy_data.weapon_data)
+	weapon_shield_relic.apply_offhand_weapon_visual_data(enemy_data.weapon_data)
 	enemy_melee_combat_component.apply_melee_weapon_data(enemy_data.weapon_data)
 	enemy_world_data_display.apply_world_display_data(enemy_data.name, enemy_level_component.level, enemy_data.max_health)
 	enemy_health_component.apply_health_data(enemy_data.max_health, enemy_data.stats)
@@ -45,7 +47,10 @@ func _on_ai_controller_component_wandering() -> void:
 
 func _on_ai_controller_component_moving(status: bool) -> void:
 	if state_machine:
-		state_machine.change_state("ChaseState")
+		if status:
+			state_machine.change_state("ChaseState")
+		else:
+			state_machine.change_state("IdleState")
 
 func _on_enemy_spawn_component_spawn() -> void:
 	if state_machine:
@@ -59,3 +64,14 @@ func _on_ai_controller_component_target_in_attack_dist(status: bool) -> void:
 		state_machine.change_state("Attack")
 	else:
 		state_machine.change_state("ChaseState")
+
+
+func _on_enemy_health_component_dead() -> void:
+	self.add_to_group("dead_enemies")
+	self.remove_from_group("enemies")
+	state_machine.change_state("DeadState")
+
+func _on_enemy_health_component_revived() -> void:
+	self.remove_from_group("dead_enemies")
+	self.add_to_group("enemies")
+	state_machine.change_state("ReviveState")

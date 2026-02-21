@@ -5,6 +5,7 @@ signal spawn
 
 func _ready() -> void:
 	spawn.emit()
-	await get_tree().create_timer(3.5667).timeout
-	spawned.emit()
 	
+func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+	if anim_name == &"Enemy/Skeletons_Spawn_Ground":
+		spawned.emit()

@@ -129,6 +129,13 @@ func _on_status_effect_component_rooted() -> void:
 func _on_enemy_spawn_component_spawn() -> void:
 	can_move = false
 
-
 func _on_enemy_spawn_component_spawned() -> void:
+	can_move = true
+
+
+func _on_hurt_box_component_hit() -> void:
+	can_move = false
+
+
+func _on_hurt_box_component_not_hits() -> void:
 	can_move = true
