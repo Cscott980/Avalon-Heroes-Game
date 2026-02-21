@@ -27,6 +27,8 @@ func enter() -> void:
 	get_tree().create_timer(attack_data.attack_duration).timeout.connect(_finish_attack)
 	
 func _setup_lunge() -> void:
+	print("target: ", target_comp.get_closets_target())
+	print("distance: ", target_comp.get_distance_to_current_target())
 	if not attack_data.lunge_to_target:
 		return
 	

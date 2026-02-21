@@ -12,12 +12,14 @@ class_name MainUI extends CanvasLayer
 
 var invetory_open = false
 
-func _ready() -> void:
-	pass
-
 func get_player_visual_data(defults_data: HeroClassVisualDefaultResource, equipment_resource: PlayerEquipmentResource) -> void:
 	inventory_equipment.character_sheet_character.vs_defults = defults_data
 	inventory_equipment.equipment = equipment_resource
+
+func apply_ability_bar_health_data(health: int) -> void:
+	ability_bar.player_health.max_value = health
+	ability_bar.player_health.value = health
+	
 
 func update_level_display(new_level: String) -> void:
 	ability_bar.level_ui_dis.text = new_level
@@ -44,10 +46,10 @@ func _on_progression_component_exp_collected(amount: int) -> void:
 	ability_bar.experiance_bar.value = amount
 
 func _on_resource_pool_component_current_resource_amount(amount: int) -> void:
-	pass # Replace with function body.
+	ability_bar.resource_bar.value = amount
 
 func _on_resource_pool_component_resource_used(amount: int) -> void:
-	pass # Replace with function body.
+	ability_bar.resource_bar.value = amount
 
 func _on_ability_component_on_cooldown(button: Button, time: float, disable: bool) -> void:
 	pass # Replace with function body.
@@ -84,3 +86,8 @@ func _on_health_component_current_health(amount: int, max_player_health: int) ->
 func _on_equipment_visual_component_player_head_for_sheat(mesh: Mesh, skin: Skin) -> void:
 	inventory_equipment.character_sheet_character.head.mesh = mesh
 	inventory_equipment.character_sheet_character.head.skin = skin
+
+func _on_resource_pool_component_resource_data(data: ResourcePoolResource) -> void:
+	ability_bar.resource_bar.max_value = data.max_value
+	ability_bar.resource_bar.value = data.start_value
+	ability_bar.resource_bar.add_theme_stylebox_override(data.style_bar.resource_name, data.style_bar)

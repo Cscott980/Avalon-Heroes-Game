@@ -10,6 +10,10 @@ var display_name: String = HeroClassConst.load_class_to_string(hero_class)
 @export_group("Default Visuals")
 @export var class_defaults: HeroClassVisualDefaultResource
 
+@export_group("Animations")
+@export var playback_name: String
+@export var playback: AnimationNodeBlendTree
+
 @export_group("Stats")
 @export var max_health: int = 100
 

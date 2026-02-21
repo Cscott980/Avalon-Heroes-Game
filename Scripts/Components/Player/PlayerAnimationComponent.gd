@@ -5,6 +5,13 @@ class_name PlayerAnimationComponent extends Node
 @onready var anim_tree: AnimationTree = %AnimationTree
 @onready var playback: AnimationNodeStateMachinePlayback = anim_tree.get("parameters/Movement/playback")
 
+var playback_name: String
+
+func apply_animation_data(data: HeroClassResource) -> void:
+	anim_tree.tree_root = data.playback
+	playback_name = data.playback_name
+	playback = anim_tree.get("parameters/%s/playback" % playback_name)
+
 #--------- General -----------
 func play_idle_animation() -> void:
 	if playback:

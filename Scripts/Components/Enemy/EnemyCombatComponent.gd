@@ -19,7 +19,13 @@ func apply_melee_weapon_data(data: EnemyWeaponResource) -> void:
 	anim = data.attack_animation
 
 func _on_enemy_main_hand_component_enemy_hit(body: Player) -> void:
-	if body.is_in_group("player"):
-		var do_dmg = body.get_node("HealthComponent") as HealthComponent
-		if do_dmg.has_method("take_damage"):
-			do_dmg.take_damge(min_damage)
+	if not body.is_in_group("player"):
+		return
+		
+	var health := body.get_node_or_null("HealthComponent") as HealthComponent
+	if health == null:
+		push_warning("Enemy hit player but no HealthComponent found")
+		return
+	
+	var cal_damage := randi_range(min_damage, max_damage)
+	health.take_damage(cal_damage)

@@ -1,28 +1,29 @@
 @icon("uid://b6vioyh5wceoi")
 class_name HealthComponent extends Node
 
-signal dead(owner: Node)
+signal dead
 signal hurt
 signal revived(owner: Node)
 signal current_health(amount: int, max_player_health: int)
 
-@export var out_health_bar: ProgressBar
 @export var max_health: int = 100
-@export var hp_per_vit: int = 5
+@export var hp_per_vit_percentage: int = 0.05
 
-var health: int = 100
-var vitality: int = 10
+var health: int 
+var vitality: int
 var is_dead: bool = false
 
-func _ready() -> void:
-	pass
-	
-func apply_player_health_data(amount: int) -> void:
+func apply_player_health_data(amount: int, stats: StatResource) -> void:
+	vitality = stats.vitality
 	max_health = amount
+	cal_vit_point()
 	health = max_health
-	out_health_bar.max_value = max_health
-	out_health_bar.value = health
+	print(max_health)
+	print(health)
 	current_health.emit(health, max_health)
+
+func cal_vit_point() -> void:
+	max_health += (vitality * hp_per_vit_percentage)
 
 func _on_player_healed(amount_percetage: float) -> void:
 	health += int(max_health * amount_percetage)
@@ -30,19 +31,17 @@ func _on_player_healed(amount_percetage: float) -> void:
 
 func on_revive(amount_percetage: float) -> void:
 	health += int(max_health * amount_percetage)
-	emit_signal("revived", true)
+	is_dead = false
+	revived.emit(true)
 
-func take_damge(amount: int) -> void:
+func take_damage(amount: int) -> void:
 	if is_dead:
 		return
 	health -= amount
-	current_health.emit(health)
-	emit_signal("is_hurt", true)
+	current_health.emit(health, max_health)
+	hurt.emit()
 	
 	if health == 0:
 		health = 0
 		is_dead = true
-		emit_signal("dead")
-
-func _on_hurt_box_area_entered(_area: Area3D) -> void:
-	hurt.emit()
+		dead.emit()

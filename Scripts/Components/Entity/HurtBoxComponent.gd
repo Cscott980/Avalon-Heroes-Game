@@ -17,21 +17,32 @@ func _on_invincibility_timer_timeout() -> void:
 	hurt_box.set_deferred("monitoring", true)
 	_can_get_hurt = true
 
-func _on_hurt_box_area_entered(area: Area3D) -> void:
+func _on_hurt_box_area_entered(_area: Area3D) -> void:
+	if not _can_get_hurt:
+		return
 		hit.emit()
 		invincibility_timer.start()
 		_can_get_hurt = false
+		hurt_box.set_deferred("monitorable", false)
 		hurt_box.set_deferred("monitoring", false)
 
 func _on_enemy_health_component_dead() -> void:
 	_can_get_hurt = false
 	not_hits.emit()
 	hurt_box.set_deferred("monitoring", false)
+	hurt_box.set_deferred("monitorable", false)
 
-
-func _on_hurt_box_area_exited(area: Area3D) -> void:
+func _on_hurt_box_area_exited(_area: Area3D) -> void:
 	if not invincibility_timer.is_stopped():
 		invincibility_timer.stop()
 		_can_get_hurt = true
 		not_hits.emit()
+		hurt_box.set_deferred("monitorable", true)
 		hurt_box.set_deferred("monitoring", true)
+
+
+func _on_health_component_dead() -> void:
+	_can_get_hurt = false
+	not_hits.emit()
+	hurt_box.set_deferred("monitoring", false)
+	hurt_box.set_deferred("monitorable", false)

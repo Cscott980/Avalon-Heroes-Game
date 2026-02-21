@@ -42,19 +42,20 @@ func target_in_range() -> bool:
 		return false
 	return user.global_position.distance_to(current_target.global_position) <= attack_range
 
+func attack() -> void:
+	if target_in_range():
+		targets_close.emit(true)
+
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		targets_close.emit(true)
-
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		targets_close.emit(false)
 
-
 func _on_enemy_health_component_dead() -> void:
 	can_track = false
-
 
 func _on_enemy_health_component_revived() -> void:
 	can_track = true

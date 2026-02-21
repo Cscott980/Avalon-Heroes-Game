@@ -91,6 +91,7 @@ _data = {
 
 [node name="Enemy" type="CharacterBody3D" unique_id=1616704430 groups=["enemy"]]
 collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_30xrl")
 enemy_data = ExtResource("2_bftp8")
 
@@ -349,6 +350,8 @@ bone_idx = 13
 unique_name_in_owner = true
 transform = Transform3D(1.29, 0, 0, 0, 1.29, 0, 0, 0, 1.29, 0, 1.8400059, 0)
 billboard = 1
+texture_filter = 0
+render_priority = 2
 texture = SubResource("ViewportTexture_ml3mr")
 script = ExtResource("4_rblcv")
 
@@ -558,7 +561,6 @@ unique_name_in_owner = true
 [connection signal="revived" from="EnemyHealthComponent" to="AIControllerComponent" method="_on_enemy_health_component_revived"]
 [connection signal="new_target" from="TargetingComponent" to="AIControllerComponent" method="_on_targeting_component_new_target"]
 [connection signal="targets_close" from="TargetingComponent" to="AIControllerComponent" method="_on_targeting_component_targets_close"]
-[connection signal="moving" from="AIControllerComponent" to="." method="_on_ai_controller_component_moving"]
 [connection signal="target_in_attack_dist" from="AIControllerComponent" to="." method="_on_ai_controller_component_target_in_attack_dist"]
 [connection signal="wandering" from="AIControllerComponent" to="." method="_on_ai_controller_component_wandering"]
 [connection signal="dot" from="StatusEffectComponent" to="EnemyHealthComponent" method="_on_status_effect_component_dot"]

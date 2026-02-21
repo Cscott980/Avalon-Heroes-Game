@@ -1,6 +1,5 @@
 class_name AIControllerComponent extends Node
 
-signal moving(status: bool)
 signal wandering
 signal target_in_attack_dist(status: bool)
 
@@ -36,44 +35,40 @@ func _physics_process(delta: float) -> void:
 		wander(delta)
 
 func _move_to_target(delta: float) -> void:
-	if not can_move:
+	var distance := user.global_position.distance_to(current_target.global_position)
+
+	# --- ATTACK ---
+	if distance <= attack_range:
+		user.velocity = Vector3.ZERO
+		target_in_attack_dist.emit(true)
+		user.move_and_slide()
 		return
-		
+	else:
+		target_in_attack_dist.emit(false)
+
+	# --- NAVIGATION AGENT MOVEMENT ---
 	if target_close:
 		nav_agent.target_position = current_target.global_position
-		
-		if not user.is_on_floor():
-			user.velocity.y -= gravity * delta
 		
 		var next_point = nav_agent.get_next_path_position()
 		var direction = (next_point - user.global_position).normalized()
 		
 		user.velocity.x = direction.x * speed
 		user.velocity.z = direction.z * speed
-		
-		if nav_agent.distance_to_target() <= attack_range:
-			user.velocity = Vector3.ZERO
-			target_in_attack_dist.emit(true)
-			user.move_and_slide()
-			return
-		
-		rotate_model()
-		moving.emit(true)
-		target_in_attack_dist.emit(false)
-		user.move_and_slide()
+	
+	# --- DIRECT MOVEMENT ---
 	else:
-		
 		var direction = (current_target.global_position - user.global_position).normalized()
 		
-		if not user.is_on_floor():
-			user.velocity.y -= gravity * delta
-			
-		user.velocity.x = direction.x * speed 
+		user.velocity.x = direction.x * speed
 		user.velocity.z = direction.z * speed
-		
-		rotate_model()
-		moving.emit(true)
-		user.move_and_slide()
+
+	# Gravity
+	if not user.is_on_floor():
+		user.velocity.y -= gravity * delta
+
+	rotate_model()
+	user.move_and_slide()
 		
 func apply_movement_data(enemy_movement: EnemyMovementResource, weap_data: EnemyWeaponResource) -> void:
 	speed = enemy_movement.movement_speed
@@ -116,18 +111,6 @@ func _on_targeting_component_targets_close(status: bool) -> void:
 		target_close = true
 	else:
 		target_close = false
-
-func _on_status_effect_component_stuned() -> void:
-	pass # Replace with function body.
-
-func _on_status_effect_component_status_ended() -> void:
-	pass # Replace with function body.
-
-func _on_status_effect_component_slowed(_new_speed: float) -> void:
-	pass # Replace with function body.
-
-func _on_status_effect_component_rooted() -> void:
-	pass # Replace with function body.
 
 func _on_enemy_spawn_component_spawn() -> void:
 	can_move = false

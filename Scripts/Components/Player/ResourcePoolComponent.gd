@@ -2,9 +2,8 @@
 class_name ResourcePoolComponent extends Node
 
 signal current_resource_amount(amount: int)
+signal resource_data(data: ResourcePoolResource)
 signal resource_used(amount: int)
-
-var resource_data:ResourcePoolResource
 
 var resource_type: int
 var resource_amount: int
@@ -17,7 +16,6 @@ var regen_method: int
 
 func _ready() -> void:
 	pass
-	
 
 func apply_resource_data(data: ResourcePoolResource) -> void:
 	resource_type = data.resource_type
@@ -27,3 +25,5 @@ func apply_resource_data(data: ResourcePoolResource) -> void:
 	regen = data.regen_rate
 	delay = data.regen_rate
 	regen_method = data.gain_conditions
+	resource_data.emit(data)
+	

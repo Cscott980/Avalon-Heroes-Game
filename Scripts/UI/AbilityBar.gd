@@ -1,7 +1,7 @@
 class_name AbilityBar extends Control
 
 
-@onready var player_yu: PlayerUI
+@onready var player_ui: PlayerUI
 
 @onready var ability_1: TextureButton = %Ability1
 @onready var cooldown_1: TextureProgressBar = %Cooldown1

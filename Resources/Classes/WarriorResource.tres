@@ -2,6 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://fu10eh47v2p5" path="res://Resources/VisualDefults/WarriorDefults.tres" id="1_ksieg"]
 [ext_resource type="Script" uid="uid://bsj17hheibsfy" path="res://Scripts/Resources/Player/HeroClassResource.gd" id="1_nlh6m"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://ce8p8msdwlfjc" path="res://Resources/HeroClassAnimations/Warrior.tres" id="4_uyovs"]
 [ext_resource type="Resource" uid="uid://cbdv6lraljqpb" path="res://Resources/StartingEquipment/WarriorEquipment.tres" id="6_3ou10"]
 [ext_resource type="Resource" uid="uid://b2mg63s1f3ctj" path="res://Resources/Abilities/HeroAbilities/WarriorAbilities.tres" id="8_1bvxv"]
 [ext_resource type="Resource" uid="uid://djooacegpapmv" path="res://Resources/HeroClassStats/WarriorBaseStats.tres" id="9_1bvxv"]
@@ -15,6 +16,8 @@ Playstyle: Frontline bruiser
 Strengths: High durability, crowd control, close-range damage
 Role: Tank / Melee DPS"
 class_defaults = ExtResource("1_ksieg")
+playback_name = "Warrior"
+playback = ExtResource("4_uyovs")
 max_health = 120
 hero_stats = ExtResource("9_1bvxv")
 resource_pool = ExtResource("9_7oanv")

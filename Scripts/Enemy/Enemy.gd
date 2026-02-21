@@ -39,42 +39,26 @@ func enemy_init() -> void:
 	
 	
 func _on_hurt_box_area_entered(_area: Area3D) -> void:
-	if state_machine:
-		state_machine.change_state("HurtState")
-
-func _on_ai_controller_component_wandering() -> void:
-	if state_machine:
-		state_machine.change_state("WanderState")
-
-func _on_ai_controller_component_moving(status: bool) -> void:
-	if enemy_health_component.is_dead: 
+	if enemy_health_component.is_dead:
 		return
 	if state_machine:
-		if status:
-			state_machine.change_state("ChaseState")
-		else:
-			state_machine.change_state("IdleState")
+		state_machine.change_state("HurtState")
 
 func _on_enemy_spawn_component_spawn() -> void:
 	if state_machine:
 		state_machine.change_state("SpawnState")
-	
-func _on_world_level_manager_level_up(new_level) -> void:
-	enemy_level_component.world_diffuculty_level = new_level
 
 func _on_ai_controller_component_target_in_attack_dist(status: bool) -> void:
+	if enemy_health_component.is_dead: 
+		return
 	if status: 
-		state_machine.change_state("Attack")
+		state_machine.change_state("AttackState")
 	else:
 		state_machine.change_state("ChaseState")
 
-
 func _on_enemy_health_component_dead() -> void:
-	self.add_to_group("dead_enemies")
 	self.remove_from_group("enemies")
+	self.add_to_group("dead_enemies")
+	
+	ai_movement_component.can_move = false
 	state_machine.change_state("DeadState")
-
-func _on_enemy_health_component_revived() -> void:
-	self.remove_from_group("dead_enemies")
-	self.add_to_group("enemies")
-	state_machine.change_state("ReviveState")
