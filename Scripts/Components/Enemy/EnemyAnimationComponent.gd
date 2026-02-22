@@ -11,7 +11,8 @@ var path_name: String
 
 func apply_animation_playback(data: EnemyResource) -> void:
 	anim_tree.tree_root = data.animation_tree
-	var path_name = data.path_name
+	path_name = data.path_name
+	anim_tree.active = true
 	playback = anim_tree.get("parameters/%s/playback" % path_name)
 	attack_animation = data.weapon_data.attack_animation
 
