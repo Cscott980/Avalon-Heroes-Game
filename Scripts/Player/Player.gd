@@ -96,4 +96,6 @@ func _on_health_component_hurt() -> void:
 
 func _on_health_component_dead() -> void:
 	if state_machine:
+		self.remove_from_group("player")
+		self.add_to_group("dead_players")
 		state_machine.change_state("DeadState")

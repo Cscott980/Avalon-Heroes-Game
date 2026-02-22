@@ -7,6 +7,7 @@ var playback: AnimationNodeStateMachinePlayback
 
 var is_holding_2h: bool = false
 var attack_animation: String
+var path_name: String
 
 func apply_animation_playback(data: EnemyResource) -> void:
 	anim_tree.tree_root = data.animation_tree
@@ -41,7 +42,7 @@ func play_death() -> void:
 
 func play_attack() -> void:
 	if playback:
-		playback.travel(attack_animation)
+		playback.travel("Attack")
 
 func play_spawn() -> void:
 	if playback:

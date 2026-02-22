@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bj7apda73qwfm"]
+[gd_scene format=3 uid="uid://bj7apda73qwfm"]
 
 [ext_resource type="MeshLibrary" uid="uid://c3xl4rrkv1nk5" path="res://Assets/MeshLib/LobbyMeshes.tres" id="1_2vnmm"]
 [ext_resource type="MeshLibrary" uid="uid://b41fl2a8nd4lt" path="res://Assets/MeshLib/RPGToolMeshes.tres" id="2_7mxwi"]
-[ext_resource type="PackedScene" uid="uid://b5b6ea8b5673k" path="res://Scenes/Player/player.tscn" id="2_62igp"]
+[ext_resource type="PackedScene" uid="uid://b5b6ea8b5673k" path="res://Scenes/Player/Player.tscn" id="2_62igp"]
 [ext_resource type="PackedScene" uid="uid://jwi1uejwjh4b" path="res://Assets/ModelWeapons/Battleaxes/axe_2handed.gltf" id="3_7mxwi"]
 [ext_resource type="PackedScene" uid="uid://c77wvr2bjgghj" path="res://Assets/World/Towns/forge_02.fbx" id="3_qr1ks"]
 [ext_resource type="PackedScene" uid="uid://bl6wgs2np2y6p" path="res://Assets/ModelWeapons/Crossbows/Skeleton_Crossbow.gltf" id="4_33c4u"]

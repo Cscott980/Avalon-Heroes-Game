@@ -61,11 +61,8 @@ func _on_inventory_equipment_current_equipment(slot_res: EquipmentSlotResource, 
 	if equip_visuals_comp.has_method("apply_equipment"):
 		equip_visuals_comp.apply_equipment(slot_res, item, sub_index, hand)
 
-func _on_quiz_display_component_questions_answered() -> void:
-	pass # Replace with function body.
-
-func _on_health_component_dead(_owner: Node) -> void:
-	pass # Replace with function body.
+func _on_health_component_dead() -> void:
+	self.visible = false
 
 func _on_player_input_component_charsheet_toggled() -> void:
 	if inventory_equipment.is_open:

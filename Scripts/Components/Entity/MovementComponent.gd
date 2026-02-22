@@ -19,6 +19,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not can_move:
+		user.velocity = Vector3.ZERO
 		return 
 
 	user.velocity.x = -input_vec.x * move_speed
@@ -46,20 +47,24 @@ func face_direction(dir: Vector3, delta: float) -> void:
 	var new_yaw:= lerp_angle(current_yaw, target_yaw, turn_speed * delta)
 	model.rotation.y = new_yaw
 
-func is_moving() -> void:
+func is_moving() -> bool:
 	var h := Vector2(user.velocity.x, user.velocity.z).length()
 	if h > 0.1:
 		moving.emit(true)
+		return true
 	else:
 		moving.emit(false)
+		return false
 
-func _on_health_component_dead(_owner: Node) -> void:
+func _on_health_component_dead() -> void:
 	can_move = false
 
-func _on_health_component_revived(_owner: Node) -> void:
+func _on_health_component_revived() -> void:
 	can_move = true
 
 func _on_player_input_component_move_intent_changed(intent: Vector3) -> void:
+	if not can_move:
+		input_vec = Vector3.ZERO
 	input_vec = intent
 
 func _on_combat_component_attack_started(_attack_index: int) -> void:

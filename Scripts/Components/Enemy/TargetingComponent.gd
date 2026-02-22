@@ -17,6 +17,10 @@ func _ready() -> void:
 	can_track = true
 	_set_new_target()
 
+func _process(_delta: float) -> void:
+	_set_new_target()
+	target_in_range()
+	
 func apply_targeting_data(range_of_attack: float) -> void:
 	attack_range = range_of_attack
 
@@ -45,6 +49,7 @@ func target_in_range() -> bool:
 func attack() -> void:
 	if target_in_range():
 		targets_close.emit(true)
+		return
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):

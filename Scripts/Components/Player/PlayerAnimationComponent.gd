@@ -3,7 +3,7 @@ class_name PlayerAnimationComponent extends Node
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var anim_tree: AnimationTree = %AnimationTree
-@onready var playback: AnimationNodeStateMachinePlayback = anim_tree.get("parameters/Movement/playback")
+var playback: AnimationNodeStateMachinePlayback
 
 var playback_name: String
 
@@ -37,6 +37,12 @@ func play_hurt_animation() -> void:
 	if playback:
 		playback.travel("Hurt")
 
+func play_running_hurt_animation() -> void:
+	if anim_tree:
+		playback.travel("Running_Hurt")
+		anim_tree.set("parameters/%s/Running_Hurt/OneShot/request" % playback_name,
+		AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+
 #--------- Melee Combat -----------
 
 func play_attack_animation(animation: String) -> void:
@@ -65,6 +71,3 @@ func play_walking_shield_hit() -> void:
 func play_block_shatter() -> void:
 	if playback:
 		playback.travel("Block_Shatter")
-
-func _on_weapon_equip_component_is_dual_wielding(status: bool) -> void:
-	pass # Replace with function body.

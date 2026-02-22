@@ -37,5 +37,3 @@ script = ExtResource("5_gfpoe")
 metadata/_custom_type_script = "uid://bjp7tu24iy3pq"
 
 [connection signal="current_equipment" from="InventoryEquipment" to="." method="_on_inventory_equipment_current_equipment"]
-[connection signal="questions_answered" from="QuizDisplayComponent" to="." method="_on_quiz_display_component_questions_answered"]
-[connection signal="questions_answered" from="QuizDisplayComponent" to="DisplayStatChoiceComponent" method="_on_quiz_display_component_questions_answered"]

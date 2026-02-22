@@ -33,13 +33,11 @@ func take_damage(amount: int) -> void:
 		dead.emit()
 		current_health.emit(health)
 
-
 func _on_hurt_box_area_entered(area: Area3D) -> void:
 	if area.is_in_group("player_weapon") or area.is_in_group("player_projectile"):
 		var dmg = area.get("damage")
 		if dmg != null:
 			take_damage(dmg)
 
-
-func _on_status_effect_component_dot(damage: int) -> void:
+func _on_status_effect_component_dot(_damage: int) -> void:
 	pass # Replace with function body.

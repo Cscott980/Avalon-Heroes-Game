@@ -6,6 +6,7 @@ signal handedness(hand: int)
 
 @onready var hit_box: Area3D = %HitBox
 @onready var weapon_hit_box: CollisionShape3D = %WeaponHitBox
+@onready var attack_cooldown: Timer = %AttackCooldown
 
 
 func  _ready() -> void:
@@ -20,6 +21,7 @@ func apply_mainhand_weapon_visual_data(data: EnemyWeaponResource) -> void:
 	weapon_hit_box.shape = data.main_hand_collision
 	handedness.emit(data.main_hand_handedness)
 	attack_animation.emit(data.attack_animation)
+	attack_cooldown.wait_time = data.attack_speed
 
 func hit_box_on() -> void:
 	hit_box.monitoring = true

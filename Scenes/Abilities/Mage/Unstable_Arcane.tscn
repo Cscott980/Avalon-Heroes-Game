@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://b38xjcf16nbxd"]
+[gd_scene format=3 uid="uid://b38xjcf16nbxd"]
 
 [ext_resource type="Shader" uid="uid://cmeh5wjymyla2" path="res://Assets/Shaders/ArcaneShader.tres" id="1_00eoe"]
 [ext_resource type="ArrayMesh" uid="uid://cgf1e6l1m2mmk" path="res://Assets/Misc/staticmeshdome.obj" id="2_2nwl5"]
-[ext_resource type="PackedScene" uid="uid://b5b6ea8b5673k" path="res://Scenes/Player/player.tscn" id="3_2nwl5"]
+[ext_resource type="PackedScene" uid="uid://b5b6ea8b5673k" path="res://Scenes/Player/Player.tscn" id="3_2nwl5"]
 [ext_resource type="Shader" uid="uid://cqwoywuhgq0yn" path="res://Assets/Shaders/Arcane_Particles.tres" id="3_37lk6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37lk6"]

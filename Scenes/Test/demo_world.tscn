@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfmohdl7imugf"]
+[gd_scene format=3 uid="uid://bfmohdl7imugf"]
 
-[ext_resource type="PackedScene" uid="uid://bp2biwp3lcpdf" path="res://Scenes/Enemeies/skeletal_grunt.tscn" id="1_ylmk8"]
-[ext_resource type="PackedScene" uid="uid://b5b6ea8b5673k" path="res://Scenes/Player/player.tscn" id="2_ogw2s"]
+[ext_resource type="PackedScene" path="res://Scenes/Enemeies/skeletal_grunt.tscn" id="1_ylmk8"]
+[ext_resource type="PackedScene" uid="uid://b5b6ea8b5673k" path="res://Scenes/Player/Player.tscn" id="2_ogw2s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6a33m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

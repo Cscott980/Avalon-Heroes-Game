@@ -3,6 +3,7 @@ class_name EnemyWorldDataDisplay extends Sprite3D
 @onready var entity_name: Label = %Entity_Name
 @onready var level: Label = %Level
 @onready var health_bar: ProgressBar = %HealthBar
+@onready var data_base: VBoxContainer = %DataBase
 
 var max_health: int 
 
@@ -22,3 +23,11 @@ func _on_enemy_level_component_current_level(data: int) -> void:
 
 func _on_enemy_health_component_hit(current_amount: int) -> void:
 	health_bar.value = current_amount
+
+
+func _on_enemy_health_component_dead() -> void:
+	data_base.visible = false
+
+
+func _on_enemy_health_component_revived() -> void:
+	data_base.visible = true

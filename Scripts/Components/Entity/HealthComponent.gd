@@ -41,7 +41,7 @@ func take_damage(amount: int) -> void:
 	current_health.emit(health, max_health)
 	hurt.emit()
 	
-	if health == 0:
+	if health <= 0:
 		health = 0
 		is_dead = true
 		dead.emit()
