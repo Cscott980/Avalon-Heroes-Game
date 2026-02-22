@@ -13,7 +13,7 @@ signal attack_window_ended
 @onready var combo_timer: Timer = %ComboTimer
 
 @export var weapon_equip_comp: WeaponEquipComponent
-
+@export var stat_comp: StatComponent
 
 var current_combo_idx: int = 0
 var combo_timeout: float = 1.0
@@ -23,8 +23,6 @@ var attack_queued: bool = false
 
 var main_hand_data: WeaponResource
 var off_hand_data: WeaponResource
-
-var stat: StatComponent
 
 func _ready() -> void:
 	combo_timer.wait_time = combo_timeout
@@ -69,7 +67,7 @@ func base_melee_attack_started(index: int) -> void:
 		combo_timer.stop()
 		
 	attack_started.emit(index)
-
+	
 func open_combo_window() -> void:
 	can_combo = true
 	combo_window_open.emit()
@@ -120,9 +118,10 @@ func _on_main_hand_weapon_weapon_hit(target: Node3D) -> void:
 	if combo_data.is_empty():
 		return
 	if target.is_in_group("enemy"):
-		var damage = main_hand_data.damage
 		var do_dmg = target.get_node("EnemyHealthComponent") as EnemyHealthComponent
+		var defense = target.get_node("StatComponent") as StatComponent
 		if do_dmg.has_method("take_damage"):
+			var damage = stat_comp.calculate_weapon_damage(randi_range(main_hand_data.min_damage, main_hand_data.max_damage), defense.armor, true)
 			do_dmg.take_damage(damage)
 
 func _on_main_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:

@@ -29,6 +29,7 @@ func enemy_init() -> void:
 	enemy_main_hand_component.apply_mainhand_weapon_visual_data(enemy_data.weapon_data)
 	weapon_shield_relic.apply_offhand_weapon_visual_data(enemy_data.weapon_data)
 	enemy_animation_component.apply_animation_playback(enemy_data)
+	stat_component.apply_stats(enemy_data.stats)
 	ai_movement_component.apply_movement_data(enemy_data.movement_data, enemy_data.weapon_data)
 	enemy_melee_combat_component.apply_melee_weapon_data(enemy_data.weapon_data)
 	enemy_world_data_display.apply_world_display_data(enemy_data.name, enemy_level_component.level, enemy_data.max_health)

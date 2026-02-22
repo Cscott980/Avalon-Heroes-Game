@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bx1vs3j0rpyrj"]
+
+[ext_resource type="Script" uid="uid://lki5exhmjqcu" path="res://Scripts/UI/DamageIndicator.gd" id="1_4pxrq"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lvcjl"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="DamageIndicator" type="Node3D" unique_id=699282091]
+script = ExtResource("1_4pxrq")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1678059806]
+billboard = 1
+render_priority = 4
+texture = SubResource("ViewportTexture_lvcjl")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=859347459]
+transparent_bg = true
+size = Vector2i(75, 63)
+
+[node name="DamageHealingCrit" type="Label" parent="Sprite3D/SubViewport" unique_id=758960858]
+offset_left = 7.0
+offset_right = 60.0
+offset_bottom = 61.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 23
+theme_override_font_sizes/font_size = 60
+text = "10"

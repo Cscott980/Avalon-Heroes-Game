@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AttackDataResource" format=3 uid="uid://0e6fya1yhkck"]
+
+[ext_resource type="Script" uid="uid://dcdjpy78qdbga" path="res://Scripts/Resources/General/AttackDataResource.gd" id="1_8vc4e"]
+
+[resource]
+script = ExtResource("1_8vc4e")
+animation_name = "1_Hand_Attack_1"
+dualwield_animation_name = "Dualwield_Attack_1"
+combo_window_start = 0.6
+attack_duration = 1.0
+root_motion_speed = 0.0
+lunge_distance_max = 10.0
+metadata/_custom_type_script = "uid://dcdjpy78qdbga"

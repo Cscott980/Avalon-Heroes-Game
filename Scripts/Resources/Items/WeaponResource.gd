@@ -44,17 +44,21 @@ enum ATTCK_TYPE {
 	"off_hand"
 ) var can_be_equippable = 0
 
-@export_group("Stats")
-@export var damage: int = 0
-@export var stat_effect: StatusEffectsResource
+@export_group("Properties")
+@export_group("Properties/Damage Data")
+@export var min_damage: int = 5
+@export var max_damage: int = 10
+@export var weapon_speed: float = 0.0
 @export_flags(
-	"Strength", 
-	"Intellect", 
-	"Dexterity", 
-	"Wisdom" 
+	"strength", 
+	"intellect", 
+	"dexterity",
+	"vitality", 
+	"wisdom" 
 	) var scale_on_stat = 0
 @export var scale_percentage: float
-@export var weapon_speed: float = 0.0
+@export_group("Properties/Stats")
+@export var stat_effect: StatusEffectsResource
 @export var stat_bonus: StatBonusResource
 @export_flags(
 	"warrior",
@@ -65,10 +69,8 @@ enum ATTCK_TYPE {
 	"druid",
 	"engineer"
 ) var allowed_classes = 0
-
-@export_group("Combat Data")
-@export var attack_combo: Array[AttackDataResource] = []  # NEW: 3 attacks for the combo
-
+@export_group("Properties/Combat Data")
+@export var attack_combo: Array[AttackDataResource] = [] 
 
 @export_group("Text")
 @export_multiline var stat_info: String

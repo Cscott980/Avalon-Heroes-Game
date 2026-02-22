@@ -9,6 +9,8 @@ var anim: String
 
 var cant_attack = true
 
+@export var stat_comp: StatComponent
+
 func apply_melee_weapon_data(data: EnemyWeaponResource) -> void:
 	if data == null or not is_instance_valid(data):
 		push_warning("EnemyMeleeCombatComponent: No Data Found")
@@ -24,14 +26,17 @@ func _on_enemy_main_hand_component_enemy_hit(body: Player) -> void:
 		return
 	if not cant_attack:
 		return
-		
-	var health := body.get_node_or_null("HealthComponent") as HealthComponent
+	var health: Node= body.get_node("HealthComponent") as HealthComponent
+	var defense: Node = body.get_node("StatComponent") as StatComponent
 	if health == null:
 		push_warning("Enemy hit player but no HealthComponent found")
 		return
-	
-	var cal_damage := randi_range(min_damage, max_damage)
-	health.take_damage(cal_damage)
+	if defense == null:
+		push_warning("Enemy hit player but no StatComponent found")
+		return
+	var cal_damage: int = stat_comp.calculate_weapon_damage(randi_range(min_damage, max_damage), defense.armor, true)
+	if health.has_method("take_damage"):
+		health.take_damage(cal_damage)
 
 
 func _on_weapon_shield_relic_enemy_hit(body: Player) -> void:

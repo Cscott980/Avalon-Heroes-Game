@@ -44,6 +44,7 @@
 [ext_resource type="Script" uid="uid://dn1amjcrgp8js" path="res://Scripts/States/Enemy/EnemyDeathState.gd" id="30_81xlm"]
 [ext_resource type="Script" uid="uid://m4bf0em28x6e" path="res://Scripts/States/Enemy/EnemyIdleState.gd" id="31_eyblg"]
 [ext_resource type="Script" uid="uid://br5j1kxk3uwxd" path="res://Scripts/States/Enemy/WanderState.gd" id="33_81xlm"]
+[ext_resource type="Script" uid="uid://b3errr5547krs" path="res://Scripts/Components/Entity/ValueEmitterComponent.gd" id="35_5w033"]
 [ext_resource type="Script" uid="uid://d05o53mnyekt2" path="res://Scripts/Components/Entity/KnockBackComponent.gd" id="39_v08cw"]
 [ext_resource type="Script" uid="uid://c60a1ftfdukd0" path="res://Scripts/Components/Entity/HitFlashComponent.gd" id="40_v08cw"]
 [ext_resource type="Script" uid="uid://belxscgfb825h" path="res://Scripts/Components/Enemy/EnemySpawnComponent.gd" id="44_wcvxl"]
@@ -474,8 +475,14 @@ playback = NodePath("../../EnemyAnimationComponent")
 
 [node name="ReviveState" type="Node" parent="EnemyStateMachine" unique_id=651785541]
 
-[node name="EnemyHealthComponent" type="Node" parent="." unique_id=643508889]
+[node name="ValueEmitterComponent" type="Node3D" parent="." unique_id=1613575957]
+script = ExtResource("35_5w033")
+font_size = 60
+metadata/_custom_type_script = "uid://b3errr5547krs"
+
+[node name="EnemyHealthComponent" type="Node" parent="." unique_id=643508889 node_paths=PackedStringArray("value_display")]
 script = ExtResource("20_j5l5s")
+value_display = NodePath("../ValueEmitterComponent")
 
 [node name="StatComponent" type="Node" parent="." unique_id=155200468 node_paths=PackedStringArray("user")]
 script = ExtResource("20_o5540")
@@ -523,9 +530,10 @@ accessory_3 = NodePath("../Rig_Medium/Skeleton3D/Accessory3")
 weapon_mesh = NodePath("../Rig_Medium/Skeleton3D/MainHand/EnemyMainHandComponent")
 weapon_shield_relic = NodePath("../Rig_Medium/Skeleton3D/OffHand/WeaponShieldRelic")
 
-[node name="EnemyMeleeCombatComponent" type="Node" parent="." unique_id=445102315]
+[node name="EnemyMeleeCombatComponent" type="Node" parent="." unique_id=445102315 node_paths=PackedStringArray("stat_comp")]
 unique_name_in_owner = true
 script = ExtResource("28_rblcv")
+stat_comp = NodePath("../StatComponent")
 
 [node name="EnemyRangeCombatComponent" type="Node" parent="." unique_id=652966593]
 unique_name_in_owner = true
@@ -588,6 +596,7 @@ one_shot = true
 [connection signal="revived" from="EnemyHealthComponent" to="Rig_Medium/Skeleton3D/HealthBarAttachment/EnemyWorldDataDisplay" method="_on_enemy_health_component_revived"]
 [connection signal="revived" from="EnemyHealthComponent" to="TargetingComponent" method="_on_enemy_health_component_revived"]
 [connection signal="revived" from="EnemyHealthComponent" to="AIControllerComponent" method="_on_enemy_health_component_revived"]
+[connection signal="current_stats" from="StatComponent" to="EnemyHealthComponent" method="_on_stat_component_current_stats"]
 [connection signal="new_target" from="TargetingComponent" to="AIControllerComponent" method="_on_targeting_component_new_target"]
 [connection signal="targets_close" from="TargetingComponent" to="AIControllerComponent" method="_on_targeting_component_targets_close"]
 [connection signal="recovered" from="KnockBackComponent" to="AIControllerComponent" method="_on_knock_back_component_recovered"]
@@ -596,7 +605,6 @@ one_shot = true
 [connection signal="target_in_attack_dist" from="AIControllerComponent" to="." method="_on_ai_controller_component_target_in_attack_dist"]
 [connection signal="target_in_attack_dist" from="AIControllerComponent" to="EnemyStateMachine/AttackState" method="_on_ai_controller_component_target_in_attack_dist"]
 [connection signal="wandering" from="AIControllerComponent" to="." method="_on_ai_controller_component_wandering"]
-[connection signal="dot" from="StatusEffectComponent" to="EnemyHealthComponent" method="_on_status_effect_component_dot"]
 [connection signal="rooted" from="StatusEffectComponent" to="AIControllerComponent" method="_on_status_effect_component_rooted"]
 [connection signal="slowed" from="StatusEffectComponent" to="AIControllerComponent" method="_on_status_effect_component_slowed"]
 [connection signal="status_ended" from="StatusEffectComponent" to="AIControllerComponent" method="_on_status_effect_component_status_ended"]

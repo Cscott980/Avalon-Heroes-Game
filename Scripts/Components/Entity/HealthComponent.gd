@@ -6,6 +6,8 @@ signal hurt
 signal revived(owner: Node)
 signal current_health(amount: int, max_player_health: int)
 
+@export var value_display: ValueEmitterComponent
+
 @export var max_health: int = 100
 @export var hp_per_vit_percentage: int = 0.05
 
@@ -38,6 +40,7 @@ func take_damage(amount: int) -> void:
 	if is_dead:
 		return
 	health -= amount
+	value_display.create_indicator_label(amount, 1)
 	current_health.emit(health, max_health)
 	hurt.emit()
 	

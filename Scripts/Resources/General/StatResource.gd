@@ -7,5 +7,8 @@ class_name StatResource extends Resource
 @export var vitality: int = 0
 @export var wisdom: int = 0
 
+@export_group("Deferred Stats")
+@export var armor = 0
+
 @export_group("Scale Data")
 @export var entity_main_stat: StatConst.STATS

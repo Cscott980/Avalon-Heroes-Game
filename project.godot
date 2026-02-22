@@ -28,6 +28,7 @@ GameState="*res://Scripts/Singletons/GameState.gd"
 HeroClassConst="*res://Scripts/Singletons/HeroClassConstants.gd"
 StatConst="*res://Scripts/Singletons/StatConstants.gd"
 GameSignals="*uid://ctj1uonhq2fp"
+ValueTypeConst="*uid://csunk8svj5g2h"
 
 [display]
 

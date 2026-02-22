@@ -14,7 +14,8 @@ signal no_weapon_equiped(status: bool)
 @onready var left_hip_sheath: Node3D = %LeftHipSheath
 
 @export var weapon_slot: BoneAttachment3D
-var weapon_damage: int
+var min_damage: int 
+var max_damage: int
 var weapon_attack_speed: float
 var weapon_handedness: int
 var weapon_defult_position: Transform3D
@@ -54,7 +55,8 @@ func load_weapon(weapon_id: WeaponResource) -> void:
 	else:
 		add_to_group("two_handed_weapon")
 	
-	weapon_damage = weapon_id.damage
+	min_damage = weapon_id.min_damage
+	max_damage = weapon_id.max_damage
 	attack_type = weapon_id.attack_type
 	attack_data = weapon_id.attack_combo
 	mesh.mesh = weapon_id.mesh

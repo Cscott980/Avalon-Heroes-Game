@@ -6,12 +6,13 @@ signal dead
 signal revived
 
 
-var is_dead: bool = false 
-
+@export var value_display: ValueEmitterComponent
 @export var max_health: int = 100
+
+var is_dead: bool = false 
 var health: int
 var vitality: int
-var hp_per_bit: int = 2
+var hp_per_vit: int = 2
 
 
 func apply_health_data(new_health: int, stats: StatResource) -> void:
@@ -24,6 +25,7 @@ func take_damage(amount: int) -> void:
 	if is_dead:
 		return
 	health -= amount
+	value_display.create_indicator_label(amount, 0)
 	current_health.emit(health)
 	hit.emit(health)
 	
@@ -41,5 +43,5 @@ func _on_hurt_box_area_entered(area: Area3D) -> void:
 		if dmg != null:
 			take_damage(dmg)
 
-func _on_status_effect_component_dot(_damage: int) -> void:
-	pass # Replace with function body.
+func _on_stat_component_current_stats(dic: Dictionary) -> void:
+	max_health += (dic[StatConst.STATS.VITALITY] * hp_per_vit)
