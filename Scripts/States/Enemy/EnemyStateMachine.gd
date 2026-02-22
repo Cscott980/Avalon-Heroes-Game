@@ -6,8 +6,6 @@ class_name EnemyStateMachine extends Node
 var current_state: EnemyState
 var _states: Dictionary = {}
 
-
-
 func _ready() -> void:	
 	for child in get_children():
 		if child is EnemyState:

@@ -10,7 +10,7 @@ var active_players: Array = []
 
 
 
-const ENEMY_GRUNT = preload("res://Scenes/Enemeies/skeletal_grunt.tscn")
+const ENEMY_GRUNT = preload("res://Scenes/Enemeies/Enemy.tscn")
 var new_enemy: CharacterBody3D = null
 
 func _ready() -> void:
@@ -37,6 +37,7 @@ func check_player_status() -> void:
 		return
 	
 	for p in active_players:
-		if p is Player:
-			if p.is_dead:
+		if p.has_node("HealthComponent") and p is Player:
+			var health_status = p.get_node("HealthComponent") as HealthComponent
+			if health_status.is_dead:
 				active_players.erase(p)

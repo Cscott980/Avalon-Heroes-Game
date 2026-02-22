@@ -29,3 +29,7 @@ func  off_hit_box_off() -> void:
 func _on_off_hand_hit_box_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		enemy_hit.emit(body)
+
+
+func _on_enemy_health_component_dead() -> void:
+	off_hit_box_off()

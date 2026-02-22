@@ -18,6 +18,8 @@ func _ready() -> void:
 	_set_new_target()
 
 func _process(_delta: float) -> void:
+	if not can_track:
+		return 
 	_set_new_target()
 	target_in_range()
 	

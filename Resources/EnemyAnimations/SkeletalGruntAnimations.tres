@@ -183,7 +183,6 @@ transitions = ["Start", "Spawn", SubResource("AnimationNodeStateMachineTransitio
 graph_offset = Vector2(362.00885, -53)
 
 [resource]
-graph_offset = Vector2(0, -21.42572)
 nodes/output/position = Vector2(380, 120)
 nodes/SkeletalGruntAnim/node = SubResource("AnimationNodeStateMachine_wcvxl")
 nodes/SkeletalGruntAnim/position = Vector2(110, 90)

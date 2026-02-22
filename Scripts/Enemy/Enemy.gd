@@ -1,6 +1,7 @@
 class_name Enemy extends CharacterBody3D
 
 @onready var state_machine: EnemyStateMachine = %EnemyStateMachine
+@onready var enemy_world_data_display: EnemyWorldDataDisplay = %EnemyWorldDataDisplay
 
 @onready var enemy_health_component: EnemyHealthComponent = $EnemyHealthComponent
 @onready var enemy_visuals_component: EnemyVisualComponent = %EnemyVisualsComponent
@@ -10,11 +11,11 @@ class_name Enemy extends CharacterBody3D
 @onready var status_effect_component: StatusEffectComponent = %StatusEffectComponent
 @onready var enemy_level_component: EnemyLevelComponent = %EnemyLevelComponent
 @onready var targeting_component: TargetingComponent = %TargetingComponent
-@onready var enemy_world_data_display: EnemyWorldDataDisplay = %EnemyWorldDataDisplay
 @onready var enemy_animation_component: EnemyAnimationComponent = %EnemyAnimationComponent
 @onready var enemy_main_hand_component: EnemyMainHandComponent = %EnemyMainHandComponent
 @onready var weapon_shield_relic: EnemyOffHandComponent = %WeaponShieldRelic
 @onready var stat_component: StatComponent = $StatComponent
+@onready var knock_back_component: KnockBackComponent = %KnockBackComponent
 
 @export var enemy_data: EnemyResource
 
@@ -22,9 +23,6 @@ func _ready() -> void:
 	enemy_init()
 	
 func enemy_init() -> void:
-	if state_machine == null or not is_instance_valid(state_machine):
-		return
-	state_machine.Initializer()
 	if enemy_data == null or not is_instance_valid(enemy_data):
 		return
 	enemy_visuals_component.apply_visuals(enemy_data.enemy_mesh)
@@ -35,6 +33,9 @@ func enemy_init() -> void:
 	enemy_melee_combat_component.apply_melee_weapon_data(enemy_data.weapon_data)
 	enemy_world_data_display.apply_world_display_data(enemy_data.name, enemy_level_component.level, enemy_data.max_health)
 	enemy_health_component.apply_health_data(enemy_data.max_health, enemy_data.stats)
+	if state_machine == null or not is_instance_valid(state_machine):
+		return
+	state_machine.Initializer()
 	
 func _on_ai_controller_component_target_in_attack_dist(status: bool) -> void:
 	if enemy_health_component.is_dead: 
@@ -49,7 +50,7 @@ func _on_enemy_health_component_dead() -> void:
 	self.add_to_group("dead_enemies")
 	state_machine.change_state("DeathState")
 
-func _on_hurt_box_component_hit() -> void:
+func _on_hurt_box_component_hit(_area: Area3D) -> void:
 	if enemy_health_component.is_dead:
 		return
 	if state_machine:
@@ -66,3 +67,7 @@ func _on_ai_controller_component_idling() -> void:
 		return
 	if state_machine:
 		state_machine.change_state("IdleState")
+
+func _on_enemy_spawn_component_spawn() -> void:
+	if state_machine:
+		state_machine.change_state("SpawnState")

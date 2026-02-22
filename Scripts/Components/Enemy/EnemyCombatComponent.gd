@@ -7,7 +7,7 @@ var max_damage: int
 var attack_speed: float
 var anim: String
 
-
+var cant_attack = true
 
 func apply_melee_weapon_data(data: EnemyWeaponResource) -> void:
 	if data == null or not is_instance_valid(data):
@@ -22,6 +22,8 @@ func apply_melee_weapon_data(data: EnemyWeaponResource) -> void:
 func _on_enemy_main_hand_component_enemy_hit(body: Player) -> void:
 	if not body.is_in_group("player"):
 		return
+	if not cant_attack:
+		return
 		
 	var health := body.get_node_or_null("HealthComponent") as HealthComponent
 	if health == null:
@@ -34,3 +36,7 @@ func _on_enemy_main_hand_component_enemy_hit(body: Player) -> void:
 
 func _on_weapon_shield_relic_enemy_hit(body: Player) -> void:
 	pass # Replace with function body.
+
+
+func _on_enemy_health_component_dead() -> void:
+	cant_attack = true

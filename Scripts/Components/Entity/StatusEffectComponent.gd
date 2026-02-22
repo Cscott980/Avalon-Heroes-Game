@@ -17,9 +17,6 @@ var value_over_time: float #can be used for hots or dots
 var max_stacks: int
 var slow_value: float 
 
-func _ready() -> void:
-	pass
-
 func _get_status_effect_data(data: StatusEffectsResource) -> void:
 	duration = data.duration
 	description = _get_stat_disc(data.display_name, data.description)

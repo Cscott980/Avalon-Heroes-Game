@@ -5,7 +5,6 @@ class_name EnemyAttackState extends EnemyState
 var target_in_range: bool
 
 func enter() -> void:
-	if target_in_range:
 		do_attack()
 
 func physics_process(_delta: float) -> void:
@@ -15,12 +14,12 @@ func physics_process(_delta: float) -> void:
 		return
 
 	var t := enemy.targeting_component.current_target
-	if t == null or !is_instance_valid(t):
+	if t == null or !is_instance_valid(t) and not enemy.enemy_health_component.is_dead:
 		attack_timer.stop()
 		state_machine.change_state("WanderState")
 		return
 
-	if not target_in_range:
+	if not target_in_range and not enemy.enemy_health_component.is_dead:
 		attack_timer.stop()
 		state_machine.change_state("ChaseState")
 		return

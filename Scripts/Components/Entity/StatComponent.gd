@@ -9,8 +9,6 @@ var stats: StatResource
 var primary_stat: int
 var target_stats: Dictionary = {}
 
-func _ready() -> void:
-	await  get_tree().process_frame
 
 func apply_stats(data: StatResource) -> void:
 	stats = data

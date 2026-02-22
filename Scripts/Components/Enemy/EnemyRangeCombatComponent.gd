@@ -1,1 +1,1 @@
-extends Node
+class_name EnemyRangeCombatComponent extends Node

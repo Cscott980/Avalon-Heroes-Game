@@ -28,8 +28,10 @@ func take_damage(amount: int) -> void:
 	hit.emit(health)
 	
 	if health <= 0:
+		
 		health = 0
 		is_dead = true
+		
 		dead.emit()
 		current_health.emit(health)
 

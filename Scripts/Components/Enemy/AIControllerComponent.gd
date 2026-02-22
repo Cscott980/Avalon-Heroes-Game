@@ -18,7 +18,8 @@ signal target_in_attack_dist(status: bool)
 
 var current_target: CharacterBody3D = null
 
-var can_move: bool = false
+var can_move: bool = true
+var is_dead: bool = false
 var has_wander_point := false
 var _is_wandering := false
 var target_close: bool = false
@@ -28,15 +29,23 @@ var attack_range: float = 0.0
 
 var wander_point: Vector3
 
+func apply_movement_data(enemy_movement: EnemyMovementResource, weap_data: EnemyWeaponResource) -> void:
+	speed = enemy_movement.movement_speed
+	turn_speed = enemy_movement.turn_speed
+	wander_speed = enemy_movement.wander_speed
+	wander_radius = enemy_movement.wander_radius
+	attack_range = weap_data.attack_range
+
 func _physics_process(delta: float) -> void:
 	if not can_move:
+		return
+	if is_dead:
 		user.velocity = Vector3.ZERO
 		return
-		
+
 	if current_target != null:
 		_move_to_target(delta)
-	
-	if current_target == null:
+	else:
 		wander(delta)
 
 func _move_to_target(delta: float) -> void:
@@ -72,15 +81,7 @@ func _move_to_target(delta: float) -> void:
 	if not user.is_on_floor():
 		user.velocity.y -= gravity * delta
 	
-	rotate_model()
 	user.move_and_slide()
-		
-func apply_movement_data(enemy_movement: EnemyMovementResource, weap_data: EnemyWeaponResource) -> void:
-	speed = enemy_movement.movement_speed
-	turn_speed = enemy_movement.turn_speed
-	wander_speed = enemy_movement.wander_speed
-	wander_radius = enemy_movement.wander_radius
-	attack_range = weap_data.attack_range
 
 func wander(delta: float) -> void:
 	# If we’re waiting, stand still (IDLE)
@@ -133,9 +134,6 @@ func wander(delta: float) -> void:
 	user.velocity.x = dir.x * wander_speed
 	user.velocity.z = dir.z * wander_speed
 
-	
-	face_direction(dir, delta)
-
 	if not user.is_on_floor():
 		user.velocity.y -= gravity * delta
 	else:
@@ -146,6 +144,7 @@ func wander(delta: float) -> void:
 		
 	
 	wandering.emit()
+	face_direction(dir, delta)
 	user.move_and_slide()
 
 func face_direction(dir: Vector3, delta: float) -> void: 
@@ -155,17 +154,11 @@ func face_direction(dir: Vector3, delta: float) -> void:
 	dir.y = 0.0
 	dir = dir.normalized()
 	
-	var target_yaw := atan2(-dir.x, -dir.z)
+	var target_yaw := atan2(dir.x, dir.z)
 	var current_yaw := model_base.rotation.y
 	
 	var new_yaw:= lerp_angle(current_yaw, target_yaw, turn_speed * delta)
 	model_base.rotation.y = new_yaw
-
-func rotate_model() -> void:
-	if user.global_position.is_equal_approx(current_target.global_position):
-		return
-	model_base.look_at(current_target.global_position, Vector3.UP)
-	model_base.rotate_y(PI)
 
 func _on_targeting_component_new_target(target: CharacterBody3D) -> void:
 	current_target = target
@@ -178,14 +171,14 @@ func _on_targeting_component_targets_close(status: bool) -> void:
 	else:
 		target_close = false
 
-func _on_hurt_box_component_hit() -> void:
-	can_move = false
-
-func _on_hurt_box_component_not_hits() -> void:
-	can_move = true
-
 func _on_enemy_health_component_dead() -> void:
-	can_move = false
+	is_dead = true
 
 func _on_enemy_health_component_revived() -> void:
+	is_dead = false
+
+func _on_knock_back_component_kockbacked() -> void:
+	can_move = false
+
+func _on_knock_back_component_recovered() -> void:
 	can_move = true
