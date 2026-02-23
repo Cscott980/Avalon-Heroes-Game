@@ -1,7 +1,7 @@
 class_name EnemyKnockBackState extends EnemyState
 
 func enter() -> void:
-	pass
+	
 	
 func exit() -> void:
 	pass

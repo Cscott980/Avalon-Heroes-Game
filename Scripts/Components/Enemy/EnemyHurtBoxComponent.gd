@@ -8,10 +8,7 @@ signal not_hits
 @onready var invincibility_timer: Timer = %InvincibilityTimer
 
 
-var _can_get_hurt: bool = false
-
-func _ready() -> void:
-	_can_get_hurt = true
+var _can_get_hurt: bool = true
 
 func _on_invincibility_timer_timeout() -> void:
 	hurt_box.set_deferred("monitoring", true)

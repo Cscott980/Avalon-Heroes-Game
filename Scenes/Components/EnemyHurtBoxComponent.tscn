@@ -6,7 +6,7 @@
 radius = 1.0053711
 height = 2.5214844
 
-[node name="HurtBoxComponent" type="BoneAttachment3D" unique_id=280227462]
+[node name="EnemyHurtBoxComponent" type="BoneAttachment3D" unique_id=280227462]
 transform = Transform3D(0.9997204, -1.4014349e-09, 0.023646597, 1.3934147e-09, 0.99999994, 3.5568634e-10, -0.023646597, -3.2263742e-10, 0.9997204, 0, 0, 0)
 bone_name = "head"
 bone_idx = 13
@@ -25,7 +25,7 @@ debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="InvincibilityTimer" type="Timer" parent="HurtBox" unique_id=1759841766]
 unique_name_in_owner = true
-wait_time = 0.5
+wait_time = 0.25
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="area_exited" from="HurtBox" to="." method="_on_hurt_box_area_exited"]

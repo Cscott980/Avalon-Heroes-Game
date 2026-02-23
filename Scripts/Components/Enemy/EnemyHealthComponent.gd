@@ -1,6 +1,6 @@
 class_name EnemyHealthComponent extends Node
 
-signal hit(current_amount: int)
+signal hurt(new_health: int)
 signal current_health(current_amount: int)
 signal dead
 signal revived
@@ -14,7 +14,6 @@ var health: int
 var vitality: int
 var hp_per_vit: int = 2
 
-
 func apply_health_data(new_health: int, stats: StatResource) -> void:
 	max_health = new_health
 	health = max_health
@@ -27,7 +26,6 @@ func take_damage(amount: int) -> void:
 	health -= amount
 	value_display.create_indicator_label(amount, 0)
 	current_health.emit(health)
-	hit.emit(health)
 	
 	if health <= 0:
 		
@@ -36,7 +34,6 @@ func take_damage(amount: int) -> void:
 		
 		dead.emit()
 		current_health.emit(health)
-
 
 func _on_stat_component_current_stats(dic: Dictionary) -> void:
 	max_health += (dic[StatConst.STATS.VITALITY] * hp_per_vit)

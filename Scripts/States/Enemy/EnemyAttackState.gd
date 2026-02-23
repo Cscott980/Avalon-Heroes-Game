@@ -5,9 +5,7 @@ class_name EnemyAttackState extends EnemyState
 var target_in_range: bool
 
 func enter() -> void:
-	if not enemy.ai_movement_component.can_move:
-		return
-	if enemy.enemy_health_component.is_dead:
+	if not target_in_range:
 		return
 		do_attack()
 
@@ -42,3 +40,7 @@ func _on_attack_cooldown_timeout() -> void:
 
 func _on_enemy_health_component_dead() -> void:
 	target_in_range = false
+
+
+func _on_ai_controller_component_target_in_attack_dist(status: bool) -> void:
+	target_in_range = status

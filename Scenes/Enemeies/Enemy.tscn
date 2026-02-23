@@ -9,12 +9,12 @@
 [ext_resource type="Animation" uid="uid://58d5l85xg3in" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Awaken_Floor.res" id="5_rblcv"]
 [ext_resource type="Animation" uid="uid://bcq2ntobuwv3s" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Awaken_Floor_Long.res" id="6_o5540"]
 [ext_resource type="Animation" uid="uid://qlanctwguxmg" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Awaken_Standing.res" id="7_j5l5s"]
-[ext_resource type="PackedScene" uid="uid://cdm5egv3kje0l" path="res://Scenes/Components/HurtBoxComponent.tscn" id="8_5w033"]
 [ext_resource type="Animation" uid="uid://wvvdf5oxvt5h" path="res://Assets/Animations/Rig_Mid_Animations/Skeletal_Melee_1H_Attack_Slice_Diagonal.res" id="8_eg3uj"]
 [ext_resource type="Animation" uid="uid://bnimkpt656j8j" path="res://Assets/Animations/Rig_Mid_Animations/Death_A.res" id="8_u5vd5"]
 [ext_resource type="Animation" uid="uid://bxxf5nkspwjyw" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Death.res" id="8_woysm"]
 [ext_resource type="Animation" uid="uid://bni1tnwgyhk0v" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Death_Pose.res" id="9_eg3uj"]
 [ext_resource type="Animation" uid="uid://pi7hexnyvexh" path="res://Assets/Animations/Rig_Mid_Animations/Death_B.res" id="9_taj7k"]
+[ext_resource type="PackedScene" uid="uid://cj6uxkr7kiyjd" path="res://Scenes/Components/EnemyHurtBoxComponent.tscn" id="10_5b24j"]
 [ext_resource type="Animation" uid="uid://br3s0es5pxblt" path="res://Assets/Animations/Rig_Mid_Animations/Hit_A.res" id="10_eyblg"]
 [ext_resource type="Animation" uid="uid://cvdgfqqokt3ch" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Death_Resurrect.res" id="10_uuevq"]
 [ext_resource type="Animation" uid="uid://b0io3n8du4gwt" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Idle.res" id="11_28wao"]
@@ -47,7 +47,6 @@
 [ext_resource type="Script" uid="uid://m4bf0em28x6e" path="res://Scripts/States/Enemy/EnemyIdleState.gd" id="31_eyblg"]
 [ext_resource type="Script" uid="uid://br5j1kxk3uwxd" path="res://Scripts/States/Enemy/WanderState.gd" id="33_81xlm"]
 [ext_resource type="Script" uid="uid://b3errr5547krs" path="res://Scripts/Components/Entity/ValueEmitterComponent.gd" id="35_5w033"]
-[ext_resource type="Script" uid="uid://4gxcfn4bkt53" path="res://Scripts/States/Enemy/EnemyKnockBackState.gd" id="37_m30sk"]
 [ext_resource type="Script" uid="uid://d05o53mnyekt2" path="res://Scripts/Components/Entity/KnockBackComponent.gd" id="39_v08cw"]
 [ext_resource type="Script" uid="uid://c60a1ftfdukd0" path="res://Scripts/Components/Entity/HitFlashComponent.gd" id="40_v08cw"]
 [ext_resource type="Script" uid="uid://belxscgfb825h" path="res://Scripts/Components/Enemy/EnemySpawnComponent.gd" id="44_wcvxl"]
@@ -112,7 +111,7 @@ model_base = NodePath("../Rig_Medium")
 unique_name_in_owner = true
 script = ExtResource("39_v08cw")
 user = NodePath("..")
-knockback_force = 20.0
+knockback_force = 30.0
 
 [node name="KnockBackTimer" type="Timer" parent="KnockBackComponent" unique_id=1738942341]
 unique_name_in_owner = true
@@ -416,8 +415,7 @@ theme_override_styles/background = ExtResource("16_woysm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_81xlm")
 value = 50.0
 
-[node name="HurtBoxComponent" parent="Rig_Medium/Skeleton3D" unique_id=280227462 instance=ExtResource("8_5w033")]
-unique_name_in_owner = true
+[node name="EnemyHurtBoxComponent" parent="Rig_Medium/Skeleton3D" unique_id=280227462 instance=ExtResource("10_5b24j")]
 transform = Transform3D(1, 0, 1.4210854e-14, 0, 0.99999994, 0, -1.4210854e-14, 0, 1, 0, 1.2414254, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=377001723]
@@ -470,9 +468,6 @@ metadata/_custom_type_script = "uid://dn1amjcrgp8js"
 [node name="WanderState" type="Node" parent="EnemyStateMachine" unique_id=25623724 node_paths=PackedStringArray("playback")]
 script = ExtResource("33_81xlm")
 playback = NodePath("../../EnemyAnimationComponent")
-
-[node name="KnockBackState" type="Node" parent="EnemyStateMachine" unique_id=1923066713]
-script = ExtResource("37_m30sk")
 
 [node name="AbilityState" type="Node" parent="EnemyStateMachine" unique_id=1553242729]
 
@@ -569,24 +564,25 @@ one_shot = true
 [connection signal="body_entered" from="Rig_Medium/Skeleton3D/MainHand/EnemyMainHandComponent/HitBox" to="Rig_Medium/Skeleton3D/MainHand/EnemyMainHandComponent" method="_on_hit_box_body_entered"]
 [connection signal="enemy_hit" from="Rig_Medium/Skeleton3D/OffHand/WeaponShieldRelic" to="EnemyMeleeCombatComponent" method="_on_weapon_shield_relic_enemy_hit"]
 [connection signal="body_entered" from="Rig_Medium/Skeleton3D/OffHand/WeaponShieldRelic/OffHandHitBox" to="Rig_Medium/Skeleton3D/OffHand/WeaponShieldRelic" method="_on_off_hand_hit_box_body_entered"]
-[connection signal="hit" from="Rig_Medium/Skeleton3D/HurtBoxComponent" to="." method="_on_hurt_box_component_hit"]
-[connection signal="hit" from="Rig_Medium/Skeleton3D/HurtBoxComponent" to="KnockBackComponent" method="_on_hurt_box_component_hit"]
+[connection signal="hit" from="Rig_Medium/Skeleton3D/EnemyHurtBoxComponent" to="." method="_on_enemy_hurt_box_component_hit"]
+[connection signal="hit" from="Rig_Medium/Skeleton3D/EnemyHurtBoxComponent" to="AIControllerComponent" method="_on_enemy_hurt_box_component_hit"]
+[connection signal="hit" from="Rig_Medium/Skeleton3D/EnemyHurtBoxComponent" to="KnockBackComponent" method="_on_enemy_hurt_box_component_hit"]
+[connection signal="not_hits" from="Rig_Medium/Skeleton3D/EnemyHurtBoxComponent" to="AIControllerComponent" method="_on_enemy_hurt_box_component_not_hits"]
 [connection signal="animation_finished" from="AnimationPlayer" to="EnemySpawnComponent" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="EnemyAnimationComponent" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="EnemySpawnComponent" method="_on_animation_tree_animation_finished"]
 [connection signal="dead" from="EnemyHealthComponent" to="." method="_on_enemy_health_component_dead"]
+[connection signal="dead" from="EnemyHealthComponent" to="AIControllerComponent" method="_on_enemy_health_component_dead"]
 [connection signal="dead" from="EnemyHealthComponent" to="Rig_Medium/Skeleton3D/MainHand/EnemyMainHandComponent" method="_on_enemy_health_component_dead"]
 [connection signal="dead" from="EnemyHealthComponent" to="Rig_Medium/Skeleton3D/OffHand/WeaponShieldRelic" method="_on_enemy_health_component_dead"]
 [connection signal="dead" from="EnemyHealthComponent" to="Rig_Medium/Skeleton3D/HealthBarAttachment/EnemyWorldDataDisplay" method="_on_enemy_health_component_dead"]
 [connection signal="dead" from="EnemyHealthComponent" to="EnemyStateMachine/AttackState" method="_on_enemy_health_component_dead"]
 [connection signal="dead" from="EnemyHealthComponent" to="TargetingComponent" method="_on_enemy_health_component_dead"]
 [connection signal="dead" from="EnemyHealthComponent" to="EnemyMeleeCombatComponent" method="_on_enemy_health_component_dead"]
-[connection signal="dead" from="EnemyHealthComponent" to="AIControllerComponent" method="_on_enemy_health_component_dead"]
-[connection signal="hit" from="EnemyHealthComponent" to="Rig_Medium/Skeleton3D/HealthBarAttachment/EnemyWorldDataDisplay" method="_on_enemy_health_component_hit"]
-[connection signal="revived" from="EnemyHealthComponent" to="Rig_Medium/Skeleton3D/HealthBarAttachment/EnemyWorldDataDisplay" method="_on_enemy_health_component_revived"]
-[connection signal="revived" from="EnemyHealthComponent" to="Rig_Medium/Skeleton3D/HurtBoxComponent" method="_on_enemy_health_component_revived"]
-[connection signal="revived" from="EnemyHealthComponent" to="TargetingComponent" method="_on_enemy_health_component_revived"]
+[connection signal="hurt" from="EnemyHealthComponent" to="Rig_Medium/Skeleton3D/HealthBarAttachment/EnemyWorldDataDisplay" method="_on_enemy_health_component_hurt"]
 [connection signal="revived" from="EnemyHealthComponent" to="AIControllerComponent" method="_on_enemy_health_component_revived"]
+[connection signal="revived" from="EnemyHealthComponent" to="Rig_Medium/Skeleton3D/HealthBarAttachment/EnemyWorldDataDisplay" method="_on_enemy_health_component_revived"]
+[connection signal="revived" from="EnemyHealthComponent" to="TargetingComponent" method="_on_enemy_health_component_revived"]
 [connection signal="current_stats" from="StatComponent" to="EnemyHealthComponent" method="_on_stat_component_current_stats"]
 [connection signal="new_target" from="TargetingComponent" to="AIControllerComponent" method="_on_targeting_component_new_target"]
 [connection signal="targets_close" from="TargetingComponent" to="AIControllerComponent" method="_on_targeting_component_targets_close"]

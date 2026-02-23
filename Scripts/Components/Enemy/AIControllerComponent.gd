@@ -181,3 +181,9 @@ func _on_knock_back_component_recovered() -> void:
 
 func _on_knock_back_component_knockbacked() -> void:
 	can_move = false
+
+func _on_enemy_hurt_box_component_hit(area: Area3D) -> void:
+	can_move = false
+
+func _on_enemy_hurt_box_component_not_hits() -> void:
+	can_move = true

@@ -19,7 +19,7 @@ func apply_animation_playback(data: EnemyResource) -> void:
 func play_idle() -> void:
 	if playback:
 		if is_holding_2h:
-			playback.travel("Handed_Idle")
+			playback.travel("2_Handed_Idle")
 		else:
 			playback.travel("Idle")
 
@@ -61,6 +61,3 @@ func _on_enemy_main_hand_component_handedness(hand: int) -> void:
 		is_holding_2h = true
 	else:
 		is_holding_2h = false
-
-func _on_enemy_main_hand_component_attack_animation(anim: String) -> void:
-	attack_animation = anim

@@ -46,8 +46,7 @@ func apply_offhand_weapon_stats(weapon_data: WeaponResource) -> void:
 	offhand_max_damage = weapon_data.max_damage
 	weapon_scale_stat_offhand = StatConst.get_true_stats(weapon_data.scale_on_stat)
 	offhand_scale_per = weapon_data.scale_percentage
-	
-	
+
 func calculate_weapon_damage(base_damage: int, defense: int, is_mainhand: bool = true) -> int:
 	var scale_stats: Array[int]
 	var scale_percent: float
@@ -81,12 +80,10 @@ func _on_progression_component_stat_selected(stat: int, amount: int) -> void:
 	if stat == primary_stat:
 		pass
 
-
 func _on_main_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
 	if not data:
 		return
 	apply_mainhand_weapon_stats(data)
-
 
 func _on_off_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
 	if not data:

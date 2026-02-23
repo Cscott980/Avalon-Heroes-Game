@@ -19,6 +19,8 @@ class_name Enemy extends CharacterBody3D
 
 @export var enemy_data: EnemyResource
 
+var dead: bool = false
+
 func _ready() -> void:
 	enemy_init()
 	
@@ -39,7 +41,7 @@ func enemy_init() -> void:
 	state_machine.Initializer()
 	
 func _on_ai_controller_component_target_in_attack_dist(status: bool) -> void:
-	if enemy_health_component.is_dead: 
+	if dead:
 		return
 	if status: 
 		state_machine.change_state("AttackState")
@@ -47,24 +49,19 @@ func _on_ai_controller_component_target_in_attack_dist(status: bool) -> void:
 		state_machine.change_state("ChaseState")
 
 func _on_enemy_health_component_dead() -> void:
+	dead = true
 	self.remove_from_group("enemies")
 	self.add_to_group("dead_enemies")
 	state_machine.change_state("DeathState")
-
-func _on_hurt_box_component_hit(_area: Area3D) -> void:
-	if enemy_health_component.is_dead:
-		return
-	if state_machine:
-		state_machine.change_state("HurtState")
 	
 func _on_ai_controller_component_wandering() -> void:
-	if enemy_health_component.is_dead:
+	if dead:
 		return
 	if state_machine:
 		state_machine.change_state("WanderState")
 
 func _on_ai_controller_component_idling() -> void:
-	if enemy_health_component.is_dead:
+	if dead:
 		return
 	if state_machine:
 		state_machine.change_state("IdleState")
@@ -72,3 +69,9 @@ func _on_ai_controller_component_idling() -> void:
 func _on_enemy_spawn_component_spawn() -> void:
 	if state_machine:
 		state_machine.change_state("SpawnState")
+
+func _on_enemy_hurt_box_component_hit(_area: Area3D) -> void:
+	if dead:
+		return
+	if state_machine:
+		state_machine.change_state("HurtState")
