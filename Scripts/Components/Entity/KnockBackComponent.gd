@@ -76,12 +76,33 @@ func knockback() -> void:
 	_active = true
 	_t = 0.0
 
+	# Immediately prevent the enemy AI from overwriting knockback velocity
+	var parent_node := get_parent()
+	if parent_node and parent_node.has_method("ai_movement_component"):
+		# Defensive: if the Enemy exposes the AI controller as a property
+		parent_node.ai_movement_component.can_move = false
+	# Fallback: try direct node access if property isn't available
+	elif parent_node and parent_node.has_node("AIControllerComponent"):
+		var ai := parent_node.get_node("AIControllerComponent")
+		if ai:
+			ai.can_move = false
+
 	knockbacked.emit()
 	knock_back_timer.start()
 
 func _on_knock_back_timer_timeout() -> void:
 	# cooldown over, can be knocked again
 	can_be_knockedback = true
+
+	# Re-enable AI movement if present
+	var parent_node := get_parent()
+	if parent_node and parent_node.has_method("ai_movement_component"):
+		parent_node.ai_movement_component.can_move = true
+	elif parent_node and parent_node.has_node("AIControllerComponent"):
+		var ai := parent_node.get_node("AIControllerComponent")
+		if ai:
+			ai.can_move = true
+
 	knock_back_timer.stop()
 
 func _on_hurt_box_component_hit(area: Area3D)-> void:
