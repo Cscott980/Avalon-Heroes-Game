@@ -12,6 +12,7 @@ signal moving(status: bool)
 
 var input_vec: Vector3
 var can_move: bool
+var dead: bool = false
 
 func _ready() -> void:
 	input_vec = Vector3.ZERO
@@ -21,7 +22,9 @@ func _physics_process(delta: float) -> void:
 	if not can_move:
 		user.velocity = Vector3.ZERO
 		return 
-
+	if dead:
+		user.velocity = Vector3.ZERO
+		
 	user.velocity.x = -input_vec.x * move_speed
 	user.velocity.z = -input_vec.z * move_speed
 	
@@ -57,7 +60,7 @@ func is_moving() -> bool:
 		return false
 
 func _on_health_component_dead() -> void:
-	can_move = false
+	dead = true
 
 func _on_health_component_revived() -> void:
 	can_move = true

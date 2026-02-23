@@ -88,12 +88,6 @@ func _on_shield_component_block_broke(cooldown: float) -> void:
 		return
 	pass # Replace with function body.
 
-func _on_health_component_hurt() -> void:
-	if health_component.is_dead:
-		return
-	if state_machine:
-		state_machine.change_state("HurtState")
-
 func _on_health_component_dead() -> void:
 	if state_machine:
 		self.remove_from_group("player")

@@ -37,11 +37,6 @@ func take_damage(amount: int) -> void:
 		dead.emit()
 		current_health.emit(health)
 
-func _on_hurt_box_area_entered(area: Area3D) -> void:
-	if area.is_in_group("player_weapon") or area.is_in_group("player_projectile"):
-		var dmg = area.get("damage")
-		if dmg != null:
-			take_damage(dmg)
 
 func _on_stat_component_current_stats(dic: Dictionary) -> void:
 	max_health += (dic[StatConst.STATS.VITALITY] * hp_per_vit)

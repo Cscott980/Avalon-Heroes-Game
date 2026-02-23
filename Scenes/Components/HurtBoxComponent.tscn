@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cdm5egv3kje0l"]
+
+[ext_resource type="Script" uid="uid://cajf1u20kxsew" path="res://Scripts/Components/Entity/HurtBoxComponent.gd" id="1_ck2ee"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o5540"]
+radius = 1.0053711
+height = 2.5214844
+
+[node name="HurtBoxComponent" type="BoneAttachment3D" unique_id=280227462]
+transform = Transform3D(0.9997204, -1.4014349e-09, 0.023646597, 1.3934147e-09, 0.99999994, 3.5568634e-10, -0.023646597, -3.2263742e-10, 0.9997204, 0, 0, 0)
+bone_name = "head"
+bone_idx = 13
+script = ExtResource("1_ck2ee")
+
+[node name="HurtBox" type="Area3D" parent="." unique_id=501225820]
+unique_name_in_owner = true
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox" unique_id=1064286726]
+unique_name_in_owner = true
+transform = Transform3D(1.0000033, 3.035766e-17, -1.4901161e-08, -4.2639503e-15, 1, -2.7755576e-17, 1.4901161e-08, 6.938894e-16, 1.0000033, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_o5540")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="InvincibilityTimer" type="Timer" parent="HurtBox" unique_id=1759841766]
+unique_name_in_owner = true
+wait_time = 0.5
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_exited" from="HurtBox" to="." method="_on_hurt_box_area_exited"]
+[connection signal="timeout" from="HurtBox/InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

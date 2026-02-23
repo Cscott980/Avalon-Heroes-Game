@@ -3,6 +3,8 @@ class_name EquipmentVisualComponent extends Node
 
 signal player_head_for_sheat(mesh: Mesh, skin: Skin)
 
+
+
 @export var player_ui: MainUI
 @export var weapon_equip_comp: WeaponEquipComponent
 
@@ -37,14 +39,13 @@ var class_defults: HeroClassVisualDefaultResource
 var is_sheathed: bool
 var visual_data: Dictionary = {}
 
-var main_hand_data: WeaponResource
-var off_hand_data: WeaponResource
+var main_hand_data: WeaponResource = null
+var off_hand_data: WeaponResource = null
 
 func _ready() -> void:
 	await get_tree().process_frame
 	player_head_for_sheat.emit(head.mesh, head.skin)
 	
-
 func sheath_weapon() -> void:
 	var mh := main_hand_data
 	var oh := off_hand_data
@@ -77,7 +78,6 @@ func sheath_weapon() -> void:
 			off_hand_slot.transform = Transform3D.IDENTITY
 			off_hand_weapon.mesh.transform = main_hand_weapon.back_sheath.transform
 	
-
 func unsheath_weapon() -> void:
 	if main_hand_data != null and main_hand_weapon.get_parent() != main_hand_slot:
 		main_hand_weapon.get_parent().remove_child(main_hand_weapon)
@@ -170,10 +170,9 @@ func apply_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_in
 				if w != null and w.handedness == WeaponResource.HANDEDNESS.TWO_HANDED:
 					off_hand_weapon.clear_weapon()
 				main_hand_data = w
+				weapon_equip_comp.update_dual_wielding_state(main_hand_data, off_hand_data)
 				main_hand_weapon.load_weapon(w)
 			
-			
-			weapon_equip_comp.update_dual_wielding_state()
 			if is_sheathed:
 				sheath_weapon()
 

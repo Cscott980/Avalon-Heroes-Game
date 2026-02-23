@@ -11,7 +11,7 @@ signal recovered
 @export var knockback_force: float = 8.0
 @export var knockback_duration: float = 0.15  # how long the push lasts (feel)
 @export var knockback_cooldown: float = 0.25  # how soon can be knocked again
-@export var up_force: float = 0.0             # optional small hop
+@export var up_force: float = 1.0             # optional small hop
 
 var can_be_knockedback: bool = true
 var hit_pos: Vector3 = Vector3.ZERO
@@ -84,10 +84,8 @@ func _on_knock_back_timer_timeout() -> void:
 	can_be_knockedback = true
 	knock_back_timer.stop()
 
-
 func _on_hurt_box_component_hit(area: Area3D)-> void:
 	if not can_be_knockedback:
 		return
-
 	hit_pos = area.global_position
 	knockback()

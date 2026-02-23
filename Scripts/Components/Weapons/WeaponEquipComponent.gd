@@ -3,55 +3,39 @@ class_name WeaponEquipComponent extends Node
 
 signal is_dual_wielding(status: bool)
 
-@export var main_hand_weapon: WeaponComponent
-@export var off_hand_weapon:WeaponComponent
-@export var range_weapon: RangeWeaponComponent
-@export var shield: ShieldComponent
-
-var main_hand_data: WeaponResource
-var off_hand_data: WeaponResource
-
 var dual_wielding: bool = false
-func _ready() -> void:
-	pass
 
-func update_dual_wielding_state() -> void:
-	if main_hand_weapon == null or off_hand_weapon == null:
-		dual_wielding = false
-		is_dual_wielding.emit(false)
-		return
-		
-	if main_hand_data == null or off_hand_data == null:
+func update_dual_wielding_state(mainhand: WeaponResource, offhand: WeaponResource) -> void:		
+	if mainhand == null or offhand == null:
+		print("I am null")
 		dual_wielding = false
 		is_dual_wielding.emit(false)
 		return
 	
-	var mh := main_hand_data
-	var oh := off_hand_data
+	var mh: WeaponResource = mainhand if mainhand != null else null
+	var oh: WeaponResource = offhand if offhand != null else null
 	
 	if mh == null or oh == null:
+		print("mh or oh are null")
 		dual_wielding = false
 		is_dual_wielding.emit(false)
 		return
 	if mh.handedness != WeaponResource.HANDEDNESS.ONE_HANDED:
+		print("wrong handeness for main hand")
 		dual_wielding = false
 		is_dual_wielding.emit(false)
 		return
 	if oh.handedness != WeaponResource.HANDEDNESS.ONE_HANDED:
+		print("wrong handeness for offhand")
 		dual_wielding = false
 		is_dual_wielding.emit(false)
 		return
 	if oh.weapon_type == ArmorResource.ArmorType.Shield:
+		print("I am a shield")
 		dual_wielding = false
 		is_dual_wielding.emit(false)
 		return
-	print("here i am")
+	
 	dual_wielding = true
+	print("Dualwielding is %s" %dual_wielding)
 	is_dual_wielding.emit(true)
-
-func _on_main_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
-	main_hand_data = data
-	
-func _on_off_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
-	off_hand_data = data
-	

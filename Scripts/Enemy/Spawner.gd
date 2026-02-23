@@ -3,12 +3,13 @@ class_name Spawner extends Node3D
 
 @export var spawn_time: float
 @onready var spawn_timer: Timer = %SpawnTimer
-@onready var enemy_container: Node3D = %NavigationRegion3D/Enemies
+@onready var enemy_container: Node3D = %NavigationRegion3D
 var players: Array = []
 var active_players: Array = []
 
 
-
+@export var min_wait_time: float = 10.0
+@export var max_wait_time: float = 20.0
 
 const ENEMY_GRUNT = preload("res://Scenes/Enemeies/Enemy.tscn")
 var new_enemy: CharacterBody3D = null
@@ -30,7 +31,7 @@ func _on_spawn_timer_timeout() -> void:
 	new_enemy = ENEMY_GRUNT.instantiate()
 	enemy_container.add_child(new_enemy)
 	new_enemy.global_position = global_position
-	spawn_timer.wait_time = randf_range(1,10)
+	spawn_timer.wait_time = randf_range(min_wait_time,max_wait_time)
 	
 func check_player_status() -> void:
 	if active_players.is_empty():

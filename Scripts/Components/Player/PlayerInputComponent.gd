@@ -13,11 +13,14 @@ var move_intent: Vector3 = Vector3.ZERO
 var _last_move_intent: Vector3 = Vector3.ZERO
 var is_sheathed: bool = false
 var inventroy_open: bool = false
+var input_active = true
 
 func _ready() -> void:
 	pass
 
 func _physics_process(_delta: float) -> void:
+	if not input_active:
+		return
 	var x: float = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var z: float = Input.get_action_strength("down") - Input.get_action_strength("up")
 	
@@ -31,6 +34,8 @@ func _physics_process(_delta: float) -> void:
 		move_intent_changed.emit(move_intent)
 
 func _input(event: InputEvent) -> void:
+	if not input_active:
+			return
 	#----- UI Input ---------
 	if event.is_action_pressed("inventory"):
 		charsheet_toggled.emit()
@@ -51,3 +56,7 @@ func _input(event: InputEvent) -> void:
 		block_started.emit()
 	elif event.is_action_released("block"):
 		block_ended.emit()
+
+
+func _on_health_component_dead() -> void:
+	input_active = false

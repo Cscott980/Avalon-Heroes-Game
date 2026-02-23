@@ -7,17 +7,21 @@ var lunge_direction: Vector3 = Vector3.ZERO
 var attack_data: AttackDataResource
 var combo: Array[AttackDataResource]
 var no_weapon_equiped: bool
+var dual_wielding: bool = false
+var weapon_data: WeaponResource
 
 func enter() -> void:
+	print(dual_wielding)
+	if no_weapon_equiped:
+		return
 	combo = combat_comp.get_current_weapon_combo()
 	if combo.is_empty() or combo.size() < 1:
 		return
-	
 	attack_data = combo[0]
-	
+	_setup_lunge()
 	combat_comp.base_melee_attack_started(0)
 	
-	if not weap_equip_comp.dual_wielding:
+	if not dual_wielding:
 		playback.play_attack_animation(attack_data.animation_name)
 	else:
 		playback.play_attack_animation(attack_data.dualwield_animation_name)
@@ -25,14 +29,12 @@ func enter() -> void:
 	_setup_lunge()
 	get_tree().create_timer(attack_data.combo_window_start).timeout.connect(_open_combo_window)
 	get_tree().create_timer(attack_data.attack_duration).timeout.connect(_finish_attack)
-	
+
 func _setup_lunge() -> void:
-	print("target: ", target_comp.get_closets_target())
-	print("distance: ", target_comp.get_distance_to_current_target())
 	if not attack_data.lunge_to_target:
 		return
 	
-	var weapon_type = combat_comp.main_hand_data
+	var weapon_type = weapon_data
 	if weapon_type == null:
 		return
 	
@@ -87,3 +89,9 @@ func physics_process(delta: float) -> void:
 
 func _on_main_hand_weapon_no_weapon_equiped(status: bool) -> void:
 	no_weapon_equiped = status
+
+func _on_weapon_equip_component_is_dual_wielding(status: bool) -> void:
+	dual_wielding = status
+
+func _on_main_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
+	weapon_data = data

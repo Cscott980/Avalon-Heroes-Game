@@ -1,3 +1,4 @@
+@icon("uid://dyvv21c8fnyvq")
 class_name EnemyStateMachine extends Node
 
 @export var enemy: CharacterBody3D

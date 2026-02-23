@@ -10,5 +10,6 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
-func physics_process(delta: float) -> void:
-	pass
+func physics_process(_delta: float) -> void:
+	if enemy.targeting_component.targets_close:
+		state_machine.change_state("AttackState")

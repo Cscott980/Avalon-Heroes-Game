@@ -29,6 +29,7 @@ HeroClassConst="*res://Scripts/Singletons/HeroClassConstants.gd"
 StatConst="*res://Scripts/Singletons/StatConstants.gd"
 GameSignals="*uid://ctj1uonhq2fp"
 ValueTypeConst="*uid://csunk8svj5g2h"
+LayerNamesConstant="*uid://dai834f7nyqiv"
 
 [display]
 
@@ -139,6 +140,9 @@ block={
 3d_physics/layer_6="EnemyProjectiles"
 3d_physics/layer_7="EnemyAbilities"
 3d_physics/layer_8="EnemyWeapon"
+3d_physics/layer_9="Dead Players"
+3d_physics/layer_10="Dead Enemies"
+3d_physics/layer_11="PlayerProjectiles"
 
 [physics]
 

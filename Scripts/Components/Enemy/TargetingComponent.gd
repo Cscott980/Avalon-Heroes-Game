@@ -46,7 +46,9 @@ func _set_new_target() -> void:
 func target_in_range() -> bool:
 	if current_target == null or !is_instance_valid(current_target):
 		return false
-	return user.global_position.distance_to(current_target.global_position) <= attack_range
+	if current_target.is_in_group("player"):
+		return user.global_position.distance_to(current_target.global_position) <= attack_range
+	return false
 
 func attack() -> void:
 	if target_in_range():

@@ -110,8 +110,15 @@ func _on_combo_timer_timeout() -> void:
 		reset_combo()
 
 func _on_off_hand_weapon_weapon_hit(target: Node3D) -> void:
-	# Handle off-hand attacks if dual wielding
-	attack_hit.emit(target, 0)
+	var combo_data = get_current_weapon_combo()
+	if combo_data.is_empty():
+		return
+	if target.is_in_group("enemy"):
+		var do_dmg = target.get_node("EnemyHealthComponent") as EnemyHealthComponent
+		var defense = target.get_node("StatComponent") as StatComponent
+		if do_dmg.has_method("take_damage"):
+			var damage = stat_comp.calculate_weapon_damage(randi_range(off_hand_data.min_damage, off_hand_data.max_damage), defense.armor, false)
+			do_dmg.take_damage(damage)
 
 func _on_main_hand_weapon_weapon_hit(target: Node3D) -> void:
 	var combo_data = get_current_weapon_combo()

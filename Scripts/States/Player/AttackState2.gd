@@ -6,22 +6,26 @@ var is_lunging: bool = false
 var lunge_direction: Vector3 = Vector3.ZERO
 var attack_data: AttackDataResource
 var no_weapon_equiped: bool
+var dual_wielding: bool = false
+var weapon_data: WeaponResource
 
 func enter() -> void:
+	if no_weapon_equiped:
+		return
+	print(dual_wielding)
 	var combo = combat_comp.get_current_weapon_combo()
 	if combo.is_empty() or combo.size() < 2:
 		return
-	
+
 	attack_data = combo[1]
-	
+	_setup_lunge()
 	combat_comp.base_melee_attack_started(1)
 	
-	if not weap_equip_comp.dual_wielding:
+	if not dual_wielding:
 		playback.play_attack_animation(attack_data.animation_name)
 	else:
 		playback.play_attack_animation(attack_data.dualwield_animation_name)
 	
-	_setup_lunge()
 	
 	get_tree().create_timer(attack_data.combo_window_start).timeout.connect(_open_combo_window)
 	get_tree().create_timer(attack_data.attack_duration).timeout.connect(_finish_attack)
@@ -30,7 +34,7 @@ func _setup_lunge() -> void:
 	if not attack_data.lunge_to_target:
 		return
 	
-	var weapon_type = weap_equip_comp.main_hand_weapon.WEAPON_TYPE
+	var weapon_type = weapon_data
 	if weapon_type == null:
 		return
 	
@@ -46,7 +50,7 @@ func _setup_lunge() -> void:
 		
 		if lunge_direction != Vector3.ZERO:
 			var target_rotation = atan2(lunge_direction.x, lunge_direction.z)
-			player.movement_component.model.y = target_rotation
+			player.movement_component.model.rotation.y = target_rotation
 
 func _open_combo_window() -> void:
 	combat_comp.open_combo_window()
@@ -83,5 +87,11 @@ func exit() -> void:
 	is_lunging = false
 	lunge_timer = 0.0
 
+func _on_weapon_equip_component_is_dual_wielding(status: bool) -> void:
+	dual_wielding = status
+
 func _on_main_hand_weapon_no_weapon_equiped(status: bool) -> void:
-		no_weapon_equiped = status
+	no_weapon_equiped = status
+
+func _on_main_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
+	weapon_data = data

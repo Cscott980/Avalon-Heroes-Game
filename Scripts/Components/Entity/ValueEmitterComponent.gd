@@ -1,3 +1,4 @@
+@icon("uid://curwvlxkq3t3m")
 class_name ValueEmitterComponent extends Node3D
 
 const INDICATOR_LABEL = preload("uid://bx1vs3j0rpyrj")

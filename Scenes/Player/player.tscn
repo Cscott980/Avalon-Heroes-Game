@@ -108,7 +108,6 @@
 [ext_resource type="Script" uid="uid://ctr7taoyv2xth" path="res://Scripts/States/Player/AttackState2.gd" id="105_8gfi0"]
 [ext_resource type="Script" uid="uid://dass1u87mgpxb" path="res://Scripts/States/Player/AttackState3.gd" id="106_mbhwj"]
 [ext_resource type="Script" uid="uid://dpqtrreackikg" path="res://Scripts/States/Player/AbilityState.gd" id="107_lw1dm"]
-[ext_resource type="Script" uid="uid://cc76tvcyemcjj" path="res://Scripts/States/Player/HurtState.gd" id="108_vwu2i"]
 [ext_resource type="Script" uid="uid://bnfwc04ttk55x" path="res://Scripts/States/Player/DeadState.gd" id="109_kk0bk"]
 [ext_resource type="Script" uid="uid://bos7mhqtacmin" path="res://Scripts/UI/CameraEffects.gd" id="110_ih6wi"]
 [ext_resource type="PackedScene" uid="uid://dmqo550jk2hkw" path="res://Scenes/UserInterface/MainUI.tscn" id="111_h55qd"]
@@ -1172,25 +1171,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40566343, 0)
 bone_name = "hips"
 bone_idx = 1
 
-[node name="HurtBoxBone" type="BoneAttachment3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=646255324]
+[node name="HurtBoxComponent" type="BoneAttachment3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=646255324]
 transform = Transform3D(1, 0, 1.4210854e-14, 0, 0.99999994, 0, -1.4210854e-14, 0, 1, 0, 1.2414254, 0)
 bone_name = "head"
 bone_idx = 9
 script = ExtResource("9_o0fa5")
 
-[node name="HurtBox" type="Area3D" parent="Model/Rig_Medium/Skeleton3D/HurtBoxBone" unique_id=1434029573]
+[node name="HurtBox" type="Area3D" parent="Model/Rig_Medium/Skeleton3D/HurtBoxComponent" unique_id=1434029573]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, -1.4210855e-14, 0, 1.0000001, 0, 1.4210855e-14, 0, 1, 0, -1.2414255, 0)
 collision_layer = 2
 collision_mask = 128
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/Rig_Medium/Skeleton3D/HurtBoxBone/HurtBox" unique_id=2003613439]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/Rig_Medium/Skeleton3D/HurtBoxComponent/HurtBox" unique_id=2003613439]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07724, 0)
 shape = SubResource("CapsuleShape3D_xpcdj")
 debug_color = Color(0.9282087, 0.2686967, 0, 0.41960785)
 
-[node name="InvincibilityTimer" type="Timer" parent="Model/Rig_Medium/Skeleton3D/HurtBoxBone/HurtBox" unique_id=894381364]
+[node name="InvincibilityTimer" type="Timer" parent="Model/Rig_Medium/Skeleton3D/HurtBoxComponent/HurtBox" unique_id=894381364]
 unique_name_in_owner = true
 one_shot = true
 
@@ -1205,9 +1204,6 @@ unique_name_in_owner = true
 root_node = NodePath("%AnimationTree/..")
 tree_root = ExtResource("88_htxq1")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Warrior/Running_Hurt/OneShot/active = false
-parameters/Warrior/Running_Hurt/OneShot/internal_active = false
-parameters/Warrior/Running_Hurt/OneShot/request = 0
 parameters/Warrior/Walk_Shield_Block/WalkAndBlock/blend_amount = 1.0
 parameters/Warrior/Walk_Shield_Hit/Blend2/blend_amount = 1.0
 
@@ -1277,11 +1273,12 @@ mesh = ExtResource("97_sk1xh")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Model/MeleeSpinSlashEffect" unique_id=1523856792]
 libraries/ = SubResource("AnimationLibrary_v7jcj")
 
-[node name="WorldCollision" type="CollisionShape3D" parent="." unique_id=110340728]
+[node name="WorldCollision" type="CollisionShape3D" parent="." unique_id=110340728 node_paths=PackedStringArray("user")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 1.1524184, 0)
 shape = SubResource("CapsuleShape3D_a3d8c")
 script = ExtResource("98_q7t4i")
+user = NodePath("..")
 
 [node name="PlayerAnimationComponent" type="Node" parent="." unique_id=1601696624]
 unique_name_in_owner = true
@@ -1351,14 +1348,6 @@ weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
 [node name="AbilityState" type="Node" parent="StateMachine" unique_id=1149044750 node_paths=PackedStringArray("player", "playback", "combat_comp", "target_comp", "weap_equip_comp")]
 script = ExtResource("107_lw1dm")
-player = NodePath("../..")
-playback = NodePath("../../PlayerAnimationComponent")
-combat_comp = NodePath("../../CombatComponent")
-target_comp = NodePath("../../TargetsInRangeComponent")
-weap_equip_comp = NodePath("../../WeaponEquipComponent")
-
-[node name="HurtState" type="Node" parent="StateMachine" unique_id=137205970 node_paths=PackedStringArray("player", "playback", "combat_comp", "target_comp", "weap_equip_comp")]
-script = ExtResource("108_vwu2i")
 player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
@@ -1449,7 +1438,7 @@ value = 50.0
 show_percentage = false
 
 [node name="ValueEmitterComponent" type="Node3D" parent="." unique_id=2066740492]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.383124, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5964518, 0)
 script = ExtResource("124_dc80h")
 font_size = 60
 
@@ -1457,12 +1446,9 @@ font_size = 60
 unique_name_in_owner = true
 player = NodePath("..")
 
-[node name="WeaponEquipComponent" type="Node" parent="." unique_id=667596658 node_paths=PackedStringArray("main_hand_weapon", "off_hand_weapon", "shield")]
+[node name="WeaponEquipComponent" type="Node" parent="." unique_id=667596658]
 unique_name_in_owner = true
 script = ExtResource("114_ovbyp")
-main_hand_weapon = NodePath("../Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon")
-off_hand_weapon = NodePath("../Model/Rig_Medium/Skeleton3D/OffHand/OffHandWeapon")
-shield = NodePath("../Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent")
 metadata/_custom_type_script = "uid://nfxhpdw3pn7w"
 
 [node name="MovementComponent" type="Node" parent="." unique_id=1196397969 node_paths=PackedStringArray("user", "model")]
@@ -1542,20 +1528,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4111938, 0)
 [connection signal="no_weapon_equiped" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/AttackState2" method="_on_main_hand_weapon_no_weapon_equiped"]
 [connection signal="no_weapon_equiped" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/AttackState3" method="_on_main_hand_weapon_no_weapon_equiped"]
 [connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/IdleState" method="_on_main_hand_weapon_weapon_data"]
-[connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="WeaponEquipComponent" method="_on_main_hand_weapon_weapon_data"]
+[connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/AttackState1" method="_on_main_hand_weapon_weapon_data"]
+[connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/AttackState2" method="_on_main_hand_weapon_weapon_data"]
+[connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/AttackState3" method="_on_main_hand_weapon_weapon_data"]
 [connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="CombatComponent" method="_on_main_hand_weapon_weapon_data"]
 [connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StatComponent" method="_on_main_hand_weapon_weapon_data"]
 [connection signal="weapon_hit" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="CombatComponent" method="_on_main_hand_weapon_weapon_hit"]
-[connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/OffHand/OffHandWeapon" to="WeaponEquipComponent" method="_on_off_hand_weapon_weapon_data"]
 [connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/OffHand/OffHandWeapon" to="CombatComponent" method="_on_off_hand_weapon_weapon_data"]
 [connection signal="weapon_data" from="Model/Rig_Medium/Skeleton3D/OffHand/OffHandWeapon" to="StatComponent" method="_on_off_hand_weapon_weapon_data"]
 [connection signal="weapon_hit" from="Model/Rig_Medium/Skeleton3D/OffHand/OffHandWeapon" to="CombatComponent" method="_on_off_hand_weapon_weapon_hit"]
 [connection signal="block_broke" from="Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent" to="." method="_on_shield_component_block_broke"]
 [connection signal="is_blocking" from="Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent" to="." method="_on_shield_component_is_blocking"]
-[connection signal="area_entered" from="Model/Rig_Medium/Skeleton3D/HurtBoxBone/HurtBox" to="Model/Rig_Medium/Skeleton3D/HurtBoxBone" method="_on_hurt_box_area_entered"]
-[connection signal="area_exited" from="Model/Rig_Medium/Skeleton3D/HurtBoxBone/HurtBox" to="Model/Rig_Medium/Skeleton3D/HurtBoxBone" method="_on_hurt_box_area_exited"]
-[connection signal="timeout" from="Model/Rig_Medium/Skeleton3D/HurtBoxBone/HurtBox/InvincibilityTimer" to="Model/Rig_Medium/Skeleton3D/HurtBoxBone" method="_on_invincibility_timer_timeout"]
+[connection signal="hit" from="Model/Rig_Medium/Skeleton3D/HurtBoxComponent" to="." method="_on_hurt_box_component_hit"]
+[connection signal="area_entered" from="Model/Rig_Medium/Skeleton3D/HurtBoxComponent/HurtBox" to="Model/Rig_Medium/Skeleton3D/HurtBoxComponent" method="_on_hurt_box_area_entered"]
+[connection signal="area_exited" from="Model/Rig_Medium/Skeleton3D/HurtBoxComponent/HurtBox" to="Model/Rig_Medium/Skeleton3D/HurtBoxComponent" method="_on_hurt_box_area_exited"]
+[connection signal="timeout" from="Model/Rig_Medium/Skeleton3D/HurtBoxComponent/HurtBox/InvincibilityTimer" to="Model/Rig_Medium/Skeleton3D/HurtBoxComponent" method="_on_invincibility_timer_timeout"]
 [connection signal="target_change" from="TargetsInRangeComponent" to="StateMachine/AttackState1" method="_on_targets_in_range_component_target_change"]
+[connection signal="is_dual_wielding" from="WeaponEquipComponent" to="StateMachine/AttackState1" method="_on_weapon_equip_component_is_dual_wielding"]
+[connection signal="is_dual_wielding" from="WeaponEquipComponent" to="StateMachine/AttackState2" method="_on_weapon_equip_component_is_dual_wielding"]
+[connection signal="is_dual_wielding" from="WeaponEquipComponent" to="StateMachine/AttackState3" method="_on_weapon_equip_component_is_dual_wielding"]
 [connection signal="moving" from="MovementComponent" to="." method="_on_movement_component_moving"]
 [connection signal="attack_started" from="CombatComponent" to="MovementComponent" method="_on_combat_component_attack_started"]
 [connection signal="attack_window_ended" from="CombatComponent" to="MovementComponent" method="_on_combat_component_attack_window_ended"]
@@ -1566,11 +1557,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4111938, 0)
 [connection signal="current_health" from="HealthComponent" to="PlayerUI" method="_on_health_component_current_health"]
 [connection signal="current_health" from="HealthComponent" to="WorldVisualPlayerData" method="_on_health_component_current_health"]
 [connection signal="dead" from="HealthComponent" to="." method="_on_health_component_dead"]
-[connection signal="dead" from="HealthComponent" to="Model/Rig_Medium/Skeleton3D/HurtBoxBone" method="_on_health_component_dead"]
+[connection signal="dead" from="HealthComponent" to="Model/Rig_Medium/Skeleton3D/HurtBoxComponent" method="_on_health_component_dead"]
 [connection signal="dead" from="HealthComponent" to="WorldCollision" method="_on_health_component_dead"]
-[connection signal="dead" from="HealthComponent" to="StateMachine/DeadState" method="_on_health_component_dead"]
 [connection signal="dead" from="HealthComponent" to="PlayerUI" method="_on_health_component_dead"]
 [connection signal="dead" from="HealthComponent" to="MovementComponent" method="_on_health_component_dead"]
+[connection signal="dead" from="HealthComponent" to="PlayerInputComponent" method="_on_health_component_dead"]
 [connection signal="hurt" from="HealthComponent" to="." method="_on_health_component_hurt"]
 [connection signal="revived" from="HealthComponent" to="WorldCollision" method="_on_health_component_revived"]
 [connection signal="revived" from="HealthComponent" to="MovementComponent" method="_on_health_component_revived"]

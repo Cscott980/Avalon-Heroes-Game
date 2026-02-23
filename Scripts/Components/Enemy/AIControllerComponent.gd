@@ -39,6 +39,7 @@ func apply_movement_data(enemy_movement: EnemyMovementResource, weap_data: Enemy
 func _physics_process(delta: float) -> void:
 	if not can_move:
 		return
+		
 	if is_dead:
 		user.velocity = Vector3.ZERO
 		return
@@ -55,6 +56,7 @@ func _move_to_target(delta: float) -> void:
 	if distance <= attack_range:
 		user.velocity = Vector3.ZERO
 		target_in_attack_dist.emit(true)
+		_apply_gravity(delta)
 		user.move_and_slide()
 		return
 	else:
@@ -62,6 +64,7 @@ func _move_to_target(delta: float) -> void:
 
 	# --- NAVIGATION AGENT MOVEMENT ---
 	if target_close:
+		print("here")
 		nav_agent.target_position = current_target.global_position
 		
 		var next_point = nav_agent.get_next_path_position()
@@ -78,74 +81,73 @@ func _move_to_target(delta: float) -> void:
 		user.velocity.z = direction.z * speed
 		face_direction(direction, delta)
 	# Gravity
-	if not user.is_on_floor():
-		user.velocity.y -= gravity * delta
+	
+	_apply_gravity(delta)
 	
 	user.move_and_slide()
 
 func wander(delta: float) -> void:
-	# If we’re waiting, stand still (IDLE)
-	if wander_wait > 5.0:
+	# 1. IDLE LOGIC
+	if wander_wait > 0:
+		wander_wait -= delta
+		
+		# Stop horizontal movement
+		user.velocity.x = move_toward(user.velocity.x, 0, wander_speed * delta)
+		user.velocity.z = move_toward(user.velocity.z, 0, wander_speed * delta)
+		
+		_apply_gravity(delta)
+		user.move_and_slide()
+		
+		# Ensure we only emit idle once per cycle
 		if _is_wandering:
 			_is_wandering = false
-		wander_wait -= delta
-		user.velocity.x = 0
-		user.velocity.z = 0
-
-		if not user.is_on_floor():
-			user.velocity.y -= gravity * delta
-		else:
-			user.velocity.y = 0
-		user.move_and_slide()
+			idling.emit()
 		return
 
-	# Pick a destination only when we need one
+	# 2. PICK NEW POINT
 	if not has_wander_point:
-		wander_point = user.global_position + Vector3(
+		var random_pos = Vector3(
 			randf_range(-wander_radius, wander_radius),
 			0,
 			randf_range(-wander_radius, wander_radius)
 		)
+		wander_point = user.global_position + random_pos
+		
+		# Use NavAgent to ensure the point is reachable on the map
+		nav_agent.target_position = wander_point
 		has_wander_point = true
+		
+		if !_is_wandering:
+			_is_wandering = true
+			wandering.emit()
 
-	# Move toward it
-	var to_point := wander_point - user.global_position
-	to_point.y = 0
-	var dist := to_point.length()
+	# 3. MOVE TO WANDER POINT
+	var next_point = nav_agent.get_next_path_position()
+	var to_point = next_point - user.global_position
+	to_point.y = 0 # Ignore vertical distance
+	
+	var dist_to_final = user.global_position.distance_to(wander_point)
 
-	# Reached it -> pause, then pick a new one
-	if dist <= wander_reach_dist:
+	# Reached destination?
+	if dist_to_final <= wander_reach_dist:
 		has_wander_point = false
-		wander_wait = idling_wait_time
-		user.velocity.x = 0
-		user.velocity.z = 0
-
-		if not user.is_on_floor():
-			user.velocity.y -= gravity * delta
-		else:
-			user.velocity.y = 0
-		idling.emit()
-		user.move_and_slide()
+		wander_wait = idling_wait_time # Start the idle timer
 		return
 
-	var dir := to_point.normalized()
-	
-	
+	# Apply Velocity
+	var dir = to_point.normalized()
 	user.velocity.x = dir.x * wander_speed
 	user.velocity.z = dir.z * wander_speed
+	
+	face_direction(dir, delta)
+	_apply_gravity(delta)
+	user.move_and_slide()
 
+func _apply_gravity(delta: float) -> void:
 	if not user.is_on_floor():
 		user.velocity.y -= gravity * delta
 	else:
 		user.velocity.y = 0
-	
-	if not _is_wandering:
-		_is_wandering = true
-		
-	
-	wandering.emit()
-	face_direction(dir, delta)
-	user.move_and_slide()
 
 func face_direction(dir: Vector3, delta: float) -> void: 
 	if dir == Vector3.ZERO:
@@ -166,10 +168,7 @@ func _on_targeting_component_new_target(target: CharacterBody3D) -> void:
 	wander_wait = 0.0
 
 func _on_targeting_component_targets_close(status: bool) -> void:
-	if status:
-		target_close = true
-	else:
-		target_close = false
+	target_close = status
 
 func _on_enemy_health_component_dead() -> void:
 	is_dead = true
@@ -177,8 +176,8 @@ func _on_enemy_health_component_dead() -> void:
 func _on_enemy_health_component_revived() -> void:
 	is_dead = false
 
-func _on_knock_back_component_kockbacked() -> void:
-	can_move = false
-
 func _on_knock_back_component_recovered() -> void:
 	can_move = true
+
+func _on_knock_back_component_knockbacked() -> void:
+	can_move = false

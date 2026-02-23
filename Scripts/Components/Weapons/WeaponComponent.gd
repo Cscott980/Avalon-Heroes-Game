@@ -36,10 +36,10 @@ func clear_weapon() -> void:
 	remove_from_group("off_hand")
 	remove_from_group("one_hand_weapon")
 	remove_from_group("two_handed_weapon")
+	remove_from_group("player_weapon")
 	no_weapon_equiped.emit(true)
 	
 func load_weapon(weapon_id: WeaponResource) -> void:
-	# Determine weapon group
 	var group_name: String = ""
 	if weapon_slot and weapon_slot.name == "OffHand":
 		add_to_group("off_hand")
@@ -47,13 +47,15 @@ func load_weapon(weapon_id: WeaponResource) -> void:
 	else:
 		add_to_group("main_hand")
 		group_name = "MainHand"
-	
+	weapon_data.emit(weapon_id, group_name)
 	weapon_handedness = weapon_id.handedness
 	
-	if weapon_handedness == 0:
+	if weapon_handedness == WeaponResource.HANDEDNESS.ONE_HANDED:
 		add_to_group("one_handed_weapon")
 	else:
 		add_to_group("two_handed_weapon")
+		
+	add_to_group("player_weapon")
 	
 	min_damage = weapon_id.min_damage
 	max_damage = weapon_id.max_damage
@@ -69,7 +71,6 @@ func load_weapon(weapon_id: WeaponResource) -> void:
 	weapon_attack_speed = weapon_id.weapon_speed
 	
 	# FIXED: Properly emit with both arguments
-	weapon_data.emit(weapon_id, group_name)
 	no_weapon_equiped.emit(false)
 	
 func weapon_hit_box_on() -> void:

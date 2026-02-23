@@ -62,7 +62,9 @@ func _on_inventory_equipment_current_equipment(slot_res: EquipmentSlotResource, 
 		equip_visuals_comp.apply_equipment(slot_res, item, sub_index, hand)
 
 func _on_health_component_dead() -> void:
-	self.visible = false
+	if inventory_equipment.is_open:
+		inventory_equipment.close()
+	ability_bar.visible = false
 
 func _on_player_input_component_charsheet_toggled() -> void:
 	if inventory_equipment.is_open:

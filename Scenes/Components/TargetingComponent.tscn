@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://gpjqkxlkf2ds" path="res://Scripts/Components/Enemy/TargetingComponent.gd" id="1_g728m"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g728m"]
-radius = 7.6342773
+radius = 5.241699
 
 [node name="TargetingComponent" type="Node" unique_id=497121743]
 script = ExtResource("1_g728m")
