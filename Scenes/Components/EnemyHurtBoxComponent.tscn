@@ -7,7 +7,6 @@ radius = 1.0053711
 height = 2.5214844
 
 [node name="EnemyHurtBoxComponent" type="BoneAttachment3D" unique_id=280227462]
-transform = Transform3D(0.9997204, -1.4014349e-09, 0.023646597, 1.3934147e-09, 0.99999994, 3.5568634e-10, -0.023646597, -3.2263742e-10, 0.9997204, 0, 0, 0)
 bone_name = "head"
 bone_idx = 13
 script = ExtResource("1_de7co")

@@ -38,10 +38,8 @@ func _on_enemy_main_hand_component_enemy_hit(body: Player) -> void:
 	if health.has_method("take_damage"):
 		health.take_damage(cal_damage)
 
-
 func _on_weapon_shield_relic_enemy_hit(body: Player) -> void:
 	pass # Replace with function body.
-
 
 func _on_enemy_health_component_dead() -> void:
 	cant_attack = true

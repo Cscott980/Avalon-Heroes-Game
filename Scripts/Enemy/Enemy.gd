@@ -3,6 +3,8 @@ class_name Enemy extends CharacterBody3D
 @onready var state_machine: EnemyStateMachine = %EnemyStateMachine
 @onready var enemy_world_data_display: EnemyWorldDataDisplay = %EnemyWorldDataDisplay
 @onready var despawn_timer: Timer = %DeSpawnTimer
+@onready var enemy_audio_component: AudioStreamPlayer3D = %EnemyAudioComponent
+@onready var enemy_audio_component_2: EnemyAudioComponent = %EnemyAudioComponent2
 
 @onready var enemy_health_component: EnemyHealthComponent = $EnemyHealthComponent
 @onready var enemy_visuals_component: EnemyVisualComponent = %EnemyVisualsComponent

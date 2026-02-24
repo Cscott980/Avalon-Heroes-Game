@@ -1,10 +1,12 @@
 class_name EnemyDeathState extends EnemyState
 
 func enter() -> void:
+	enemy.enemy_audio_component_2.stream = enemy.enemy_audio_component_2.get_random_death_sound()
+	enemy.enemy_audio_component_2.play()
+	playback.play_death()
 	enemy.despawn_timer.wait_time = 10.0
 	enemy.despawn_timer.start()
-	playback.play_death()
-
+	
 func exit() -> void:
 	pass
 

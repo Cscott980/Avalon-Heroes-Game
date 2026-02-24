@@ -143,6 +143,7 @@ block={
 3d_physics/layer_9="Dead Players"
 3d_physics/layer_10="Dead Enemies"
 3d_physics/layer_11="PlayerProjectiles"
+3d_physics/layer_12="Blcok"
 
 [physics]
 

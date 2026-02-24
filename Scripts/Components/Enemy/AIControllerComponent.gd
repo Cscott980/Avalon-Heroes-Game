@@ -41,9 +41,8 @@ func apply_movement_data(enemy_movement: EnemyMovementResource, weap_data: Enemy
 func _physics_process(delta: float) -> void:
 	if knocked_back:
 		return
-	
+		
 	if is_dead or not can_move:
-		user.velocity = Vector3.ZERO
 		return
 
 	if current_target != null:
@@ -178,7 +177,7 @@ func _on_enemy_health_component_revived() -> void:
 	is_dead = false
 
 func _on_knock_back_component_recovered() -> void:
-	can_move = true
+	knocked_back = false
 
 func _on_knock_back_component_knockbacked() -> void:
-	can_move = false
+	knocked_back = true

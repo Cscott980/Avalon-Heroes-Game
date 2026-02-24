@@ -7,6 +7,7 @@ signal not_hits
 @onready var collision_shape_3d: CollisionShape3D = %CollisionShape3D
 @onready var invincibility_timer: Timer = %InvincibilityTimer
 
+@export var knockback_comp: KnockBackComponent
 @export var invincibility_time: float = 0.25
 
 var _can_get_hurt: bool = true
@@ -31,6 +32,7 @@ func _on_hurt_box_area_entered(area: Area3D) -> void:
 	if not _can_get_hurt:
 		return
 	if area.is_in_group("player_weapon"):
+		knockback_comp.hit_pos = area.global_position
 		hit.emit(area)
 		invincibility_timer.wait_time = invincibility_time
 		invincibility_timer.start()

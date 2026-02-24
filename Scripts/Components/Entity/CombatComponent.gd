@@ -127,9 +127,12 @@ func _on_main_hand_weapon_weapon_hit(target: Node3D) -> void:
 	if target.is_in_group("enemy"):
 		var do_dmg = target.get_node("EnemyHealthComponent") as EnemyHealthComponent
 		var defense = target.get_node("StatComponent") as StatComponent
+		var knockback = target.get_node("KnockBackComponent") as KnockBackComponent
 		if do_dmg.has_method("take_damage"):
 			var damage = stat_comp.calculate_weapon_damage(randi_range(main_hand_data.min_damage, main_hand_data.max_damage), defense.armor, true)
 			do_dmg.take_damage(damage)
+			(target as Enemy).state_machine.change_state("HurtState")
+			knockback.knockback()
 
 func _on_main_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
 	main_hand_data = data
