@@ -2,6 +2,7 @@ class_name Enemy extends CharacterBody3D
 
 @onready var state_machine: EnemyStateMachine = %EnemyStateMachine
 @onready var enemy_world_data_display: EnemyWorldDataDisplay = %EnemyWorldDataDisplay
+@onready var despawn_timer: Timer = %DeSpawnTimer
 
 @onready var enemy_health_component: EnemyHealthComponent = $EnemyHealthComponent
 @onready var enemy_visuals_component: EnemyVisualComponent = %EnemyVisualsComponent
@@ -43,6 +44,7 @@ func enemy_init() -> void:
 func _on_ai_controller_component_target_in_attack_dist(status: bool) -> void:
 	if dead:
 		return
+		
 	if status: 
 		state_machine.change_state("AttackState")
 	else:

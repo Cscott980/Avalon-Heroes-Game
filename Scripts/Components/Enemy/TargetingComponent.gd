@@ -50,11 +50,6 @@ func target_in_range() -> bool:
 		return user.global_position.distance_to(current_target.global_position) <= attack_range
 	return false
 
-func attack() -> void:
-	if target_in_range():
-		targets_close.emit(true)
-		return
-
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		targets_close.emit(true)

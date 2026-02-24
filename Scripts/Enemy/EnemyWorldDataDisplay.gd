@@ -27,5 +27,5 @@ func _on_enemy_health_component_dead() -> void:
 func _on_enemy_health_component_revived() -> void:
 	data_base.visible = true
 
-func _on_enemy_health_component_hurt(new_health: int) -> void:
-	health_bar.value = new_health
+func _on_enemy_health_component_current_health(current_amount: int) -> void:
+	health_bar.value = current_amount

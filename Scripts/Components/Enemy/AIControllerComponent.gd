@@ -27,6 +27,8 @@ var target_close: bool = false
 var wander_wait:float = 0.0
 var attack_range: float = 0.0
 
+var knocked_back: bool = false
+
 var wander_point: Vector3
 
 func apply_movement_data(enemy_movement: EnemyMovementResource, weap_data: EnemyWeaponResource) -> void:
@@ -37,10 +39,10 @@ func apply_movement_data(enemy_movement: EnemyMovementResource, weap_data: Enemy
 	attack_range = weap_data.attack_range
 
 func _physics_process(delta: float) -> void:
-	if not can_move:
+	if knocked_back:
 		return
-		
-	if is_dead:
+	
+	if is_dead or not can_move:
 		user.velocity = Vector3.ZERO
 		return
 
@@ -64,7 +66,6 @@ func _move_to_target(delta: float) -> void:
 
 	# --- NAVIGATION AGENT MOVEMENT ---
 	if target_close:
-		print("here")
 		nav_agent.target_position = current_target.global_position
 		
 		var next_point = nav_agent.get_next_path_position()
@@ -181,9 +182,3 @@ func _on_knock_back_component_recovered() -> void:
 
 func _on_knock_back_component_knockbacked() -> void:
 	can_move = false
-
-func _on_enemy_hurt_box_component_hit(area: Area3D) -> void:
-	can_move = false
-
-func _on_enemy_hurt_box_component_not_hits() -> void:
-	can_move = true

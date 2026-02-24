@@ -24,37 +24,6 @@ func _ready() -> void:
 	can_be_knockedback = true
 	knock_back_timer.wait_time = knockback_cooldown
 
-func _physics_process(delta: float) -> void:
-	if not _active:
-		return
-	if user == null:
-		_active = false
-		return
-
-	_t += delta
-	var p: float = clamp(_t / max(0.01, knockback_duration), 0.0, 1.0)
-
-	# Ease out: strong at start, fades smoothly
-	var strength: float = 1.0 - (p * p)
-
-	user.velocity.x = _dir.x * knockback_force * strength
-	user.velocity.z = _dir.z * knockback_force * strength
-
-	# gravity
-	if not user.is_on_floor():
-		user.velocity.y -= gravity * delta
-	else:
-		if user.velocity.y < 0.0:
-			user.velocity.y = 0.0
-
-	user.move_and_slide()
-
-	if p >= 1.0:
-		_active = false
-		_t = 0.0
-		# let AI resume
-		recovered.emit()
-
 func knockback() -> void:
 	if user == null:
 		push_warning("KnockBackComponent: user is null.")
@@ -82,6 +51,7 @@ func knockback() -> void:
 
 func _on_knock_back_timer_timeout() -> void:
 	can_be_knockedback = true
+	recovered.emit()
 	knock_back_timer.stop()
 	
 func _on_enemy_hurt_box_component_hit(area: Area3D) -> void:
