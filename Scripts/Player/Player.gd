@@ -23,7 +23,10 @@ class_name Player extends CharacterBody3D
 @export var player_id: int = 1
 @export var multiplayer_id: int = 0
 
+@export var immortal: bool = false
+
 var combo_open: bool = false
+
 
 func _ready() -> void:
 	if not is_instance_valid(hero_class):

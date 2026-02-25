@@ -109,30 +109,17 @@ func _on_combo_timer_timeout() -> void:
 	if not is_attacking:
 		reset_combo()
 
-func _on_off_hand_weapon_weapon_hit(target: Node3D) -> void:
-	var combo_data = get_current_weapon_combo()
-	if combo_data.is_empty():
-		return
-	if target.is_in_group("enemy"):
-		var do_dmg = target.get_node("EnemyHealthComponent") as EnemyHealthComponent
-		var defense = target.get_node("StatComponent") as StatComponent
-		if do_dmg.has_method("take_damage"):
-			var damage = stat_comp.calculate_weapon_damage(randi_range(off_hand_data.min_damage, off_hand_data.max_damage), defense.armor, false)
-			do_dmg.take_damage(damage)
+func _on_off_hand_weapon_weapon_hit(area: Area3D) -> void:
+	var hurt_component = area.get_parent() as EnemyHurtBoxComponent
+	var damage = stat_comp.calculate_weapon_damage(randi_range(off_hand_data.min_damage, off_hand_data.max_damage), hurt_component.armor, false)
+	hurt_component.emit_signal("damage_recived", damage)
+	hurt_component.user.state_machine.change_state("HurtState")
+	hurt_component.knockback_comp.knockback()
 
-func _on_main_hand_weapon_weapon_hit(target: Node3D) -> void:
-	var combo_data = get_current_weapon_combo()
-	if combo_data.is_empty():
-		return
-	if target.is_in_group("enemy"):
-		var do_dmg = target.get_node("EnemyHealthComponent") as EnemyHealthComponent
-		var defense = target.get_node("StatComponent") as StatComponent
-		var knockback = target.get_node("KnockBackComponent") as KnockBackComponent
-		if do_dmg.has_method("take_damage"):
-			var damage = stat_comp.calculate_weapon_damage(randi_range(main_hand_data.min_damage, main_hand_data.max_damage), defense.armor, true)
-			do_dmg.take_damage(damage)
-			(target as Enemy).state_machine.change_state("HurtState")
-			knockback.knockback()
+func _on_main_hand_weapon_weapon_hit(area: Area3D) -> void:
+	var hurt_component = area.get_parent() as EnemyHurtBoxComponent
+	var damage = stat_comp.calculate_weapon_damage(randi_range(main_hand_data.min_damage, main_hand_data.max_damage), hurt_component.armor, true)
+	hurt_component.emit_signal("damage_recived", damage)
 
 func _on_main_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
 	main_hand_data = data

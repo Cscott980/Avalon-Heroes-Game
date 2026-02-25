@@ -1,6 +1,6 @@
 class_name WeaponComponent extends Node3D
 
-signal weapon_hit(target: Node3D)
+signal weapon_hit(area: Area3D)
 signal weapon_data(data: WeaponResource, group: String)
 signal no_weapon_equiped(status: bool)
 
@@ -83,6 +83,6 @@ func weapon_hit_box_off() -> void:
 		hit_box.monitoring = false
 		hit_box.monitorable = false
 
-func _on_hit_box_body_entered(body: Node3D) -> void:
-	if body.is_in_group("enemy"):
-		weapon_hit.emit(body)
+func _on_hit_box_area_entered(area: Area3D) -> void:
+	if area.is_in_group("enemy"):
+		weapon_hit.emit(area)

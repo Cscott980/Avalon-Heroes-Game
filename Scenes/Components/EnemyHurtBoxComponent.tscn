@@ -3,22 +3,20 @@
 [ext_resource type="Script" uid="uid://c8qoiq0cb1cmp" path="res://Scripts/Components/Enemy/EnemyHurtBoxComponent.gd" id="1_de7co"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o5540"]
-radius = 1.0053711
-height = 2.5214844
+radius = 0.9589844
+height = 2.9960938
 
-[node name="EnemyHurtBoxComponent" type="BoneAttachment3D" unique_id=280227462]
-bone_name = "head"
-bone_idx = 13
+[node name="EnemyHurtBoxComponent" type="Node3D" unique_id=909619155]
 script = ExtResource("1_de7co")
 
 [node name="HurtBox" type="Area3D" parent="." unique_id=501225820]
 unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 8
+priority = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox" unique_id=1064286726]
 unique_name_in_owner = true
-transform = Transform3D(1.0000033, 3.035766e-17, -1.4901161e-08, -4.2639503e-15, 1, -2.7755576e-17, 1.4901161e-08, 6.938894e-16, 1.0000033, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_o5540")
 debug_color = Color(1, 0, 0, 0.41960785)
 

@@ -7,7 +7,7 @@ class_name Enemy extends CharacterBody3D
 @onready var enemy_audio_component_2: EnemyAudioComponent = %EnemyAudioComponent2
 
 @onready var enemy_health_component: EnemyHealthComponent = $EnemyHealthComponent
-@onready var enemy_visuals_component: EnemyVisualComponent = %EnemyVisualsComponent
+@onready var enemy_visual_component: EnemyVisualComponent = %EnemyVisualComponent
 @onready var enemy_melee_combat_component: EnemyMeleeCombatComponent = %EnemyMeleeCombatComponent
 @onready var enemy_range_combat_component: Node = %EnemyRangeCombatComponent 
 @onready var ai_movement_component: AIControllerComponent = %AIControllerComponent
@@ -19,6 +19,7 @@ class_name Enemy extends CharacterBody3D
 @onready var weapon_shield_relic: EnemyOffHandComponent = %WeaponShieldRelic
 @onready var stat_component: StatComponent = $StatComponent
 @onready var knock_back_component: KnockBackComponent = %KnockBackComponent
+@onready var enemy_hurt_box_component: EnemyHurtBoxComponent = %EnemyHurtBoxComponent
 
 @export var enemy_data: EnemyResource
 
@@ -30,7 +31,7 @@ func _ready() -> void:
 func enemy_init() -> void:
 	if enemy_data == null or not is_instance_valid(enemy_data):
 		return
-	enemy_visuals_component.apply_visuals(enemy_data.enemy_mesh)
+	enemy_visual_component.apply_visuals(enemy_data.enemy_mesh)
 	enemy_main_hand_component.apply_mainhand_weapon_visual_data(enemy_data.weapon_data)
 	weapon_shield_relic.apply_offhand_weapon_visual_data(enemy_data.weapon_data)
 	enemy_animation_component.apply_animation_playback(enemy_data)
@@ -74,7 +75,7 @@ func _on_enemy_spawn_component_spawn() -> void:
 	if state_machine:
 		state_machine.change_state("SpawnState")
 
-func _on_enemy_hurt_box_component_hit(_area: Area3D) -> void:
+func _on_hurt_box_area_entered(_area: Area3D) -> void:
 	if dead:
 		return
 	if state_machine:

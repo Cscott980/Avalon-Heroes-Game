@@ -5,37 +5,37 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qv81b"]
 
-[node name="OffHandWeapon" type="Node3D"]
+[node name="OffHandWeapon" type="Node3D" unique_id=1877002287]
 script = ExtResource("1_vli2i")
 
-[node name="mesh" type="MeshInstance3D" parent="."]
+[node name="mesh" type="MeshInstance3D" parent="." unique_id=542202109]
 unique_name_in_owner = true
 
-[node name="HitBox" type="Area3D" parent="mesh"]
+[node name="HitBox" type="Area3D" parent="mesh" unique_id=29515173 groups=["player_weapon"]]
 unique_name_in_owner = true
 collision_layer = 8
 collision_mask = 4
 monitoring = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="mesh/HitBox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mesh/HitBox" unique_id=145463894]
 unique_name_in_owner = true
 shape = SubResource("CapsuleShape3D_qv81b")
 
-[node name="PositionOverrides" type="Node3D" parent="."]
+[node name="PositionOverrides" type="Node3D" parent="." unique_id=1284134547]
 
-[node name="BackSheath" type="Node3D" parent="PositionOverrides"]
+[node name="BackSheath" type="Node3D" parent="PositionOverrides" unique_id=2015201380]
 unique_name_in_owner = true
 transform = Transform3D(0.79644537, 0.60471046, 1.509958e-07, 0.60471046, -0.79644537, 5.2865467e-08, 1.5222821e-07, 4.9204285e-08, -1, -0.17888482, 0.68746275, -0.42570236)
 
-[node name="RightHipSheath" type="Node3D" parent="PositionOverrides"]
+[node name="RightHipSheath" type="Node3D" parent="PositionOverrides" unique_id=605790478]
 unique_name_in_owner = true
 transform = Transform3D(-3.388277e-08, 5.103928e-08, -1, 0.9819587, -0.18909545, -4.292278e-08, -0.18909545, -0.9819587, -4.371139e-08, -0.4126867, 0.2205565, 0.08834767)
 
-[node name="LeftHipSheath" type="Node3D" parent="PositionOverrides"]
+[node name="LeftHipSheath" type="Node3D" parent="PositionOverrides" unique_id=1564381721]
 unique_name_in_owner = true
 transform = Transform3D(-3.388277e-08, 5.103928e-08, -1, 0.9819587, -0.18909545, -4.292278e-08, -0.18909545, -0.9819587, -4.371139e-08, 0.41839337, 0.2205565, 0.08834767)
 
-[node name="MeleeHitSound1" type="AudioStreamPlayer" parent="."]
+[node name="MeleeHitSound1" type="AudioStreamPlayer" parent="." unique_id=2106577410]
 unique_name_in_owner = true
 stream = ExtResource("2_vli2i")
 

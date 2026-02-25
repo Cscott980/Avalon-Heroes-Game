@@ -10,7 +10,7 @@ script = ExtResource("1_a3v8c")
 [node name="mesh" type="MeshInstance3D" parent="." unique_id=283467045]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="HitBox" type="Area3D" parent="mesh" unique_id=1617467097]
+[node name="HitBox" type="Area3D" parent="mesh" unique_id=1617467097 groups=["player_weapon"]]
 unique_name_in_owner = true
 collision_layer = 8
 collision_mask = 4
@@ -37,4 +37,4 @@ transform = Transform3D(-3.388277e-08, 5.103928e-08, -1, 0.9819587, -0.18909545,
 unique_name_in_owner = true
 transform = Transform3D(-3.388277e-08, 5.103928e-08, -1, 0.9819587, -0.18909545, -4.292278e-08, -0.18909545, -0.9819587, -4.371139e-08, 0.41839337, 0.2205565, 0.08834767)
 
-[connection signal="body_entered" from="mesh/HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="area_entered" from="mesh/HitBox" to="." method="_on_hit_box_area_entered"]

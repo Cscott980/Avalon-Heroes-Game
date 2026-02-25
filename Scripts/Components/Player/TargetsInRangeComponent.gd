@@ -43,19 +43,20 @@ func _update_closest_target() -> void:
 	# If target didn't change, do nothing
 	if closest == current_target:
 		return
-
+		
+	var old_target = current_target
 	# Turn OFF old target highlight
-	if current_target != null and is_instance_valid(current_target):
-		if current_target.has_node("EnemyVisualsComponent"):
-			var old_highlighter = current_target.get_node("EnemyVisualsComponent") as EnemyVisualComponent
+	if old_target != null and is_instance_valid(current_target):
+		if old_target.has_node("EnemyVisualComponent"):
+			var old_highlighter = old_target.get_node("EnemyVisualComponent") as EnemyVisualComponent
 			old_highlighter.highlighter_off()
-
+	
 	# Set new target
 	current_target = closest
 
 	# Turn ON new target highlight
-	if current_target != null and current_target.has_node("EnemyVisualsComponent"):
-		var new_highlighter = current_target.get_node("EnemyVisualsComponent") as EnemyVisualComponent
+	if current_target != null and current_target.has_node("EnemyVisualComponent"):
+		var new_highlighter = current_target.get_node("EnemyVisualComponent") as EnemyVisualComponent
 		new_highlighter.highlighter_on()
 
 	target_change.emit(current_target)
@@ -66,7 +67,7 @@ func _on_targets_in_range_body_entered(body: Node3D) -> void:
 	
 	if not targets_in_range.has(body):
 		targets_in_range.append(body)
-	print("found a target")
+		
 	_update_closest_target()
 
 func _on_targets_in_range_body_exited(body: Node3D) -> void:

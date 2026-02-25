@@ -86,3 +86,8 @@ func _on_knock_back_timer_timeout() -> void:
 	can_be_knockedback = true
 	recovered.emit()
 	knock_back_timer.stop()
+
+
+func _on_enemy_hurt_box_component_hit(area: Area3D) -> void:
+	hit_pos = area.global_position
+	knockback()
