@@ -5,16 +5,13 @@ signal target_change(new_target: CharacterBody3D)
 signal targets_updated(count: int)
 
 @onready var detector: Area3D = %TargetsInRange
+
 @export var player: CharacterBody3D
 
 var targets_in_range: Array[CharacterBody3D] = []
 var current_target: CharacterBody3D
 
-func _process(_delta: float) -> void:
-	_update_closest_target()
-
 func get_closets_target() -> CharacterBody3D:
-	print(current_target)
 	return current_target
 
 func get_distance_to_current_target() -> float:
@@ -63,18 +60,18 @@ func _update_closest_target() -> void:
 
 	target_change.emit(current_target)
 
-
-
 func _on_targets_in_range_body_entered(body: Node3D) -> void:
 	if not body.is_in_group("enemy") or body.is_in_group("dead_enemies"):
 		return
 	
 	if not targets_in_range.has(body):
 		targets_in_range.append(body)
-		
+	print("found a target")
 	_update_closest_target()
 
 func _on_targets_in_range_body_exited(body: Node3D) -> void:
+	if not body.is_in_group("enemy") or body.is_in_group("dead_enemies"):
+		return
 	if targets_in_range.has(body):
 		targets_in_range.erase(body)
 	_update_closest_target()

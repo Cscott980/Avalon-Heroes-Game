@@ -24,8 +24,6 @@ func enter() -> void:
 	else:
 		playback.play_attack_animation(attack_data.dualwield_animation_name)
 	
-	_setup_lunge()
-	
 	# No combo window for final attack
 	get_tree().create_timer(attack_data.attack_duration).timeout.connect(_finish_attack)
 	
