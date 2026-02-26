@@ -44,6 +44,4 @@ Teachers create and manage their own quizzes.
 Sessions can be launched during review lessons, test preparation, or reinforcement periods.
 It is designed specifically for real classroom environments.
 ________________________________________
-Short Elevator Version (30 Seconds)
-Avalon Heroes is a classroom Action RPG where students fight enemies and power up by answering teacher-created quiz questions. Unlike Kahoot-style games, the questions directly shape combat mechanics and boss fights, making learning part of the gameplay itself.
 
