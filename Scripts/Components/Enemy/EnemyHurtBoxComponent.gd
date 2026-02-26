@@ -33,6 +33,6 @@ func _on_hurt_box_area_entered(area: Area3D) -> void:
 		_can_get_hurt = false
 
 func _on_enemy_health_component_dead() -> void:
-	hurt_box.monitorable = false
-	hurt_box.monitoring = false
+	hurt_box.set_deferred("monitorable", false)
+	hurt_box.set_deferred("monitoring", false)
 	_can_get_hurt = false

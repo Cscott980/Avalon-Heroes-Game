@@ -24,7 +24,7 @@ enum HANDEDNESS {
 	TWO_HANDED
 	}
 	
-enum ATTCK_TYPE {
+enum ATTACK_TYPE {
 	MELEE,
 	RANGED
 }
@@ -32,7 +32,7 @@ enum ATTCK_TYPE {
 @export_group("Settings")
 @export var weapon_type: WEAPON_TYPE
 @export var handedness: HANDEDNESS = HANDEDNESS.ONE_HANDED
-@export var attack_type: ATTCK_TYPE
+@export var attack_type: ATTACK_TYPE
 @export var mesh: Mesh
 @export var off_hand_complement_mesh: Mesh
 @export var projectile: ProjectileResource

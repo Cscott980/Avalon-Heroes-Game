@@ -14,6 +14,7 @@ signal attack_window_ended
 
 @export var weapon_equip_comp: WeaponEquipComponent
 @export var stat_comp: StatComponent
+@export var player_cam: CameraEffect
 
 var current_combo_idx: int = 0
 var combo_timeout: float = 1.0
@@ -113,13 +114,13 @@ func _on_off_hand_weapon_weapon_hit(area: Area3D) -> void:
 	var hurt_component = area.get_parent() as EnemyHurtBoxComponent
 	var damage = stat_comp.calculate_weapon_damage(randi_range(off_hand_data.min_damage, off_hand_data.max_damage), hurt_component.armor, false)
 	hurt_component.emit_signal("damage_recived", damage)
-	hurt_component.user.state_machine.change_state("HurtState")
-	hurt_component.knockback_comp.knockback()
+	player_cam.shake(0.12)
 
 func _on_main_hand_weapon_weapon_hit(area: Area3D) -> void:
 	var hurt_component = area.get_parent() as EnemyHurtBoxComponent
 	var damage = stat_comp.calculate_weapon_damage(randi_range(main_hand_data.min_damage, main_hand_data.max_damage), hurt_component.armor, true)
 	hurt_component.emit_signal("damage_recived", damage)
+	player_cam.shake(0.12)
 
 func _on_main_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
 	main_hand_data = data

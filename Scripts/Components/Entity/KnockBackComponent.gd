@@ -21,7 +21,6 @@ var _dir: Vector3 = Vector3.ZERO
 var _t: float = 0.0
 
 func _ready() -> void:
-	print("KnockBackComponent READY on: ", get_parent().name)
 	can_be_knockedback = true
 	knock_back_timer.wait_time = knockback_cooldown
 
@@ -78,7 +77,6 @@ func knockback() -> void:
 
 	_active = true
 	_t = 0.0
-	print("knockback")
 	knockbacked.emit()
 	knock_back_timer.start()
 
@@ -86,7 +84,6 @@ func _on_knock_back_timer_timeout() -> void:
 	can_be_knockedback = true
 	recovered.emit()
 	knock_back_timer.stop()
-
 
 func _on_enemy_hurt_box_component_hit(area: Area3D) -> void:
 	hit_pos = area.global_position

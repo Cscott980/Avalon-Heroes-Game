@@ -1,5 +1,5 @@
 @icon("uid://cffg7pusi6jd0")
-class_name TargetsInRangeComponent extends Node
+class_name TargetsInRangeComponent extends Node3D
 
 signal target_change(new_target: CharacterBody3D)
 signal targets_updated(count: int)

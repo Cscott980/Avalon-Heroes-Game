@@ -1,3 +1,4 @@
+@icon("uid://duluysakx5ncb")
 class_name WorldVisualPlayerData extends Sprite3D
 
 @onready var player_name: Label = %PlayerName

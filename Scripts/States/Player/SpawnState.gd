@@ -8,6 +8,3 @@ func exit() -> void:
 
 func _physics_process(delta: float) -> void:
 	pass
-
-func handle_input(event: InputEvent) -> void:
-	pass

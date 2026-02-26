@@ -15,6 +15,8 @@ class_name Player extends CharacterBody3D
 @onready var player_animation_component: PlayerAnimationComponent = %PlayerAnimationComponent
 @onready var player_ui: MainUI = %PlayerUI
 @onready var world_visual_player_data: WorldVisualPlayerData = $WorldVisualPlayerData
+@onready var lunge_component: LungeComponent = %LungeComponent
+@onready var player_camera: CameraEffect = %PlayerCamera
 
 
 #@export var player_data: PlayerData

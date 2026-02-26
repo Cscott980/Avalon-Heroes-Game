@@ -78,3 +78,7 @@ func highlighter_on() -> void:
 func highlighter_off() -> void:
 	for mesh in meshes:
 		mesh.material_overlay = null
+
+
+func _on_enemy_health_component_dead() -> void:
+	highlighter_off()
