@@ -8,6 +8,7 @@ signal current_health(amount: int, max_player_health: int)
 
 @export var player: Player
 @export var value_display: ValueEmitterComponent
+@export var drop_pickup_comp: DropPickUpComponent
 
 @export var max_health: int = 100
 @export var hp_per_vit_percentage: int = 0.05
@@ -52,3 +53,8 @@ func take_damage(amount: int) -> void:
 		health = 0
 		is_dead = true
 		dead.emit()
+
+
+func _on_drop_pickup_component_health_potion(amount: int) -> void:
+	health += max_health * amount
+	current_health.emit(health, max_health)

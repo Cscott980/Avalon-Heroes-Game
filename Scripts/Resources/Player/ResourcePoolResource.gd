@@ -1,15 +1,16 @@
 class_name ResourcePoolResource extends Resource
 
-enum ResourceType {
+enum RESOURCE_TYPE {
 	MANA,
 	RAGE,
 	ENERGY,
 	SCRAP,
-	EXP_GEM
+	EXP_GEM,
+	HEALTH
 }
 
 @export_group("Settings")
-@export var resource_type: ResourceType
+@export var resource_type: RESOURCE_TYPE
 @export var name: String = "Mana"
 @export var style_bar: StyleBox = null
 
@@ -20,7 +21,6 @@ enum ResourceType {
 @export var regen_delay: float = 0.0 #delay after spending
 
 @export_group("Properties")
-
 @export_flags(
 	"On Hit", 
 	"On Kill", 

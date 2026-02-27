@@ -28,4 +28,5 @@ enum EnemyType {
 @export var abilities: Array[AbilityResource]
 
 @export_group("Loot Pool")
-@export var drop: Array[ResourceVisualsResource]
+@export var guaranteed_drop: Array[PackedScene]
+@export var RandomDrop: Array[PackedScene]

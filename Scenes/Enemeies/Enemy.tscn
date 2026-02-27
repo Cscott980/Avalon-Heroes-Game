@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b04p5uj1m7pwp" path="res://Scripts/Enemy/Enemy.gd" id="1_30xrl"]
 [ext_resource type="Resource" uid="uid://bl1tb2vhb2btc" path="res://Resources/Enemies/SkeletalGruntMelee.tres" id="2_bftp8"]
 [ext_resource type="Material" uid="uid://cfrxegokeyufx" path="res://Assets/Materials/EnemyOutline.tres" id="2_wkum4"]
-[ext_resource type="Script" uid="uid://c6ig8ugmxg4cy" path="res://Scenes/Enemeies/EnemyWorldCollision.gd" id="3_m30sk"]
+[ext_resource type="Script" uid="uid://c6ig8ugmxg4cy" path="res://Scripts/Components/Enemy/EnemyWorldCollision.gd" id="3_m30sk"]
 [ext_resource type="Shape3D" uid="uid://doxifox4gj5jn" path="res://Resources/EnemyCollision/EnemyCollision.tres" id="3_yven4"]
 [ext_resource type="Script" uid="uid://idne1o7mgwad" path="res://Scripts/Enemy/EnemyWorldDataDisplay.gd" id="4_rblcv"]
 [ext_resource type="Script" uid="uid://dsjse4fm8i2vk" path="res://Scripts/Components/Enemy/EnemyMainHandComponent.gd" id="4_woysm"]
@@ -583,7 +583,7 @@ unique_name_in_owner = true
 one_shot = true
 
 [node name="EnemyDropComponent" type="Node3D" parent="." unique_id=920254747]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1111985, 0)
 
 [connection signal="idling" from="AIControllerComponent" to="." method="_on_ai_controller_component_idling"]
 [connection signal="target_in_attack_dist" from="AIControllerComponent" to="." method="_on_ai_controller_component_target_in_attack_dist"]

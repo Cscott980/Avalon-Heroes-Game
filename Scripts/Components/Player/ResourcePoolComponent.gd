@@ -26,4 +26,11 @@ func apply_resource_data(data: ResourcePoolResource) -> void:
 	delay = data.regen_rate
 	regen_method = data.gain_conditions
 	resource_data.emit(data)
-	
+
+func generate_resource(amount: int) -> void:
+	if resource_amount < resource_max_value:
+		resource_amount += amount
+		current_resource_amount.emit(resource_amount)
+
+func _on_drop_pickup_component_resource(amount: int) -> void:
+	generate_resource(amount)

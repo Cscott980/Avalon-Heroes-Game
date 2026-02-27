@@ -1,5 +1,7 @@
 class_name MainUI extends CanvasLayer
 
+signal stat_chosen(data: Dictionary)
+
 @onready var inventory_equipment: EquipmentandInventory = %InventoryEquipment
 @onready var ability_bar: AbilityBar = %AbilityBar
 @onready var display_stat_choice_component: DisplayStatChoiceComponent = %DisplayStatChoiceComponent
@@ -90,3 +92,6 @@ func _on_resource_pool_component_resource_data(data: ResourcePoolResource) -> vo
 	ability_bar.resource_bar.max_value = data.max_value
 	ability_bar.resource_bar.value = data.start_value
 	ability_bar.resource_bar.add_theme_stylebox_override(data.style_bar.resource_name, data.style_bar)
+
+func _on_display_stat_choice_component_selected_choice(choice: Dictionary) -> void:
+	stat_chosen.emit(choice)

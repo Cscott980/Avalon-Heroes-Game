@@ -21,7 +21,7 @@ func _ready() -> void:
 
 func data_box(index: int) -> void:
 	var selected: Dictionary = stats_recived[index]
-	emit_signal("selected_choice", selected)
+	selected_choice.emit(selected)
 	stats_recived.clear()
 	self.visible = false
 	
