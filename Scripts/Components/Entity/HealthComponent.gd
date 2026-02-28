@@ -64,6 +64,8 @@ func _on_drop_pickup_component_health_potion(amount: float) -> void:
 
 
 func _on_progression_component_level(_current_level: int) -> void:
+	if _current_level == 1:
+		return
 	max_health += int(max_health * 0.1)
 	cal_vit_point()
 	health = max_health

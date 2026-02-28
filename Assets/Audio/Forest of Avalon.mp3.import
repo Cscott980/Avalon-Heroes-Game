@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c0vlxjbgtyvn2"
+path="res://.godot/imported/Forest of Avalon.mp3-fe5ad2f64f43fe07ce4f43cd944317d7.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Forest of Avalon.mp3"
+dest_files=["res://.godot/imported/Forest of Avalon.mp3-fe5ad2f64f43fe07ce4f43cd944317d7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

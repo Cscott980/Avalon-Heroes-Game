@@ -10,6 +10,8 @@ signal resource(amount: int)
 func pickup(drop_value: float, drop_type: int) -> void:
 	if !is_instance_valid(user):
 		return
+	if user.health_component.is_dead:
+		return
 	if drop_type == ItemDropResource.DROP_TYPE.EXP_GEM:
 		exp_gem.emit(int(drop_value))
 	if  drop_type == ItemDropResource.DROP_TYPE.HEALTH_POT:
