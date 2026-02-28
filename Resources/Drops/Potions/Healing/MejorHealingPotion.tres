@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemDropResource" format=3 uid="uid://b7vuqbj60wkst"]
+
+[ext_resource type="ArrayMesh" uid="uid://dw6qcjmtpqc3b" path="res://Assets/Items/Potion/Potion Meshes/potion_huge_red_potion_huge_red.res" id="1_jfsp4"]
+[ext_resource type="Script" uid="uid://du5jyvboj74e1" path="res://Scripts/Resources/Items/ItemDropResource.gd" id="2_qbxwy"]
+
+[resource]
+script = ExtResource("2_qbxwy")
+drop_type = 1
+drop_name = "Major Healing Potion"
+mesh = ExtResource("1_jfsp4")
+resource = true
+resource_type = 5
+resource_amount = 0.4
+can_be_seen_by = 127
+metadata/_custom_type_script = "uid://du5jyvboj74e1"

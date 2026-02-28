@@ -1528,6 +1528,10 @@ metadata/_custom_type_script = "uid://b5q5ou4g32ags"
 [node name="LungeTimer" type="Timer" parent="LungeComponent" unique_id=64164420]
 unique_name_in_owner = true
 
+[node name="DropPickupComponent" type="Node" parent="." unique_id=2127323241 node_paths=PackedStringArray("user")]
+script = ExtResource("125_nojrp")
+user = NodePath("..")
+
 [node name="AttackCooldown" type="Timer" parent="." unique_id=913160004]
 unique_name_in_owner = true
 process_callback = 0
@@ -1548,10 +1552,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5792913, 0)
 [node name="WorldSound" type="AudioStreamPlayer3D" parent="." unique_id=266158379]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4111938, 0)
-
-[node name="DropPickupComponent" type="Node" parent="." unique_id=2127323241 node_paths=PackedStringArray("user")]
-script = ExtResource("125_nojrp")
-user = NodePath("..")
 
 [connection signal="player_head_for_sheat" from="Model/Rig_Medium/EquipmentVisualComponent" to="PlayerUI" method="_on_equipment_visual_component_player_head_for_sheat"]
 [connection signal="no_weapon_equiped" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/IdleState" method="_on_main_hand_weapon_no_weapon_equiped"]
@@ -1615,10 +1615,10 @@ user = NodePath("..")
 [connection signal="sheath_weapon" from="PlayerInputComponent" to="Model/Rig_Medium/EquipmentVisualComponent" method="_on_player_input_component_sheath_weapon"]
 [connection signal="sheath_weapon" from="PlayerInputComponent" to="StateMachine/IdleState" method="_on_player_input_component_sheath_weapon"]
 [connection signal="timeout" from="LungeComponent/LungeTimer" to="LungeComponent" method="_on_lunge_timer_timeout"]
+[connection signal="exp_gem" from="DropPickupComponent" to="ProgressionComponent" method="_on_drop_pickup_component_exp_gem"]
+[connection signal="health_potion" from="DropPickupComponent" to="HealthComponent" method="_on_drop_pickup_component_health_potion"]
+[connection signal="resource" from="DropPickupComponent" to="ResourcePoolComponent" method="_on_drop_pickup_component_resource"]
 [connection signal="timeout" from="AttackCooldown" to="StateMachine" method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="AttackCooldown" to="CombatComponent" method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="ComboTimer" to="StateMachine" method="_on_combo_timer_timeout"]
 [connection signal="timeout" from="ComboTimer" to="CombatComponent" method="_on_combo_timer_timeout"]
-[connection signal="exp_gem" from="DropPickupComponent" to="ProgressionComponent" method="_on_drop_pickup_component_exp_gem"]
-[connection signal="health_potion" from="DropPickupComponent" to="HealthComponent" method="_on_drop_pickup_component_health_potion"]
-[connection signal="resource" from="DropPickupComponent" to="ResourcePoolComponent" method="_on_drop_pickup_component_resource"]

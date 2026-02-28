@@ -4,7 +4,8 @@ enum DROP_TYPE {
 	EXP_GEM,
 	HEALTH_POT,
 	MANA_POT,
-	SCRAP
+	SCRAP,
+	GOLD
 }
 
 @export_group("Type")
@@ -15,8 +16,9 @@ enum DROP_TYPE {
 @export var mesh: Mesh
 
 @export_group("Properties")
-@export var resource_type: ResourcePoolResource.ResourceType
-@export var resource_amount: int
+@export var resource: bool
+@export var resource_type: ResourcePoolResource.RESOURCE_TYPE
+@export var resource_amount: float
 @export_flags(
 	"warrior",
 	"mage",

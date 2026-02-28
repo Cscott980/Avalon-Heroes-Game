@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemDropResource" format=3 uid="uid://8ofg6mf0vdap"]
+
+[ext_resource type="ArrayMesh" uid="uid://fr3k46c12om8" path="res://Assets/Items/Potion/Potion Meshes/potion_small_red_potion_small_red.res" id="1_inky8"]
+[ext_resource type="Script" uid="uid://du5jyvboj74e1" path="res://Scripts/Resources/Items/ItemDropResource.gd" id="2_lx5uw"]
+
+[resource]
+script = ExtResource("2_lx5uw")
+drop_type = 1
+drop_name = "Lesser Healing Potion"
+mesh = ExtResource("1_inky8")
+resource = true
+resource_type = 5
+resource_amount = 0.05
+can_be_seen_by = 127
+metadata/_custom_type_script = "uid://du5jyvboj74e1"

@@ -55,6 +55,6 @@ func take_damage(amount: int) -> void:
 		dead.emit()
 
 
-func _on_drop_pickup_component_health_potion(amount: int) -> void:
+func _on_drop_pickup_component_health_potion(amount: float) -> void:
 	health += max_health * amount
 	current_health.emit(health, max_health)

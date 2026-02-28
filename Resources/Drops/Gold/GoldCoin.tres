@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDropResource" format=3 uid="uid://c58yb7nqab0as"]
+
+[ext_resource type="ArrayMesh" uid="uid://cegn7dp1s2dak" path="res://Assets/Items/GoldMeshes/Money_Single_Money_Single.res" id="1_8tp1p"]
+[ext_resource type="Script" uid="uid://du5jyvboj74e1" path="res://Scripts/Resources/Items/ItemDropResource.gd" id="1_t0lvi"]
+
+[resource]
+script = ExtResource("1_t0lvi")
+drop_type = 4
+drop_name = "Avalon Crown"
+mesh = ExtResource("1_8tp1p")
+resource_amount = 1.0
+can_be_seen_by = 127
+metadata/_custom_type_script = "uid://du5jyvboj74e1"

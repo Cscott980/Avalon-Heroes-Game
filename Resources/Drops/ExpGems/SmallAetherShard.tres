@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemDropResource" format=3 uid="uid://bei60qgluitl1"]
+
+[ext_resource type="ArrayMesh" uid="uid://df5gh618qexua" path="res://Resources/Item Mesh/Gem_Small_Gem_Small.res" id="1_uh5fb"]
+[ext_resource type="Script" uid="uid://du5jyvboj74e1" path="res://Scripts/Resources/Items/ItemDropResource.gd" id="1_xgrec"]
+
+[resource]
+script = ExtResource("1_xgrec")
+drop_name = "Small Aether Shard"
+mesh = ExtResource("1_uh5fb")
+resource = true
+resource_type = 4
+resource_amount = 5.0
+can_be_seen_by = 127
+metadata/_custom_type_script = "uid://du5jyvboj74e1"

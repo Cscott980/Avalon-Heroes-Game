@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemDropResource" format=3 uid="uid://4vj7hoy1vxhh"]
+
+[ext_resource type="ArrayMesh" uid="uid://b8e5lk0me7jqa" path="res://Assets/Items/Potion/Potion Meshes/potion_large_red_potion_large_red.res" id="1_ddhpw"]
+[ext_resource type="Script" uid="uid://du5jyvboj74e1" path="res://Scripts/Resources/Items/ItemDropResource.gd" id="2_1ucmf"]
+
+[resource]
+script = ExtResource("2_1ucmf")
+drop_type = 1
+drop_name = "Medium Healing Potion"
+mesh = ExtResource("1_ddhpw")
+resource = true
+resource_type = 5
+resource_amount = 0.25
+can_be_seen_by = 127
+metadata/_custom_type_script = "uid://du5jyvboj74e1"

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dl4d3motk0wpo"]
+
+[ext_resource type="Script" uid="uid://ctg52xg0c5ve1" path="res://Scripts/Items/Drop.gd" id="1_nvpew"]
+[ext_resource type="Script" uid="uid://c6ocgpx8w8ajp" path="res://Scripts/Components/Items/item_float_component.gd" id="2_dlxce"]
+[ext_resource type="Script" uid="uid://du5jyvboj74e1" path="res://Scripts/Resources/Items/ItemDropResource.gd" id="2_vik8r"]
+[ext_resource type="Resource" uid="uid://bei60qgluitl1" path="res://Resources/Drops/ExpGems/SmallAetherShard.tres" id="3_tlrfi"]
+[ext_resource type="Script" uid="uid://ddxwnl284r03u" path="res://Scripts/Components/Items/item_rotate_component.gd" id="3_vik8r"]
+[ext_resource type="PackedScene" uid="uid://clss6pkd7hwhn" path="res://Scenes/Components/ItemPullComponent.tscn" id="4_tlrfi"]
+[ext_resource type="Script" uid="uid://ce6b2ep7m8kna" path="res://Scripts/Components/Items/PopOutComponent.gd" id="6_vik8r"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lr52c"]
+radius = 0.6577806
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_lr52c"]
+
+[node name="ItemDrop" type="RigidBody3D" unique_id=1058555105 groups=["exp_gem"]]
+collision_layer = 0
+script = ExtResource("1_nvpew")
+items_data = Array[ExtResource("2_vik8r")]([ExtResource("3_tlrfi"), null, null])
+item_drop_weight = Array[int]([95, 2, 3])
+
+[node name="Drop" type="MeshInstance3D" parent="." unique_id=1777588831]
+unique_name_in_owner = true
+
+[node name="ItemFloatComponent" type="Node" parent="Drop" unique_id=1289037879 node_paths=PackedStringArray("model")]
+script = ExtResource("2_dlxce")
+model = NodePath("..")
+time = 5.0
+frquency = 0.6
+amplitude = 0.2
+
+[node name="ItemRotateComponent" type="Node" parent="Drop" unique_id=1445301291 node_paths=PackedStringArray("model")]
+script = ExtResource("3_vik8r")
+model = NodePath("..")
+rotation_speed_deg = 30.0
+
+[node name="ItemPullAndPickupComponent" parent="Drop" unique_id=524405164 node_paths=PackedStringArray("item_base") instance=ExtResource("4_tlrfi")]
+item_base = NodePath("../..")
+item_speed = 0.5
+
+[node name="PopOutComponent" type="Node" parent="." unique_id=1330528238 node_paths=PackedStringArray("item_base")]
+script = ExtResource("6_vik8r")
+item_base = NodePath("..")
+
+[node name="DropSound" type="AudioStreamPlayer3D" parent="." unique_id=1022115237]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1072494328]
+shape = SubResource("SphereShape3D_lr52c")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1436908325]
+replication_config = SubResource("SceneReplicationConfig_lr52c")
+
+[connection signal="picked_up" from="Drop/ItemPullAndPickupComponent" to="." method="_on_item_pull_component_picked_up"]

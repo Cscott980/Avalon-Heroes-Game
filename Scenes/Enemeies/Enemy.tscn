@@ -53,6 +53,7 @@
 [ext_resource type="Script" uid="uid://c60a1ftfdukd0" path="res://Scripts/Components/Entity/HitFlashComponent.gd" id="40_v08cw"]
 [ext_resource type="Script" uid="uid://belxscgfb825h" path="res://Scripts/Components/Enemy/EnemySpawnComponent.gd" id="44_wcvxl"]
 [ext_resource type="Script" uid="uid://dt04h1fatxdgk" path="res://Scripts/Components/Enemy/EnemyAudioComponent.gd" id="53_lmo78"]
+[ext_resource type="Script" uid="uid://i60ig6rjf1s6" path="res://Scripts/Components/Enemy/EnemyDropComponent.gd" id="54_t6hbt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0bbxc"]
 
@@ -584,6 +585,7 @@ one_shot = true
 
 [node name="EnemyDropComponent" type="Node3D" parent="." unique_id=920254747]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1111985, 0)
+script = ExtResource("54_t6hbt")
 
 [connection signal="idling" from="AIControllerComponent" to="." method="_on_ai_controller_component_idling"]
 [connection signal="target_in_attack_dist" from="AIControllerComponent" to="." method="_on_ai_controller_component_target_in_attack_dist"]

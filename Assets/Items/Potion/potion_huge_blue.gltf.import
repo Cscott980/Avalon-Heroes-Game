@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://xclv0rb55k34"
-path="res://.godot/imported/Money_Single.gltf-6ca1f3e7db2ec72d759005bf240f570c.scn"
+uid="uid://wdx5ge273u0h"
+path="res://.godot/imported/potion_huge_blue.gltf-2e7657b968500e2511cb9f821ce7b5fa.scn"
 
 [deps]
 
-source_file="res://Assets/ResourceVisuals/gltf/Money_Single.gltf"
-dest_files=["res://.godot/imported/Money_Single.gltf-6ca1f3e7db2ec72d759005bf240f570c.scn"]
+source_file="res://Assets/Items/Potion/potion_huge_blue.gltf"
+dest_files=["res://.godot/imported/potion_huge_blue.gltf-2e7657b968500e2511cb9f821ce7b5fa.scn"]
 
 [params]
 
@@ -38,15 +38,22 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"druid": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/Items/Potion/Material/PotionMaterial.tres",
+"use_external/path": "uid://bstp4l3321icf"
+}
+},
 "meshes": {
-"Money_Single_Money_Single": {
+"potion_huge_blue_potion_huge_blue": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Assets/Items/GoldMeshes/Money_Single_Money_Single.res",
-"save_to_file/path": "uid://choo36r0phd76"
+"save_to_file/fallback_path": "res://Assets/Items/Potion/Potion Meshes/potion_huge_blue_potion_huge_blue.res",
+"save_to_file/path": "uid://bbtavwmx3paxu"
 }
 }
 }

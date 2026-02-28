@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemDropResource" format=3 uid="uid://ds56ggwgxna3r"]
+
+[ext_resource type="Script" uid="uid://du5jyvboj74e1" path="res://Scripts/Resources/Items/ItemDropResource.gd" id="1_2wymo"]
+[ext_resource type="ArrayMesh" uid="uid://dxlp24y7xr8y0" path="res://Assets/Items/Potion/Potion Meshes/potion_large_blue_potion_large_blue.res" id="1_6qq1e"]
+
+[resource]
+script = ExtResource("1_2wymo")
+drop_type = 2
+drop_name = "Medium Mana Potion"
+mesh = ExtResource("1_6qq1e")
+resource = true
+resource_amount = 0.2
+can_be_seen_by = 38
+metadata/_custom_type_script = "uid://du5jyvboj74e1"

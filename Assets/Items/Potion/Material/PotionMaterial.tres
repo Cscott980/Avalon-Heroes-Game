@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bstp4l3321icf"]
+
+[ext_resource type="Texture2D" uid="uid://swtute58npl1" path="res://Assets/PlayableCharacterBodies/Druid_druid_texture.png" id="1_qioql"]
+
+[resource]
+albedo_texture = ExtResource("1_qioql")
