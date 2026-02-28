@@ -79,6 +79,7 @@ func _on_progression_component_stat_selected(stat: int, amount: int) -> void:
 	target_stats[stat] += amount
 	if stat == primary_stat:
 		pass
+	current_stats.emit(target_stats)
 
 func _on_main_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
 	if not data:

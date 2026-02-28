@@ -35,8 +35,9 @@ script = ExtResource("3_umfyl")
 model = NodePath("..")
 rotation_speed_deg = 30.0
 
-[node name="ItemPullAndPickupComponent" parent="Drop" unique_id=524405164 instance=ExtResource("4_73gud")]
-item_speed = 0.5
+[node name="ItemPullAndPickupComponent" parent="." unique_id=524405164 node_paths=PackedStringArray("item_base") instance=ExtResource("4_73gud")]
+item_base = NodePath("..")
+item_speed = 1.0
 
 [node name="PopOutComponent" type="Node" parent="." unique_id=441582233 node_paths=PackedStringArray("item_base")]
 script = ExtResource("7_73gud")
@@ -52,4 +53,4 @@ replication_config = SubResource("SceneReplicationConfig_lr52c")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1072494328]
 shape = SubResource("SphereShape3D_lr52c")
 
-[connection signal="picked_up" from="Drop/ItemPullAndPickupComponent" to="." method="_on_item_pull_component_picked_up"]
+[connection signal="picked_up" from="ItemPullAndPickupComponent" to="." method="_on_item_pull_component_picked_up"]

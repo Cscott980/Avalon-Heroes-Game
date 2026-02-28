@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemDropResource" format=3 uid="uid://c3t3gx5lao4h3"]
+
+[ext_resource type="ArrayMesh" uid="uid://t4cbitk15153" path="res://Assets/Items/Gem Meshes/Gem_Medium_Gem_Medium.res" id="1_kh2k2"]
+[ext_resource type="Script" uid="uid://du5jyvboj74e1" path="res://Scripts/Resources/Items/ItemDropResource.gd" id="1_oj55t"]
+
+[resource]
+script = ExtResource("1_oj55t")
+drop_name = "Medium Aether Shard"
+mesh = ExtResource("1_kh2k2")
+resource = true
+resource_type = 4
+resource_amount = 10.0
+can_be_seen_by = 127
+metadata/_custom_type_script = "uid://du5jyvboj74e1"

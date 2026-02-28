@@ -10,6 +10,6 @@ drop_name = "Lesser Healing Potion"
 mesh = ExtResource("1_inky8")
 resource = true
 resource_type = 5
-resource_amount = 0.05
+resource_amount = 0.1
 can_be_seen_by = 127
 metadata/_custom_type_script = "uid://du5jyvboj74e1"

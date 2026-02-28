@@ -1,4 +1,4 @@
-class_name ItemPullAndPickupComponent extends Node
+class_name ItemPullAndPickupComponent extends Node3D
 
 signal picked_up(body: Player)
 
@@ -7,12 +7,22 @@ signal picked_up(body: Player)
 @export var item_speed: float
 
 var target: CharacterBody3D = null
+var direction: Vector3 = Vector3.ZERO
 
-func _physics_process(delta: float) -> void:
-	if target and item_base:
-		item_base.global_position = item_base.global_position.move_toward(target.global_position, item_speed * delta)
-		item_base.move_and_collide(item_base.global_position)
+func _physics_process(_delta: float) -> void:
+	if not target:
+		return
 		
+	if target and item_base:
+		direction = (target.global_position - item_base.global_position).normalized()
+		var distance: float = item_base.global_position.distance_to(target.global_position)
+		
+		if distance > 0.5:
+			var force = direction * item_speed * item_base.mass
+			item_base.apply_central_force(force)
+			
+			item_base.linear_velocity *= 0.05
+
 func _on_pull_range_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		var player = body as Player

@@ -6,6 +6,8 @@
 [ext_resource type="Resource" uid="uid://bei60qgluitl1" path="res://Resources/Drops/ExpGems/SmallAetherShard.tres" id="3_tlrfi"]
 [ext_resource type="Script" uid="uid://ddxwnl284r03u" path="res://Scripts/Components/Items/ItemRotateComponent.gd" id="3_vik8r"]
 [ext_resource type="PackedScene" uid="uid://clss6pkd7hwhn" path="res://Scenes/Components/ItemPullComponent.tscn" id="4_tlrfi"]
+[ext_resource type="Resource" uid="uid://c3t3gx5lao4h3" path="res://Resources/Drops/ExpGems/MediumAetherShard.tres" id="4_yoq23"]
+[ext_resource type="Resource" uid="uid://dahon1l3cm6gi" path="res://Resources/Drops/ExpGems/LargeAetherShard.tres" id="5_vrjbv"]
 [ext_resource type="Script" uid="uid://ce6b2ep7m8kna" path="res://Scripts/Components/Items/PopOutComponent.gd" id="6_vik8r"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lr52c"]
@@ -16,8 +18,8 @@ radius = 0.6577806
 [node name="ItemDrop" type="RigidBody3D" unique_id=1058555105 node_paths=PackedStringArray("pop_out_component") groups=["exp_gem"]]
 collision_layer = 0
 script = ExtResource("1_nvpew")
-items_data = Array[ExtResource("2_vik8r")]([ExtResource("3_tlrfi"), null, null])
-item_drop_weight = Array[int]([95, 2, 3])
+items_data = Array[ExtResource("2_vik8r")]([ExtResource("3_tlrfi"), ExtResource("4_yoq23"), ExtResource("5_vrjbv")])
+item_drop_weight = Array[int]([95, 3, 2])
 pop_out_component = NodePath("PopOutComponent")
 
 [node name="Drop" type="MeshInstance3D" parent="." unique_id=1777588831]
@@ -35,9 +37,9 @@ script = ExtResource("3_vik8r")
 model = NodePath("..")
 rotation_speed_deg = 30.0
 
-[node name="ItemPullAndPickupComponent" parent="Drop" unique_id=524405164 node_paths=PackedStringArray("item_base") instance=ExtResource("4_tlrfi")]
-item_base = NodePath("../..")
-item_speed = 0.5
+[node name="ItemPullAndPickupComponent" parent="." unique_id=524405164 node_paths=PackedStringArray("item_base") instance=ExtResource("4_tlrfi")]
+item_base = NodePath("..")
+item_speed = 1.0
 
 [node name="PopOutComponent" type="Node" parent="." unique_id=1330528238 node_paths=PackedStringArray("item_base")]
 unique_name_in_owner = true
@@ -53,4 +55,4 @@ shape = SubResource("SphereShape3D_lr52c")
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1436908325]
 replication_config = SubResource("SceneReplicationConfig_lr52c")
 
-[connection signal="picked_up" from="Drop/ItemPullAndPickupComponent" to="." method="_on_item_pull_component_picked_up"]
+[connection signal="picked_up" from="ItemPullAndPickupComponent" to="." method="_on_item_pull_component_picked_up"]

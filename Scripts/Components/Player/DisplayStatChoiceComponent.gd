@@ -38,7 +38,7 @@ func _on_progression_component_stat_choices(options: Array[Dictionary]) -> void:
 		var dic: Dictionary = {"stat": stats_recived[i].get("stat", ""), "value": convert_percentage(stats_recived[i].get("value", 0.0))}
 		var stat: String= dic.get("stat", "")
 		var disc :String = stat_info.format(dic)
-		var icon: String = StatConst.ICON_REFERANCE.get(StatConst.load_stats_int(dic[stat]))
+		var icon: String = ""
 		if btn_list[i].has_method("set_choice_visual_data"):
 			btn_list[i].set_choice_visual_data(icon, stat, disc)
 		

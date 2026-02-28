@@ -43,6 +43,7 @@ func level_up() -> void:
 	await stat_selected
 	if not has_pending_choices:
 		new_max_value()
+		
 
 func new_max_value() -> void:
 	if player_level <= 10:

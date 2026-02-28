@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemDropResource" format=3 uid="uid://dahon1l3cm6gi"]
+
+[ext_resource type="ArrayMesh" uid="uid://b44xwgcofne2q" path="res://Assets/Items/Gem Meshes/Gem_Large_Gem_Large.res" id="1_2t6gi"]
+[ext_resource type="Script" uid="uid://du5jyvboj74e1" path="res://Scripts/Resources/Items/ItemDropResource.gd" id="1_o2n12"]
+
+[resource]
+script = ExtResource("1_o2n12")
+drop_name = "Large Aether Shard"
+mesh = ExtResource("1_2t6gi")
+resource = true
+resource_type = 4
+resource_amount = 20.0
+can_be_seen_by = 127
+metadata/_custom_type_script = "uid://du5jyvboj74e1"

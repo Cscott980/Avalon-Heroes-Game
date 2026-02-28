@@ -12,6 +12,7 @@ signal current_health(amount: int, max_player_health: int)
 
 @export var max_health: int = 100
 @export var hp_per_vit_percentage: int = 0.05
+@export var percentage_health_mod: float
 
 var health: int 
 var vitality: int
@@ -56,5 +57,18 @@ func take_damage(amount: int) -> void:
 
 
 func _on_drop_pickup_component_health_potion(amount: float) -> void:
-	health += max_health * amount
+	var heal_amount: int = int(max_health * amount)
+	health += heal_amount
+	value_display.create_indicator_label(heal_amount, DamageTypesConstants.TYPES.HEAL)
 	current_health.emit(health, max_health)
+
+
+func _on_progression_component_level(_current_level: int) -> void:
+	max_health += int(max_health * 0.1)
+	cal_vit_point()
+	health = max_health
+	current_health.emit(health, max_health)
+
+
+func _on_stat_component_current_stats(dic: Dictionary) -> void:
+	vitality = dic.get(StatConstants.STATS.VITALITY, vitality)

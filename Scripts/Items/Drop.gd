@@ -50,12 +50,17 @@ func apply_drop_data() -> void:
 
 func _on_item_pull_component_picked_up(body: Player) -> void:
 	if body.is_in_group("player"):
-		if body.has_node("DropPickupComponent"):
-			var pickup_comp: DropPickUpComponent = body.get_node("DropPickupComponent")
-			if pickup_comp.has_method("pickup"):
-				pickup_comp.pickup(item_value, drop_type)
-				var picked_up: bool = await pickup_comp.can_pick_up
-				if picked_up:
-					self.queue_free()
-				else:
-					return
+		var player: Player = body
+		if player.hero_class.hero_class in can_be_seen_by:
+			if player.has_node("DropPickupComponent"):
+				var pickup_comp: DropPickUpComponent = player.get_node("DropPickupComponent")
+				if pickup_comp.has_method("pickup"):
+					pickup_comp.pickup(item_value, drop_type)
+					if drop_sound.stream:
+						drop_sound.play()
+						drop.hide()
+						await drop_sound.finished
+						queue_free()
+					else:
+						queue_free()
+	return

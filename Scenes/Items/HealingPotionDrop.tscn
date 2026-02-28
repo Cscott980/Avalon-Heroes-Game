@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://ddxwnl284r03u" path="res://Scripts/Components/Items/ItemRotateComponent.gd" id="8_tkotx"]
 [ext_resource type="PackedScene" uid="uid://clss6pkd7hwhn" path="res://Scenes/Components/ItemPullComponent.tscn" id="9_sdqfx"]
 [ext_resource type="Script" uid="uid://ce6b2ep7m8kna" path="res://Scripts/Components/Items/PopOutComponent.gd" id="10_ldkxl"]
+[ext_resource type="AudioStream" uid="uid://bqerli3ww4sy8" path="res://Assets/Audio/SFX/Items/PoitionDrink.mp3" id="11_8t2qi"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_lr52c"]
 
@@ -38,8 +39,9 @@ script = ExtResource("8_tkotx")
 model = NodePath("..")
 rotation_speed_deg = 30.0
 
-[node name="ItemPullAndPickupComponent" parent="Drop" unique_id=524405164 instance=ExtResource("9_sdqfx")]
-item_speed = 0.5
+[node name="ItemPullAndPickupComponent" parent="." unique_id=524405164 node_paths=PackedStringArray("item_base") instance=ExtResource("9_sdqfx")]
+item_base = NodePath("..")
+item_speed = 1.0
 
 [node name="PopOutComponent" type="Node" parent="." unique_id=1049484279 node_paths=PackedStringArray("item_base")]
 script = ExtResource("10_ldkxl")
@@ -48,6 +50,8 @@ metadata/_custom_type_script = "uid://ce6b2ep7m8kna"
 
 [node name="DropSound" type="AudioStreamPlayer3D" parent="." unique_id=1022115237]
 unique_name_in_owner = true
+stream = ExtResource("11_8t2qi")
+volume_db = 1.0
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1436908325]
 replication_config = SubResource("SceneReplicationConfig_lr52c")
@@ -55,4 +59,4 @@ replication_config = SubResource("SceneReplicationConfig_lr52c")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1072494328]
 shape = SubResource("SphereShape3D_lr52c")
 
-[connection signal="picked_up" from="Drop/ItemPullAndPickupComponent" to="." method="_on_item_pull_component_picked_up"]
+[connection signal="picked_up" from="ItemPullAndPickupComponent" to="." method="_on_item_pull_component_picked_up"]

@@ -2,14 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bevuijjmftlu7" path="res://Scripts/Components/Items/ItemPullAndPickupComponent.gd" id="1_0v8a1"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_vv70f"]
-height = 0.9814453
-radius = 2.5029297
+[sub_resource type="SphereShape3D" id="SphereShape3D_sqwro"]
+radius = 5.5662756
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0v8a1"]
 radius = 0.7666752
 
-[node name="ItemPullComponent" type="Node" unique_id=524405164]
+[node name="ItemPullComponent" type="Node3D" unique_id=190980200]
 script = ExtResource("1_0v8a1")
 
 [node name="PullRange" type="Area3D" parent="." unique_id=1937079726]
@@ -18,8 +17,8 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PullRange" unique_id=1949090544]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50927734, 0)
-shape = SubResource("CylinderShape3D_vv70f")
+shape = SubResource("SphereShape3D_sqwro")
+debug_color = Color(0, 0.02734375, 1, 0.41960785)
 
 [node name="PickUpRange" type="Area3D" parent="." unique_id=911259120]
 unique_name_in_owner = true
@@ -28,6 +27,7 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickUpRange" unique_id=272601522]
 shape = SubResource("SphereShape3D_0v8a1")
+debug_color = Color(1, 0.5390625, 0, 0.41960785)
 
 [connection signal="body_entered" from="PullRange" to="." method="_on_pull_range_body_entered"]
 [connection signal="body_exited" from="PullRange" to="." method="_on_pull_range_body_exited"]
