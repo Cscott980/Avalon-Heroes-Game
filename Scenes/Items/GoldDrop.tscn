@@ -1,22 +1,24 @@
 [gd_scene format=3 uid="uid://wu6l8iuy57hm"]
 
 [ext_resource type="Script" uid="uid://ctg52xg0c5ve1" path="res://Scripts/Items/Drop.gd" id="1_sud05"]
-[ext_resource type="Script" uid="uid://c6ocgpx8w8ajp" path="res://Scripts/Components/Items/item_float_component.gd" id="2_o3lw3"]
+[ext_resource type="Script" uid="uid://c6ocgpx8w8ajp" path="res://Scripts/Components/Items/ItemFloatComponent.gd" id="2_o3lw3"]
 [ext_resource type="Script" uid="uid://du5jyvboj74e1" path="res://Scripts/Resources/Items/ItemDropResource.gd" id="2_umfyl"]
 [ext_resource type="Resource" uid="uid://c58yb7nqab0as" path="res://Resources/Drops/Gold/GoldCoin.tres" id="3_73gud"]
-[ext_resource type="Script" uid="uid://ddxwnl284r03u" path="res://Scripts/Components/Items/item_rotate_component.gd" id="3_umfyl"]
+[ext_resource type="Script" uid="uid://ddxwnl284r03u" path="res://Scripts/Components/Items/ItemRotateComponent.gd" id="3_umfyl"]
 [ext_resource type="PackedScene" uid="uid://clss6pkd7hwhn" path="res://Scenes/Components/ItemPullComponent.tscn" id="4_73gud"]
+[ext_resource type="Script" uid="uid://ce6b2ep7m8kna" path="res://Scripts/Components/Items/PopOutComponent.gd" id="7_73gud"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_lr52c"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lr52c"]
 radius = 0.6577806
 
-[node name="ItemDrop" type="RigidBody3D" unique_id=1058555105 groups=["gold"]]
+[node name="ItemDrop" type="RigidBody3D" unique_id=1058555105 node_paths=PackedStringArray("pop_out_component") groups=["gold"]]
 collision_layer = 0
 script = ExtResource("1_sud05")
 items_data = Array[ExtResource("2_umfyl")]([ExtResource("3_73gud")])
 item_drop_weight = Array[int]([100])
+pop_out_component = NodePath("PopOutComponent")
 
 [node name="Drop" type="MeshInstance3D" parent="." unique_id=1777588831]
 unique_name_in_owner = true
@@ -35,6 +37,11 @@ rotation_speed_deg = 30.0
 
 [node name="ItemPullAndPickupComponent" parent="Drop" unique_id=524405164 instance=ExtResource("4_73gud")]
 item_speed = 0.5
+
+[node name="PopOutComponent" type="Node" parent="." unique_id=441582233 node_paths=PackedStringArray("item_base")]
+script = ExtResource("7_73gud")
+item_base = NodePath("..")
+metadata/_custom_type_script = "uid://ce6b2ep7m8kna"
 
 [node name="DropSound" type="AudioStreamPlayer3D" parent="." unique_id=1022115237]
 unique_name_in_owner = true

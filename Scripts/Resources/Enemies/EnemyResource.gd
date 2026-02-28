@@ -29,4 +29,4 @@ enum EnemyType {
 
 @export_group("Loot Pool")
 @export var guaranteed_drop: Array[PackedScene]
-@export var RandomDrop: Array[PackedScene]
+@export var randomDrop: Array[PackedScene]

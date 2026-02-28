@@ -20,8 +20,10 @@ class_name Enemy extends CharacterBody3D
 @onready var stat_component: StatComponent = $StatComponent
 @onready var knock_back_component: KnockBackComponent = %KnockBackComponent
 @onready var enemy_hurt_box_component: EnemyHurtBoxComponent = %EnemyHurtBoxComponent
+@onready var enemy_drop_component: EnemyDropComponent = $EnemyDropComponent
 
 @export var enemy_data: EnemyResource
+
 
 var dead: bool = false
 
@@ -40,6 +42,7 @@ func enemy_init() -> void:
 	enemy_melee_combat_component.apply_melee_weapon_data(enemy_data.weapon_data)
 	enemy_world_data_display.apply_world_display_data(enemy_data.name, enemy_level_component.level, enemy_data.max_health)
 	enemy_health_component.apply_health_data(enemy_data.max_health, enemy_data.stats)
+	enemy_drop_component.apply_drop_data(enemy_data.guaranteed_drop, enemy_data.randomDrop)
 	if state_machine == null or not is_instance_valid(state_machine):
 		return
 	state_machine.Initializer()

@@ -3,7 +3,7 @@ class_name ItemPullAndPickupComponent extends Node
 signal picked_up(body: Player)
 
 @onready var pull_range: Area3D = %PullRange
-@export var item_base: RigidBody3D = null
+@export var item_base: Drop = null
 @export var item_speed: float
 
 var target: CharacterBody3D = null
@@ -15,12 +15,14 @@ func _physics_process(delta: float) -> void:
 		
 func _on_pull_range_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		target = body
+		var player = body as Player
+		if player.hero_class.hero_class in item_base.can_be_seen_by:
+			target = player
 
 func _on_pull_range_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player") and body == target:
 		target = null
 
 func _on_pick_up_range_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player") and body == target:
+	if body == target:
 		picked_up.emit(body as Player)

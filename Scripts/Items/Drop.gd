@@ -6,21 +6,23 @@ class_name Drop extends RigidBody3D
 @export var items_data: Array[ItemDropResource]
 @export var item_drop_weight: Array[int]
 
+@export var pop_out_component: PopOutComponent
 
 var selected_item: ItemDropResource = null
 var drop_type: int
 var drop_name: String
 var item_value: float
-var can_be_seen_by: int
+var can_be_seen_by: Array[int]
 
 func _ready() -> void:
 	selected_item = calculate_weight_drop()
 	
 	if selected_item:
 		apply_drop_data()
+		pop_out_component.pop()
 	else:
 		queue_free()
-
+		
 func calculate_weight_drop() -> ItemDropResource:
 	if items_data.is_empty():
 		return null
@@ -44,7 +46,7 @@ func apply_drop_data() -> void:
 	drop_name = selected_item.drop_name
 	drop.mesh = selected_item.mesh
 	item_value = selected_item.resource_amount
-	can_be_seen_by = selected_item.can_be_seen_by
+	can_be_seen_by = HeroClassConst.get_true_hero(selected_item.can_be_seen_by)
 
 func _on_item_pull_component_picked_up(body: Player) -> void:
 	if body.is_in_group("player"):

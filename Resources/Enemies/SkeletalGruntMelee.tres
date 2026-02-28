@@ -22,5 +22,5 @@ movement_data = ExtResource("4_mwg71")
 max_health = 50
 stats = ExtResource("6_yw4b4")
 guaranteed_drop = Array[PackedScene]([ExtResource("5_e7a8c"), ExtResource("6_sgyol")])
-RandomDrop = Array[PackedScene]([ExtResource("1_mwg71")])
+randomDrop = Array[PackedScene]([ExtResource("1_mwg71")])
 metadata/_custom_type_script = "uid://3qgvo0fy12ei"

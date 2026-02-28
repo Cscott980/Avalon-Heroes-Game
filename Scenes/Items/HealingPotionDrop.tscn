@@ -6,20 +6,22 @@
 [ext_resource type="Resource" uid="uid://cuc81p22l0lhv" path="res://Resources/Drops/Potions/Healing/MinorHealingPotion.tres" id="4_xougr"]
 [ext_resource type="Resource" uid="uid://4vj7hoy1vxhh" path="res://Resources/Drops/Potions/Healing/MediumHealingPotion.tres" id="5_nklvc"]
 [ext_resource type="Resource" uid="uid://b7vuqbj60wkst" path="res://Resources/Drops/Potions/Healing/MejorHealingPotion.tres" id="6_pk8gw"]
-[ext_resource type="Script" uid="uid://c6ocgpx8w8ajp" path="res://Scripts/Components/Items/item_float_component.gd" id="7_51upp"]
-[ext_resource type="Script" uid="uid://ddxwnl284r03u" path="res://Scripts/Components/Items/item_rotate_component.gd" id="8_tkotx"]
+[ext_resource type="Script" uid="uid://c6ocgpx8w8ajp" path="res://Scripts/Components/Items/ItemFloatComponent.gd" id="7_51upp"]
+[ext_resource type="Script" uid="uid://ddxwnl284r03u" path="res://Scripts/Components/Items/ItemRotateComponent.gd" id="8_tkotx"]
 [ext_resource type="PackedScene" uid="uid://clss6pkd7hwhn" path="res://Scenes/Components/ItemPullComponent.tscn" id="9_sdqfx"]
+[ext_resource type="Script" uid="uid://ce6b2ep7m8kna" path="res://Scripts/Components/Items/PopOutComponent.gd" id="10_ldkxl"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_lr52c"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lr52c"]
 radius = 0.6577806
 
-[node name="ItemDrop" type="RigidBody3D" unique_id=1058555105 groups=["healing_pot"]]
+[node name="ItemDrop" type="RigidBody3D" unique_id=1058555105 node_paths=PackedStringArray("pop_out_component") groups=["healing_pot"]]
 collision_layer = 0
 script = ExtResource("1_yjend")
 items_data = Array[ExtResource("2_ldkxl")]([null, ExtResource("3_8t2qi"), ExtResource("4_xougr"), ExtResource("5_nklvc"), ExtResource("6_pk8gw")])
 item_drop_weight = Array[int]([50, 30, 10, 9, 1])
+pop_out_component = NodePath("PopOutComponent")
 
 [node name="Drop" type="MeshInstance3D" parent="." unique_id=1777588831]
 unique_name_in_owner = true
@@ -38,6 +40,11 @@ rotation_speed_deg = 30.0
 
 [node name="ItemPullAndPickupComponent" parent="Drop" unique_id=524405164 instance=ExtResource("9_sdqfx")]
 item_speed = 0.5
+
+[node name="PopOutComponent" type="Node" parent="." unique_id=1049484279 node_paths=PackedStringArray("item_base")]
+script = ExtResource("10_ldkxl")
+item_base = NodePath("..")
+metadata/_custom_type_script = "uid://ce6b2ep7m8kna"
 
 [node name="DropSound" type="AudioStreamPlayer3D" parent="." unique_id=1022115237]
 unique_name_in_owner = true

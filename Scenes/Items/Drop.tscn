@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dbf738u8ht5ww"]
 
 [ext_resource type="Script" uid="uid://ctg52xg0c5ve1" path="res://Scripts/Items/Drop.gd" id="1_70iv5"]
-[ext_resource type="Script" uid="uid://c6ocgpx8w8ajp" path="res://Scripts/Components/Items/item_float_component.gd" id="1_hu7ii"]
-[ext_resource type="Script" uid="uid://ddxwnl284r03u" path="res://Scripts/Components/Items/item_rotate_component.gd" id="2_d2yow"]
+[ext_resource type="Script" uid="uid://c6ocgpx8w8ajp" path="res://Scripts/Components/Items/ItemFloatComponent.gd" id="1_hu7ii"]
+[ext_resource type="Script" uid="uid://ddxwnl284r03u" path="res://Scripts/Components/Items/ItemRotateComponent.gd" id="2_d2yow"]
 [ext_resource type="PackedScene" uid="uid://clss6pkd7hwhn" path="res://Scenes/Components/ItemPullComponent.tscn" id="2_knydk"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_lr52c"]

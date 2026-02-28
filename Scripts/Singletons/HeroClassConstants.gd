@@ -32,6 +32,30 @@ const HERO_CLASS_FLAG_MAP: Dictionary = {
 	"druid": 1 << 5,
 	"engineer": 1 << 6,
 }
+const HERO_CLASS_FLAG_REF = {
+	HERO_CLASS.WARRIOR: 1 << 0,
+	HERO_CLASS.MAGE : 1 << 1,
+	HERO_CLASS.PALADIN: 1 << 2,
+	HERO_CLASS.ROGUE: 1 << 3,
+	HERO_CLASS.RANGER: 1 << 4,
+	HERO_CLASS.DRUID: 1 << 5,
+	HERO_CLASS.ENGINEER: 1 << 6
+}
 
 func load_class_to_string(class_picked: int) -> String:
 	return HERO_CLASS_TO_STRING.get(class_picked, "")
+	
+func load_flag_ref(class_pciked: int) -> int:
+	return HERO_CLASS_FLAG_REF.get(class_pciked)
+
+func has_hero(flags: int, hero: int) -> bool:
+	var bit := load_flag_ref(hero)
+	return (flags & bit) != 0
+
+func get_true_hero(flags: int) -> Array[int]:
+	var result: Array[int] = []
+	for stat in HERO_CLASS_FLAG_REF.keys():
+		if has_hero(flags, stat):
+			result.append(stat)
+	return result
+	
