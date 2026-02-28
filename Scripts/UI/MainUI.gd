@@ -83,6 +83,7 @@ func _on_health_component_current_health(amount: int, max_player_health: int) ->
 	inventory_equipment.apply_health_data(amount)
 	ability_bar.player_health.value = amount
 	ability_bar.player_health.max_value = float(max_player_health)
+	ability_bar.health_number.text = "{0}/{1}".format([amount, max_player_health])
 
 func _on_equipment_visual_component_player_head_for_sheat(mesh: Mesh, skin: Skin) -> void:
 	inventory_equipment.character_sheet_character.head.mesh = mesh

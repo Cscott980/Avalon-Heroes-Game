@@ -12,6 +12,7 @@ signal damage_recived(damage: int)
 @export var knockback_comp: KnockBackComponent
 @export var invincibility_time: float = 0.25
 
+
 var armor: int
 var _can_get_hurt: bool = true
 

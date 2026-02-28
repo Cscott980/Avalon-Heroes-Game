@@ -9,6 +9,7 @@ signal current_health(amount: int, max_player_health: int)
 @export var player: Player
 @export var value_display: ValueEmitterComponent
 @export var drop_pickup_comp: DropPickUpComponent
+@export var camera: CameraEffect
 
 @export var max_health: int = 100
 @export var hp_per_vit_percentage: int = 0.05
@@ -31,8 +32,10 @@ func cal_vit_point() -> void:
 	max_health += (vitality * hp_per_vit_percentage)
 
 func _on_player_healed(amount_percetage: float) -> void:
-	health += int(max_health * amount_percetage)
-	current_health.emit(health)
+	var heal_amount: int = int(max_health * amount_percetage)
+	health += heal_amount
+	value_display.create_indicator_label(heal_amount, DamageTypesConstants.TYPES.HEAL)
+	current_health.emit(health, max_health)
 
 func on_revive(amount_percetage: float) -> void:
 	health += int(max_health * amount_percetage)
@@ -49,11 +52,13 @@ func take_damage(amount: int) -> void:
 	value_display.create_indicator_label(amount, 1)
 	current_health.emit(health, max_health)
 	hurt.emit()
+	camera.shake(0.25)
 	
 	if health <= 0:
 		health = 0
 		is_dead = true
 		dead.emit()
+		camera.shake(0.35)
 
 
 func _on_drop_pickup_component_health_potion(amount: float) -> void:

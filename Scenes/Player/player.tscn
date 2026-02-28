@@ -1199,6 +1199,8 @@ debug_color = Color(0.9282087, 0.2686967, 0, 0.41960785)
 unique_name_in_owner = true
 one_shot = true
 
+[node name="PlayerHurtSound" type="AudioStreamPlayer" parent="Model/Rig_Medium/Skeleton3D/HurtBoxComponent" unique_id=1086797177]
+
 [node name="targetcompattachment" type="BoneAttachment3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1769334525]
 transform = Transform3D(1, 0, 1.4210855e-14, 0, 1, 0, -1.4210855e-14, 0, 1, 0, 0.59764093, 0)
 bone_name = "spine"
@@ -1223,7 +1225,7 @@ debug_color = Color(0, 0.8666667, 0.06432292, 0.41960785)
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_x3h74")
 libraries/Player = SubResource("AnimationLibrary_rl351")
-speed_scale = 1.5
+speed_scale = 2.0
 
 [node name="AnimationTree" type="AnimationTree" parent="Model" unique_id=348971667]
 unique_name_in_owner = true
@@ -1488,11 +1490,13 @@ script = ExtResource("117_4fi6d")
 target = NodePath("..")
 metadata/_custom_type_script = "uid://mltur7xac0xi"
 
-[node name="HealthComponent" type="Node" parent="." unique_id=173475775 node_paths=PackedStringArray("player", "value_display")]
+[node name="HealthComponent" type="Node" parent="." unique_id=173475775 node_paths=PackedStringArray("player", "value_display", "drop_pickup_comp", "camera")]
 unique_name_in_owner = true
 script = ExtResource("118_j55o6")
 player = NodePath("..")
 value_display = NodePath("../ValueEmitterComponent")
+drop_pickup_comp = NodePath("../DropPickupComponent")
+camera = NodePath("../PlayerCamera")
 metadata/_custom_type_script = "uid://bdch6582i2bvt"
 
 [node name="StatComponent" type="Node" parent="." unique_id=2020628456]

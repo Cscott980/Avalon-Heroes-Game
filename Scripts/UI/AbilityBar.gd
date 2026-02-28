@@ -2,6 +2,7 @@ class_name AbilityBar extends Control
 
 
 @onready var player_ui: PlayerUI
+@onready var health_number: Label = %HealthNumber
 
 @onready var ability_1: TextureButton = %Ability1
 @onready var cooldown_1: TextureProgressBar = %Cooldown1
@@ -34,14 +35,11 @@ func _ready() -> void:
 func add_xp(amount: int) ->void:
 	pass
 
-
 func _on_ability_1_pressed() -> void:
 	pass # Replace with function body.
 
-
 func _on_ability_2_pressed() -> void:
 	pass # Replace with function body.
-
 
 func _on_ability_3_pressed() -> void:
 	pass # Replace with function body.

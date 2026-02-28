@@ -29,6 +29,12 @@ collision_mask = 2
 shape = SubResource("SphereShape3D_0v8a1")
 debug_color = Color(1, 0.5390625, 0, 0.41960785)
 
+[node name="ActivationTimer" type="Timer" parent="." unique_id=257904878]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
 [connection signal="body_entered" from="PullRange" to="." method="_on_pull_range_body_entered"]
 [connection signal="body_exited" from="PullRange" to="." method="_on_pull_range_body_exited"]
 [connection signal="body_entered" from="PickUpRange" to="." method="_on_pick_up_range_body_entered"]
+[connection signal="timeout" from="ActivationTimer" to="." method="_on_activation_timer_timeout"]
