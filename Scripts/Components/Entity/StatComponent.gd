@@ -75,10 +75,6 @@ func calculate_weapon_damage(base_damage: int, defense: int, is_mainhand: bool =
 	
 	return max(1, round(total_damage))
 
-func _on_progression_component_stat_selected(stat: int, amount: int) -> void:
-	target_stats[stat] += amount
-	current_stats.emit(target_stats)
-
 func _on_main_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> void:
 	if not data:
 		return
@@ -88,3 +84,11 @@ func _on_off_hand_weapon_weapon_data(data: WeaponResource, _group: String) -> vo
 	if not data:
 		return
 	apply_offhand_weapon_stats(data)
+
+func _on_player_ui_stat_chosen(data: Dictionary) -> void:
+	var base : int = target_stats[StatConst.load_stats_int(data.get("stat", ""))]
+	var amount: float = data.get("value", 0)
+	var stat_mod := maxi(1, int(round(base * amount)))
+	print(data)
+	target_stats[StatConst.load_stats_int(data.get("stat", ""))] = base + stat_mod
+	current_stats.emit(target_stats.duplicate())

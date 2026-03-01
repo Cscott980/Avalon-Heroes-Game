@@ -98,3 +98,7 @@ func _on_health_component_dead() -> void:
 		self.remove_from_group("player")
 		self.add_to_group("dead_players")
 		state_machine.change_state("DeadState")
+
+
+func _on_progression_component_leveling(status: bool) -> void:
+	immortal = status

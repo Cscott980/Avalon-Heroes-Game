@@ -18,10 +18,10 @@ const STAT_REFERENCE: Dictionary = {
 
 const STRING_TO_INT: Dictionary = {
 	"strength": STATS.STRENGTH,
-	"intellect": STATS.STRENGTH,
-	"dexterity": STATS.STRENGTH,
-	"vitality": STATS.STRENGTH,
-	"wisdom": STATS.STRENGTH
+	"intellect": STATS.INTELLECT,
+	"dexterity": STATS.DEXTERITY,
+	"vitality": STATS.VITALITY,
+	"wisdom": STATS.WISDOM
 	
 }
 

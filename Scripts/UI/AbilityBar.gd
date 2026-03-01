@@ -1,5 +1,6 @@
 class_name AbilityBar extends Control
 
+signal exp_filled
 
 @onready var player_ui: PlayerUI
 @onready var health_number: Label = %HealthNumber
@@ -32,8 +33,9 @@ class_name AbilityBar extends Control
 func _ready() -> void:
 	pass
 
-func add_xp(amount: int) ->void:
-	pass
+func _process(delta: float) -> void:
+	if experiance_bar.value >= experiance_bar.max_value:
+		exp_filled.emit()
 
 func _on_ability_1_pressed() -> void:
 	pass # Replace with function body.

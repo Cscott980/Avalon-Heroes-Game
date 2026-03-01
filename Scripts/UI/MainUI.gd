@@ -21,7 +21,6 @@ func get_player_visual_data(defults_data: HeroClassVisualDefaultResource, equipm
 func apply_ability_bar_health_data(health: int) -> void:
 	ability_bar.player_health.max_value = health
 	ability_bar.player_health.value = health
-	
 
 func update_level_display(new_level: String) -> void:
 	ability_bar.level_ui_dis.text = new_level
@@ -41,13 +40,16 @@ func _on_progression_component_stat_choices(options: Array[Dictionary]) -> void:
 	display_stat_choice_component._on_progression_component_stat_choices(options)
 
 func _on_progression_component_level(current_level: int) -> void:
-	inventory_equipment.level_display.text = str(current_level)
-	ability_bar.level_ui_dis.text = str(current_level)
+	update_level_display(str(current_level))
 
 func _on_progression_component_exp_collected(amount: int) -> void:
-	ability_bar.experiance_bar.value = amount
+	if ability_bar.experiance_bar.value >= ability_bar.experiance_bar.max_value:
+		ability_bar.experiance_bar.value = 0.0
+	ability_bar.experiance_bar.value += amount
 
 func _on_resource_pool_component_current_resource_amount(amount: int) -> void:
+	if ability_bar.resource_bar.value >= ability_bar.resource_bar.max_value:
+		ability_bar.resource_bar.value = ability_bar.resource_bar.max_value
 	ability_bar.resource_bar.value = amount
 
 func _on_resource_pool_component_resource_used(amount: int) -> void:
@@ -80,10 +82,12 @@ func _on_stat_component_current_stats(dic: Dictionary) -> void:
 	inventory_equipment.update_stat_display(dic)
 
 func _on_health_component_current_health(amount: int, max_player_health: int) -> void:
-	inventory_equipment.apply_health_data(amount)
+	if ability_bar.player_health.value >= ability_bar.player_health.max_value:
+		ability_bar.player_health.value = ability_bar.player_health.max_value
+	inventory_equipment.apply_health_data(max_player_health)
 	ability_bar.player_health.value = amount
-	ability_bar.player_health.max_value = float(max_player_health)
-	ability_bar.health_number.text = "{0}/{1}".format([amount, max_player_health])
+	ability_bar.player_health.max_value = max_player_health
+	ability_bar.health_number.text = "{0}/{1}".format([ability_bar.player_health.value, ability_bar.player_health.max_value])
 
 func _on_equipment_visual_component_player_head_for_sheat(mesh: Mesh, skin: Skin) -> void:
 	inventory_equipment.character_sheet_character.head.mesh = mesh
@@ -95,4 +99,8 @@ func _on_resource_pool_component_resource_data(data: ResourcePoolResource) -> vo
 	ability_bar.resource_bar.add_theme_stylebox_override(data.style_bar.resource_name, data.style_bar)
 
 func _on_display_stat_choice_component_selected_choice(choice: Dictionary) -> void:
+	print(choice)
 	stat_chosen.emit(choice)
+
+func _on_progression_component_new_exp_max_value(value: int) -> void:
+	ability_bar.experiance_bar.max_value = value

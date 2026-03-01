@@ -15,9 +15,6 @@ var is_sheathed: bool = false
 var inventroy_open: bool = false
 var input_active = true
 
-func _ready() -> void:
-	pass
-
 func _physics_process(_delta: float) -> void:
 	if not input_active:
 		return
@@ -57,6 +54,11 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_released("block"):
 		block_ended.emit()
 
-
 func _on_health_component_dead() -> void:
 	input_active = false
+
+func _on_progression_component_leveling(status: bool) -> void:
+	if status:
+		input_active = false
+	else:
+		input_active = true

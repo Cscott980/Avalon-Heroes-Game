@@ -76,3 +76,9 @@ func _on_combat_component_attack_started(_attack_index: int) -> void:
 
 func _on_combat_component_attack_window_ended() -> void:
 	can_move = true
+
+func _on_progression_component_leveling(status: bool) -> void:
+	if status:
+		can_move = false
+	else:
+		can_move = true

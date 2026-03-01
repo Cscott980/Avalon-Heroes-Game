@@ -32,6 +32,9 @@ func cal_vit_point() -> void:
 	max_health += (vitality * hp_per_vit_percentage)
 
 func _on_player_healed(amount_percetage: float) -> void:
+	if health >= max_health:
+		health = max_health
+		return
 	var heal_amount: int = int(max_health * amount_percetage)
 	health += heal_amount
 	value_display.create_indicator_label(heal_amount, DamageTypesConstants.TYPES.HEAL)
@@ -60,13 +63,11 @@ func take_damage(amount: int) -> void:
 		dead.emit()
 		camera.shake(0.35)
 
-
 func _on_drop_pickup_component_health_potion(amount: float) -> void:
 	var heal_amount: int = int(max_health * amount)
 	health += heal_amount
 	value_display.create_indicator_label(heal_amount, DamageTypesConstants.TYPES.HEAL)
 	current_health.emit(health, max_health)
-
 
 func _on_progression_component_level(_current_level: int) -> void:
 	if _current_level == 1:

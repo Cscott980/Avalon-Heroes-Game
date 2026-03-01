@@ -21,6 +21,7 @@ func _ready() -> void:
 
 func data_box(index: int) -> void:
 	var selected: Dictionary = stats_recived[index]
+	print(stats_recived[index])
 	selected_choice.emit(selected)
 	stats_recived.clear()
 	self.visible = false
