@@ -7,6 +7,7 @@ signal handedness(hand: int)
 @onready var hit_box: Area3D = %HitBox
 @onready var weapon_hit_box: CollisionShape3D = %WeaponHitBox
 @onready var attack_cooldown: Timer = %AttackCooldown
+@onready var weapon_sound: AudioStreamPlayer3D = %AudioStreamPlayer3D
 
 
 func  _ready() -> void:

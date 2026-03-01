@@ -22,3 +22,4 @@ class_name EnemyVisualsResource extends Resource
 
 @export_group("Skin")
 @export var model_skin: Skin
+@export var model_material: Material

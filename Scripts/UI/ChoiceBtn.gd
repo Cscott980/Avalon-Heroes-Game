@@ -7,7 +7,7 @@ class_name ChoiceBtn extends TextureButton
 
 #var choice_panel_resource: ChoicePanelResource
 
-func set_choice_visual_data(icon: Texture2D, name: String, disc: String ) -> void:
-		stat_icon.texture = icon
+func set_choice_visual_data( name: String, disc: String ) -> void:
+		# stat_icon.texture = icon
 		stat_name.text = name
 		stat_disc.text = disc

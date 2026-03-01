@@ -44,7 +44,6 @@ func level_up() -> void:
 	if not has_pending_choices:
 		new_max_value()
 		
-
 func new_max_value() -> void:
 	if player_level <= 10:
 		max_exp += 10 #increases the max value by 10 every level till level 10

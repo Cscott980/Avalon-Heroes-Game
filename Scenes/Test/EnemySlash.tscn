@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://c2bjoyhf8po4y"]
+
+[ext_resource type="Script" uid="uid://np78fbu8py3p" path="res://Scripts/Others/slash.gd" id="1_khwsv"]
+[ext_resource type="ArrayMesh" uid="uid://dve5g0ibb7jse" path="res://Assets/Misc/SlashMesh.obj" id="2_f4a7m"]
+[ext_resource type="Texture2D" uid="uid://n1iyw2xhnnxf" path="res://Assets/Textures/Misc/T_Wave66.png" id="4_38hfn"]
+
+[sub_resource type="Shader" id="Shader_n12dg"]
+code = "shader_type spatial;
+render_mode unshaded, cull_disabled, blend_add;
+
+uniform sampler2D slash_tex : source_color;
+
+uniform vec4 tint : source_color = vec4(0.45, 0.9, 1.0, 1.0);
+uniform float intensity : hint_range(0.0, 10.0) = 2.0;
+
+// Texture motion (manual)
+uniform vec2 uv_offset = vec2(0.0, 0.0);
+
+// Optional auto scroll (set auto_scroll_enabled=0 to disable)
+uniform float auto_scroll_enabled : hint_range(0.0, 1.0) = 0.0;
+uniform float scroll_speed : hint_range(-20.0, 20.0) = 2.5;
+
+// Texture tiling
+uniform float flow_scale : hint_range(0.1, 30.0) = 6.0;
+uniform float use_repeat : hint_range(0.0, 1.0) = 1.0; // 1 = wrap, 0 = clamp
+
+// Shape
+uniform float core_width : hint_range(0.01, 0.49) = 0.10;
+uniform float edge_softness : hint_range(0.001, 0.5) = 0.18;
+uniform float taper : hint_range(0.0, 1.0) = 0.25; // thinner near tip
+
+// Tip glow
+uniform float tip_glow : hint_range(0.0, 5.0) = 1.2;
+uniform float tip_length : hint_range(0.01, 1.0) = 0.25;
+
+// Lifetime (drive from code 0->1)
+uniform float progress : hint_range(0.0, 1.0) = 1.0;
+uniform float fade_in : hint_range(0.0, 0.5) = 0.06;
+uniform float fade_out : hint_range(0.0, 0.5) = 0.18;
+
+// Fade at mesh ends (prevents hard cut)
+uniform float end_softness : hint_range(0.0, 0.5) = 0.06;
+
+float luminance(vec3 c) { return dot(c, vec3(0.3333)); }
+
+void fragment() {
+    vec2 uv = UV;
+
+    // Width mask (centered on UV.y = 0.5)
+    float y = abs(uv.y - 0.5);
+
+    // taper makes the slash narrower near the front (uv.x -> 1)
+    float taper_amt = mix(1.0, 1.0 - taper, smoothstep(0.0, 1.0, uv.x));
+    float core = smoothstep((core_width + edge_softness) * taper_amt, core_width * taper_amt, y);
+
+    // Texture UVs (manual + optional auto)
+    float auto_scroll = (auto_scroll_enabled > 0.5) ? (TIME * scroll_speed) : 0.0;
+    vec2 fuv = vec2(uv.x * flow_scale + uv_offset.x + auto_scroll, uv.y + uv_offset.y);
+
+    // Wrap or clamp
+    if (use_repeat > 0.5) {
+        fuv = fract(fuv);
+    } else {
+        fuv = clamp(fuv, vec2(0.0), vec2(1.0));
+    }
+
+    vec4 tex = texture(slash_tex, fuv);
+
+    // Use brightness as mask (works for B/W textures too)
+    float tex_mask = smoothstep(0.15, 1.0, luminance(tex.rgb));
+
+    // Tip glow near front (uv.x = 1)
+    float tip = smoothstep(1.0 - tip_length, 1.0, uv.x) * tip_glow;
+
+    // End softness (fade near uv.x ends)
+    float end_fade = 1.0;
+    end_fade *= smoothstep(0.0, end_softness, uv.x);
+    end_fade *= smoothstep(0.0, end_softness, 1.0 - uv.x);
+
+    // Lifetime fade driven by progress
+    float life_in  = smoothstep(0.0, max(0.0001, fade_in), progress);
+    float life_out = 1.0 - smoothstep(1.0 - max(0.0001, fade_out), 1.0, progress);
+    float life = life_in * life_out;
+
+    float alpha = core * tex_mask * end_fade * life;
+
+    vec3 col = tint.rgb * intensity;
+    col += tint.rgb * tip * alpha;
+
+    ALBEDO = col;
+    ALPHA  = alpha;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o61ax"]
+render_priority = 0
+shader = SubResource("Shader_n12dg")
+shader_parameter/slash_tex = ExtResource("4_38hfn")
+shader_parameter/tint = Color(0.8368993, 0.049438477, 0.9375, 1)
+shader_parameter/intensity = 10.0
+shader_parameter/uv_offset = Vector2(0.92, 0)
+shader_parameter/auto_scroll_enabled = 0.0
+shader_parameter/scroll_speed = 3.852001132969999
+shader_parameter/flow_scale = 0.60800002562012
+shader_parameter/use_repeat = 0.0
+shader_parameter/core_width = 0.39000001782648
+shader_parameter/edge_softness = 0.0010000000475
+shader_parameter/taper = 0.25
+shader_parameter/tip_glow = 1.2
+shader_parameter/tip_length = 0.25
+shader_parameter/progress = 0.50000002375
+shader_parameter/fade_in = 0.06
+shader_parameter/fade_out = 0.18
+shader_parameter/end_softness = 0.06
+
+[sub_resource type="Animation" id="Animation_cwxi1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlashMesh:surface_material_override/0:shader_parameter/gradient_1_para")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlashMesh:surface_material_override/0:shader_parameter/uv_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.92, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mcc6n"]
+resource_name = "Slash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlashMesh:surface_material_override/0:shader_parameter/gradient_1_para")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlashMesh:surface_material_override/0:shader_parameter/uv_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.92, 0), Vector2(-0.505, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ltly"]
+_data = {
+&"RESET": SubResource("Animation_cwxi1"),
+&"Slash": SubResource("Animation_mcc6n")
+}
+
+[node name="Slash" type="Node3D" unique_id=1841827712]
+script = ExtResource("1_khwsv")
+
+[node name="SlashMesh" type="MeshInstance3D" parent="." unique_id=1247585431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5572704, 0.031957388, 0.5865531)
+mesh = ExtResource("2_f4a7m")
+surface_material_override/0 = SubResource("ShaderMaterial_o61ax")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1096344427]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_3ltly")

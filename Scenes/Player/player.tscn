@@ -1346,25 +1346,28 @@ playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
-[node name="AttackState1" type="Node" parent="StateMachine" unique_id=1915949012 node_paths=PackedStringArray("player", "playback", "combat_comp", "weap_equip_comp")]
+[node name="AttackState1" type="Node" parent="StateMachine" unique_id=1915949012 node_paths=PackedStringArray("player", "playback", "combat_comp", "target_comp", "weap_equip_comp")]
 script = ExtResource("104_wti82")
 player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
+target_comp = NodePath("../../Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
-[node name="AttackState2" type="Node" parent="StateMachine" unique_id=1753463908 node_paths=PackedStringArray("player", "playback", "combat_comp", "weap_equip_comp")]
+[node name="AttackState2" type="Node" parent="StateMachine" unique_id=1753463908 node_paths=PackedStringArray("player", "playback", "combat_comp", "target_comp", "weap_equip_comp")]
 script = ExtResource("105_8gfi0")
 player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
+target_comp = NodePath("../../Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
-[node name="AttackState3" type="Node" parent="StateMachine" unique_id=1819353206 node_paths=PackedStringArray("player", "playback", "combat_comp", "weap_equip_comp")]
+[node name="AttackState3" type="Node" parent="StateMachine" unique_id=1819353206 node_paths=PackedStringArray("player", "playback", "combat_comp", "target_comp", "weap_equip_comp")]
 script = ExtResource("106_mbhwj")
 player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
+target_comp = NodePath("../../Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
 [node name="AbilityState" type="Node" parent="StateMachine" unique_id=1149044750 node_paths=PackedStringArray("player", "playback", "combat_comp", "weap_equip_comp")]
@@ -1596,6 +1599,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4111938, 0)
 [connection signal="current_health" from="HealthComponent" to="PlayerUI" method="_on_health_component_current_health"]
 [connection signal="current_health" from="HealthComponent" to="WorldVisualPlayerData" method="_on_health_component_current_health"]
 [connection signal="dead" from="HealthComponent" to="." method="_on_health_component_dead"]
+[connection signal="dead" from="HealthComponent" to="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" method="_on_health_component_dead"]
 [connection signal="dead" from="HealthComponent" to="Model/Rig_Medium/Skeleton3D/HurtBoxComponent" method="_on_health_component_dead"]
 [connection signal="dead" from="HealthComponent" to="WorldCollision" method="_on_health_component_dead"]
 [connection signal="dead" from="HealthComponent" to="PlayerUI" method="_on_health_component_dead"]

@@ -21,3 +21,7 @@ enum HANDEDNESS {
 @export var attack_cooldown: float
 @export var crit_chance: float
 @export var crit_multiplier: float
+
+@export_group("Audio")
+@export var mainhand_audio: AudioStreamMP3
+@export var offhand_audio: AudioStreamMP3

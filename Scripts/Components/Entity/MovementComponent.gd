@@ -24,6 +24,7 @@ func _physics_process(delta: float) -> void:
 		return 
 	if dead:
 		user.velocity = Vector3.ZERO
+		return
 		
 	user.velocity.x = -input_vec.x * move_speed
 	user.velocity.z = -input_vec.z * move_speed

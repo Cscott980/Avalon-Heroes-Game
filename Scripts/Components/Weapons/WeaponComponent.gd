@@ -86,3 +86,7 @@ func weapon_hit_box_off() -> void:
 func _on_hit_box_area_entered(area: Area3D) -> void:
 	if area.is_in_group("enemy"):
 		weapon_hit.emit(area)
+
+
+func _on_health_component_dead() -> void:
+	weapon_hit_box_off()

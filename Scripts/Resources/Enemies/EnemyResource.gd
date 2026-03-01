@@ -13,6 +13,8 @@ enum EnemyType {
 @export var enemy_mesh: EnemyVisualsResource
 @export var animation_tree: AnimationNodeBlendTree
 @export var path_name: String
+
+
 @export_group("Weapons")
 @export var combat_type: EnemyType
 @export var weapon_data: EnemyWeaponResource

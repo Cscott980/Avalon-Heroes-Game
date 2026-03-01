@@ -35,12 +35,12 @@ func _on_progression_component_stat_choices(options: Array[Dictionary]) -> void:
 	stats_recived = options
 	self.visible = true
 	for i in range(stats_recived.size()):
-		var dic: Dictionary = {"stat": stats_recived[i].get("stat", ""), "value": convert_percentage(stats_recived[i].get("value", 0.0))}
+		var dic: Dictionary = {"stat": stats_recived[i].get("stat", ""), "value": int(convert_percentage(stats_recived[i].get("value", 0.0)))}
 		var stat: String= dic.get("stat", "")
 		var disc :String = stat_info.format(dic)
-		var icon: String = ""
+		#TODO: make icon resource / var icon: String = ""
 		if btn_list[i].has_method("set_choice_visual_data"):
-			btn_list[i].set_choice_visual_data(icon, stat, disc)
+			btn_list[i].set_choice_visual_data(stat, disc)
 		
 func _on_choice_btn_one_pressed() -> void:
 	data_box(0)

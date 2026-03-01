@@ -17,6 +17,7 @@ class_name EnemyVisualComponent extends Node
 @export var weapon_shield_relic: MeshInstance3D
 
 var entity_skin: Skin
+var entity_material: Material
 var meshes: Array[MeshInstance3D] = []
 
 var highlight: Material = preload("uid://cfrxegokeyufx")
@@ -44,6 +45,7 @@ func apply_visuals(data: EnemyVisualsResource) -> void:
 	if data == null or not is_instance_valid(data):
 		return
 	entity_skin = data.model_skin
+	entity_material = data.model_material
 	
 	arm_left.mesh = data.left_arm if data != null else null
 	arm_right.mesh = data.right_arm if data != null else null
