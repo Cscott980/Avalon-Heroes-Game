@@ -13,12 +13,14 @@ func _drop() -> void:
 		var world = get_tree().current_scene
 		world.add_child(g_item)
 		g_item.global_position = global_position
+		g_item.pop_out_component.call_deferred("pop")
 	
 	if not chance.is_empty():
 		var item = chance[randi_range(0,chance.size() -1)].instantiate()
 		var world = get_tree().current_scene
 		world.add_child(item)
 		item.global_position = global_position
+		item.pop_out_component.call_deferred("pop")
 
 func _on_enemy_health_component_dead() -> void:
 	_drop()

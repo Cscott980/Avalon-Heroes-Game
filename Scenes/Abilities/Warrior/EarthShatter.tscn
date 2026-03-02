@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cagx6o6yd0qag"]
+[gd_scene format=3 uid="uid://cagx6o6yd0qag"]
 
 [ext_resource type="PackedScene" uid="uid://1tw3mpkdl21d" path="res://Scenes/Abilities/Others/spike.tscn" id="1_vpd8b"]
 [ext_resource type="Texture2D" uid="uid://c62kbyu2j5uff" path="res://Assets/Textures/Misc/EarthShatterEffetc.png" id="2_yyqnm"]
@@ -1760,66 +1760,66 @@ albedo_color = Color(0.24305081, 0.6816406, 0.23431396, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_odddu"]
 size = Vector2(29.215, 23.935)
 
-[node name="RisingEarth" type="Node3D"]
+[node name="RisingEarth" type="Node3D" unique_id=99267174]
 
-[node name="VFXRockSpikes" type="Node3D" parent="."]
+[node name="VFXRockSpikes" type="Node3D" parent="." unique_id=1033780263]
 
-[node name="Inner" type="Node3D" parent="VFXRockSpikes"]
+[node name="Inner" type="Node3D" parent="VFXRockSpikes" unique_id=2037175123]
 
-[node name="Spike" parent="VFXRockSpikes/Inner" instance=ExtResource("1_vpd8b")]
+[node name="Spike" parent="VFXRockSpikes/Inner" unique_id=772749185 instance=ExtResource("1_vpd8b")]
 transform = Transform3D(0.058045954, 1.3345009, 0.9514924, -0.08126012, 0.95326126, -1.3320246, -1.6369566, 1.5884636e-07, 0.09986261, 3.5963492, -1.0427535, 0.011643659)
 
-[node name="Spike2" parent="VFXRockSpikes/Inner" instance=ExtResource("1_vpd8b")]
+[node name="Spike2" parent="VFXRockSpikes/Inner" unique_id=358991422 instance=ExtResource("1_vpd8b")]
 transform = Transform3D(-0.0022115181, -1.2670448, -1.0412453, 0.0018173428, 1.0412437, -1.2670468, 1.6399969, -0.0028624379, -4.551428e-08, -3.305812, -0.7787237, 0)
 
-[node name="Spike3" parent="VFXRockSpikes/Inner" instance=ExtResource("1_vpd8b")]
+[node name="Spike3" parent="VFXRockSpikes/Inner" unique_id=592041905 instance=ExtResource("1_vpd8b")]
 transform = Transform3D(-1.6391177, -0.040363964, -0.035521634, 0.0018173428, 1.0412437, -1.2670468, 0.053737625, -1.2664049, -1.0406393, 0.034080505, -0.7787237, -3.1354103)
 
-[node name="Spike4" parent="VFXRockSpikes/Inner" instance=ExtResource("1_vpd8b")]
-transform = Transform3D(1.6399553, 0.008017934, 0.00894125, 0.0018173393, 1.0412434, -1.2670468, -0.011871413, 1.2670224, 1.041207, 0.034080505, -0.7787237, 3.2887702)
+[node name="Spike4" parent="VFXRockSpikes/Inner" unique_id=767281564 instance=ExtResource("1_vpd8b")]
+transform = Transform3D(1.6399553, 0.008017935, 0.008941253, 0.0018173397, 1.0412434, -1.2670468, -0.011871416, 1.2670224, 1.041207, 0.034080505, -0.7787237, 3.2887702)
 
-[node name="Spike5" parent="VFXRockSpikes/Inner" instance=ExtResource("1_vpd8b")]
-transform = Transform3D(1.145334, -0.9076723, -0.74427134, 0.0018173716, 1.0412434, -1.2670468, 1.1737993, 0.88404846, 0.72818404, -2.164114, -0.7787237, 2.2322726)
+[node name="Spike5" parent="VFXRockSpikes/Inner" unique_id=644237714 instance=ExtResource("1_vpd8b")]
+transform = Transform3D(1.145334, -0.90767217, -0.7442713, 0.0018173716, 1.0412434, -1.2670468, 1.1737993, 0.88404846, 0.72818404, -2.164114, -0.7787237, 2.2322726)
 
-[node name="Spike6" parent="VFXRockSpikes/Inner" instance=ExtResource("1_vpd8b")]
-transform = Transform3D(1.1913501, 0.86992276, 0.71660084, 0.001817203, 1.0412433, -1.2670468, -1.1270663, 0.9212189, 0.75543034, 2.3345165, -0.7787237, 2.453796)
+[node name="Spike6" parent="VFXRockSpikes/Inner" unique_id=783892570 instance=ExtResource("1_vpd8b")]
+transform = Transform3D(1.1913501, 0.86992276, 0.7166009, 0.001817203, 1.0412433, -1.2670468, -1.1270664, 0.92121875, 0.7554302, 2.3345165, -0.7787237, 2.453796)
 
-[node name="Spike7" parent="VFXRockSpikes/Inner" instance=ExtResource("1_vpd8b")]
+[node name="Spike7" parent="VFXRockSpikes/Inner" unique_id=2021736175 instance=ExtResource("1_vpd8b")]
 transform = Transform3D(-1.2116777, 0.8547067, 0.7006502, 0.0018171353, 1.0412432, -1.2670466, -1.1051835, -0.9353531, -0.7702473, 2.3345165, -0.7787237, -2.3856397)
 
-[node name="Spike8" parent="VFXRockSpikes/Inner" instance=ExtResource("1_vpd8b")]
+[node name="Spike8" parent="VFXRockSpikes/Inner" unique_id=1346077507 instance=ExtResource("1_vpd8b")]
 transform = Transform3D(-1.0379072, -0.9802902, -0.8070791, 0.0018171925, 1.0412428, -1.2670468, 1.2697803, -0.8027708, -0.6578861, -2.641243, -0.7787237, -2.3856397)
 
-[node name="Outter" type="Node3D" parent="VFXRockSpikes"]
+[node name="Outter" type="Node3D" parent="VFXRockSpikes" unique_id=1591977942]
 transform = Transform3D(1.4861704, 0, 0.6060714, 0, 1.605, 0, -0.6060714, 0, 1.4861704, 0, 0, 0)
 
-[node name="Spike" parent="VFXRockSpikes/Outter" instance=ExtResource("1_vpd8b")]
+[node name="Spike" parent="VFXRockSpikes/Outter" unique_id=988224297 instance=ExtResource("1_vpd8b")]
 transform = Transform3D(-0.19848984, 1.3181038, 0.95540774, -0.08126017, 0.9532611, -1.3320248, -1.6259146, -0.20855486, -0.050063018, 3.5930948, -1.0427535, 0.01031661)
 
-[node name="Spike2" parent="VFXRockSpikes/Outter" instance=ExtResource("1_vpd8b")]
+[node name="Spike2" parent="VFXRockSpikes/Outter" unique_id=1342728719 instance=ExtResource("1_vpd8b")]
 transform = Transform3D(1.345077, 0.7999195, 0.49040475, -0.08126015, 0.95326114, -1.3320248, -0.934754, 1.068186, 0.8214703, 2.4538572, -1.0427535, 2.402332)
 
-[node name="Spike3" parent="VFXRockSpikes/Outter" instance=ExtResource("1_vpd8b")]
-transform = Transform3D(1.6316199, 0.16457598, 0.018241623, -0.08126016, 0.9532614, -1.3320247, -0.14427339, 1.3243141, 0.9565447, -0.40126306, -1.0427535, 3.6033356)
+[node name="Spike3" parent="VFXRockSpikes/Outter" unique_id=90209034 instance=ExtResource("1_vpd8b")]
+transform = Transform3D(1.6316199, 0.16457596, 0.018241623, -0.08126015, 0.9532614, -1.3320247, -0.14427339, 1.3243141, 0.9565447, -0.40126306, -1.0427535, 3.6033356)
 
-[node name="Spike4" parent="VFXRockSpikes/Outter" instance=ExtResource("1_vpd8b")]
+[node name="Spike4" parent="VFXRockSpikes/Outter" unique_id=2019791248 instance=ExtResource("1_vpd8b")]
 transform = Transform3D(0.6842304, -1.1919749, -0.89477664, -0.08126023, 0.9532615, -1.3320248, 1.4882296, 0.6000739, 0.33865255, -1.8225638, -1.0427535, 2.80538)
 
-[node name="Spike5" parent="VFXRockSpikes/Outter" instance=ExtResource("1_vpd8b")]
+[node name="Spike5" parent="VFXRockSpikes/Outter" unique_id=1236902493 instance=ExtResource("1_vpd8b")]
 transform = Transform3D(0.10254009, -1.3280866, -0.95669836, -0.081260145, 0.9532613, -1.3320248, 1.6347736, 0.13068737, -0.0062030493, -3.1859348, -1.0427535, -0.097759604)
 
-[node name="Spike6" parent="VFXRockSpikes/Outter" instance=ExtResource("1_vpd8b")]
-transform = Transform3D(-1.4215137, -0.7036581, -0.4168524, -0.08126008, 0.95326096, -1.3320249, 0.8138171, -1.1339129, -0.86112946, -2.7581263, -1.0427535, -2.3068333)
+[node name="Spike6" parent="VFXRockSpikes/Outter" unique_id=841146981 instance=ExtResource("1_vpd8b")]
+transform = Transform3D(-1.4215137, -0.7036581, -0.4168524, -0.08126007, 0.95326096, -1.3320249, 0.8138171, -1.1339129, -0.86112946, -2.7581263, -1.0427535, -2.3068333)
 
-[node name="Spike7" parent="VFXRockSpikes/Outter" instance=ExtResource("1_vpd8b")]
+[node name="Spike7" parent="VFXRockSpikes/Outter" unique_id=2121349895 instance=ExtResource("1_vpd8b")]
 transform = Transform3D(-1.6303924, -0.17534156, -0.026020812, -0.08126026, 0.95326144, -1.3320245, 0.15753902, -1.3229312, -0.956365, -0.012209296, -1.0427535, -3.552371)
 
-[node name="Spike8" parent="VFXRockSpikes/Outter" instance=ExtResource("1_vpd8b")]
+[node name="Spike8" parent="VFXRockSpikes/Outter" unique_id=1842083555 instance=ExtResource("1_vpd8b")]
 transform = Transform3D(-1.107095, 0.95095164, 0.74808556, -0.08126028, 0.95326114, -1.3320246, -1.2072029, -0.93626016, -0.59638774, 2.3180146, -1.0427535, -2.5293086)
 
-[node name="Debries" type="Node3D" parent="VFXRockSpikes"]
+[node name="Debries" type="Node3D" parent="VFXRockSpikes" unique_id=25926296]
 
-[node name="DebrisInner1" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisInner1" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=1689261646]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0329604, 0.54403305, 3.0446522)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 emitting = false
@@ -1842,7 +1842,7 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="DebrisInner2" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisInner2" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=892247200]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.818089, 0.54403305, -3.150223)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 emitting = false
@@ -1865,7 +1865,7 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="DebrisInner3" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisInner3" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=2084799691]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020740986, 0.54403305, -4.021925)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 emitting = false
@@ -1888,7 +1888,7 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="DebrisInner4" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisInner4" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=1689129294]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2185454, 0.54403305, -2.7008185)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 emitting = false
@@ -1911,7 +1911,7 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="DebrisInner5" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisInner5" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=1853396064]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0601754, 0.54403305, 0.025156736)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 emitting = false
@@ -1934,7 +1934,7 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="DebrisInner6" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisInner6" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=1514173361]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5636797, 0.54403305, 2.9226894)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 emitting = false
@@ -1957,7 +1957,7 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="DebrisInner7" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisInner7" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=1013243726]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.923087, 0.54403305, 0.009120464)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 emitting = false
@@ -1980,7 +1980,7 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="DebrisInner8" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisInner8" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=1467694759]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2065711, 0.54403305, 0.009120464)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 emitting = false
@@ -2003,7 +2003,7 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="DebrisInner9" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisInner9" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=1170423682]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2065711, 0.54403305, 4.048263)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 amount = 500
@@ -2025,7 +2025,7 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="DebrisOutter1" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisOutter1" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=751786016]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.797644, 0.54403305, -3.3708673)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 emitting = false
@@ -2048,7 +2048,7 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="DebrisOutter2" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisOutter2" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=1345006486]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.948544, 0.54403305, 2.9838862)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 emitting = false
@@ -2071,7 +2071,7 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="DebrisOutter3" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisOutter3" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=1845933888]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5330317, 0.54403305, 7.0329847)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 emitting = false
@@ -2094,7 +2094,7 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="DebrisOutter4" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisOutter4" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=998443397]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.176818, 0.54403305, 6.482365)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 emitting = false
@@ -2117,7 +2117,7 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="DebrisOutter8" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisOutter8" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=1900780022]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.090522, 0.54403305, 2.8697162)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 emitting = false
@@ -2140,7 +2140,7 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="DebrisOutter5" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisOutter5" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=703040214]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2124386, 0.54403305, -2.594883)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 emitting = false
@@ -2163,7 +2163,7 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="DebrisOutter6" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisOutter6" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=1541769449]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2719126, 0.54403305, -6.9723644)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 emitting = false
@@ -2186,7 +2186,7 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="DebrisOutter7" type="CPUParticles3D" parent="VFXRockSpikes/Debries"]
+[node name="DebrisOutter7" type="CPUParticles3D" parent="VFXRockSpikes/Debries" unique_id=733427091]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8495226, 0.54403305, -6.9723644)
 material_override = SubResource("StandardMaterial3D_tfaxk")
 emitting = false
@@ -2209,117 +2209,117 @@ anim_speed_min = 1.0
 anim_speed_max = 2.0
 anim_speed_curve = SubResource("Curve_yyqnm")
 
-[node name="Decal" type="Node3D" parent="VFXRockSpikes"]
+[node name="Decal" type="Node3D" parent="VFXRockSpikes" unique_id=1442391347]
 
-[node name="Inner" type="Node3D" parent="VFXRockSpikes/Decal"]
+[node name="Inner" type="Node3D" parent="VFXRockSpikes/Decal" unique_id=297214848]
 
-[node name="InnerImpact1" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner"]
+[node name="InnerImpact1" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner" unique_id=1953674410]
 transform = Transform3D(2.0396218, 0, -0.9734179, 0, 2.26, 0, 0.9734179, 0, 2.0396218, -0.07447404, 0.012777805, -4.1132298)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="InnerImpact9" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner"]
+[node name="InnerImpact9" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner" unique_id=1656988327]
 transform = Transform3D(2.3390613, 0, 2.4399168, 0, 3.3799999, 0, -2.4399168, 0, 2.3390613, 0.30593234, 0.012777805, 0.04443884)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="InnerImpact2" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner"]
+[node name="InnerImpact2" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner" unique_id=684368528]
 transform = Transform3D(2.1114287, 0, 0.80589616, 0, 2.26, 0, -0.80589616, 0, 2.1114287, -3.3699265, 0.012777805, -2.5496552)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="InnerImpact3" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner"]
+[node name="InnerImpact3" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner" unique_id=1083093657]
 transform = Transform3D(2.1114287, 0, 0.80589616, 0, 2.26, 0, -0.80589616, 0, 2.1114287, 3.034522, 0.012777805, -3.1562955)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="InnerImpact4" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner"]
+[node name="InnerImpact4" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner" unique_id=1221742766]
 transform = Transform3D(1.3974168, 0, -1.776183, 0, 2.26, 0, 1.776183, 0, 1.3974168, 4.9924273, 0.012777805, 0.12883857)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="InnerImpact5" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner"]
+[node name="InnerImpact5" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner" unique_id=836307791]
 transform = Transform3D(-0.7364184, 0, -2.1366537, 0, 2.26, 0, 2.1366537, 0, -0.7364184, 3.0125341, 0.012777805, 3.2628868)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="InnerImpact6" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner"]
+[node name="InnerImpact6" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner" unique_id=1267373832]
 transform = Transform3D(-0.7364184, 0, -2.1366537, 0, 2.26, 0, 2.1366537, 0, -0.7364184, -0.216681, 0.012777805, 4.2094173)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="InnerImpact7" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner"]
+[node name="InnerImpact7" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner" unique_id=1029354993]
 transform = Transform3D(-2.259465, 0, 0.049183726, 0, 2.26, 0, -0.049183726, 0, -2.259465, -2.923526, 0.012777805, 3.1468136)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="InnerImpact8" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner"]
+[node name="InnerImpact8" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Inner" unique_id=1247056616]
 transform = Transform3D(-2.259465, 0, 0.049183726, 0, 2.26, 0, -0.049183726, 0, -2.259465, -4.301897, 0.012777805, 0.19184613)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="Outter" type="Node3D" parent="VFXRockSpikes/Decal"]
+[node name="Outter" type="Node3D" parent="VFXRockSpikes/Decal" unique_id=1008756901]
 
-[node name="OutterImpact1" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Outter"]
+[node name="OutterImpact1" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Outter" unique_id=394188497]
 transform = Transform3D(0.68364406, 0, -2.962133, 0, 3.04, 0, 2.962133, 0, 0.68364406, -7.4066133, 0.012777805, -2.7033308)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="OutterImpact2" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Outter"]
+[node name="OutterImpact2" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Outter" unique_id=1315607903]
 transform = Transform3D(-3.0180526, 0, -0.3646364, 0, 3.04, 0, 0.3646364, 0, -3.0180526, -3.5728102, 0.012777805, -7.051241)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="OutterImpact3" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Outter"]
+[node name="OutterImpact3" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Outter" unique_id=162341285]
 transform = Transform3D(-3.0180526, 0, -0.3646364, 0, 3.04, 0, 0.3646364, 0, -3.0180526, 2.827579, 0.012777805, -7.391811)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="OutterImpact4" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Outter"]
+[node name="OutterImpact4" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Outter" unique_id=1160066785]
 transform = Transform3D(-0.882973, 0, 2.9089448, 0, 3.04, 0, -2.9089448, 0, -0.882973, 7.034036, 0.012777805, 3.098168)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="OutterImpact5" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Outter"]
+[node name="OutterImpact5" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Outter" unique_id=1008675281]
 transform = Transform3D(0.22476089, 0, 3.0316799, 0, 3.04, 0, -3.0316799, 0, 0.22476089, 2.9122453, 0.012777805, 7.4127235)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="OutterImpact6" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Outter"]
+[node name="OutterImpact6" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Outter" unique_id=422313069]
 transform = Transform3D(3.033404, 0, 0.20014885, 0, 3.0399995, 0, -0.20014885, 0, 3.033404, -2.1498213, 0.012777805, 6.855554)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="OutterImpact7" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Outter"]
+[node name="OutterImpact7" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Outter" unique_id=889420893]
 transform = Transform3D(3.033404, 0, 0.20014885, 0, 3.0399995, 0, -0.20014885, 0, 3.033404, -6.47124, 0.012777805, 3.0743136)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="OutterImpact8" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Outter"]
+[node name="OutterImpact8" type="MeshInstance3D" parent="VFXRockSpikes/Decal/Outter" unique_id=213585114]
 transform = Transform3D(3.033404, 0, 0.20014885, 0, 3.0399995, 0, -0.20014885, 0, 3.033404, 7.472087, 0.012777805, -3.205245)
 material_override = SubResource("StandardMaterial3D_yyqnm")
 mesh = SubResource("PlaneMesh_bpudd")
 skeleton = NodePath("../../../..")
 
-[node name="shockwave" type="Node3D" parent="VFXRockSpikes"]
+[node name="shockwave" type="Node3D" parent="VFXRockSpikes" unique_id=1788387620]
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="VFXRockSpikes/shockwave"]
+[node name="CPUParticles3D" type="CPUParticles3D" parent="VFXRockSpikes/shockwave" unique_id=24006761]
 material_override = SubResource("ShaderMaterial_j8ls8")
 cast_shadow = 0
 amount = 1
@@ -2333,25 +2333,25 @@ scale_amount_min = 15.0
 scale_amount_max = 15.0
 scale_amount_curve = SubResource("Curve_g1q8q")
 
-[node name="AOE" type="Area3D" parent="."]
+[node name="AOE" type="Area3D" parent="." unique_id=278569552]
 collision_layer = 4
 collision_mask = 4
 monitoring = false
 
-[node name="area of effect" type="CollisionShape3D" parent="AOE"]
+[node name="area of effect" type="CollisionShape3D" parent="AOE" unique_id=2087546956]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92626953, 0)
 shape = SubResource("CylinderShape3D_eoveu")
+debug_color = Color(1, 0, 0, 0.41960785)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1820413958]
 root_node = NodePath("../VFXRockSpikes")
-libraries = {
-&"": SubResource("AnimationLibrary_yyqnm")
-}
-autoplay = "init"
+libraries/ = SubResource("AnimationLibrary_yyqnm")
+autoplay = &"init"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1445097365]
 volume_db = -0.122
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1420031501]
+visible = false
 material_override = SubResource("StandardMaterial3D_ficti")
 mesh = SubResource("PlaneMesh_odddu")

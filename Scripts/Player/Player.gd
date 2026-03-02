@@ -49,7 +49,7 @@ func hero_init() -> void:
 	targets_in_range_component._update_closest_target()
 	world_visual_player_data.apply_player_visual_data(player_name, progression_component.player_level)
 	world_visual_player_data.apply_player_health_visual_data(hero_class.max_health)
-	resource_pool_component.apply_resource_data(hero_class.resource_pool)
+	resource_pool_component.apply_resource_data(hero_class.resource_pool, hero_class.hero_class)
 	
 func _physics_process(delta: float) -> void:
 	if state_machine.current_state:

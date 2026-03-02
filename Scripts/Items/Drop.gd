@@ -20,7 +20,6 @@ func _ready() -> void:
 	
 	if selected_item:
 		apply_drop_data()
-		pop_out_component.pop()
 	else:
 		queue_free()
 		
