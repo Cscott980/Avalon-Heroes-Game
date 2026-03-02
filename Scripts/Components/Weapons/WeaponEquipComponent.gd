@@ -30,11 +30,6 @@ func update_dual_wielding_state(mainhand: WeaponResource, offhand: WeaponResourc
 		dual_wielding = false
 		is_dual_wielding.emit(false)
 		return
-	if oh.weapon_type == ArmorResource.ArmorType.Shield:
-		print("I am a shield")
-		dual_wielding = false
-		is_dual_wielding.emit(false)
-		return
 	
 	dual_wielding = true
 	print("Dualwielding is %s" %dual_wielding)

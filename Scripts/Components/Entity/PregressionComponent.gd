@@ -76,8 +76,10 @@ func random_stat_generator(count: int) -> Array[Dictionary]:
 
 func _on_drop_pickup_component_exp_gem(amount: int) -> void:
 	xp_amount += amount
-	exp_collected.emit(amount)
+	exp_collected.emit(xp_amount)
 	if xp_amount >= max_exp:
+		xp_amount = 0
+		exp_collected.emit(xp_amount)
 		level_up()
 
 func _on_player_ui_stat_chosen(_data: Dictionary) -> void:

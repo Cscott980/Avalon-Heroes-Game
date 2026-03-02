@@ -31,11 +31,11 @@ signal exp_filled
 
 
 func _ready() -> void:
-	pass
+	experiance_bar.value = 0
+	experiance_bar.max_value = 5
 
 func _process(delta: float) -> void:
-	if experiance_bar.value >= experiance_bar.max_value:
-		exp_filled.emit()
+	pass
 
 func _on_ability_1_pressed() -> void:
 	pass # Replace with function body.

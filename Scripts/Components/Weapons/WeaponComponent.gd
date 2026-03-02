@@ -40,6 +40,7 @@ func clear_weapon() -> void:
 	no_weapon_equiped.emit(true)
 	
 func load_weapon(weapon_id: WeaponResource) -> void:
+	WEAPON_TYPE = weapon_id
 	var group_name: String = ""
 	if weapon_slot and weapon_slot.name == "OffHand":
 		add_to_group("off_hand")

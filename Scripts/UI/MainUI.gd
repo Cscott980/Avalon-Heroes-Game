@@ -34,6 +34,7 @@ func _on_player_input_component_charsheet() -> void:
 	else:
 		inventory_equipment.open()
 
+
 func _on_progression_component_stat_choices(options: Array[Dictionary]) -> void:
 	if not is_instance_valid(display_stat_choice_component):
 		return
@@ -45,7 +46,11 @@ func _on_progression_component_level(current_level: int) -> void:
 func _on_progression_component_exp_collected(amount: int) -> void:
 	if ability_bar.experiance_bar.value >= ability_bar.experiance_bar.max_value:
 		ability_bar.experiance_bar.value = 0.0
-	ability_bar.experiance_bar.value += amount
+	ability_bar.experiance_bar.value = amount
+
+func _on_progression_component_new_exp_max_value(value: int) -> void:
+	ability_bar.experiance_bar.max_value = value
+
 
 func _on_resource_pool_component_current_resource_amount(amount: int) -> void:
 	if ability_bar.resource_bar.value >= ability_bar.resource_bar.max_value:
@@ -54,6 +59,12 @@ func _on_resource_pool_component_current_resource_amount(amount: int) -> void:
 
 func _on_resource_pool_component_resource_used(amount: int) -> void:
 	ability_bar.resource_bar.value = amount
+
+func _on_resource_pool_component_resource_data(data: ResourcePoolResource) -> void:
+	ability_bar.resource_bar.max_value = data.max_value
+	ability_bar.resource_bar.value = data.start_value
+	ability_bar.resource_bar.add_theme_stylebox_override(data.style_bar.resource_name, data.style_bar)
+
 
 func _on_ability_component_on_cooldown(button: Button, time: float, disable: bool) -> void:
 	pass # Replace with function body.
@@ -93,14 +104,6 @@ func _on_equipment_visual_component_player_head_for_sheat(mesh: Mesh, skin: Skin
 	inventory_equipment.character_sheet_character.head.mesh = mesh
 	inventory_equipment.character_sheet_character.head.skin = skin
 
-func _on_resource_pool_component_resource_data(data: ResourcePoolResource) -> void:
-	ability_bar.resource_bar.max_value = data.max_value
-	ability_bar.resource_bar.value = data.start_value
-	ability_bar.resource_bar.add_theme_stylebox_override(data.style_bar.resource_name, data.style_bar)
-
 func _on_display_stat_choice_component_selected_choice(choice: Dictionary) -> void:
 	print(choice)
 	stat_chosen.emit(choice)
-
-func _on_progression_component_new_exp_max_value(value: int) -> void:
-	ability_bar.experiance_bar.max_value = value
