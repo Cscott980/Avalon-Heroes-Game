@@ -22,10 +22,7 @@ var is_dead: bool = false
 func apply_player_health_data(amount: int, stats: StatResource) -> void:
 	vitality = stats.vitality
 	max_health = amount
-	cal_vit_point()
 	health = max_health
-	print(max_health)
-	print(health)
 	current_health.emit(health, max_health)
 
 func cal_vit_point() -> void:
@@ -73,10 +70,10 @@ func _on_progression_component_level(_current_level: int) -> void:
 	if _current_level == 1:
 		return
 	max_health += int(max_health * 0.1)
-	cal_vit_point()
 	health = max_health
 	current_health.emit(health, max_health)
 
 
 func _on_stat_component_current_stats(dic: Dictionary) -> void:
 	vitality = dic.get(StatConstants.STATS.VITALITY, vitality)
+	cal_vit_point()

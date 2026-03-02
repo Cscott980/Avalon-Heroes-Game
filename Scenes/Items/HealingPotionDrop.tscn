@@ -7,10 +7,50 @@
 [ext_resource type="Resource" uid="uid://4vj7hoy1vxhh" path="res://Resources/Drops/Potions/Healing/MediumHealingPotion.tres" id="5_nklvc"]
 [ext_resource type="Resource" uid="uid://b7vuqbj60wkst" path="res://Resources/Drops/Potions/Healing/MejorHealingPotion.tres" id="6_pk8gw"]
 [ext_resource type="Script" uid="uid://c6ocgpx8w8ajp" path="res://Scripts/Components/Items/ItemFloatComponent.gd" id="7_51upp"]
+[ext_resource type="Texture2D" uid="uid://bf0uyi2tct365" path="res://Assets/2DVFX/HEALTH_0001.png" id="7_h36mo"]
+[ext_resource type="Texture2D" uid="uid://mvvsyg0mwke3" path="res://Assets/2DVFX/HEALTH_0002.png" id="8_28eut"]
 [ext_resource type="Script" uid="uid://ddxwnl284r03u" path="res://Scripts/Components/Items/ItemRotateComponent.gd" id="8_tkotx"]
+[ext_resource type="Texture2D" uid="uid://ddp6h3ibbs1re" path="res://Assets/2DVFX/HEALTH_0010.png" id="9_24qmq"]
 [ext_resource type="PackedScene" uid="uid://clss6pkd7hwhn" path="res://Scenes/Components/ItemPullComponent.tscn" id="9_sdqfx"]
+[ext_resource type="Texture2D" uid="uid://dbnxsiw1hlhik" path="res://Assets/2DVFX/HEALTH_0011.png" id="10_bcd5j"]
 [ext_resource type="Script" uid="uid://ce6b2ep7m8kna" path="res://Scripts/Components/Items/PopOutComponent.gd" id="10_ldkxl"]
+[ext_resource type="Texture2D" uid="uid://btg61t0pq25ra" path="res://Assets/2DVFX/HEALTH_0003.png" id="11_4gqjd"]
 [ext_resource type="AudioStream" uid="uid://bqerli3ww4sy8" path="res://Assets/Audio/SFX/Items/PoitionDrink.mp3" id="11_8t2qi"]
+[ext_resource type="Texture2D" uid="uid://dh68taetv6r6m" path="res://Assets/2DVFX/HEALTH_0004.png" id="12_o321i"]
+[ext_resource type="Texture2D" uid="uid://cnu8hiderq7p3" path="res://Assets/2DVFX/HEALTH_0005.png" id="13_w478o"]
+[ext_resource type="Texture2D" uid="uid://f155v15g83yd" path="res://Assets/2DVFX/HEALTH_0006.png" id="14_yluwt"]
+[ext_resource type="Texture2D" uid="uid://dpmsjaqya1wa8" path="res://Assets/2DVFX/HEALTH_0007.png" id="15_0nnx2"]
+[ext_resource type="Texture2D" uid="uid://b8uw1ppr4kegj" path="res://Assets/2DVFX/HEALTH_0008.png" id="16_n3u37"]
+[ext_resource type="Texture2D" uid="uid://djiasj3tud5y6" path="res://Assets/2DVFX/HEALTH_0009.png" id="17_inxqn"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_etynb"]
+resource_local_to_scene = true
+frames = 12
+speed_scale = 10.0
+frame_0/texture = ExtResource("7_h36mo")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("8_28eut")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("11_4gqjd")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("11_4gqjd")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("12_o321i")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("13_w478o")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("14_yluwt")
+frame_6/duration = 0.1
+frame_7/texture = ExtResource("15_0nnx2")
+frame_7/duration = 0.1
+frame_8/texture = ExtResource("16_n3u37")
+frame_8/duration = 0.1
+frame_9/texture = ExtResource("17_inxqn")
+frame_9/duration = 0.1
+frame_10/texture = ExtResource("9_24qmq")
+frame_10/duration = 0.1
+frame_11/texture = ExtResource("10_bcd5j")
+frame_11/duration = 0.1
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_lr52c"]
 
@@ -23,6 +63,12 @@ script = ExtResource("1_yjend")
 items_data = Array[ExtResource("2_ldkxl")]([null, ExtResource("3_8t2qi"), ExtResource("4_xougr"), ExtResource("5_nklvc"), ExtResource("6_pk8gw")])
 item_drop_weight = Array[int]([50, 30, 10, 9, 1])
 pop_out_component = NodePath("PopOutComponent")
+
+[node name="Aura" type="Sprite3D" parent="." unique_id=47339611]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002381444, 0.0027264953, 0.0008132458)
+billboard = 1
+texture = SubResource("AnimatedTexture_etynb")
 
 [node name="Drop" type="MeshInstance3D" parent="." unique_id=1777588831]
 unique_name_in_owner = true
@@ -58,5 +104,7 @@ replication_config = SubResource("SceneReplicationConfig_lr52c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1072494328]
 shape = SubResource("SphereShape3D_lr52c")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="." unique_id=1441660733]
 
 [connection signal="picked_up" from="ItemPullAndPickupComponent" to="." method="_on_item_pull_component_picked_up"]

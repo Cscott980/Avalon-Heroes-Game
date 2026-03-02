@@ -6,13 +6,54 @@
 [ext_resource type="Resource" uid="uid://c58yb7nqab0as" path="res://Resources/Drops/Gold/GoldCoin.tres" id="3_73gud"]
 [ext_resource type="Script" uid="uid://ddxwnl284r03u" path="res://Scripts/Components/Items/ItemRotateComponent.gd" id="3_umfyl"]
 [ext_resource type="PackedScene" uid="uid://clss6pkd7hwhn" path="res://Scenes/Components/ItemPullComponent.tscn" id="4_73gud"]
+[ext_resource type="Texture2D" uid="uid://ehalnkgdqfub" path="res://Assets/2DVFX/Gold_0000.png" id="4_vg6ac"]
+[ext_resource type="Texture2D" uid="uid://hn4usj8yi31k" path="res://Assets/2DVFX/Gold_0001.png" id="5_e46uw"]
+[ext_resource type="Texture2D" uid="uid://bfdw6pjd2vq6p" path="res://Assets/2DVFX/Gold_0010.png" id="6_rv57n"]
 [ext_resource type="Script" uid="uid://ce6b2ep7m8kna" path="res://Scripts/Components/Items/PopOutComponent.gd" id="7_73gud"]
+[ext_resource type="Texture2D" uid="uid://d5so77hrw25q" path="res://Assets/2DVFX/Gold_0011.png" id="7_dfxr4"]
+[ext_resource type="Texture2D" uid="uid://bkvdtbdho3ck6" path="res://Assets/2DVFX/Gold_0002.png" id="8_c1ivk"]
 [ext_resource type="AudioStream" uid="uid://csmbkrbgu14r8" path="res://Assets/Audio/SFX/Items/GoldCoin2.mp3" id="8_ynmfc"]
+[ext_resource type="Texture2D" uid="uid://canoqyhgosfdt" path="res://Assets/2DVFX/Gold_0003.png" id="9_m6dit"]
+[ext_resource type="Texture2D" uid="uid://cn8durvsc7yrc" path="res://Assets/2DVFX/Gold_0004.png" id="10_740g4"]
+[ext_resource type="Texture2D" uid="uid://cjjchn4yi7cc1" path="res://Assets/2DVFX/Gold_0005.png" id="11_kir2q"]
+[ext_resource type="Texture2D" uid="uid://rxp6bsnr25bn" path="res://Assets/2DVFX/Gold_0006.png" id="12_niaco"]
+[ext_resource type="Texture2D" uid="uid://vnjnjodrvjg1" path="res://Assets/2DVFX/Gold_0007.png" id="13_ep5s3"]
+[ext_resource type="Texture2D" uid="uid://b8fs777hwyrxw" path="res://Assets/2DVFX/Gold_0008.png" id="14_h5dkl"]
+[ext_resource type="Texture2D" uid="uid://d4scwdqyow3l" path="res://Assets/2DVFX/Gold_0009.png" id="15_68b7v"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_lr52c"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lr52c"]
 radius = 0.6577806
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_vg6ac"]
+resource_local_to_scene = true
+frames = 12
+speed_scale = 10.0
+frame_0/texture = ExtResource("4_vg6ac")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("5_e46uw")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("8_c1ivk")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("9_m6dit")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("10_740g4")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("11_kir2q")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("12_niaco")
+frame_6/duration = 0.1
+frame_7/texture = ExtResource("13_ep5s3")
+frame_7/duration = 0.1
+frame_8/texture = ExtResource("14_h5dkl")
+frame_8/duration = 0.1
+frame_9/texture = ExtResource("15_68b7v")
+frame_9/duration = 0.1
+frame_10/texture = ExtResource("6_rv57n")
+frame_10/duration = 0.1
+frame_11/texture = ExtResource("7_dfxr4")
+frame_11/duration = 0.1
 
 [node name="ItemDrop" type="RigidBody3D" unique_id=1058555105 node_paths=PackedStringArray("pop_out_component") groups=["gold"]]
 collision_layer = 0
@@ -55,5 +96,13 @@ replication_config = SubResource("SceneReplicationConfig_lr52c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1072494328]
 shape = SubResource("SphereShape3D_lr52c")
+
+[node name="Aura" type="Sprite3D" parent="." unique_id=1790729716]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002381444, 0.0027264953, 0.0008132458)
+billboard = 1
+texture = SubResource("AnimatedTexture_vg6ac")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="." unique_id=115575619]
 
 [connection signal="picked_up" from="ItemPullAndPickupComponent" to="." method="_on_item_pull_component_picked_up"]

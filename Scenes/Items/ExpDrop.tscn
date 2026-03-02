@@ -8,10 +8,52 @@
 [ext_resource type="PackedScene" uid="uid://clss6pkd7hwhn" path="res://Scenes/Components/ItemPullComponent.tscn" id="4_tlrfi"]
 [ext_resource type="Resource" uid="uid://c3t3gx5lao4h3" path="res://Resources/Drops/ExpGems/MediumAetherShard.tres" id="4_yoq23"]
 [ext_resource type="Resource" uid="uid://dahon1l3cm6gi" path="res://Resources/Drops/ExpGems/LargeAetherShard.tres" id="5_vrjbv"]
+[ext_resource type="Texture2D" uid="uid://b0xoxriqhdgfa" path="res://Assets/2DVFX/Timeline 1_0000.png" id="6_iulv0"]
 [ext_resource type="Script" uid="uid://ce6b2ep7m8kna" path="res://Scripts/Components/Items/PopOutComponent.gd" id="6_vik8r"]
+[ext_resource type="Texture2D" uid="uid://dtdin0wm2w3bw" path="res://Assets/2DVFX/Timeline 1_0001.png" id="7_04r1o"]
+[ext_resource type="Texture2D" uid="uid://c1qr5iufbdyth" path="res://Assets/2DVFX/Timeline 1_0010.png" id="8_edcrk"]
+[ext_resource type="Texture2D" uid="uid://d2sloys3ve01q" path="res://Assets/2DVFX/Timeline 1_0011.png" id="9_84vfq"]
+[ext_resource type="Texture2D" uid="uid://dseygq1dm7a8t" path="res://Assets/2DVFX/Timeline 1_0002.png" id="10_tqto6"]
+[ext_resource type="Texture2D" uid="uid://hy1l6804os87" path="res://Assets/2DVFX/Timeline 1_0003.png" id="11_hbx7g"]
+[ext_resource type="Texture2D" uid="uid://dqe4pweblmmyi" path="res://Assets/2DVFX/Timeline 1_0004.png" id="12_msx18"]
+[ext_resource type="Texture2D" uid="uid://ndtvv2boekux" path="res://Assets/2DVFX/Timeline 1_0005.png" id="13_cw48a"]
+[ext_resource type="Texture2D" uid="uid://c8ms1wens7auy" path="res://Assets/2DVFX/Timeline 1_0006.png" id="14_vvuco"]
+[ext_resource type="Texture2D" uid="uid://bloc73lcghfjh" path="res://Assets/2DVFX/Timeline 1_0007.png" id="15_dxu0e"]
+[ext_resource type="Texture2D" uid="uid://bfmownw2v3sl0" path="res://Assets/2DVFX/Timeline 1_0008.png" id="16_tss8x"]
+[ext_resource type="Texture2D" uid="uid://d38q05eyeqqle" path="res://Assets/2DVFX/Timeline 1_0009.png" id="17_irpcc"]
+[ext_resource type="AudioStream" uid="uid://cm5vc4h5owdh4" path="res://Assets/Audio/SFX/Items/EXPGem.mp3" id="23_edcrk"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_unvhx"]
+resource_local_to_scene = true
+frames = 12
+speed_scale = 10.0
+frame_0/texture = ExtResource("6_iulv0")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("7_04r1o")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("10_tqto6")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("11_hbx7g")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("12_msx18")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("13_cw48a")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("14_vvuco")
+frame_6/duration = 0.1
+frame_7/texture = ExtResource("15_dxu0e")
+frame_7/duration = 0.1
+frame_8/texture = ExtResource("16_tss8x")
+frame_8/duration = 0.1
+frame_9/texture = ExtResource("17_irpcc")
+frame_9/duration = 0.1
+frame_10/texture = ExtResource("8_edcrk")
+frame_10/duration = 0.1
+frame_11/texture = ExtResource("9_84vfq")
+frame_11/duration = 0.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lr52c"]
-radius = 0.6577806
+radius = 0.44134527
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_lr52c"]
 
@@ -21,6 +63,12 @@ script = ExtResource("1_nvpew")
 items_data = Array[ExtResource("2_vik8r")]([ExtResource("3_tlrfi"), ExtResource("4_yoq23"), ExtResource("5_vrjbv")])
 item_drop_weight = Array[int]([95, 3, 2])
 pop_out_component = NodePath("PopOutComponent")
+
+[node name="Aura" type="Sprite3D" parent="." unique_id=456875292]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002381444, 0.0027264953, 0.0008132458)
+billboard = 1
+texture = SubResource("AnimatedTexture_unvhx")
 
 [node name="Drop" type="MeshInstance3D" parent="." unique_id=1777588831]
 unique_name_in_owner = true
@@ -48,11 +96,14 @@ item_base = NodePath("..")
 
 [node name="DropSound" type="AudioStreamPlayer3D" parent="." unique_id=1022115237]
 unique_name_in_owner = true
+stream = ExtResource("23_edcrk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1072494328]
 shape = SubResource("SphereShape3D_lr52c")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1436908325]
 replication_config = SubResource("SceneReplicationConfig_lr52c")
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="." unique_id=735114694]
 
 [connection signal="picked_up" from="ItemPullAndPickupComponent" to="." method="_on_item_pull_component_picked_up"]

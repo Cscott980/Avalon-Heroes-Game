@@ -72,14 +72,25 @@ func _on_ability_component_on_cooldown(button: Button, time: float, disable: boo
 func _on_ability_component_ability_icons(icons: Array[Texture2D]) -> void:
 	pass
 
+
 func _on_inventory_equipment_current_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_index: int, hand: StringName) -> void:
 	if equip_visuals_comp.has_method("apply_equipment"):
 		equip_visuals_comp.apply_equipment(slot_res, item, sub_index, hand)
+
 
 func _on_health_component_dead() -> void:
 	if inventory_equipment.is_open:
 		inventory_equipment.close()
 	ability_bar.visible = false
+
+func _on_health_component_current_health(amount: int, max_player_health: int) -> void:
+	if ability_bar.player_health.value >= ability_bar.player_health.max_value:
+		ability_bar.player_health.value = ability_bar.player_health.max_value
+	inventory_equipment.apply_health_data(max_player_health)
+	ability_bar.player_health.value = amount
+	ability_bar.player_health.max_value = max_player_health
+	ability_bar.health_number.text = "{0}/{1}".format([ability_bar.player_health.value, ability_bar.player_health.max_value])
+
 
 func _on_player_input_component_charsheet_toggled() -> void:
 	if inventory_equipment.is_open:
@@ -92,13 +103,7 @@ func _on_player_input_component_charsheet_toggled() -> void:
 func _on_stat_component_current_stats(dic: Dictionary) -> void:
 	inventory_equipment.update_stat_display(dic)
 
-func _on_health_component_current_health(amount: int, max_player_health: int) -> void:
-	if ability_bar.player_health.value >= ability_bar.player_health.max_value:
-		ability_bar.player_health.value = ability_bar.player_health.max_value
-	inventory_equipment.apply_health_data(max_player_health)
-	ability_bar.player_health.value = amount
-	ability_bar.player_health.max_value = max_player_health
-	ability_bar.health_number.text = "{0}/{1}".format([ability_bar.player_health.value, ability_bar.player_health.max_value])
+
 
 func _on_equipment_visual_component_player_head_for_sheat(mesh: Mesh, skin: Skin) -> void:
 	inventory_equipment.character_sheet_character.head.mesh = mesh

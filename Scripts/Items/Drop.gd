@@ -2,6 +2,7 @@ class_name Drop extends RigidBody3D
 
 @onready var drop: MeshInstance3D = %Drop
 @onready var drop_sound: AudioStreamPlayer3D = %DropSound
+@onready var aura: Sprite3D = %Aura
 
 @export var items_data: Array[ItemDropResource]
 @export var item_drop_weight: Array[int]
@@ -58,6 +59,7 @@ func _on_item_pull_component_picked_up(body: Player) -> void:
 					pickup_comp.pickup(item_value, drop_type)
 					if drop_sound.stream:
 						drop_sound.play()
+						aura.hide()
 						drop.hide()
 						await drop_sound.finished
 						queue_free()
