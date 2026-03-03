@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dat5oxr5onj6i"]
+
+[node name="WarCry" type="Node3D" unique_id=160871371]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=29745100]

@@ -16,7 +16,8 @@ unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PullRange" unique_id=1949090544]
+[node name="PullColl" type="CollisionShape3D" parent="PullRange" unique_id=1949090544]
+unique_name_in_owner = true
 shape = SubResource("SphereShape3D_sqwro")
 debug_color = Color(0, 0.02734375, 1, 0.41960785)
 
@@ -25,7 +26,8 @@ unique_name_in_owner = true
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PickUpRange" unique_id=272601522]
+[node name="PickUpColl" type="CollisionShape3D" parent="PickUpRange" unique_id=272601522]
+unique_name_in_owner = true
 shape = SubResource("SphereShape3D_0v8a1")
 debug_color = Color(1, 0.5390625, 0, 0.41960785)
 

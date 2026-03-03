@@ -85,7 +85,7 @@ script = ExtResource("3_vik8r")
 model = NodePath("..")
 rotation_speed_deg = 30.0
 
-[node name="ItemPullAndPickupComponent" parent="." unique_id=524405164 node_paths=PackedStringArray("item_base") instance=ExtResource("4_tlrfi")]
+[node name="ItemPullAndPickupComponent" parent="." unique_id=524405164 node_paths=PackedStringArray("item_base") groups=["exp_gem"] instance=ExtResource("4_tlrfi")]
 item_base = NodePath("..")
 item_speed = 5.0
 

@@ -55,7 +55,7 @@ frame_10/duration = 0.1
 frame_11/texture = ExtResource("7_dfxr4")
 frame_11/duration = 0.1
 
-[node name="ItemDrop" type="RigidBody3D" unique_id=1058555105 node_paths=PackedStringArray("pop_out_component") groups=["gold"]]
+[node name="ItemDrop" type="RigidBody3D" unique_id=1058555105 node_paths=PackedStringArray("pop_out_component")]
 collision_layer = 0
 script = ExtResource("1_sud05")
 items_data = Array[ExtResource("2_umfyl")]([ExtResource("3_73gud")])

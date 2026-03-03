@@ -102,3 +102,8 @@ func _on_health_component_dead() -> void:
 
 func _on_progression_component_leveling(status: bool) -> void:
 	immortal = status
+
+
+func _on_progression_component_init_quiz() -> void:
+	if state_machine:
+		state_machine.change_state("QuizState")

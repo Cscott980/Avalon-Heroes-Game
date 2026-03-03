@@ -64,7 +64,12 @@ func _update_closest_target() -> void:
 func _on_targets_in_range_body_entered(body: Node3D) -> void:
 	if not body.is_in_group("enemy") or body.is_in_group("dead_enemies"):
 		return
-	
+		
+	if body.is_in_group("exp_gem") or body.is_in_group("gold") or body.is_in_group("healing_pot"):
+		if body.has_node("ItemPullAndPickupComponent"):
+			var activate: ItemPullAndPickupComponent = body.get_node("ItemPullAndPickupComponent")
+			activate.turn_on_collision()
+			
 	if not targets_in_range.has(body):
 		targets_in_range.append(body)
 		
@@ -73,6 +78,12 @@ func _on_targets_in_range_body_entered(body: Node3D) -> void:
 func _on_targets_in_range_body_exited(body: Node3D) -> void:
 	if not body.is_in_group("enemy") or body.is_in_group("dead_enemies"):
 		return
+		
+	if body.is_in_group("exp_gem") or body.is_in_group("gold") or body.is_in_group("healing_pot"):
+		if body.has_node("ItemPullAndPickupComponent"):
+			var activate: ItemPullAndPickupComponent = body.get_node("ItemPullAndPickupComponent")
+			activate.turn_off_collision()
+		
 	if targets_in_range.has(body):
 		targets_in_range.erase(body)
 	_update_closest_target()

@@ -12,7 +12,7 @@ signal current_health(amount: int, max_player_health: int)
 @export var camera: CameraEffect
 
 @export var max_health: int = 100
-@export var hp_per_vit_percentage: int = 0.05
+@export var hp_per_vit_percentage: float = 0.05
 @export var percentage_health_mod: float
 
 var health: int 
@@ -26,7 +26,7 @@ func apply_player_health_data(amount: int, stats: StatResource) -> void:
 	current_health.emit(health, max_health)
 
 func cal_vit_point() -> void:
-	max_health += (vitality * hp_per_vit_percentage)
+	max_health += int(vitality * hp_per_vit_percentage)
 
 func _on_player_healed(amount_percetage: float) -> void:
 	if health >= max_health:
@@ -72,7 +72,6 @@ func _on_progression_component_level(_current_level: int) -> void:
 	max_health += int(max_health * 0.1)
 	health = max_health
 	current_health.emit(health, max_health)
-
 
 func _on_stat_component_current_stats(dic: Dictionary) -> void:
 	vitality = dic.get(StatConstants.STATS.VITALITY, vitality)

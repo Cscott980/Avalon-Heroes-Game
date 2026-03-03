@@ -6,6 +6,7 @@ signal level(current_level:int)
 signal exp_collected(amount: int)
 signal new_exp_max_value(value: int)
 signal stat_choices(options: Array[Dictionary])
+signal init_quiz
 
 @export var player_ui: MainUI
 @export var player_level: int = 1
@@ -28,6 +29,12 @@ func _ready() -> void:
 	out_level_display.text = str(player_level)
 
 func level_up() -> void:
+	"""
+	Here I will add the logic to call the QuizManager to send a question prompt
+	to the player to answer. 
+	If correct the level up logic continues, 
+	else the quiz manger just selects a new question from the quiz data base.
+	"""
 	var result:Array[Dictionary] = random_stat_generator(level_up_choice)
 	stat_choices.emit(result)
 	leveling.emit(true)
@@ -42,12 +49,6 @@ func level_up() -> void:
 		player_level = max_exp
 	if not has_pending_choices:
 		new_max_value()
-	"""
-	Here I will add the logic to call the QuizManager to send a question prompt
-	to the player to answer. 
-	If correct the level up logic continues, 
-	else the quiz manger just selects a new question from the quiz data base.
-	"""
 
 func new_max_value() -> void:
 	if player_level < 10:
