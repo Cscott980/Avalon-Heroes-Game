@@ -1,5 +1,25 @@
 [gd_scene format=3 uid="uid://dat5oxr5onj6i"]
 
+[ext_resource type="Shader" uid="uid://d4fylfwgo0fla" path="res://Assets/Shaders/RadiateEffect.gdshader" id="1_e6p3e"]
+[ext_resource type="ArrayMesh" uid="uid://dd1kkqmqueh5w" path="res://Assets/Misc/Sphere.res" id="1_jsor5"]
+[ext_resource type="PackedScene" uid="uid://djsr5sg6v6q8f" path="res://Scenes/Classes/Warrior.tscn" id="2_e6p3e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_woyqf"]
+render_priority = 0
+shader = ExtResource("1_e6p3e")
+shader_parameter/radial_scroll_speed = 2.0
+shader_parameter/angular_scroll_speed = 0.0
+shader_parameter/radial_repeat = 1.0
+shader_parameter/angular_repeat = 1.0
+shader_parameter/intensity = 1.0
+shader_parameter/alpha = 1.0
+shader_parameter/progress = 0.0
+
 [node name="WarCry" type="Node3D" unique_id=160871371]
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=29745100]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=323265033]
+transform = Transform3D(700, 0, 0, 0, -3.059797e-05, 700, 0, -700, -3.059797e-05, 0, 1.97508, 0)
+material_override = SubResource("ShaderMaterial_woyqf")
+mesh = ExtResource("1_jsor5")
+
+[node name="Warrior" parent="." unique_id=1516226679 instance=ExtResource("2_e6p3e")]
