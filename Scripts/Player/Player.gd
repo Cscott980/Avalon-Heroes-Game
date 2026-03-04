@@ -44,7 +44,6 @@ func hero_init() -> void:
 	health_component.apply_player_health_data(hero_class.max_health, hero_class.hero_stats)
 	ability_component.apply_ability_data(hero_class.hero_abilities)
 	player_ui.get_player_visual_data(hero_class.class_defaults, hero_class.starting_equipment)
-	player_ui.apply_ability_bar_health_data(hero_class.max_health)
 	equipment_visuals.get_defults(hero_class.class_defaults)
 	targets_in_range_component._update_closest_target()
 	world_visual_player_data.apply_player_visual_data(player_name, progression_component.player_level)

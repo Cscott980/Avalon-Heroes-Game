@@ -28,6 +28,12 @@ class_name Enemy extends CharacterBody3D
 var dead: bool = false
 
 func _ready() -> void:
+	if enemy_data != null:
+		enemy_init()
+
+func setup(data: EnemyResource, level: int) -> void:
+	enemy_data = data
+	enemy_level_component.level = level
 	enemy_init()
 	
 func enemy_init() -> void:

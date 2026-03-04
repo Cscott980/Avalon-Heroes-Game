@@ -18,10 +18,6 @@ func get_player_visual_data(defults_data: HeroClassVisualDefaultResource, equipm
 	inventory_equipment.character_sheet_character.vs_defults = defults_data
 	inventory_equipment.equipment = equipment_resource
 
-func apply_ability_bar_health_data(health: int) -> void:
-	ability_bar.player_health.max_value = health
-	ability_bar.player_health.value = health
-
 func update_level_display(new_level: String) -> void:
 	ability_bar.level_ui_dis.text = new_level
 	inventory_equipment.level_display.text = new_level
@@ -84,12 +80,21 @@ func _on_health_component_dead() -> void:
 	ability_bar.visible = false
 
 func _on_health_component_current_health(amount: int, max_player_health: int) -> void:
-	if ability_bar.player_health.value >= ability_bar.player_health.max_value:
-		ability_bar.player_health.value = ability_bar.player_health.max_value
+	var safe_value :int = clamp(amount, 0, max_player_health)
+
+	ability_bar.player_health.max_value = float(max_player_health)
+	ability_bar.player_health.value = float(safe_value)
+
 	inventory_equipment.apply_health_data(max_player_health)
-	ability_bar.player_health.value = amount
-	ability_bar.player_health.max_value = max_player_health
-	ability_bar.health_number.text = "{0}/{1}".format([ability_bar.player_health.value, ability_bar.player_health.max_value])
+
+	ability_bar.health_number.text = "{0}/{1}".format([safe_value, max_player_health])
+
+func _on_health_component_leveled_health(maxh: int) -> void:
+	ability_bar.player_health.max_value = float(maxh)
+	
+	ability_bar.player_health.value = float(maxh)
+
+	ability_bar.health_number.text = "{0}/{1}".format([maxh, maxh])
 
 
 func _on_player_input_component_charsheet_toggled() -> void:

@@ -5,10 +5,13 @@
 [resource]
 script = ExtResource("1_cvxkl")
 display_name = "Warriors Call"
-description = "Total Health increased by 10% and damage increased by 5%. for 10 seconds."
+description = "Heals you every time you hit a target for 2% of your total health for 10 seconds.
+
+The amount the ability scales by your total Wisdom."
 duration = 10.0
 tick_interval = 0.0
 refresh_on_reapply = false
+stat_to_mod = 4
 stat_mod_value = 0.1
-damage_mod = 0.05
+damage_mod = 0.02
 metadata/_custom_type_script = "uid://em3ud8vhqd44"

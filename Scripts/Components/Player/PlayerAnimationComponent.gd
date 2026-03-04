@@ -71,3 +71,10 @@ func play_walking_shield_hit() -> void:
 func play_block_shatter() -> void:
 	if playback:
 		playback.travel("Block_Shatter")
+
+func play_ability_animation(anim: String) -> void:
+	if playback:
+		playback.travel(anim)
+
+func _on_ability_component_cast_ability(animation: String) -> void:
+	play_ability_animation(animation)

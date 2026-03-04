@@ -34,8 +34,9 @@ func _ready() -> void:
 	experiance_bar.value = 0
 	experiance_bar.max_value = 5
 
-func _process(delta: float) -> void:
-	pass
+func apply_health_visual_data(minh: int ,maxh: int) -> void:
+	player_health.value = minh
+	player_health.max_value = maxh
 
 func _on_ability_1_pressed() -> void:
 	pass # Replace with function body.
