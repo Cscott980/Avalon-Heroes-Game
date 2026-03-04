@@ -39,4 +39,4 @@ transform = Transform3D(-3.388277e-08, 5.103928e-08, -1, 0.9819587, -0.18909545,
 unique_name_in_owner = true
 stream = ExtResource("2_vli2i")
 
-[connection signal="body_entered" from="mesh/HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="area_entered" from="mesh/HitBox" to="." method="_on_hit_box_area_entered"]
