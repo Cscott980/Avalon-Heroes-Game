@@ -6,8 +6,12 @@ enum EnemyType {
 	SUPPORT
 }
 
+
+
 @export_group("Info")
 @export var name: String
+@export var cost: int 
+
 
 @export_group("Visuals")
 @export var enemy_mesh: EnemyVisualsResource
