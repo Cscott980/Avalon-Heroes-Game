@@ -68,20 +68,22 @@ func _move_to_target(delta: float) -> void:
 		nav_agent.target_position = current_target.global_position
 		
 		var next_point = nav_agent.get_next_path_position()
-		var direction = (next_point - user.global_position).normalized()
+		var move_vec = next_point - user.global_position
+		move_vec.y = 0.0
+		var direction = safe_normalized(move_vec)
 		
 		user.velocity.x = direction.x * speed
 		user.velocity.z = direction.z * speed
 		face_direction(direction, delta)
-	# --- DIRECT MOVEMENT ---
 	else:
-		var direction = (current_target.global_position - user.global_position).normalized()
+		var move_vec = current_target.global_position - user.global_position
+		move_vec.y = 0.0
+		var direction = safe_normalized(move_vec)
 		
 		user.velocity.x = direction.x * speed
 		user.velocity.z = direction.z * speed
 		face_direction(direction, delta)
 	# Gravity
-	
 	_apply_gravity(delta)
 	
 	user.move_and_slide()
@@ -121,24 +123,21 @@ func wander(delta: float) -> void:
 			_is_wandering = true
 			wandering.emit()
 
-	# 3. MOVE TO WANDER POINT
 	var next_point = nav_agent.get_next_path_position()
 	var to_point = next_point - user.global_position
-	to_point.y = 0 # Ignore vertical distance
-	
+	to_point.y = 0.0
+
 	var dist_to_final = user.global_position.distance_to(wander_point)
 
-	# Reached destination?
 	if dist_to_final <= wander_reach_dist:
 		has_wander_point = false
-		wander_wait = idling_wait_time # Start the idle timer
+		wander_wait = idling_wait_time
 		return
 
-	# Apply Velocity
-	var dir = to_point.normalized()
+	var dir = safe_normalized(to_point)
 	user.velocity.x = dir.x * wander_speed
 	user.velocity.z = dir.z * wander_speed
-	
+
 	face_direction(dir, delta)
 	_apply_gravity(delta)
 	user.move_and_slide()
@@ -149,18 +148,25 @@ func _apply_gravity(delta: float) -> void:
 	else:
 		user.velocity.y = 0
 
-func face_direction(dir: Vector3, delta: float) -> void: 
-	if dir == Vector3.ZERO:
+func face_direction(dir: Vector3, delta: float) -> void:
+	if model_base == null or not is_instance_valid(model_base):
+		return
+	dir.y = 0.0
+	
+	if dir.length_squared() <= 0.000001:
 		return
 	
-	dir.y = 0.0
 	dir = dir.normalized()
 	
 	var target_yaw := atan2(dir.x, dir.z)
 	var current_yaw := model_base.rotation.y
-	
-	var new_yaw:= lerp_angle(current_yaw, target_yaw, turn_speed * delta)
+	var new_yaw := lerp_angle(current_yaw, target_yaw, turn_speed * delta)
 	model_base.rotation.y = new_yaw
+
+func safe_normalized(v: Vector3) -> Vector3:
+	if v.length_squared() <= 0.000001:
+		return Vector3.ZERO
+	return v.normalized()
 
 func _on_targeting_component_new_target(target: CharacterBody3D) -> void:
 	current_target = target

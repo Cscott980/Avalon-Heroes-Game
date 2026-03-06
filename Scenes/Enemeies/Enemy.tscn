@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bq5ht61tpigtg"]
 
 [ext_resource type="Script" uid="uid://b04p5uj1m7pwp" path="res://Scripts/Enemy/Enemy.gd" id="1_30xrl"]
-[ext_resource type="Resource" uid="uid://bl1tb2vhb2btc" path="res://Resources/Enemies/SkeletalGruntMelee.tres" id="2_bftp8"]
 [ext_resource type="Material" uid="uid://cfrxegokeyufx" path="res://Assets/Materials/EnemyOutline.tres" id="2_wkum4"]
 [ext_resource type="Script" uid="uid://c6ig8ugmxg4cy" path="res://Scripts/Components/Enemy/EnemyWorldCollision.gd" id="3_m30sk"]
 [ext_resource type="Shape3D" uid="uid://doxifox4gj5jn" path="res://Resources/EnemyCollision/EnemyCollision.tres" id="3_yven4"]
@@ -55,6 +54,7 @@
 [ext_resource type="Script" uid="uid://d05o53mnyekt2" path="res://Scripts/Components/Entity/KnockBackComponent.gd" id="39_v08cw"]
 [ext_resource type="Script" uid="uid://c60a1ftfdukd0" path="res://Scripts/Components/Entity/HitFlashComponent.gd" id="40_v08cw"]
 [ext_resource type="Script" uid="uid://belxscgfb825h" path="res://Scripts/Components/Enemy/EnemySpawnComponent.gd" id="44_wcvxl"]
+[ext_resource type="Script" uid="uid://dds8hlreb4rek" path="res://Scripts/Components/Enemy/EnemyStatComponent.gd" id="50_2ab1g"]
 [ext_resource type="Script" uid="uid://dt04h1fatxdgk" path="res://Scripts/Components/Enemy/EnemyAudioComponent.gd" id="53_lmo78"]
 [ext_resource type="Script" uid="uid://i60ig6rjf1s6" path="res://Scripts/Components/Enemy/EnemyDropComponent.gd" id="54_t6hbt"]
 
@@ -71,6 +71,10 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o5540"]
+radius = 1.1152344
+height = 2.661255
 
 [sub_resource type="Shader" id="Shader_n12dg"]
 code = "shader_type spatial;
@@ -243,10 +247,6 @@ _data = {
 &"Slash": SubResource("Animation_mcc6n")
 }
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o5540"]
-radius = 1.1152344
-height = 2.661255
-
 [sub_resource type="Animation" id="Animation_3vj7w"]
 length = 0.001
 tracks/0/type = "value"
@@ -305,7 +305,6 @@ _data = {
 [node name="Enemy" type="CharacterBody3D" unique_id=1616704430 groups=["enemy"]]
 collision_mask = 3
 script = ExtResource("1_30xrl")
-enemy_data = ExtResource("2_bftp8")
 
 [node name="EnemyWorldCollision" type="CollisionShape3D" parent="." unique_id=1178309170]
 unique_name_in_owner = true
@@ -625,6 +624,35 @@ theme_override_styles/background = ExtResource("16_woysm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_81xlm")
 value = 50.0
 
+[node name="HurtBoxHolder" type="BoneAttachment3D" parent="Rig_Medium/Skeleton3D" unique_id=719376824]
+transform = Transform3D(1, 0, 1.4210854e-14, 0, 0.99999994, 0, -1.4210854e-14, 0, 1, 0, 1.2414254, 0)
+bone_name = "head"
+bone_idx = 13
+
+[node name="EnemyHurtBoxComponent" type="Node3D" parent="Rig_Medium/Skeleton3D/HurtBoxHolder" unique_id=1236125644 node_paths=PackedStringArray("user", "stat_comp", "knockback_comp") groups=["enemy"]]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("12_lmo78")
+user = NodePath("../../../..")
+stat_comp = NodePath("../../../../StatComponent")
+knockback_comp = NodePath("../../../../KnockBackComponent")
+invincibility_time = 0.05
+
+[node name="HurtBox" type="Area3D" parent="Rig_Medium/Skeleton3D/HurtBoxHolder/EnemyHurtBoxComponent" unique_id=501225820 groups=["enemy"]]
+unique_name_in_owner = true
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rig_Medium/Skeleton3D/HurtBoxHolder/EnemyHurtBoxComponent/HurtBox" unique_id=1064286726]
+unique_name_in_owner = true
+transform = Transform3D(1.0000037, -3.4763858e-15, -5.9604645e-08, -1.6956922e-15, 1, -1.110223e-16, 5.9604645e-08, -3.8857806e-16, 1.0000037, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_o5540")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="InvincibilityTimer" type="Timer" parent="Rig_Medium/Skeleton3D/HurtBoxHolder/EnemyHurtBoxComponent/HurtBox" unique_id=1759841766]
+unique_name_in_owner = true
+wait_time = 0.25
+
 [node name="Slash" type="Node3D" parent="Rig_Medium" unique_id=1841827712]
 transform = Transform3D(-0.84098935, -0.3690462, -0.39565358, -0.28347954, 0.9234095, -0.2587553, 0.46084297, -0.10545078, -0.88119453, -0.42657083, 1.0934393, 1.4138393)
 script = ExtResource("13_v6xfs")
@@ -636,30 +664,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_o61ax")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Rig_Medium/Slash" unique_id=1096344427]
 libraries/ = SubResource("AnimationLibrary_3ltly")
-
-[node name="EnemyHurtBoxComponent" type="Node3D" parent="." unique_id=1236125644 node_paths=PackedStringArray("user", "stat_comp", "knockback_comp") groups=["enemy"]]
-unique_name_in_owner = true
-transform = Transform3D(-0.99972045, 1.4014349e-09, -0.02364668, 1.3934147e-09, 0.9999998, 3.5568637e-10, 0.02364668, 3.2263725e-10, -0.99972045, 4.3038546e-09, 1.2278259, -1.950202e-15)
-script = ExtResource("12_lmo78")
-user = NodePath("..")
-stat_comp = NodePath("../StatComponent")
-knockback_comp = NodePath("../KnockBackComponent")
-invincibility_time = 0.05
-
-[node name="HurtBox" type="Area3D" parent="EnemyHurtBoxComponent" unique_id=501225820 groups=["enemy"]]
-unique_name_in_owner = true
-collision_layer = 4
-collision_mask = 8
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyHurtBoxComponent/HurtBox" unique_id=1064286726]
-unique_name_in_owner = true
-transform = Transform3D(1.0000037, -3.4763858e-15, -5.9604645e-08, -1.6956922e-15, 1, -1.110223e-16, 5.9604645e-08, -3.8857806e-16, 1.0000037, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_o5540")
-debug_color = Color(1, 0, 0, 0.41960785)
-
-[node name="InvincibilityTimer" type="Timer" parent="EnemyHurtBoxComponent/HurtBox" unique_id=1759841766]
-unique_name_in_owner = true
-wait_time = 0.25
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=377001723]
 unique_name_in_owner = true
@@ -745,6 +749,11 @@ unique_name_in_owner = true
 script = ExtResource("40_v08cw")
 visuals = NodePath("../EnemyVisualComponent")
 
+[node name="EnemyStatsCompoment" type="Node" parent="." unique_id=95376439]
+unique_name_in_owner = true
+script = ExtResource("50_2ab1g")
+metadata/_custom_type_script = "uid://dds8hlreb4rek"
+
 [node name="EnemyVisualComponent" type="Node" parent="." unique_id=1334737486 node_paths=PackedStringArray("arm_left", "arm_right", "body", "cloak", "eyes", "head", "jaw", "leg_left", "leg_right", "accessory_1", "accessory_2", "accessory_3", "weapon_mesh", "weapon_shield_relic")]
 unique_name_in_owner = true
 script = ExtResource("21_vceqd")
@@ -822,13 +831,13 @@ one_shot = true
 [connection signal="body_entered" from="Rig_Medium/Skeleton3D/MainHand/EnemyMainHandComponent/HitBox" to="Rig_Medium/Skeleton3D/MainHand/EnemyMainHandComponent" method="_on_hit_box_body_entered"]
 [connection signal="enemy_hit" from="Rig_Medium/Skeleton3D/OffHand/WeaponShieldRelic" to="EnemyMeleeCombatComponent" method="_on_weapon_shield_relic_enemy_hit"]
 [connection signal="body_entered" from="Rig_Medium/Skeleton3D/OffHand/WeaponShieldRelic/OffHandHitBox" to="Rig_Medium/Skeleton3D/OffHand/WeaponShieldRelic" method="_on_off_hand_hit_box_body_entered"]
-[connection signal="damage_recived" from="EnemyHurtBoxComponent" to="EnemyHealthComponent" method="_on_enemy_hurt_box_component_damage_recived"]
-[connection signal="hit" from="EnemyHurtBoxComponent" to="." method="_on_enemy_hurt_box_component_hit"]
-[connection signal="hit" from="EnemyHurtBoxComponent" to="KnockBackComponent" method="_on_enemy_hurt_box_component_hit"]
-[connection signal="hit" from="EnemyHurtBoxComponent" to="HitFlashComponent" method="_on_enemy_hurt_box_component_hit"]
-[connection signal="area_entered" from="EnemyHurtBoxComponent/HurtBox" to="." method="_on_hurt_box_area_entered"]
-[connection signal="area_entered" from="EnemyHurtBoxComponent/HurtBox" to="EnemyHurtBoxComponent" method="_on_hurt_box_area_entered"]
-[connection signal="timeout" from="EnemyHurtBoxComponent/HurtBox/InvincibilityTimer" to="EnemyHurtBoxComponent" method="_on_invincibility_timer_timeout"]
+[connection signal="damage_recived" from="Rig_Medium/Skeleton3D/HurtBoxHolder/EnemyHurtBoxComponent" to="EnemyHealthComponent" method="_on_enemy_hurt_box_component_damage_recived"]
+[connection signal="hit" from="Rig_Medium/Skeleton3D/HurtBoxHolder/EnemyHurtBoxComponent" to="." method="_on_enemy_hurt_box_component_hit"]
+[connection signal="hit" from="Rig_Medium/Skeleton3D/HurtBoxHolder/EnemyHurtBoxComponent" to="KnockBackComponent" method="_on_enemy_hurt_box_component_hit"]
+[connection signal="hit" from="Rig_Medium/Skeleton3D/HurtBoxHolder/EnemyHurtBoxComponent" to="HitFlashComponent" method="_on_enemy_hurt_box_component_hit"]
+[connection signal="area_entered" from="Rig_Medium/Skeleton3D/HurtBoxHolder/EnemyHurtBoxComponent/HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="Rig_Medium/Skeleton3D/HurtBoxHolder/EnemyHurtBoxComponent/HurtBox" to="Rig_Medium/Skeleton3D/HurtBoxHolder/EnemyHurtBoxComponent" method="_on_hurt_box_area_entered"]
+[connection signal="timeout" from="Rig_Medium/Skeleton3D/HurtBoxHolder/EnemyHurtBoxComponent/HurtBox/InvincibilityTimer" to="Rig_Medium/Skeleton3D/HurtBoxHolder/EnemyHurtBoxComponent" method="_on_invincibility_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="EnemySpawnComponent" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="EnemyAnimationComponent" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="EnemySpawnComponent" method="_on_animation_tree_animation_finished"]
@@ -839,7 +848,7 @@ one_shot = true
 [connection signal="dead" from="EnemyHealthComponent" to="Rig_Medium/Skeleton3D/MainHand/EnemyMainHandComponent" method="_on_enemy_health_component_dead"]
 [connection signal="dead" from="EnemyHealthComponent" to="Rig_Medium/Skeleton3D/OffHand/WeaponShieldRelic" method="_on_enemy_health_component_dead"]
 [connection signal="dead" from="EnemyHealthComponent" to="Rig_Medium/Skeleton3D/HealthBarAttachment/EnemyWorldDataDisplay" method="_on_enemy_health_component_dead"]
-[connection signal="dead" from="EnemyHealthComponent" to="EnemyHurtBoxComponent" method="_on_enemy_health_component_dead"]
+[connection signal="dead" from="EnemyHealthComponent" to="Rig_Medium/Skeleton3D/HurtBoxHolder/EnemyHurtBoxComponent" method="_on_enemy_health_component_dead"]
 [connection signal="dead" from="EnemyHealthComponent" to="TargetingComponent" method="_on_enemy_health_component_dead"]
 [connection signal="dead" from="EnemyHealthComponent" to="EnemyVisualComponent" method="_on_enemy_health_component_dead"]
 [connection signal="dead" from="EnemyHealthComponent" to="EnemyMeleeCombatComponent" method="_on_enemy_health_component_dead"]
@@ -851,6 +860,7 @@ one_shot = true
 [connection signal="current_stats" from="StatComponent" to="EnemyHealthComponent" method="_on_stat_component_current_stats"]
 [connection signal="new_target" from="TargetingComponent" to="AIControllerComponent" method="_on_targeting_component_new_target"]
 [connection signal="targets_close" from="TargetingComponent" to="AIControllerComponent" method="_on_targeting_component_targets_close"]
+[connection signal="current_stats" from="EnemyStatsCompoment" to="EnemyHealthComponent" method="_on_enemy_stats_compoment_current_stats"]
 [connection signal="current_level" from="EnemyLevelComponent" to="Rig_Medium/Skeleton3D/HealthBarAttachment/EnemyWorldDataDisplay" method="_on_enemy_level_component_current_level"]
 [connection signal="spawn" from="EnemySpawnComponent" to="." method="_on_enemy_spawn_component_spawn"]
 [connection signal="timeout" from="AttackCooldown" to="EnemyStateMachine/AttackState" method="_on_attack_cooldown_timeout"]

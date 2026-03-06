@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://btkv7pblqalb4"]
+
+[ext_resource type="Script" uid="uid://newcaoehi4wh" path="res://Scripts/Managers/EnemyDirector.gd" id="1_uqg6b"]
+[ext_resource type="Script" uid="uid://dherixwfnw8w2" path="res://Scripts/Managers/EnemyDirectorComp/EnemyLeveler.gd" id="2_qd02w"]
+[ext_resource type="Script" uid="uid://v11ihutld2q" path="res://Scripts/Managers/EnemyDirectorComp/EnemyPool.gd" id="3_t24ie"]
+[ext_resource type="PackedScene" uid="uid://bq5ht61tpigtg" path="res://Scenes/Enemeies/Enemy.tscn" id="4_3f2pm"]
+[ext_resource type="Script" uid="uid://3qgvo0fy12ei" path="res://Scripts/Resources/Enemies/EnemyResource.gd" id="5_64eqx"]
+[ext_resource type="Resource" uid="uid://bl1tb2vhb2btc" path="res://Resources/Enemies/SkeletalGruntMelee.tres" id="6_wncr0"]
+[ext_resource type="Script" uid="uid://du5fjw21eseiu" path="res://Scripts/Managers/EnemyDirectorComp/SpawnRing.gd" id="7_f8hr1"]
+[ext_resource type="Script" uid="uid://btcvrgfkefyfq" path="res://Scripts/Managers/EnemyDirectorComp/BudgetManager.gd" id="8_e0wha"]
+
+[node name="EnemyDirector" type="Node" unique_id=707170219]
+script = ExtResource("1_uqg6b")
+metadata/_custom_type_script = "uid://newcaoehi4wh"
+
+[node name="EnemyLeveler" type="Node" parent="." unique_id=1956082527]
+script = ExtResource("2_qd02w")
+metadata/_custom_type_script = "uid://dherixwfnw8w2"
+
+[node name="EnemyPool" type="Node" parent="." unique_id=848587375]
+script = ExtResource("3_t24ie")
+enemy_base_scene = ExtResource("4_3f2pm")
+enemies = Array[ExtResource("5_64eqx")]([ExtResource("6_wncr0")])
+metadata/_custom_type_script = "uid://v11ihutld2q"
+
+[node name="SpawnRing" type="Node" parent="." unique_id=997726439]
+script = ExtResource("7_f8hr1")
+metadata/_custom_type_script = "uid://du5fjw21eseiu"
+
+[node name="BudgetManager" type="Node" parent="." unique_id=1555446562]
+script = ExtResource("8_e0wha")
+metadata/_custom_type_script = "uid://btcvrgfkefyfq"
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=260108660]
+autostart = true
+
+[connection signal="world_level" from="EnemyLeveler" to="." method="_on_enemy_leveler_world_level"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

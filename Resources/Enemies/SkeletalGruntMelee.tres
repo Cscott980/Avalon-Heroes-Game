@@ -14,6 +14,7 @@
 [resource]
 script = ExtResource("3_ko468")
 name = "Skeletal Grunt"
+cost = 1
 enemy_mesh = ExtResource("3_tst70")
 animation_tree = ExtResource("2_fay48")
 path_name = "SkeletalGruntAnim"

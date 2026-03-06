@@ -2,15 +2,11 @@ class_name BudgetManager extends Node
 
 
 @export var max_budget: int = 20
+
 var current_spent = 0
 
-@export var enemy_cost: Dictionary = {
-	&"grunt": 1,
-	&"elite": 5
-}
-
-func get_cost(enemy_id: StringName) -> int:
-	return int(enemy_cost.get(enemy_id,1))
+func get_cost(cost: int) -> int:
+	return cost
 
 func can_spend(cost: int) -> bool:
 	return (current_spent + cost) <= max_budget

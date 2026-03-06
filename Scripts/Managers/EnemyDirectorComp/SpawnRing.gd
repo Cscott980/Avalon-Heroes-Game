@@ -21,7 +21,7 @@ func get_spawn_offset() -> Vector3:
 	return Vector3(cos(angle) * r, 0.0, sin(angle) * r)
 
 func get_random_alive_player() -> Player:
-	var alive := players.filter(func(p): return is_instance_valid(p) and not p.is_queued_for_deletion())
+	var alive := players.filter(func(p): return is_instance_valid(p) and not p.is_in_group("dead_players"))
 	if alive.is_empty():
 		return null
 	return alive.pick_random()

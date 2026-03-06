@@ -9,6 +9,10 @@ var is_holding_2h: bool = false
 var attack_animation: String
 var path_name: String
 
+func _ready() -> void:
+	await  get_tree().process_frame
+
+
 func apply_animation_playback(data: EnemyResource) -> void:
 	anim_tree.tree_root = data.animation_tree
 	path_name = data.path_name
@@ -50,7 +54,8 @@ func play_spawn() -> void:
 		playback.travel("Spawn")
 
 func play_wander() -> void:
-	playback.travel("Wander")
+	if playback:
+		playback.travel("Wander")
 
 func play_hurt() -> void:
 	if playback:

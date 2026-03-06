@@ -21,7 +21,7 @@ signal spawned(enemy: Enemy)
 @onready var enemy_animation_component: EnemyAnimationComponent = %EnemyAnimationComponent
 @onready var enemy_main_hand_component: EnemyMainHandComponent = %EnemyMainHandComponent
 @onready var weapon_shield_relic: EnemyOffHandComponent = %WeaponShieldRelic
-@onready var stat_component: StatComponent = $StatComponent
+@onready var enemy_stats_compoment: EnemyStatsCompoment = %EnemyStatsCompoment
 @onready var knock_back_component: KnockBackComponent = %KnockBackComponent
 @onready var enemy_hurt_box_component: EnemyHurtBoxComponent = %EnemyHurtBoxComponent
 @onready var enemy_drop_component: EnemyDropComponent = $EnemyDropComponent
@@ -33,13 +33,13 @@ var dead: bool = false
 
 
 func _ready() -> void:
-	if enemy_data != null:
-		enemy_init()
+	pass
 
 func setup(data: EnemyResource, level: int) -> void:
 	enemy_data = data
-	enemy_level_component.level = level
+	enemy_level_component.set_level(level)
 	enemy_init()
+	enemy_level_component.emit_level()
 	
 func enemy_init() -> void:
 	if enemy_data == null or not is_instance_valid(enemy_data):
@@ -48,7 +48,7 @@ func enemy_init() -> void:
 	enemy_main_hand_component.apply_mainhand_weapon_visual_data(enemy_data.weapon_data)
 	weapon_shield_relic.apply_offhand_weapon_visual_data(enemy_data.weapon_data)
 	enemy_animation_component.apply_animation_playback(enemy_data)
-	stat_component.apply_stats(enemy_data.stats)
+	enemy_stats_compoment.apply_enemy_stats(enemy_data.stats)
 	ai_movement_component.apply_movement_data(enemy_data.movement_data, enemy_data.weapon_data)
 	enemy_melee_combat_component.apply_melee_weapon_data(enemy_data.weapon_data)
 	enemy_world_data_display.apply_world_display_data(enemy_data.name, enemy_level_component.level, enemy_data.max_health)

@@ -35,8 +35,8 @@ func take_damage(amount: int) -> void:
 		dead.emit()
 		current_health.emit(health)
 
-func _on_stat_component_current_stats(dic: Dictionary) -> void:
-	max_health += (dic[StatConst.STATS.VITALITY] * hp_per_vit)
-
 func _on_enemy_hurt_box_component_damage_recived(damage: int) -> void:
 	take_damage(damage)
+
+func _on_enemy_stats_compoment_current_stats(dic: Dictionary, _a: int, _ms: int) -> void:
+	max_health += (dic[StatConst.STATS.VITALITY] * hp_per_vit)
