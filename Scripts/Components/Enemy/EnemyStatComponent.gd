@@ -1,7 +1,7 @@
 class_name EnemyStatsCompoment extends Node
 
 signal current_stats(dic: Dictionary, a: int, ms: int)
-
+signal main_stat(type: int)
 var base_stats: StatResource
 var base_stats_dic: Dictionary = {}
 var base_armor: int
@@ -28,6 +28,7 @@ func apply_enemy_stats(stats: StatResource) -> void:
 	}
 	base_stats_dic = e_stats.duplicate(true) #make a copy of current base stats once init
 	current_stats.emit(e_stats, armor, enemy_main_stat)
+	main_stat.emit(enemy_main_stat)
 
 func level_up_stats(level: int) -> void:
 	for stat in e_stats:
@@ -36,9 +37,8 @@ func level_up_stats(level: int) -> void:
 		else:
 			e_stats[stat] = base_stats_dic[stat] + int(level/2.0)
 	armor = int(base_armor + int(level/3.0))
-		
 
-		
+
 func _on_enemy_level_component_level(current_level: int) -> void:
 	level_up_stats(current_level)
 	current_stats.emit(e_stats, armor, enemy_main_stat)

@@ -31,6 +31,7 @@ enum ArmorType {Light, Medium, Heavy, Shield}
 @export var skin: Skin
 
 @export_group("Properties")
+@export var defence: int = 5 
 @export var stat_bonus: StatBonusResource
 @export_flags(
 	"warrior",

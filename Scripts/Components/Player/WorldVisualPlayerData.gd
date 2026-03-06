@@ -10,6 +10,8 @@ class_name WorldVisualPlayerData extends Sprite3D
 
 var health: int
 
+func _clamp_health() -> void:
+	health = clamp(health, 0, max_health)
 
 func apply_player_visual_data(player: String, level: int) -> void:
 	player_name.text = player
@@ -22,5 +24,6 @@ func apply_player_health_visual_data(health: int) -> void:
 	health_bar.value = health
 	
 func _on_health_component_current_health(amount: int, max_player_health: int) -> void:
-	health_bar.value = amount
-	health_bar.max_value = max_player_health
+	var safe_value :int = clamp(amount, 0, max_player_health)
+	health_bar.value = float(safe_value)
+	health_bar.max_value = float(max_player_health)

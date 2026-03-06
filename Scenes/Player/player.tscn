@@ -1504,9 +1504,10 @@ drop_pickup_comp = NodePath("../DropPickupComponent")
 camera = NodePath("../PlayerCamera")
 metadata/_custom_type_script = "uid://bdch6582i2bvt"
 
-[node name="StatComponent" type="Node" parent="." unique_id=2020628456]
+[node name="StatComponent" type="Node" parent="." unique_id=2020628456 node_paths=PackedStringArray("user")]
 unique_name_in_owner = true
 script = ExtResource("119_1m0nq")
+user = NodePath("..")
 metadata/_custom_type_script = "uid://c5l5du3uioa4l"
 
 [node name="ResourcePoolComponent" type="Node" parent="." unique_id=1007622278]

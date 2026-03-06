@@ -8,7 +8,7 @@ signal damage_recived(damage: int)
 @onready var invincibility_timer: Timer = %InvincibilityTimer
 
 @export var user: Enemy
-@export var stat_comp: StatComponent
+@export var stat_comp: EnemyStatsCompoment
 @export var knockback_comp: KnockBackComponent
 @export var invincibility_time: float = 0.25
 

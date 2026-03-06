@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://q442yjg0b678"]
+
+[ext_resource type="Script" uid="uid://bnvu7uffua2aj" path="res://Scripts/Resources/Abilities/AbilityResource.gd" id="1_h7too"]
+[ext_resource type="Script" uid="uid://3qgvo0fy12ei" path="res://Scripts/Resources/Enemies/EnemyResource.gd" id="2_0ldgc"]
+[ext_resource type="ArrayMesh" uid="uid://c6iqkjawvya6n" path="res://Assets/EnemyMeshes/SkeletalWarrior/Skeleton_Warrior_Skeleton_Warrior_Body.res" id="2_c3144"]
+[ext_resource type="ArrayMesh" uid="uid://d4nh0adqtwq2e" path="res://Assets/EnemyMeshes/SkeletalWarrior/Skeleton_Warrior_Skeleton_Warrior_Eyes.res" id="3_qgyj0"]
+[ext_resource type="ArrayMesh" uid="uid://dtrnkx1xrt3bc" path="res://Assets/EnemyMeshes/SkeletalWarrior/Skeleton_Warrior_Skeleton_Warrior_Head.res" id="4_gked5"]
+[ext_resource type="ArrayMesh" uid="uid://cotkiagauxrl6" path="res://Assets/EnemyMeshes/SkeletalWarrior/Skeleton_Warrior_Skeleton_Warrior_Helmet.res" id="5_j7sjk"]
+[ext_resource type="ArrayMesh" uid="uid://qbcovv76x6fb" path="res://Assets/EnemyMeshes/SkeletalWarrior/Skeleton_Warrior_Skeleton_Warrior_Jaw.res" id="6_incum"]
+[ext_resource type="ArrayMesh" uid="uid://dn8h4y5pb77cq" path="res://Assets/EnemyMeshes/SkeletalWarrior/Skeleton_Warrior_Skeleton_Warrior_ArmLeft.res" id="7_so7bj"]
+[ext_resource type="ArrayMesh" uid="uid://8a7ul7v3v87r" path="res://Assets/EnemyMeshes/SkeletalWarrior/Skeleton_Warrior_Skeleton_Warrior_LegLeft.res" id="8_ljg4q"]
+[ext_resource type="Material" uid="uid://demfs4fe3pbom" path="res://Assets/Materials/Enemy/skeleton.tres" id="9_4ib8x"]
+[ext_resource type="Skin" uid="uid://bb3o8nmvt0eo5" path="res://Resources/MeshSkins/Enemy Skins/Skeleton_Skin.tres" id="10_phl5g"]
+[ext_resource type="ArrayMesh" uid="uid://cen4nagslfip1" path="res://Assets/EnemyMeshes/SkeletalWarrior/Skeleton_Warrior_Skeleton_Warrior_ArmRight.res" id="11_ypv5t"]
+[ext_resource type="ArrayMesh" uid="uid://bkm5hyo7ijdm5" path="res://Assets/EnemyMeshes/SkeletalWarrior/Skeleton_Warrior_Skeleton_Warrior_LegRight.res" id="12_l785b"]
+[ext_resource type="Script" uid="uid://mrv0rwb4lf7b" path="res://Scripts/Resources/Enemies/EnemeyVisualsResource.gd" id="13_18wyn"]
+[ext_resource type="ArrayMesh" uid="uid://c1v6d7aitav73" path="res://Assets/WeaponMeshes/Swords/Skeleton_Blade_Cube_007.res" id="15_p1vio"]
+[ext_resource type="Shape3D" uid="uid://boq5tagx70wx2" path="res://Assets/CollissionShape/Skeletal_Sword_Collisition.tres" id="16_3wuuy"]
+[ext_resource type="Script" uid="uid://maq73tggojj5" path="res://Scripts/Resources/Enemies/EnemyWeaponResource.gd" id="17_8ve5h"]
+
+[sub_resource type="Resource" id="Resource_lx2ub"]
+script = ExtResource("13_18wyn")
+head = ExtResource("4_gked5")
+helm = ExtResource("5_j7sjk")
+jaw = ExtResource("6_incum")
+eyes = ExtResource("3_qgyj0")
+body = ExtResource("2_c3144")
+left_arm = ExtResource("7_so7bj")
+right_arm = ExtResource("11_ypv5t")
+left_leg = ExtResource("8_ljg4q")
+right_leg = ExtResource("12_l785b")
+model_skin = ExtResource("10_phl5g")
+model_material = ExtResource("9_4ib8x")
+metadata/_custom_type_script = "uid://mrv0rwb4lf7b"
+
+[sub_resource type="Resource" id="Resource_ts28v"]
+script = ExtResource("17_8ve5h")
+main_hand = ExtResource("15_p1vio")
+main_hand_collision = ExtResource("16_3wuuy")
+off_hand = ExtResource("15_p1vio")
+off_hand_collision = ExtResource("16_3wuuy")
+metadata/_custom_type_script = "uid://maq73tggojj5"
+
+[resource]
+script = ExtResource("2_0ldgc")
+name = "Skeletal Warrior Berserker"
+cost = 3
+enemy_mesh = SubResource("Resource_lx2ub")
+weapon_data = SubResource("Resource_ts28v")
+metadata/_custom_type_script = "uid://3qgvo0fy12ei"

@@ -76,13 +76,13 @@ func load_weapon(weapon_id: WeaponResource) -> void:
 	
 func weapon_hit_box_on() -> void:
 	if hit_box:
-		hit_box.monitoring = true
-		hit_box.monitorable = true
+		hit_box.set_deferred("monitoring", true)
+		hit_box.set_deferred("monitorable", true)
 
 func weapon_hit_box_off() -> void:
 	if hit_box:
-		hit_box.monitoring = false
-		hit_box.monitorable = false
+		hit_box.set_deferred("monitoring", false)
+		hit_box.set_deferred("monitorable", false)
 
 func _on_hit_box_area_entered(area: Area3D) -> void:
 	if area.is_in_group("enemy"):

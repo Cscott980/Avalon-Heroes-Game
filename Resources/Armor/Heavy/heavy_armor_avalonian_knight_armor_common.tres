@@ -21,6 +21,7 @@ armor = ExtResource("5_32i1j")
 leg_left = ExtResource("6_htl5l")
 leg_right = ExtResource("7_3385m")
 skin = ExtResource("9_qggvh")
+defence = 10
 allowed_classes = 3
 name = "Avalonian Knight Armor"
 id = "heavy_armor_avalonian_knight_armor_common"

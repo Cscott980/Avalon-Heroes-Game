@@ -27,24 +27,29 @@ func try_spawn_enemy() -> void:
 		return
 		
 	var enemy = enemy_pool.pick_resource(enemy_pool.enemies)
-	print("picked enemy resource: ", enemy)
-	if enemy:
-		print("enemy name: ", enemy.name)
-		print("enemy visuals: ", enemy.enemy_mesh)
-		print("enemy weapon: ", enemy.weapon_data)
-		print("enemy stats: ", enemy.stats)
 	if enemy == null:
 		return
 		
 	var cost = enemy.cost
-	if budget_manager.can_spend(cost):
-		budget_manager.spend(cost)
-		var new_enemy = enemy_pool.make_enemy()
-		nav_root.add_child(new_enemy)
-		new_enemy.hide()
-		new_enemy.global_position = spawn_ring.get_spawn_position()
-		new_enemy.setup(enemy,enemy_level)
-		new_enemy.show()
+	if not budget_manager.can_spend(cost):
+		return
+
+	var new_enemy = enemy_pool.make_enemy()
+	if new_enemy == null:
+		return
+
+	var spawn_pos = spawn_ring.get_spawn_position()
+	if not is_finite(spawn_pos.x) or not is_finite(spawn_pos.y) or not is_finite(spawn_pos.z):
+		return
+
+	nav_root.add_child(new_enemy)
+	new_enemy.global_position = spawn_pos
+	new_enemy.setup(enemy, enemy_level)
+
+	budget_manager.spend(cost)
+	
+	if not new_enemy.finished.is_connected(_on_enemy_finished):
+		new_enemy.finished.connect(_on_enemy_finished)
 		
 func _on_spawn_timer_timeout() -> void:
 	for i in spawn_attempts_per_tick:
@@ -52,11 +57,6 @@ func _on_spawn_timer_timeout() -> void:
 
 func _on_enemy_leveler_world_level(l: int) -> void:
 	enemy_level = l
-
-
-func _on_enemy_spawned(enemy: Enemy) -> void:
-	pass # Replace with function body.
-
 
 func _on_enemy_finished(enemy: Enemy) -> void:
 	budget_manager.refund(enemy.enemy_data.cost)

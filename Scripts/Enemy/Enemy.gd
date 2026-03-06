@@ -33,18 +33,18 @@ var dead: bool = false
 
 
 func _ready() -> void:
+	hide()
 	pass
 
 func setup(data: EnemyResource, level: int) -> void:
-	if data:
-		print("  name: ", data.name)
-		print("  visuals: ", data.enemy_mesh)
-		print("  weapon: ", data.weapon_data)
-		print("  stats: ", data.stats)
+	if data == null:
+		queue_free()
+		return
 	enemy_data = data
 	enemy_level_component.set_level(level)
 	enemy_init()
 	enemy_level_component.emit_level()
+	show()
 	
 func enemy_init() -> void:
 	if enemy_data == null or not is_instance_valid(enemy_data):
@@ -61,8 +61,7 @@ func enemy_init() -> void:
 	enemy_drop_component.apply_drop_data(enemy_data.guaranteed_drop, enemy_data.randomDrop)
 	if state_machine == null or not is_instance_valid(state_machine):
 		return
-	#state_machine.Initializer()
-	
+	state_machine.Initializer()
 func _on_ai_controller_component_target_in_attack_dist(status: bool) -> void:
 	if dead:
 		return
