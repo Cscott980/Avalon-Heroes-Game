@@ -1,16 +1,17 @@
-class_name SpawnRing extends Node
-
-const INVALID_POS := Vector3.INF
+class_name SpawnRing
+extends Node
 
 @export var inner_radius: float = 12.0
 @export var outer_radius: float = 18.0
 @export var players: Array[Player] = []
 
-
 func _ready() -> void:
+	refresh_players()
+
+func refresh_players() -> void:
 	players.clear()
 
-	for n in get_tree().get_nodes_in_group("players"):
+	for n in get_tree().get_nodes_in_group("player"):
 		if n is Player:
 			players.append(n)
 
@@ -27,7 +28,12 @@ func get_random_alive_player() -> Player:
 	return alive.pick_random()
 
 func get_spawn_position() -> Vector3:
+	if players.is_empty():
+		refresh_players()
+
 	var p := get_random_alive_player()
 	if p == null:
-		return INVALID_POS
+		push_error("SpawnRing: no alive player found")
+		return Vector3.ZERO
+
 	return p.global_position + get_spawn_offset()

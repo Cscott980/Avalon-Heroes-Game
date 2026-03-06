@@ -36,6 +36,11 @@ func _ready() -> void:
 	pass
 
 func setup(data: EnemyResource, level: int) -> void:
+	if data:
+		print("  name: ", data.name)
+		print("  visuals: ", data.enemy_mesh)
+		print("  weapon: ", data.weapon_data)
+		print("  stats: ", data.stats)
 	enemy_data = data
 	enemy_level_component.set_level(level)
 	enemy_init()
@@ -56,7 +61,7 @@ func enemy_init() -> void:
 	enemy_drop_component.apply_drop_data(enemy_data.guaranteed_drop, enemy_data.randomDrop)
 	if state_machine == null or not is_instance_valid(state_machine):
 		return
-	state_machine.Initializer()
+	#state_machine.Initializer()
 	
 func _on_ai_controller_component_target_in_attack_dist(status: bool) -> void:
 	if dead:

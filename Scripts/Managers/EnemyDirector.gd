@@ -27,7 +27,12 @@ func try_spawn_enemy() -> void:
 		return
 		
 	var enemy = enemy_pool.pick_resource(enemy_pool.enemies)
-	
+	print("picked enemy resource: ", enemy)
+	if enemy:
+		print("enemy name: ", enemy.name)
+		print("enemy visuals: ", enemy.enemy_mesh)
+		print("enemy weapon: ", enemy.weapon_data)
+		print("enemy stats: ", enemy.stats)
 	if enemy == null:
 		return
 		
@@ -36,8 +41,10 @@ func try_spawn_enemy() -> void:
 		budget_manager.spend(cost)
 		var new_enemy = enemy_pool.make_enemy()
 		nav_root.add_child(new_enemy)
+		new_enemy.hide()
 		new_enemy.global_position = spawn_ring.get_spawn_position()
 		new_enemy.setup(enemy,enemy_level)
+		new_enemy.show()
 		
 func _on_spawn_timer_timeout() -> void:
 	for i in spawn_attempts_per_tick:

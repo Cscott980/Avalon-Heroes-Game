@@ -42,8 +42,14 @@ func _ready() -> void:
 	highlighter_off()
 
 func apply_visuals(data: EnemyVisualsResource) -> void:
-	if data == null or not is_instance_valid(data):
+	print("apply_visuals data: ", data)
+	if data == null:
+		push_error("EnemyVisualComponent: visuals resource is null")
 		return
+
+	print(" left_arm: ", data.left_arm)
+	print(" body: ", data.body)
+	print(" head: ", data.head)
 	entity_skin = data.model_skin
 	entity_material = data.model_material
 	
