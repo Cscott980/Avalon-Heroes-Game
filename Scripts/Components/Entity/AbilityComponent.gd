@@ -6,6 +6,7 @@ signal on_cooldown(button: Button, time: float, disable: bool)
 signal ability_1_icons(icons: Array[Texture2D])
 signal ability_2_icons(icons: Array[Texture2D])
 signal ability_3_icons(icons: Array[Texture2D])
+signal ability_package(dmg: int, heal: int, status_effect: int)
 
 @export var target: CharacterBody3D = null
 var abilities_data: HeroClassAbilitiesResource

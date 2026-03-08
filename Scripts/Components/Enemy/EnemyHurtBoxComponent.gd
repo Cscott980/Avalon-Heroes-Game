@@ -25,7 +25,7 @@ func _on_invincibility_timer_timeout() -> void:
 func _on_hurt_box_area_entered(area: Area3D) -> void:
 	if not _can_get_hurt:
 		return
-	if area.is_in_group("player_weapon"):
+	if area.is_in_group("player_weapon") or area.is_in_group("player_ability"):
 		hit.emit(area)
 		user.state_machine.change_state("HurtState")
 		knockback_comp.knockback()

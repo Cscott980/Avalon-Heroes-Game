@@ -115,13 +115,15 @@ func reset_for_pool() -> void:
 		state_machine.change_state("IdleState")
 	
 func _on_de_spawn_timer_timeout() -> void:
-		finished.emit(self)
-		queue_free()
+	if dead:
+		return
+	finished.emit(self)
+	queue_free()
 
 
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
-	despawn_timer.stop()
-
+	if despawn_timer:
+		despawn_timer.stop()
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	if dead:

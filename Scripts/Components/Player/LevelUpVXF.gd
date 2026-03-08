@@ -6,7 +6,7 @@ class_name LevelUpVFX extends Node3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
-const LEVEL_SHADER: Shader = preload("uid://cswx41xa68w6y")
+const LEVEL_SHADER: ShaderMaterial = preload("uid://bc34ol7xngftp")
 
 var meshes: Array = []
 var material: ShaderMaterial
@@ -16,8 +16,8 @@ func _ready() -> void:
 	audio.stop()
 	hide()
 	meshes = visuals.visual_data
-	material = ShaderMaterial.new()
-	material.shader = LEVEL_SHADER
+	material = LEVEL_SHADER
+	
 
 func level_vfx() -> void:
 	show()

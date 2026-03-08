@@ -29,7 +29,6 @@ metadata/_custom_type_script = "uid://du5fjw21eseiu"
 
 [node name="BudgetManager" type="Node" parent="." unique_id=1555446562]
 script = ExtResource("8_e0wha")
-max_budget = 25
 metadata/_custom_type_script = "uid://btcvrgfkefyfq"
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=260108660]

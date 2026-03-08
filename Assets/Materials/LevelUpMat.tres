@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bc34ol7xngftp"]
+
+[ext_resource type="Shader" uid="uid://cswx41xa68w6y" path="res://Assets/Shaders/LevelUpShaderOverlay.gdshader" id="1_vpgw0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_vpgw0")
+shader_parameter/shine_color = Color(1, 0.8, 0.2, 1)
+shader_parameter/cycle_speed = 5.0
+shader_parameter/shine_width = 1.0
+shader_parameter/intensity = 5.0

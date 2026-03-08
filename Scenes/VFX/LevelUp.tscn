@@ -82,6 +82,10 @@ billboard_mode = 1
 [sub_resource type="QuadMesh" id="QuadMesh_ee15t"]
 size = Vector2(2.355, 1.565)
 
+[sub_resource type="Curve" id="Curve_g8aqp"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kvwu0"]
 
 [sub_resource type="Animation" id="Animation_pbpog"]
@@ -89,7 +93,7 @@ resource_name = "LevelUp"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CPUParticles3D:emitting")
+tracks/0/path = NodePath("BlastOne:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -149,7 +153,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CPUParticles3D2:emitting")
+tracks/5/path = NodePath("Particles:emitting")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -176,7 +180,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CPUParticles3D:emitting")
+tracks/0/path = NodePath("BlastOne:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -236,7 +240,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CPUParticles3D2:emitting")
+tracks/5/path = NodePath("Particles:emitting")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -272,7 +276,7 @@ transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 0
 material_override = SubResource("ShaderMaterial_m85co")
 mesh = SubResource("QuadMesh_gt0h7")
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1426556530]
+[node name="BlastOne" type="CPUParticles3D" parent="." unique_id=1426556530]
 material_override = SubResource("ShaderMaterial_fsv1r")
 cast_shadow = 0
 emitting = false
@@ -291,7 +295,7 @@ scale_curve_z = SubResource("Curve_hygm6")
 color = Color(9.032985, 9.082669, 3.6422527, 1)
 color_ramp = SubResource("Gradient_ep727")
 
-[node name="CPUParticles3D2" type="CPUParticles3D" parent="." unique_id=949818282]
+[node name="Particles" type="CPUParticles3D" parent="." unique_id=949818282]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5581062, 0)
 material_override = SubResource("StandardMaterial3D_g8aqp")
 emitting = false
@@ -317,15 +321,20 @@ scale_amount_max = 0.0
 [node name="LevelUpIcon" type="CPUParticles3D" parent="." unique_id=954899198]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4738526, 0)
 material_override = SubResource("StandardMaterial3D_m85co")
+cast_shadow = 0
 emitting = false
 amount = 1
-lifetime = 3.0
 one_shot = true
 mesh = SubResource("QuadMesh_ee15t")
-direction = Vector3(0, 5, 0)
-gravity = Vector3(0, 5, 0)
-initial_velocity_min = 2.0
-initial_velocity_max = 2.0
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 8.0
+initial_velocity_max = 8.0
+damping_min = 1.0
+damping_max = 1.0
+damping_curve = SubResource("Curve_g8aqp")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1174825939]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)

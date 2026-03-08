@@ -126,6 +126,8 @@
 [ext_resource type="Script" uid="uid://b3errr5547krs" path="res://Scripts/Components/Entity/ValueEmitterComponent.gd" id="124_dc80h"]
 [ext_resource type="Script" uid="uid://b5q5ou4g32ags" path="res://Scripts/Components/Player/LungeComponent.gd" id="124_nojrp"]
 [ext_resource type="Script" uid="uid://bf7f7b7rhp7vg" path="res://Scripts/Components/Player/DropPickupComponent.gd" id="125_nojrp"]
+[ext_resource type="Script" uid="uid://cj25lj11qx8gq" path="res://Scripts/Components/Entity/StatusEffectComponent.gd" id="126_o7dio"]
+[ext_resource type="PackedScene" uid="uid://ytd72b80ra5u" path="res://Scenes/VFX/HealStatusVFX.tscn" id="127_5qtmx"]
 [ext_resource type="PackedScene" uid="uid://bf2qmdalqb8v8" path="res://Scenes/VFX/LevelUp.tscn" id="127_s3fhb"]
 
 [sub_resource type="Skin" id="Skin_t53un"]
@@ -1539,6 +1541,12 @@ metadata/_custom_type_script = "uid://b5q5ou4g32ags"
 [node name="LungeTimer" type="Timer" parent="LungeComponent" unique_id=64164420]
 unique_name_in_owner = true
 
+[node name="StatusEffectComponent" type="Node" parent="." unique_id=1505091165 node_paths=PackedStringArray("user")]
+script = ExtResource("126_o7dio")
+user = NodePath("..")
+heal_vfx = ExtResource("127_5qtmx")
+metadata/_custom_type_script = "uid://cj25lj11qx8gq"
+
 [node name="DropPickupComponent" type="Node" parent="." unique_id=2127323241 node_paths=PackedStringArray("user")]
 script = ExtResource("125_nojrp")
 user = NodePath("..")
@@ -1643,6 +1651,7 @@ visuals = NodePath("../Model/Rig_Medium/EquipmentVisualComponent")
 [connection signal="timeout" from="LungeComponent/LungeTimer" to="LungeComponent" method="_on_lunge_timer_timeout"]
 [connection signal="exp_gem" from="DropPickupComponent" to="ProgressionComponent" method="_on_drop_pickup_component_exp_gem"]
 [connection signal="health_potion" from="DropPickupComponent" to="HealthComponent" method="_on_drop_pickup_component_health_potion"]
+[connection signal="health_potion" from="DropPickupComponent" to="StatusEffectComponent" method="_on_drop_pickup_component_health_potion"]
 [connection signal="resource" from="DropPickupComponent" to="ResourcePoolComponent" method="_on_drop_pickup_component_resource"]
 [connection signal="timeout" from="AttackCooldown" to="StateMachine" method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="AttackCooldown" to="CombatComponent" method="_on_attack_cooldown_timeout"]

@@ -5,9 +5,13 @@ signal rooted
 signal slowed(new_speed: float)
 signal dot(damage: int)
 signal status_ended
-
 signal status_effect_data(art: Texture2D, desc: Dictionary, type: int)
 
+@export var user: CharacterBody3D = null
+@export var heal_vfx: PackedScene = null
+@export var visuals: EquipmentVisualComponent = null
+
+var visual_data: Array = []
 
 var active_status_effects: Array[StatusEffectsResource]
 var icon: Texture2D
@@ -43,3 +47,26 @@ func _get_heal_or_dmg(type: int, dmg_value: float, heal_value: float) -> float:
 	elif type == StatusEffectsResource.EffectType.HOT:
 		mod = heal_value
 	return mod
+
+
+func _on_drop_pickup_component_health_potion(_amount: float) -> void:
+	if not heal_vfx == null:
+		var vfx = heal_vfx.instantiate() as Node3D
+		user.add_child(vfx)
+		if vfx.has_node("HealSymbol"):
+			var emitter = vfx.get_node("HealSymbol") as CPUParticles3D
+			emitter.emitting = true
+		await get_tree().create_timer(1.0).timeout
+		user.remove_child(vfx)
+		
+func hit_flash_on() -> void:
+	pass
+	
+func hit_flash_off() -> void:
+	pass
+
+func heal_glow_on() -> void:
+	pass
+
+func heal_glow_off() -> void:
+	pass

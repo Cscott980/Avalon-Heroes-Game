@@ -1,25 +1,32 @@
 [gd_scene format=3 uid="uid://dat5oxr5onj6i"]
 
-[ext_resource type="Shader" uid="uid://d4fylfwgo0fla" path="res://Assets/Shaders/RadiateEffect.gdshader" id="1_e6p3e"]
-[ext_resource type="ArrayMesh" uid="uid://dd1kkqmqueh5w" path="res://Assets/Misc/Sphere.res" id="1_jsor5"]
-[ext_resource type="PackedScene" uid="uid://djsr5sg6v6q8f" path="res://Scenes/Classes/Warrior.tscn" id="2_e6p3e"]
+[ext_resource type="PackedScene" uid="uid://e6cuyocs1o1v" path="res://Scenes/Classes/paladin_with_helmet.tscn" id="1_85wn7"]
+[ext_resource type="Shader" uid="uid://dyhj3goh2dwla" path="res://Assets/Shaders/Shackwave.gdshader" id="1_jsor5"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_woyqf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e6p3e"]
 render_priority = 0
-shader = ExtResource("1_e6p3e")
-shader_parameter/radial_scroll_speed = 2.0
-shader_parameter/angular_scroll_speed = 0.0
-shader_parameter/radial_repeat = 1.0
-shader_parameter/angular_repeat = 1.0
-shader_parameter/intensity = 1.0
-shader_parameter/alpha = 1.0
+shader = ExtResource("1_jsor5")
+shader_parameter/tint = Color(1, 1, 1, 1)
 shader_parameter/progress = 0.0
+shader_parameter/start_scale = 0.12
+shader_parameter/end_scale = 2.5
+shader_parameter/opacity = 1.0
+shader_parameter/mask_power = 1.6
+shader_parameter/fade_in = 0.05
+shader_parameter/fade_out = 0.35
+shader_parameter/mask_source = 1
+shader_parameter/bw_threshold = 0.05
+shader_parameter/invert_mask = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_jsor5"]
 
 [node name="WarCry" type="Node3D" unique_id=160871371]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=323265033]
-transform = Transform3D(700, 0, 0, 0, -3.059797e-05, 700, 0, -700, -3.059797e-05, 0, 1.97508, 0)
-material_override = SubResource("ShaderMaterial_woyqf")
-mesh = ExtResource("1_jsor5")
+transform = Transform3D(19.77, 0, 0, 0, -8.641742e-07, 19.77, 0, -19.77, -8.641742e-07, 0, 1.7658007, 0)
+material_override = SubResource("ShaderMaterial_e6p3e")
+mesh = SubResource("QuadMesh_jsor5")
 
-[node name="Warrior" parent="." unique_id=1516226679 instance=ExtResource("2_e6p3e")]
+[node name="Paladin_with_Helmet" parent="." unique_id=1286196735 instance=ExtResource("1_85wn7")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=247915238]

@@ -18,6 +18,7 @@ Unlocks at: Level 30
 Cooldown: 60 seconds"
 active_icon = ExtResource("1_hw6hb")
 pressed_icon = ExtResource("3_5vm5c")
+ability_type = 2
 vfx = ExtResource("4_je2g3")
-base_damage = 30
+base_damage = 50
 metadata/_custom_type_script = "uid://bnvu7uffua2aj"

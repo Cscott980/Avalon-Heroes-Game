@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://ytd72b80ra5u"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wfgij"]
+load_path = "res://.godot/imported/HealIcon.png-31c946fe010cf7b779180d7f034dfdf1.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_43c56"]
+transparency = 4
+shading_mode = 0
+albedo_color = Color(1.0332564, 2.0301623, 1.1626669, 1)
+albedo_texture = SubResource("CompressedTexture2D_wfgij")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_56yof"]
+material = SubResource("StandardMaterial3D_43c56")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="Animation" id="Animation_wfgij"]
+resource_name = "Heal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HealSymbol:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16, 0.41),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_43c56"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HealSymbol:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_56yof"]
+_data = {
+&"Heal": SubResource("Animation_wfgij"),
+&"RESET": SubResource("Animation_43c56")
+}
+
+[node name="HealStatusEffect" type="Node3D" unique_id=962874080]
+
+[node name="HealSymbol" type="CPUParticles3D" parent="." unique_id=1658938705]
+transform = Transform3D(1, 0, 0, 0, 0.4911774, -0.87105954, 0, 0.87105954, 0.4911774, -0.0050325394, 1.1974843, 0)
+cast_shadow = 0
+emitting = false
+amount = 10
+one_shot = true
+mesh = SubResource("QuadMesh_56yof")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 0)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 2, 0)
+scale_amount_min = 0.01
+scale_amount_max = 0.01
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1642941890]
+libraries/ = SubResource("AnimationLibrary_56yof")

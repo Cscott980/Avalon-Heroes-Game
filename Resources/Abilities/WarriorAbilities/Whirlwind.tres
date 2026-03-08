@@ -3,10 +3,13 @@
 [ext_resource type="Script" uid="uid://bnvu7uffua2aj" path="res://Scripts/Resources/Abilities/AbilityResource.gd" id="1_dlfyl"]
 [ext_resource type="Texture2D" uid="uid://dtiw01kbfwugg" path="res://Assets/GUI/UI/Icons/WarriorAbilities/WhirlwindIcon.png" id="1_uopxm"]
 [ext_resource type="Texture2D" uid="uid://ft1pubu0havm" path="res://Assets/GUI/UI/Icons/WarriorAbilities/WhirlwindIconPressed.png" id="3_8ucas"]
+[ext_resource type="PackedScene" uid="uid://cb2nxh08im3od" path="res://Scenes/Abilities/Warrior/Whirlwind.tscn" id="4_uopxm"]
 
 [resource]
 script = ExtResource("1_dlfyl")
 display_name = "Whirlwind"
 active_icon = ExtResource("1_uopxm")
 pressed_icon = ExtResource("3_8ucas")
+vfx = ExtResource("4_uopxm")
+duration = 5.0
 metadata/_custom_type_script = "uid://bnvu7uffua2aj"

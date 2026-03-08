@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b5eakouh08h7p"]
+
+[sub_resource type="Shader" id="Shader_xxth1"]
+code = "shader_type spatial;
+render_mode blend_add, unshaded; // Additive blending for a \"glow\" look
+
+uniform vec4 shine_color : source_color = vec4(1.0, 0.8, 0.2, 1.0);
+uniform float cycle_speed : hint_range(0.1, 5.0) = 2.0;
+uniform float shine_width : hint_range(0.01, 1.0) = 0.2;
+uniform float intensity : hint_range(0.0, 5.0) = 0.0; // Control this via script
+
+void fragment() {
+    // Creates a diagonal sweep effect based on UV or world position
+    float shine = step(1.0 - shine_width, sin(UV.x * 10.0 + UV.y * 5.0 + TIME * cycle_speed));
+    
+    ALBEDO = shine_color.rgb;
+    ALPHA = shine * intensity * shine_color.a;
+}
+"
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_xxth1")
+shader_parameter/shine_color = Color(1, 0, 0.031354904, 1)
+shader_parameter/cycle_speed = 5.0
+shader_parameter/shine_width = 1.0
+shader_parameter/intensity = 5.0
