@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://w4alclilyqd8" path="res://Assets/Textures/Misc/twirl_01.png" id="5_0p4fq"]
 [ext_resource type="Texture2D" uid="uid://f1mfwrdudlho" path="res://Assets/Textures/Misc/T_NKQ443.png" id="5_h413s"]
 [ext_resource type="ArrayMesh" uid="uid://7vuqsdwag5nh" path="res://Assets/Misc/staticmeshsmoke.obj" id="6_0p4fq"]
+[ext_resource type="PackedScene" uid="uid://e6cuyocs1o1v" path="res://Scenes/Classes/paladin_with_helmet.tscn" id="9_slf7f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hasjt"]
 render_priority = 0
@@ -93,7 +94,8 @@ initial_velocity_min = 0.8
 initial_velocity_max = 1.5
 tangential_accel_min = 5.0
 tangential_accel_max = 5.0
-scale_amount_min = 0.5
+scale_amount_min = 0.1
+scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_ofxau")
 color_ramp = SubResource("Gradient_31a5e")
 
@@ -110,6 +112,8 @@ debug_color = Color(1, 0, 0, 0.41960785)
 [node name="DPS" type="Timer" parent="." unique_id=1882412994]
 unique_name_in_owner = true
 autostart = true
+
+[node name="Paladin_with_Helmet" parent="." unique_id=1286196735 instance=ExtResource("9_slf7f")]
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="DPS" to="." method="_on_dps_timeout"]

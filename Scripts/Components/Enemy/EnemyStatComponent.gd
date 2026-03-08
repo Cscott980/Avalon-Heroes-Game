@@ -38,7 +38,6 @@ func level_up_stats(level: int) -> void:
 			e_stats[stat] = base_stats_dic[stat] + int(level/2.0)
 	armor = int(base_armor + int(level/3.0))
 
-
-func _on_enemy_level_component_level(current_level: int) -> void:
-	level_up_stats(current_level)
+func _on_enemy_level_component_current_level(data: int) -> void:
+	level_up_stats(data)
 	current_stats.emit(e_stats, armor, enemy_main_stat)

@@ -126,6 +126,7 @@
 [ext_resource type="Script" uid="uid://b3errr5547krs" path="res://Scripts/Components/Entity/ValueEmitterComponent.gd" id="124_dc80h"]
 [ext_resource type="Script" uid="uid://b5q5ou4g32ags" path="res://Scripts/Components/Player/LungeComponent.gd" id="124_nojrp"]
 [ext_resource type="Script" uid="uid://bf7f7b7rhp7vg" path="res://Scripts/Components/Player/DropPickupComponent.gd" id="125_nojrp"]
+[ext_resource type="PackedScene" uid="uid://bf2qmdalqb8v8" path="res://Scenes/VFX/LevelUp.tscn" id="127_s3fhb"]
 
 [sub_resource type="Skin" id="Skin_t53un"]
 resource_name = "Skin"
@@ -1563,6 +1564,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5792913, 0)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4111938, 0)
 
+[node name="LevelUpVFX" parent="." unique_id=592593492 node_paths=PackedStringArray("visuals") instance=ExtResource("127_s3fhb")]
+visuals = NodePath("../Model/Rig_Medium/EquipmentVisualComponent")
+
 [connection signal="player_head_for_sheat" from="Model/Rig_Medium/EquipmentVisualComponent" to="PlayerUI" method="_on_equipment_visual_component_player_head_for_sheat"]
 [connection signal="no_weapon_equiped" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/IdleState" method="_on_main_hand_weapon_no_weapon_equiped"]
 [connection signal="no_weapon_equiped" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/AttackState1" method="_on_main_hand_weapon_no_weapon_equiped"]
@@ -1625,6 +1629,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4111938, 0)
 [connection signal="init_quiz" from="ProgressionComponent" to="." method="_on_progression_component_init_quiz"]
 [connection signal="level" from="ProgressionComponent" to="PlayerUI" method="_on_progression_component_level"]
 [connection signal="level" from="ProgressionComponent" to="HealthComponent" method="_on_progression_component_level"]
+[connection signal="level" from="ProgressionComponent" to="LevelUpVFX" method="_on_progression_component_level"]
 [connection signal="leveling" from="ProgressionComponent" to="." method="_on_progression_component_leveling"]
 [connection signal="leveling" from="ProgressionComponent" to="MovementComponent" method="_on_progression_component_leveling"]
 [connection signal="leveling" from="ProgressionComponent" to="PlayerInputComponent" method="_on_progression_component_leveling"]

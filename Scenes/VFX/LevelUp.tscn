@@ -1,0 +1,352 @@
+[gd_scene format=3 uid="uid://bf2qmdalqb8v8"]
+
+[ext_resource type="Shader" uid="uid://b8xg0rf2hjxod" path="res://LevelUp.tres" id="1_ewln8"]
+[ext_resource type="Script" uid="uid://bhf5mo1w14me2" path="res://Scripts/Components/Player/LevelUpVXF.gd" id="1_x5hmj"]
+[ext_resource type="Texture2D" uid="uid://x6pygs18mph8" path="res://Assets/Textures/Misc/T_Aurax44.jpg" id="2_3phkf"]
+[ext_resource type="Shader" uid="uid://dyhj3goh2dwla" path="res://Assets/Shaders/Shackwave.gdshader" id="2_16slg"]
+[ext_resource type="ArrayMesh" uid="uid://qyykj3lerwgi" path="res://Assets/Misc/cylinder_long.obj" id="2_e662m"]
+[ext_resource type="Texture2D" uid="uid://cq1nhqcs8v8d6" path="res://Assets/Textures/Misc/T_texr41.png" id="3_g8aqp"]
+[ext_resource type="Texture2D" uid="uid://bp1vpi6u631mh" path="res://Assets/Textures/Misc/T_VFX_CircleFit1.png" id="7_16slg"]
+[ext_resource type="AudioStream" uid="uid://duixq6rdh5atl" path="res://Assets/Audio/level up.wav" id="8_16slg"]
+[ext_resource type="Texture2D" uid="uid://cp5y5e2v7asap" path="res://Assets/Icons/LevelUpIcon.png" id="8_g8aqp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m85co"]
+render_priority = 0
+shader = ExtResource("2_16slg")
+shader_parameter/shout_tex = ExtResource("3_g8aqp")
+shader_parameter/tint = Color(5.492456, 5.080637, 2.0614529, 1)
+shader_parameter/progress = 0.0
+shader_parameter/start_scale = 0.12
+shader_parameter/end_scale = 0.99999998137332
+shader_parameter/opacity = 1.0
+shader_parameter/mask_power = 1.6
+shader_parameter/fade_in = 0.05
+shader_parameter/fade_out = 0.35
+shader_parameter/mask_source = 1
+shader_parameter/bw_threshold = 0.05
+shader_parameter/invert_mask = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_gt0h7"]
+
+[sub_resource type="Gradient" id="Gradient_e662m"]
+offsets = PackedFloat32Array(0.37670198, 0.86838126, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3phkf"]
+gradient = SubResource("Gradient_e662m")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fsv1r"]
+render_priority = 0
+shader = ExtResource("1_ewln8")
+shader_parameter/Speed = Vector2(1.5, 3)
+shader_parameter/Aura_Texture = ExtResource("2_3phkf")
+shader_parameter/Gardient = SubResource("GradientTexture2D_3phkf")
+
+[sub_resource type="Curve" id="Curve_ee15t"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_mnpt6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.12169826), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_hygm6"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ep727"]
+offsets = PackedFloat32Array(0, 0.43375173, 0.70292884, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8aqp"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+albedo_color = Color(9.800809, 10.396052, 2.0193443, 1)
+albedo_texture = ExtResource("7_16slg")
+emission = Color(0.75658613, 0.8, 0.7781075, 1)
+emission_energy_multiplier = 2.62
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_m85co"]
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m85co"]
+transparency = 4
+shading_mode = 0
+albedo_color = Color(1.2479903, 1.1698114, 0.7533867, 1)
+albedo_texture = ExtResource("8_g8aqp")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_ee15t"]
+size = Vector2(2.355, 1.565)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kvwu0"]
+
+[sub_resource type="Animation" id="Animation_pbpog"]
+resource_name = "LevelUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blast:material_override:shader_parameter/progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area3D/CollisionShape3D:shape:radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2953613),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5, 7.517]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area3D/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.30001268),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OmniLight3D:light_energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.07907311, 0.30001268),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 16.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CPUParticles3D2:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LevelUpIcon:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_b0uti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blast:material_override:shader_parameter/progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area3D/CollisionShape3D:shape:radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area3D/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OmniLight3D:light_energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CPUParticles3D2:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LevelUpIcon:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rujhy"]
+_data = {
+&"LevelUp": SubResource("Animation_pbpog"),
+&"RESET": SubResource("Animation_b0uti")
+}
+
+[node name="LevelUpVFX" type="Node3D" unique_id=592593492]
+script = ExtResource("1_x5hmj")
+
+[node name="Blast" type="MeshInstance3D" parent="." unique_id=1612510771]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-07, 20, 0, -20, -8.742278e-07, 0, 1.7446799, 0)
+material_override = SubResource("ShaderMaterial_m85co")
+mesh = SubResource("QuadMesh_gt0h7")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1426556530]
+material_override = SubResource("ShaderMaterial_fsv1r")
+cast_shadow = 0
+emitting = false
+amount = 1
+one_shot = true
+speed_scale = 2.0
+fixed_fps = 60
+mesh = ExtResource("2_e662m")
+gravity = Vector3(0, 0, 0)
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+split_scale = true
+scale_curve_x = SubResource("Curve_ee15t")
+scale_curve_y = SubResource("Curve_mnpt6")
+scale_curve_z = SubResource("Curve_hygm6")
+color = Color(9.032985, 9.082669, 3.6422527, 1)
+color_ramp = SubResource("Gradient_ep727")
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="." unique_id=949818282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5581062, 0)
+material_override = SubResource("StandardMaterial3D_g8aqp")
+emitting = false
+amount = 32
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+mesh = SubResource("QuadMesh_m85co")
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+radial_accel_min = 50.0
+radial_accel_max = 50.0
+damping_min = 20.0
+damping_max = 100.0
+scale_amount_min = 0.0
+scale_amount_max = 0.0
+
+[node name="LevelUpIcon" type="CPUParticles3D" parent="." unique_id=954899198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4738526, 0)
+material_override = SubResource("StandardMaterial3D_m85co")
+emitting = false
+amount = 1
+lifetime = 3.0
+one_shot = true
+mesh = SubResource("QuadMesh_ee15t")
+direction = Vector3(0, 5, 0)
+gravity = Vector3(0, 5, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1174825939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+light_color = Color(0.9668909, 1, 0.50908524, 1)
+light_energy = 0.0
+omni_range = 9.0
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1312883119]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1324800349]
+shape = SubResource("CylinderShape3D_kvwu0")
+debug_color = Color(0.70196074, 0.08191024, 0, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1022814749]
+libraries/ = SubResource("AnimationLibrary_rujhy")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=170396581]
+stream = ExtResource("8_16slg")
+volume_db = -8.0
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -21,15 +21,16 @@ func apply_offhand_weapon_visual_data(data: EnemyWeaponResource) -> void:
 	item_hit_box.shape = data.off_hand_collision if data != null else null
 
 func off_hit_box_on() -> void:
-	hit_box.monitoring = true
+	hit_box.set_deferred("monitoring", true)
+	hit_box.set_deferred("monitorable", true)
 
 func  off_hit_box_off() -> void:
-	hit_box.monitoring = false
+	hit_box.set_deferred("monitoring", false)
+	hit_box.set_deferred("monitorable", false)
 
 func _on_off_hand_hit_box_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		enemy_hit.emit(body)
-
 
 func _on_enemy_health_component_dead() -> void:
 	off_hit_box_off()

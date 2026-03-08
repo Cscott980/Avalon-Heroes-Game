@@ -37,7 +37,7 @@ signal player_head_for_sheat(mesh: Mesh, skin: Skin)
 var class_defults: HeroClassVisualDefaultResource
 
 var is_sheathed: bool
-var visual_data: Dictionary = {}
+var visual_data: Array = []
 
 var main_hand_data: WeaponResource = null
 var off_hand_data: WeaponResource = null
@@ -45,7 +45,17 @@ var off_hand_data: WeaponResource = null
 func _ready() -> void:
 	await get_tree().process_frame
 	player_head_for_sheat.emit(head.mesh, head.skin)
-	
+	visual_data = [
+		arm_left,
+		arm_right,
+		helm,
+		helm_addon,
+		armor,
+		back,
+		head,
+		leg_left,
+		leg_right
+	]
 func sheath_weapon() -> void:
 	var mh := main_hand_data
 	var oh := off_hand_data

@@ -22,15 +22,16 @@ func apply_melee_weapon_data(data: EnemyWeaponResource) -> void:
 	attack_speed = data.attack_speed
 	anim = data.attack_animation
 
-func enenmy_calculate_weapon_damage(base_damage: int, defense: int, is_mainhand: bool = true) -> int:
+func enemy_calculate_weapon_damage(base_damage: int, defense: int, is_mainhand: bool = true) -> int:
 	main_stat_value = stat_ref[StatConst.STATS.STRENGTH]
+	print(main_stat_value)
 	
 	var bonus_damage: float = main_stat_value * scale_percent
 	
 	var total_damage: float = base_damage + bonus_damage
 	
 	# Apply defense (simple flat reduction)
-	total_damage = total_damage * (100.0 / (100.0 + defense))
+	total_damage = base_damage * (1.0 + main_stat_value * scale_percent)
 	
 	return max(1, round(total_damage))
 
@@ -48,7 +49,7 @@ func _on_enemy_main_hand_component_enemy_hit(body: Player) -> void:
 	if defense == null:
 		push_warning("Enemy hit player but no StatComponent found")
 		return
-	var cal_damage: int = enenmy_calculate_weapon_damage(randi_range(min_damage, max_damage), defense.armor, true)
+	var cal_damage: int = enemy_calculate_weapon_damage(randi_range(min_damage, max_damage), defense.armor, true)
 	if health.has_method("take_damage"):
 		health.take_damage(cal_damage)
 
@@ -65,13 +66,12 @@ func _on_weapon_shield_relic_enemy_hit(body: Player) -> void:
 	if defense == null:
 		push_warning("Enemy hit player but no StatComponent found")
 		return
-	var cal_damage: int = enenmy_calculate_weapon_damage(randi_range(min_damage, max_damage), defense.armor, true)
+	var cal_damage: int = enemy_calculate_weapon_damage(randi_range(min_damage, max_damage), defense.armor, true)
 	if health.has_method("take_damage"):
 		health.take_damage(cal_damage)
 
 func _on_enemy_health_component_dead() -> void:
 	cant_attack = true
-
 
 func _on_enemy_stats_compoment_current_stats(dic: Dictionary, _a: int, ms: int) -> void:
 	stat_ref = dic

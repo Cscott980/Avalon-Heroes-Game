@@ -4,7 +4,6 @@
 [ext_resource type="MeshLibrary" uid="uid://b41fl2a8nd4lt" path="res://Assets/MeshLib/RPGToolMeshes.tres" id="2_7mxwi"]
 [ext_resource type="PackedScene" uid="uid://b5b6ea8b5673k" path="res://Scenes/Player/Player.tscn" id="2_62igp"]
 [ext_resource type="PackedScene" uid="uid://jwi1uejwjh4b" path="res://Assets/ModelWeapons/Battleaxes/axe_2handed.gltf" id="3_7mxwi"]
-[ext_resource type="PackedScene" uid="uid://c77wvr2bjgghj" path="res://Assets/World/Towns/forge_02.fbx" id="3_qr1ks"]
 [ext_resource type="PackedScene" uid="uid://bl6wgs2np2y6p" path="res://Assets/ModelWeapons/Crossbows/Skeleton_Crossbow.gltf" id="4_33c4u"]
 [ext_resource type="PackedScene" uid="uid://wcrv54t52y2v" path="res://Assets/ModelWeapons/Shields/Skeleton_Shield_Small_A.gltf" id="5_7sbsm"]
 [ext_resource type="AudioStream" uid="uid://ctaivi81ptvsu" path="res://Assets/Audio/Tavern Whispers.wav" id="5_dx3ka"]
@@ -23,17 +22,17 @@ sky = SubResource("Sky_62igp")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="Lobby" type="Node3D"]
+[node name="Lobby" type="Node3D" unique_id=844294113]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1397630246]
 environment = SubResource("Environment_7mxwi")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1112800566]
 transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, -0.39567584, 0.8991943, 0.18678921, -0.30568066, 0.06284526, -0.95005774, 6.7161922, 13.642517, 12.560162)
 visible = false
 shadow_enabled = true
 
-[node name="FloorGripMap" type="GridMap" parent="."]
+[node name="FloorGripMap" type="GridMap" parent="." unique_id=1301312474]
 mesh_library = ExtResource("1_2vnmm")
 cell_size = Vector3(1, 1, 1)
 data = {
@@ -41,7 +40,7 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="WallsGridMap" type="GridMap" parent="."]
+[node name="WallsGridMap" type="GridMap" parent="." unique_id=407101297]
 mesh_library = ExtResource("1_2vnmm")
 cell_size = Vector3(1, 1, 1)
 data = {
@@ -49,7 +48,7 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 8, 0)
 
-[node name="PropsGridMap" type="GridMap" parent="."]
+[node name="PropsGridMap" type="GridMap" parent="." unique_id=1163708796]
 mesh_library = ExtResource("1_2vnmm")
 cell_size = Vector3(0.2, 0.2, 0.2)
 data = {
@@ -57,7 +56,7 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 2, 0)
 
-[node name="PropsGridMap2" type="GridMap" parent="."]
+[node name="PropsGridMap2" type="GridMap" parent="." unique_id=1743343194]
 mesh_library = ExtResource("2_7mxwi")
 cell_size = Vector3(0.5, 0.85, 0.5)
 data = {
@@ -65,36 +64,31 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="forge_02" parent="." instance=ExtResource("3_qr1ks")]
-transform = Transform3D(-1.595, 0, -1.3943934e-07, 0, 1.595, 0, 1.3943934e-07, 0, -1.595, 22.47601, 0.42908072, 30.212942)
+[node name="StoreProps" type="Node3D" parent="." unique_id=17374565]
 
-[node name="StoreProps" type="Node3D" parent="."]
-
-[node name="axe_2handed2" parent="StoreProps" instance=ExtResource("3_7mxwi")]
+[node name="axe_2handed2" parent="StoreProps" unique_id=424976113 instance=ExtResource("3_7mxwi")]
 transform = Transform3D(0.033399407, 0, -0.9994421, 0, 1, 0, 0.9994421, 0, 0.033399407, -16.240917, 1.8422809, 29.427938)
 
-[node name="Skeleton_Crossbow2" parent="StoreProps" instance=ExtResource("4_33c4u")]
+[node name="Skeleton_Crossbow2" parent="StoreProps" unique_id=2066833556 instance=ExtResource("4_33c4u")]
 transform = Transform3D(-0.0058992, 0.8504385, -0.52604145, 0, 0.5260506, 0.85045326, 0.9999826, 0.005016994, -0.0031032779, -15.576244, 3.763723, 27.103481)
 
-[node name="Skeleton_Shield_Small_A2" parent="StoreProps" instance=ExtResource("5_7sbsm")]
+[node name="Skeleton_Shield_Small_A2" parent="StoreProps" unique_id=1266601281 instance=ExtResource("5_7sbsm")]
 transform = Transform3D(0.010698684, 0, 0.99994284, 0, 1, 0, -0.99994284, 0, 0.010698684, -16.027554, 2.9000304, 28.340464)
 
-[node name="StoreProps2" type="Node3D" parent="."]
+[node name="StoreProps2" type="Node3D" parent="." unique_id=1695141049]
 
-[node name="axe_2handed2" parent="StoreProps2" instance=ExtResource("3_7mxwi")]
+[node name="axe_2handed2" parent="StoreProps2" unique_id=186207780 instance=ExtResource("3_7mxwi")]
 transform = Transform3D(0.033399407, 0, -0.9994421, 0, 1, 0, 0.9994421, 0, 0.033399407, -16.240917, 1.8422809, 29.427938)
 
-[node name="Skeleton_Crossbow2" parent="StoreProps2" instance=ExtResource("4_33c4u")]
+[node name="Skeleton_Crossbow2" parent="StoreProps2" unique_id=287621996 instance=ExtResource("4_33c4u")]
 transform = Transform3D(-0.0058992, 0.8504385, -0.52604145, 0, 0.5260506, 0.85045326, 0.9999826, 0.005016994, -0.0031032779, -15.576244, 3.763723, 27.103481)
 
-[node name="Skeleton_Shield_Small_A2" parent="StoreProps2" instance=ExtResource("5_7sbsm")]
+[node name="Skeleton_Shield_Small_A2" parent="StoreProps2" unique_id=1121503342 instance=ExtResource("5_7sbsm")]
 transform = Transform3D(0.010698684, 0, 0.99994284, 0, 1, 0, -0.99994284, 0, 0.010698684, -16.027554, 2.9000304, 28.340464)
 
-[node name="Enemies" type="Node3D" parent="."]
+[node name="Lights" type="Node3D" parent="." unique_id=1313314515]
 
-[node name="Lights" type="Node3D" parent="."]
-
-[node name="Celing Lights" type="OmniLight3D" parent="Lights"]
+[node name="Celing Lights" type="OmniLight3D" parent="Lights" unique_id=1884207021]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.527637, 6.1147842, 4.5397882)
 light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
 light_energy = 1.508
@@ -104,7 +98,7 @@ shadow_enabled = true
 omni_range = 14.635
 omni_attenuation = 0.659
 
-[node name="Celing Lights2" type="OmniLight3D" parent="Lights"]
+[node name="Celing Lights2" type="OmniLight3D" parent="Lights" unique_id=1065472640]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4417467, 6.1147842, 4.2893915)
 light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
 light_energy = 1.508
@@ -114,7 +108,7 @@ shadow_enabled = true
 omni_range = 14.635
 omni_attenuation = 0.659
 
-[node name="Celing Lights3" type="OmniLight3D" parent="Lights"]
+[node name="Celing Lights3" type="OmniLight3D" parent="Lights" unique_id=168254758]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.306835, 6.1147842, 4.706723)
 light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
 light_energy = 1.508
@@ -124,7 +118,7 @@ shadow_enabled = true
 omni_range = 14.635
 omni_attenuation = 0.659
 
-[node name="Celing Lights4" type="OmniLight3D" parent="Lights"]
+[node name="Celing Lights4" type="OmniLight3D" parent="Lights" unique_id=1789092084]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.306835, 6.1147842, 15.064116)
 light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
 light_energy = 1.508
@@ -134,7 +128,7 @@ shadow_enabled = true
 omni_range = 14.635
 omni_attenuation = 0.659
 
-[node name="Celing Lights5" type="OmniLight3D" parent="Lights"]
+[node name="Celing Lights5" type="OmniLight3D" parent="Lights" unique_id=1305556979]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.233143, 6.1147842, 15.314514)
 light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
 light_energy = 1.508
@@ -144,7 +138,7 @@ shadow_enabled = true
 omni_range = 14.635
 omni_attenuation = 0.659
 
-[node name="Celing Lights6" type="OmniLight3D" parent="Lights"]
+[node name="Celing Lights6" type="OmniLight3D" parent="Lights" unique_id=1107372889]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.386547, 6.1147842, 15.2310505)
 light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
 light_energy = 1.508
@@ -154,7 +148,7 @@ shadow_enabled = true
 omni_range = 14.635
 omni_attenuation = 0.659
 
-[node name="Celing Lights7" type="OmniLight3D" parent="Lights"]
+[node name="Celing Lights7" type="OmniLight3D" parent="Lights" unique_id=1053254037]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.386547, 6.1147842, 26.498959)
 light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
 light_energy = 1.508
@@ -164,7 +158,7 @@ shadow_enabled = true
 omni_range = 14.635
 omni_attenuation = 0.659
 
-[node name="Celing Lights9" type="OmniLight3D" parent="Lights"]
+[node name="Celing Lights9" type="OmniLight3D" parent="Lights" unique_id=2062895096]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.744684, 6.1147842, 26.498959)
 light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
 light_energy = 1.508
@@ -174,7 +168,7 @@ shadow_enabled = true
 omni_range = 14.635
 omni_attenuation = 0.659
 
-[node name="Celing Lights10" type="OmniLight3D" parent="Lights"]
+[node name="Celing Lights10" type="OmniLight3D" parent="Lights" unique_id=277201524]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.253504, 6.1147842, 27.06831)
 light_color = Color(0.81190777, 0.39236623, 5.7756904e-07, 1)
 light_energy = 1.508
@@ -184,50 +178,50 @@ shadow_enabled = true
 omni_range = 14.635
 omni_attenuation = 0.659
 
-[node name="CandleLight" type="OmniLight3D" parent="Lights"]
+[node name="CandleLight" type="OmniLight3D" parent="Lights" unique_id=923281891]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.416103, 1.1538055, 6.5429716)
 light_color = Color(0.9260749, 0.5497381, 0, 1)
 light_energy = 1.508
 omni_range = 4.269876
 
-[node name="CandleLight2" type="OmniLight3D" parent="Lights"]
+[node name="CandleLight2" type="OmniLight3D" parent="Lights" unique_id=290060539]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.542456, 1.1538055, 10.438247)
 light_color = Color(0.9260749, 0.5497381, 0, 1)
 light_energy = 1.508
 shadow_enabled = true
 omni_range = 4.269876
 
-[node name="CandleLight4" type="OmniLight3D" parent="Lights"]
+[node name="CandleLight4" type="OmniLight3D" parent="Lights" unique_id=1129388701]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.639353, 2.7474484, 28.224354)
 light_color = Color(0.9260749, 0.5497381, 0, 1)
 light_energy = 1.508
 shadow_enabled = true
 omni_range = 1.2290161
 
-[node name="CandleLight5" type="OmniLight3D" parent="Lights"]
+[node name="CandleLight5" type="OmniLight3D" parent="Lights" unique_id=1520359176]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.036087, 1.7815747, 27.31689)
 light_color = Color(0.9260749, 0.5497381, 0, 1)
 light_energy = 1.508
 shadow_enabled = true
 omni_range = 1.2290161
 
-[node name="CandleLight6" type="OmniLight3D" parent="Lights"]
+[node name="CandleLight6" type="OmniLight3D" parent="Lights" unique_id=211578207]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.493893, 1.7815747, 28.853046)
 light_color = Color(0.9260749, 0.5497381, 0, 1)
 light_energy = 1.508
 shadow_enabled = true
 omni_range = 1.2290161
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=301740275]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6918206, 1.6938338, 30.23678)
 light_color = Color(0.95562154, 0.5891244, 0, 1)
 light_energy = 1.508
 omni_range = 0.9761548
 
-[node name="Player" parent="." instance=ExtResource("2_62igp")]
+[node name="Player" parent="." unique_id=1470346108 instance=ExtResource("2_62igp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85367537, 6.9746103)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=797387732]
 stream = ExtResource("5_dx3ka")
 volume_db = -19.095
 autoplay = true

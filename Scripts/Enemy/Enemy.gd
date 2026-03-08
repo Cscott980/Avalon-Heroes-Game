@@ -33,7 +33,6 @@ var dead: bool = false
 
 
 func _ready() -> void:
-	hide()
 	pass
 
 func setup(data: EnemyResource, level: int) -> void:
@@ -44,7 +43,6 @@ func setup(data: EnemyResource, level: int) -> void:
 	enemy_level_component.set_level(level)
 	enemy_init()
 	enemy_level_component.emit_level()
-	show()
 	
 func enemy_init() -> void:
 	if enemy_data == null or not is_instance_valid(enemy_data):
@@ -116,3 +114,16 @@ func reset_for_pool() -> void:
 	if state_machine:
 		state_machine.change_state("IdleState")
 	
+func _on_de_spawn_timer_timeout() -> void:
+		finished.emit(self)
+		queue_free()
+
+
+func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
+	despawn_timer.stop()
+
+
+func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
+	if dead:
+		return
+	despawn_timer.start(20.0)

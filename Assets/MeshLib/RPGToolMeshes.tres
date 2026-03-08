@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=333 format=4 uid="uid://b41fl2a8nd4lt"]
+[gd_resource type="MeshLibrary" format=4 uid="uid://b41fl2a8nd4lt"]
 
 [ext_resource type="Texture2D" uid="uid://p63tb82v0x4b" path="res://Assets/Items/RPG_Tools/tools_bits_texture.png" id="1_fku1f"]
 [ext_resource type="Texture2D" uid="uid://c3rhq7ror3rl2" path="res://Assets/Items/RPG_Tools/tools_bits_blueprint.png" id="2_san0r"]

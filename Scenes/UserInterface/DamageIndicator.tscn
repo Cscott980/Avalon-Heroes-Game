@@ -15,13 +15,14 @@ texture = SubResource("ViewportTexture_lvcjl")
 
 [node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=859347459]
 transparent_bg = true
-size = Vector2i(75, 63)
+size = Vector2i(211, 63)
 
 [node name="DamageHealingCrit" type="Label" parent="Sprite3D/SubViewport" unique_id=758960858]
-offset_left = 7.0
-offset_right = 60.0
+offset_right = 145.0
 offset_bottom = 61.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 23
 theme_override_font_sizes/font_size = 60
-text = "10"
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1
