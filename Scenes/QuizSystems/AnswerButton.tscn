@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bagsr4u03l2t8"]
+
+[ext_resource type="StyleBox" uid="uid://ohxnl7vfxnpf" path="res://Resources/AnswerButtons/D/DNormal.tres" id="1_5agg5"]
+[ext_resource type="StyleBox" uid="uid://oii05y3u314t" path="res://Resources/AnswerButtons/D/DPressed.tres" id="2_afk2b"]
+
+[node name="AnswerButton" type="Button" unique_id=2042028235]
+custom_minimum_size = Vector2(300, 100)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = ExtResource("1_5agg5")
+theme_override_styles/pressed = ExtResource("2_afk2b")
+text = "Apple"
+autowrap_mode = 3

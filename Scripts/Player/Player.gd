@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody3D
 
+signal level_phase
+
 @onready var state_machine: PlayerStateMachine = %StateMachine
 @onready var equipment_visuals: EquipmentVisualComponent = %EquipmentVisualComponent
 @onready var health_component: HealthComponent = %HealthComponent
@@ -101,6 +103,7 @@ func _on_health_component_dead() -> void:
 
 func _on_progression_component_leveling(status: bool) -> void:
 	immortal = status
+	level_phase.emit()
 
 
 func _on_progression_component_init_quiz() -> void:

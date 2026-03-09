@@ -1,0 +1,167 @@
+[gd_scene format=3 uid="uid://cirbwiavfmjmu"]
+
+[ext_resource type="Script" uid="uid://3l7ylwjq518t" path="res://Scripts/QuizSystems/QuizPrompter.gd" id="1_0i1jj"]
+[ext_resource type="Shader" uid="uid://dtptfpryxs6ug" path="res://Assets/Shaders/ScreenBlur.gdshader" id="1_1xsqr"]
+[ext_resource type="PackedScene" uid="uid://bagsr4u03l2t8" path="res://Scenes/QuizSystems/AnswerButton.tscn" id="2_i7y7u"]
+[ext_resource type="StyleBox" uid="uid://di04rvf6o3m67" path="res://Resources/AnswerButtons/A/ANormal.tres" id="3_wekko"]
+[ext_resource type="StyleBox" uid="uid://xmixfpd7jr1x" path="res://Resources/AnswerButtons/A/APressed.tres" id="4_0i1jj"]
+[ext_resource type="StyleBox" uid="uid://bnt6tm81y68lj" path="res://Resources/AnswerButtons/B/BNormal.tres" id="5_7a4u8"]
+[ext_resource type="StyleBox" uid="uid://bifan3nuxwqyj" path="res://Resources/AnswerButtons/B/BPressed.tres" id="6_51f1d"]
+[ext_resource type="StyleBox" uid="uid://cvq7xd80wchxc" path="res://Resources/AnswerButtons/C/CNormal.tres" id="7_yp5h8"]
+[ext_resource type="StyleBox" uid="uid://fovoix7aubcc" path="res://Resources/AnswerButtons/C/CPressed.tres" id="8_np52p"]
+[ext_resource type="StyleBox" uid="uid://ohxnl7vfxnpf" path="res://Resources/AnswerButtons/D/DNormal.tres" id="9_vq8ft"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7y7u"]
+shader = ExtResource("1_1xsqr")
+shader_parameter/blur_amount = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6hm0b"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 10
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0i1jj"]
+bg_color = Color(1, 0.07016479, 0, 0.44700003)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7a4u8"]
+bg_color = Color(1, 0.77500856, 0.17389506, 1)
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+
+[node name="QuizPrompter" type="Control" unique_id=1012666249]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0i1jj")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1570446626]
+material = SubResource("ShaderMaterial_i7y7u")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestionBox" type="VBoxContainer" parent="." unique_id=1524926338]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="QuestionBox" unique_id=411876985]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_6hm0b")
+text = "This is a question?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Answers" type="GridContainer" parent="QuestionBox" unique_id=796333443]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2
+
+[node name="A" parent="QuestionBox/Answers" unique_id=2042028235 instance=ExtResource("2_i7y7u")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.9514076, 1, 1)
+theme_override_colors/font_hover_color = Color(0.97849464, 1, 0.94623655, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_wekko")
+theme_override_styles/pressed = ExtResource("4_0i1jj")
+theme_override_styles/hover = ExtResource("3_wekko")
+action_mode = 0
+
+[node name="B" parent="QuestionBox/Answers" unique_id=1391388017 instance=ExtResource("2_i7y7u")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.9514076, 1, 1)
+theme_override_colors/font_hover_color = Color(0.97849464, 1, 0.94623655, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("5_7a4u8")
+theme_override_styles/pressed = ExtResource("6_51f1d")
+theme_override_styles/hover = ExtResource("5_7a4u8")
+action_mode = 0
+
+[node name="C" parent="QuestionBox/Answers" unique_id=707536176 instance=ExtResource("2_i7y7u")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.9514076, 1, 1)
+theme_override_colors/font_hover_color = Color(0.97849464, 1, 0.94623655, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("7_yp5h8")
+theme_override_styles/pressed = ExtResource("8_np52p")
+theme_override_styles/hover = ExtResource("7_yp5h8")
+action_mode = 0
+
+[node name="D" parent="QuestionBox/Answers" unique_id=1033264820 instance=ExtResource("2_i7y7u")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.9514076, 1, 1)
+theme_override_colors/font_hover_color = Color(0.97849464, 1, 0.94623655, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = ExtResource("9_vq8ft")
+action_mode = 0
+
+[node name="QuizTimer" type="Timer" parent="." unique_id=603875794]
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=622354083]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 21.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_0i1jj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7a4u8")
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="ProgressBar" unique_id=1360341939]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -8.5
+offset_right = 20.0
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "10"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1497161473]
+
+[connection signal="pressed" from="QuestionBox/Answers/A" to="." method="_on_a_pressed"]
+[connection signal="pressed" from="QuestionBox/Answers/B" to="." method="_on_b_pressed"]
+[connection signal="pressed" from="QuestionBox/Answers/C" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="QuestionBox/Answers/D" to="." method="_on_d_pressed"]
+[connection signal="timeout" from="QuizTimer" to="." method="_on_quiz_timer_timeout"]
