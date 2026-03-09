@@ -112,6 +112,7 @@
 [ext_resource type="Script" uid="uid://bnfwc04ttk55x" path="res://Scripts/States/Player/DeadState.gd" id="109_kk0bk"]
 [ext_resource type="Script" uid="uid://bos7mhqtacmin" path="res://Scripts/UI/CameraEffects.gd" id="110_ih6wi"]
 [ext_resource type="PackedScene" uid="uid://dmqo550jk2hkw" path="res://Scenes/UserInterface/MainUI.tscn" id="111_h55qd"]
+[ext_resource type="Script" uid="uid://8phc8k5eukyv" path="res://Scripts/States/Player/RiviveState.gd" id="112_o0fa5"]
 [ext_resource type="Script" uid="uid://15pigh03jv0i" path="res://Scripts/Components/Player/WorldVisualPlayerData.gd" id="112_w66sw"]
 [ext_resource type="Script" uid="uid://d365bnrqpmn2h" path="res://Scripts/Components/Player/TargetsInRangeComponent.gd" id="114_dc80h"]
 [ext_resource type="Script" uid="uid://nfxhpdw3pn7w" path="res://Scripts/Components/Weapons/WeaponEquipComponent.gd" id="114_ovbyp"]
@@ -1390,6 +1391,7 @@ combat_comp = NodePath("../../CombatComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
 [node name="ReviveState" type="Node" parent="StateMachine" unique_id=578469262]
+script = ExtResource("112_o0fa5")
 
 [node name="QuizState" type="Node" parent="StateMachine" unique_id=2059857483]
 
@@ -1627,6 +1629,7 @@ visuals = NodePath("../Model/Rig_Medium/EquipmentVisualComponent")
 [connection signal="leveled_health" from="HealthComponent" to="PlayerUI" method="_on_health_component_leveled_health"]
 [connection signal="revived" from="HealthComponent" to="WorldCollision" method="_on_health_component_revived"]
 [connection signal="revived" from="HealthComponent" to="MovementComponent" method="_on_health_component_revived"]
+[connection signal="revived" from="HealthComponent" to="PlayerInputComponent" method="_on_health_component_revived"]
 [connection signal="current_stats" from="StatComponent" to="PlayerUI" method="_on_stat_component_current_stats"]
 [connection signal="current_stats" from="StatComponent" to="CombatComponent" method="_on_stat_component_current_stats"]
 [connection signal="current_stats" from="StatComponent" to="HealthComponent" method="_on_stat_component_current_stats"]
@@ -1634,7 +1637,6 @@ visuals = NodePath("../Model/Rig_Medium/EquipmentVisualComponent")
 [connection signal="resource_data" from="ResourcePoolComponent" to="PlayerUI" method="_on_resource_pool_component_resource_data"]
 [connection signal="resource_used" from="ResourcePoolComponent" to="PlayerUI" method="_on_resource_pool_component_resource_used"]
 [connection signal="exp_collected" from="ProgressionComponent" to="PlayerUI" method="_on_progression_component_exp_collected"]
-[connection signal="init_quiz" from="ProgressionComponent" to="." method="_on_progression_component_init_quiz"]
 [connection signal="level" from="ProgressionComponent" to="PlayerUI" method="_on_progression_component_level"]
 [connection signal="level" from="ProgressionComponent" to="HealthComponent" method="_on_progression_component_level"]
 [connection signal="level" from="ProgressionComponent" to="LevelUpVFX" method="_on_progression_component_level"]

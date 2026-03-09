@@ -6,7 +6,6 @@ signal level(current_level:int)
 signal exp_collected(amount: int)
 signal new_exp_max_value(value: int)
 signal stat_choices(options: Array[Dictionary])
-signal init_quiz
 
 @export var player_ui: MainUI
 @export var player_level: int = 1
@@ -29,24 +28,23 @@ func _ready() -> void:
 	out_level_display.text = str(player_level)
 
 func level_up() -> void:
-	"""
-	Here I will add the logic to call the QuizManager to send a question prompt
-	to the player to answer. 
-	If correct the level up logic continues, 
-	else the quiz manger just selects a new question from the quiz data base.
-	"""
-	var result:Array[Dictionary] = random_stat_generator(level_up_choice)
-	stat_choices.emit(result)
+	var player: Player = get_parent()
 	leveling.emit(true)
+	player.level_phase.emit()
+	await player.clear
+
+	var result: Array[Dictionary] = random_stat_generator(level_up_choice)
+	stat_choices.emit(result)
 	await player_ui.stat_chosen
 	leveling.emit(false)
+
 	if player_level < max_level:
-		var new_level = player_level + 1
-		player_level = new_level
+		player_level += 1
 		out_level_display.text = str(player_level)
 		level.emit(player_level)
 	else:
-		player_level = max_exp
+		player_level = max_level
+
 	if not has_pending_choices:
 		new_max_value()
 
@@ -72,7 +70,6 @@ func random_stat_generator(count: int) -> Array[Dictionary]:
 			"stat": stat_name,
 			"value": value
 		})
-	stat_choices.emit(choices)
 	return choices
 
 func _on_drop_pickup_component_exp_gem(amount: int) -> void:

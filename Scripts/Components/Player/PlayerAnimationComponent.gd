@@ -33,6 +33,10 @@ func play_death_animation() -> void:
 	if playback:
 		playback.travel("Death")
 
+func play_revive_animation() -> void:
+	if playback:
+		playback.travel("Revive")
+
 func play_hurt_animation() -> void:
 	if playback:
 		playback.travel("Hurt")

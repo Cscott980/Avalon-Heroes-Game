@@ -20,7 +20,7 @@
 		{
 		"question": "I _____ basketbal.",
 		"options": ["playing", "play", "played", "plays"],
-		"answer_index": 0,
+		"answer_index": 1,
 		"time_limit": 20.0,
 		"gold": 5
 		},

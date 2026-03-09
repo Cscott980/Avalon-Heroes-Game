@@ -1,6 +1,8 @@
 class_name Player extends CharacterBody3D
 
 signal level_phase
+signal clear
+signal death_phase
 
 @onready var state_machine: PlayerStateMachine = %StateMachine
 @onready var equipment_visuals: EquipmentVisualComponent = %EquipmentVisualComponent
@@ -36,7 +38,15 @@ func _ready() -> void:
 	if not is_instance_valid(hero_class):
 		return
 	hero_init()
-
+	
+	var quiz_manager: QuizManager = get_tree().get_first_node_in_group("quiz_manager")
+	if quiz_manager == null:
+		push_warning("Player: QuizManager not found.")
+		return
+	
+	(quiz_manager as QuizManager).question_answered.connect(_on_quiz_manager_question_answered)
+	(quiz_manager as QuizManager).revive.connect(_on_quiz_manager_revive)
+	
 func hero_init() -> void: 
 	if not is_instance_valid(hero_class):
 		return
@@ -89,7 +99,7 @@ func _on_combat_component_combo_window_open() -> void:
 	if combat_component.attack_queued:
 		_on_player_input_component_attack()
 
-func _on_shield_component_block_broke(cooldown: float) -> void:
+func _on_shield_component_block_broke(_cooldown: float) -> void:
 	if health_component.is_dead:
 		return
 	pass # Replace with function body.
@@ -99,13 +109,25 @@ func _on_health_component_dead() -> void:
 		self.remove_from_group("player")
 		self.add_to_group("dead_players")
 		state_machine.change_state("DeadState")
-
+		death_phase.emit()
 
 func _on_progression_component_leveling(status: bool) -> void:
 	immortal = status
-	level_phase.emit()
-
+	if status:
+		level_phase.emit()
 
 func _on_progression_component_init_quiz() -> void:
 	if state_machine:
 		state_machine.change_state("QuizState")
+
+func _on_quiz_manager_question_answered() -> void:
+	clear.emit()
+
+func _on_quiz_manager_revive() -> void:
+	if state_machine:
+		state_machine.change_state("ReviveState")
+		health_component.on_revive(1.0)
+		health_component.is_dead = false
+		health_component.revived.emit()
+		remove_from_group("dead_players")
+		add_to_group("player")

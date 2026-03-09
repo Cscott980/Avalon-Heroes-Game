@@ -2,11 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cirbwiavfmjmu" path="res://Scenes/QuizSystems/QuizPrompter.tscn" id="1_t228d"]
 [ext_resource type="Script" uid="uid://bnj35x8v46cls" path="res://Scripts/Managers/QuizManager.gd" id="1_tunm7"]
-[ext_resource type="JSON" path="res://Resources/Quizes/TestQuizVerbs.json" id="2_y72ol"]
 
-[node name="QuizManager" type="CanvasLayer" unique_id=1378495818]
+[node name="QuizManager" type="CanvasLayer" unique_id=1378495818 groups=["quiz_manager"]]
 script = ExtResource("1_tunm7")
-quiz_data = ExtResource("2_y72ol")
 
 [node name="Correct" type="TextureRect" parent="." unique_id=461541692]
 unique_name_in_owner = true
@@ -22,6 +20,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Incorrect" type="TextureRect" parent="." unique_id=2062704536]
 unique_name_in_owner = true
@@ -37,6 +36,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="TimedOut" type="TextureRect" parent="." unique_id=722887939]
 unique_name_in_owner = true
@@ -52,9 +52,13 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="QuizPrompter" parent="." unique_id=1012666249 node_paths=PackedStringArray("quiz_manager") instance=ExtResource("1_t228d")]
 unique_name_in_owner = true
 quiz_manager = NodePath("..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=116685043]
+
+[connection signal="answer_chosen" from="QuizPrompter" to="." method="_on_quiz_prompter_answer_chosen"]
+[connection signal="timed_out" from="QuizPrompter" to="." method="_on_quiz_prompter_timed_out"]
