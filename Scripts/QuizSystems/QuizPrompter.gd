@@ -9,16 +9,17 @@ signal timed_out
 @onready var choice_b: Button = %B
 @onready var choice_c: Button = %C
 @onready var choice_d: Button = %D
-@onready var quiz_timer: Timer = $QuizTimer
-@onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var quiz_timer: Timer = %QuizTimer
+@onready var anim_player: AnimationPlayer = %AnimationPlayer
 @onready var time_dis: Label = %TimeDis
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
 
 @onready var timer: ProgressBar = %ProgressBar
 @onready var prompt_dis: Label = %Label
 
 
 
-@export var delay: float = 3.0
+@export var delay: float = 1.0
 
 var question: Dictionary
 var prompt: String = "No Question"
@@ -29,19 +30,29 @@ var buttons: Array[Button] = []
 var question_active: bool = false
 
 func _ready() -> void:
+	canvas_layer.visible = false
+	get_tree().get_root().size_changed.connect(_on_resized)
+	_on_resized()
+	
 	buttons = [
 		chocie_a,
 		choice_b,
 		choice_c,
 		choice_d
 	]
-
+	
 func _process(_delta: float) -> void:
 	if question_active:
 		timer.value = quiz_timer.time_left
 		time_dis.text = str(int(quiz_timer.time_left))
 		
-
+func _on_resized() -> void:
+	await get_tree().process_frame
+	var screen := Vector2(DisplayServer.window_get_size())
+	size = screen
+	position = Vector2.ZERO
+	
+	
 func start_question() -> void:
 	if question.is_empty():
 		return
@@ -53,6 +64,7 @@ func start_question() -> void:
 	set_timer()
 	timer.max_value = time
 	timer.value = time
+	canvas_layer.visible = true
 	play_promp_appear(false)
 
 func activate_buttons() -> void:
@@ -86,26 +98,31 @@ func play_promp_appear(reverse: bool) -> void:
 
 func _on_a_pressed() -> void:
 	answer_chosen.emit(0)
+	deactivate_buttons()
 	play_promp_appear(true)
 	quiz_timer.stop()
 
 func _on_b_pressed() -> void:
 	answer_chosen.emit(1)
+	deactivate_buttons()
 	play_promp_appear(true)
 	quiz_timer.stop()
 
 func _on_c_pressed() -> void:
 	answer_chosen.emit(2)
+	deactivate_buttons()
 	play_promp_appear(true)
 	quiz_timer.stop()
 
 func _on_d_pressed() -> void:
 	answer_chosen.emit(3)
+	deactivate_buttons()
 	play_promp_appear(true)
 	quiz_timer.stop()
 
 func _on_quiz_timer_timeout() -> void:
 	timed_out.emit()
+	deactivate_buttons()
 	play_promp_appear(true)
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

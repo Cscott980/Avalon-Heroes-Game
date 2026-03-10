@@ -47,7 +47,12 @@ func _on_progression_component_exp_collected(amount: int) -> void:
 func _on_progression_component_new_exp_max_value(value: int) -> void:
 	ability_bar.experiance_bar.max_value = value
 
-
+func _on_progression_component_leveling(status: bool) -> void:
+	if status:
+		ability_bar.visible = false
+	else:
+		ability_bar.visible = true
+	
 func _on_resource_pool_component_current_resource_amount(amount: int) -> void:
 	if ability_bar.resource_bar.value >= ability_bar.resource_bar.max_value:
 		ability_bar.resource_bar.value = ability_bar.resource_bar.max_value
@@ -96,6 +101,8 @@ func _on_health_component_leveled_health(maxh: int) -> void:
 
 	ability_bar.health_number.text = "{0}/{1}".format([maxh, maxh])
 
+func _on_health_component_revived() -> void:
+	ability_bar.visible = true
 
 func _on_player_input_component_charsheet_toggled() -> void:
 	if inventory_equipment.is_open:

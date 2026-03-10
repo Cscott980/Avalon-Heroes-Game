@@ -6,6 +6,18 @@
 [ext_resource type="Script" uid="uid://cjejxa4hnbunn" path="res://Scripts/UI/ChoiceBtn.gd" id="3_romyj"]
 [ext_resource type="Texture2D" uid="uid://oanefjsfn4v2" path="res://Assets/GUI/UI/Icons/WarriorAbilities/BattleShoutIcon.png" id="4_v4vkj"]
 
+[sub_resource type="InputEventKey" id="InputEventKey_romyj"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_65kfj"]
+button_index = 2
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_gxoix"]
+events = [SubResource("InputEventKey_romyj"), SubResource("InputEventJoypadButton_65kfj")]
+
 [sub_resource type="FontFile" id="FontFile_t53un"]
 subpixel_positioning = 0
 msdf_pixel_range = 14
@@ -29,6 +41,30 @@ cache/0/25/0/descent = 0.0
 cache/0/25/0/underline_position = 0.0
 cache/0/25/0/underline_thickness = 0.0
 cache/0/25/0/scale = 1.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_65kfj"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_gxoix"]
+button_index = 3
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_5itd0"]
+events = [SubResource("InputEventKey_65kfj"), SubResource("InputEventJoypadButton_gxoix")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_gxoix"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_5itd0"]
+button_index = 1
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_eak8a"]
+events = [SubResource("InputEventKey_gxoix"), SubResource("InputEventJoypadButton_5itd0")]
 
 [node name="DisplayStatChoiceComponent" type="Control" unique_id=1654775370]
 layout_mode = 3
@@ -62,6 +98,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 action_mode = 0
+shortcut = SubResource("Shortcut_gxoix")
 texture_normal = ExtResource("2_mub4i")
 ignore_texture_size = true
 stretch_mode = 0
@@ -114,6 +151,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 action_mode = 0
+shortcut = SubResource("Shortcut_5itd0")
 texture_normal = ExtResource("2_mub4i")
 ignore_texture_size = true
 stretch_mode = 0
@@ -166,6 +204,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 action_mode = 0
+shortcut = SubResource("Shortcut_eak8a")
 texture_normal = ExtResource("2_mub4i")
 ignore_texture_size = true
 stretch_mode = 0

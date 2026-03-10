@@ -1390,8 +1390,13 @@ playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
-[node name="ReviveState" type="Node" parent="StateMachine" unique_id=578469262]
+[node name="ReviveState" type="Node" parent="StateMachine" unique_id=578469262 node_paths=PackedStringArray("player", "playback", "combat_comp", "target_comp", "weap_equip_comp")]
 script = ExtResource("112_o0fa5")
+player = NodePath("../..")
+playback = NodePath("../../PlayerAnimationComponent")
+combat_comp = NodePath("../../CombatComponent")
+target_comp = NodePath("../../Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent")
+weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
 [node name="QuizState" type="Node" parent="StateMachine" unique_id=2059857483]
 
@@ -1627,7 +1632,9 @@ visuals = NodePath("../Model/Rig_Medium/EquipmentVisualComponent")
 [connection signal="dead" from="HealthComponent" to="PlayerInputComponent" method="_on_health_component_dead"]
 [connection signal="hurt" from="HealthComponent" to="." method="_on_health_component_hurt"]
 [connection signal="leveled_health" from="HealthComponent" to="PlayerUI" method="_on_health_component_leveled_health"]
+[connection signal="leveled_health" from="HealthComponent" to="WorldVisualPlayerData" method="_on_health_component_leveled_health"]
 [connection signal="revived" from="HealthComponent" to="WorldCollision" method="_on_health_component_revived"]
+[connection signal="revived" from="HealthComponent" to="PlayerUI" method="_on_health_component_revived"]
 [connection signal="revived" from="HealthComponent" to="MovementComponent" method="_on_health_component_revived"]
 [connection signal="revived" from="HealthComponent" to="PlayerInputComponent" method="_on_health_component_revived"]
 [connection signal="current_stats" from="StatComponent" to="PlayerUI" method="_on_stat_component_current_stats"]
@@ -1641,8 +1648,10 @@ visuals = NodePath("../Model/Rig_Medium/EquipmentVisualComponent")
 [connection signal="level" from="ProgressionComponent" to="HealthComponent" method="_on_progression_component_level"]
 [connection signal="level" from="ProgressionComponent" to="LevelUpVFX" method="_on_progression_component_level"]
 [connection signal="leveling" from="ProgressionComponent" to="." method="_on_progression_component_leveling"]
+[connection signal="leveling" from="ProgressionComponent" to="PlayerUI" method="_on_progression_component_leveling"]
 [connection signal="leveling" from="ProgressionComponent" to="MovementComponent" method="_on_progression_component_leveling"]
 [connection signal="leveling" from="ProgressionComponent" to="PlayerInputComponent" method="_on_progression_component_leveling"]
+[connection signal="leveling" from="ProgressionComponent" to="DropPickupComponent" method="_on_progression_component_leveling"]
 [connection signal="new_exp_max_value" from="ProgressionComponent" to="PlayerUI" method="_on_progression_component_new_exp_max_value"]
 [connection signal="stat_choices" from="ProgressionComponent" to="PlayerUI" method="_on_progression_component_stat_choices"]
 [connection signal="attack" from="PlayerInputComponent" to="." method="_on_player_input_component_attack"]

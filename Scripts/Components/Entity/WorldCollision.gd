@@ -12,6 +12,6 @@ func _on_health_component_dead() -> void:
 	
 
 
-func _on_health_component_revived(owner: Node) -> void:
+func _on_health_component_revived() -> void:
 	user.set_collision_layer_value(player_layer, true)
 	user.set_collision_layer_value(dead_layer, false)

@@ -53,8 +53,11 @@ func _on_pull_range_body_exited(body: Node3D) -> void:
 		target = null
 
 func _on_pick_up_range_body_entered(body: Node3D) -> void:
+	var player: Player = body
+	if not player.drop_pickup_component.can_pick_up:
+			return
+			
 	if item_base.drop_type == ItemDropResource.DROP_TYPE.HEALTH_POT:
-		var player: Player = body
 		if player.health_component.health == player.health_component.max_health:
 			return
 			

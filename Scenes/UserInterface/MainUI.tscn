@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://ctyuj2px1mfc" path="res://Scripts/UI/MainUI.gd" id="1_8r1g1"]
 [ext_resource type="PackedScene" uid="uid://3lbs1k6glmge" path="res://Scenes/UserInterface/AbilityBar.tscn" id="2_cwop8"]
 [ext_resource type="PackedScene" uid="uid://caavhwhvoqvqm" path="res://Scenes/UserInterface/DisplayStatChoiceComponent.tscn" id="4_at26v"]
-[ext_resource type="Script" uid="uid://bjp7tu24iy3pq" path="res://Scripts/Components/Quiz/QuizDisplayComponent.gd" id="5_gfpoe"]
 [ext_resource type="PackedScene" uid="uid://lhsufnuhcrv4" path="res://Scenes/UserInterface/CharacterSheet.tscn" id="17_xmfmo"]
 
 [node name="PlayerUI" type="CanvasLayer" unique_id=651787803]
@@ -35,16 +34,6 @@ offset_right = 20.0
 offset_bottom = -119.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="QuizDisplayComponent" type="Control" parent="." unique_id=1261833757]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
-script = ExtResource("5_gfpoe")
-metadata/_custom_type_script = "uid://bjp7tu24iy3pq"
 
 [connection signal="current_equipment" from="InventoryEquipment" to="." method="_on_inventory_equipment_current_equipment"]
 [connection signal="selected_choice" from="DisplayStatChoiceComponent" to="." method="_on_display_stat_choice_component_selected_choice"]

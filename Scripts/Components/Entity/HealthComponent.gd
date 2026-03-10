@@ -3,7 +3,7 @@ class_name HealthComponent extends Node
 
 signal dead
 signal hurt
-signal revived(owner: Node)
+signal revived
 signal current_health(amount: int, max_player_health: int)
 signal leveled_health(maxh: int)
 
@@ -52,8 +52,8 @@ func _on_player_healed(amount_percetage: float) -> void:
 func on_revive(amount_percetage: float) -> void:
 	health += int(max_health * amount_percetage)
 	_clamp_health()
+	current_health.emit(health, max_health)
 	is_dead = false
-	revived.emit(true)
 
 func take_damage(amount: int) -> void:
 	if is_dead:
@@ -84,8 +84,8 @@ func _on_progression_component_level(_current_level: int) -> void:
 	if _current_level == 1:
 		return
 	max_health += int(max_health * 0.1)
-	_clamp_health()
 	health = max_health
+	_clamp_health()
 	leveled_health.emit(max_health)
 
 func _on_stat_component_current_stats(dic: Dictionary) -> void:

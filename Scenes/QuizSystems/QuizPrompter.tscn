@@ -28,6 +28,30 @@ bg_color = Color(1, 0.77500856, 0.17389506, 1)
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 
+[sub_resource type="FontFile" id="FontFile_51f1d"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6hm0b"]
 bg_color = Color(1, 1, 1, 1)
 border_width_bottom = 10
@@ -35,6 +59,77 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="FontFile" id="FontFile_yp5h8"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_51f1d"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_yp5h8"]
+button_index = 2
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_np52p"]
+events = [SubResource("InputEventKey_51f1d"), SubResource("InputEventJoypadButton_yp5h8")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_vq8ft"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_2lxx7"]
+button_index = 3
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_02tkn"]
+events = [SubResource("InputEventKey_vq8ft"), SubResource("InputEventJoypadButton_2lxx7")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_bsogc"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_j4jua"]
+button_index = 1
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_63ac7"]
+events = [SubResource("InputEventKey_bsogc"), SubResource("InputEventJoypadButton_j4jua")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_rqq1m"]
+device = -1
+keycode = 52
+unicode = 52
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_72rbf"]
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_k7qap"]
+events = [SubResource("InputEventKey_rqq1m"), SubResource("InputEventJoypadButton_72rbf")]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yp5h8"]
 shader = ExtResource("11_51f1d")
@@ -54,7 +149,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/path = NodePath("CanvasLayer/TextureRect:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -66,7 +161,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect:position")
+tracks/1/path = NodePath("CanvasLayer/TextureRect:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -75,37 +170,13 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-1002, -509), Vector2(0, 0)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("QuestionBox:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(984, 496), Vector2(658, 289)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("QuestionBox:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_yp5h8"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/path = NodePath("CanvasLayer/TextureRect:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -117,7 +188,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect:position")
+tracks/1/path = NodePath("CanvasLayer/TextureRect:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -125,30 +196,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("QuestionBox:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(658, 289)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("QuestionBox:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_np52p"]
@@ -158,18 +205,23 @@ _data = {
 }
 
 [node name="QuizPrompter" type="Control" unique_id=1012666249]
+layout_direction = 4
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_0i1jj")
 
-[node name="Background" type="ColorRect" parent="." unique_id=1570446626]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=140821974]
+follow_viewport_enabled = true
+
+[node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=1570446626]
 material = SubResource("ShaderMaterial_i7y7u")
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -177,9 +229,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="QuestionBox" type="VBoxContainer" parent="." unique_id=1524926338]
+[node name="QuestionBox" type="VBoxContainer" parent="CanvasLayer" unique_id=1524926338]
 custom_minimum_size = Vector2(500, 0)
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -187,13 +238,16 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -302.0
 offset_top = -251.0
-offset_right = 302.0027
-offset_bottom = 251.00104
+offset_right = 302.0
+offset_bottom = 251.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 2
+alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="QuestionBox" unique_id=622354083]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/QuestionBox" unique_id=622354083]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
@@ -202,7 +256,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_7a4u8")
 value = 50.0
 show_percentage = false
 
-[node name="TimeDis" type="Label" parent="QuestionBox/ProgressBar" unique_id=1360341939]
+[node name="TimeDis" type="Label" parent="CanvasLayer/QuestionBox/ProgressBar" unique_id=1360341939]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 1
@@ -218,13 +272,17 @@ offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "10"
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label" type="Label" parent="QuestionBox" unique_id=411876985]
+[node name="Label" type="Label" parent="CanvasLayer/QuestionBox" unique_id=411876985]
 unique_name_in_owner = true
+texture_filter = 1
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_51f1d")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_6hm0b")
 text = "This is a question?"
@@ -232,91 +290,103 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Choices" type="GridContainer" parent="QuestionBox" unique_id=796333443]
+[node name="Choices" type="GridContainer" parent="CanvasLayer/QuestionBox" unique_id=796333443]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 columns = 2
 
-[node name="A" parent="QuestionBox/Choices" unique_id=2042028235 instance=ExtResource("2_i7y7u")]
+[node name="A" parent="CanvasLayer/QuestionBox/Choices" unique_id=2042028235 instance=ExtResource("2_i7y7u")]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.9514076, 1, 1)
 theme_override_colors/font_hover_color = Color(0.97849464, 1, 0.94623655, 1)
+theme_override_fonts/font = SubResource("FontFile_yp5h8")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("3_wekko")
 theme_override_styles/pressed = ExtResource("4_0i1jj")
 theme_override_styles/hover = ExtResource("3_wekko")
 theme_override_styles/disabled = ExtResource("3_wekko")
 action_mode = 0
+shortcut = SubResource("Shortcut_np52p")
 
-[node name="B" parent="QuestionBox/Choices" unique_id=1391388017 instance=ExtResource("2_i7y7u")]
+[node name="B" parent="CanvasLayer/QuestionBox/Choices" unique_id=1391388017 instance=ExtResource("2_i7y7u")]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.9514076, 1, 1)
 theme_override_colors/font_hover_color = Color(0.97849464, 1, 0.94623655, 1)
+theme_override_fonts/font = SubResource("FontFile_yp5h8")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("5_7a4u8")
 theme_override_styles/pressed = ExtResource("6_51f1d")
 theme_override_styles/hover = ExtResource("5_7a4u8")
 theme_override_styles/disabled = ExtResource("5_7a4u8")
 action_mode = 0
+shortcut = SubResource("Shortcut_02tkn")
 
-[node name="C" parent="QuestionBox/Choices" unique_id=707536176 instance=ExtResource("2_i7y7u")]
+[node name="C" parent="CanvasLayer/QuestionBox/Choices" unique_id=707536176 instance=ExtResource("2_i7y7u")]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.9514076, 1, 1)
 theme_override_colors/font_hover_color = Color(0.97849464, 1, 0.94623655, 1)
+theme_override_fonts/font = SubResource("FontFile_yp5h8")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("7_yp5h8")
 theme_override_styles/pressed = ExtResource("8_np52p")
 theme_override_styles/hover = ExtResource("7_yp5h8")
 theme_override_styles/disabled = ExtResource("7_yp5h8")
 action_mode = 0
+shortcut = SubResource("Shortcut_63ac7")
 
-[node name="D" parent="QuestionBox/Choices" unique_id=1033264820 instance=ExtResource("2_i7y7u")]
+[node name="D" parent="CanvasLayer/QuestionBox/Choices" unique_id=1033264820 instance=ExtResource("2_i7y7u")]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.9514076, 1, 1)
 theme_override_colors/font_hover_color = Color(0.97849464, 1, 0.94623655, 1)
+theme_override_fonts/font = SubResource("FontFile_yp5h8")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/hover = ExtResource("9_vq8ft")
 theme_override_styles/disabled = ExtResource("9_vq8ft")
 action_mode = 0
+shortcut = SubResource("Shortcut_k7qap")
 
-[node name="QuizTimer" type="Timer" parent="." unique_id=603875794]
+[node name="QuizTimer" type="Timer" parent="CanvasLayer" unique_id=603875794]
+unique_name_in_owner = true
 one_shot = true
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=5330988]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=5330988]
 material = SubResource("ShaderMaterial_yp5h8")
 custom_minimum_size = Vector2(1920, 1080)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -960.0
-offset_top = -540.0
-offset_right = 960.0
-offset_bottom = 540.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("11_7a4u8")
 expand_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1497161473]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1497161473]
+unique_name_in_owner = true
+root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_np52p")
 
-[connection signal="pressed" from="QuestionBox/Choices/A" to="." method="_on_a_pressed"]
-[connection signal="pressed" from="QuestionBox/Choices/B" to="." method="_on_b_pressed"]
-[connection signal="pressed" from="QuestionBox/Choices/C" to="." method="_on_c_pressed"]
-[connection signal="pressed" from="QuestionBox/Choices/D" to="." method="_on_d_pressed"]
-[connection signal="timeout" from="QuizTimer" to="." method="_on_quiz_timer_timeout"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="CanvasLayer/QuestionBox/Choices/A" to="." method="_on_a_pressed"]
+[connection signal="pressed" from="CanvasLayer/QuestionBox/Choices/B" to="." method="_on_b_pressed"]
+[connection signal="pressed" from="CanvasLayer/QuestionBox/Choices/C" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="CanvasLayer/QuestionBox/Choices/D" to="." method="_on_d_pressed"]
+[connection signal="timeout" from="CanvasLayer/QuizTimer" to="." method="_on_quiz_timer_timeout"]
+[connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

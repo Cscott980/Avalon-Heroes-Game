@@ -17,9 +17,13 @@ func _ready() -> void:
 	can_track = true
 	_set_new_target()
 
-func _process(_delta: float) -> void:
+func _process(_delta: float) -> void:		
 	if not can_track:
 		return 
+	
+	if current_target == null:
+		return
+		
 	_set_new_target()
 	target_in_range()
 	

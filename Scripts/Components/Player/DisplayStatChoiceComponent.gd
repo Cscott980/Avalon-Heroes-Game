@@ -18,14 +18,21 @@ func _ready() -> void:
 		choice_btn_two,
 		choice_btn_three
 	]
-
+	button_control(false)
 func data_box(index: int) -> void:
 	var selected: Dictionary = stats_recived[index]
 	print(stats_recived[index])
 	selected_choice.emit(selected)
 	stats_recived.clear()
 	self.visible = false
-	
+
+func button_control(status: bool) -> void:
+	for btn in btn_list:
+		if status:
+			btn.disabled = false
+		else:
+			btn.disabled = true
+
 func convert_percentage(value: float) -> float:
 	return value * 100
 	
@@ -42,12 +49,17 @@ func _on_progression_component_stat_choices(options: Array[Dictionary]) -> void:
 		#TODO: make icon resource / var icon: String = ""
 		if btn_list[i].has_method("set_choice_visual_data"):
 			btn_list[i].set_choice_visual_data(stat, disc)
-		
+	await get_tree().create_timer(0.5).timeout
+	button_control(true)
+	
 func _on_choice_btn_one_pressed() -> void:
 	data_box(0)
+	button_control(false)
 
 func _on_choice_btn_one_2_pressed() -> void:
 	data_box(1)
+	button_control(false)
 
 func _on_choice_btn_one_3_pressed() -> void:
 	data_box(2)
+	button_control(false)

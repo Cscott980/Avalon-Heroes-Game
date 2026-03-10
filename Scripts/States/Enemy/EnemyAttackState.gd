@@ -21,6 +21,8 @@ func physics_process(_delta: float) -> void:
 		return
 
 func do_attack() -> void:
+	if enemy.targeting_component.current_target == null:
+		return
 	playback.play_attack()
 	attack_timer.start()
 

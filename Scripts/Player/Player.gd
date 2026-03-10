@@ -21,6 +21,7 @@ signal death_phase
 @onready var world_visual_player_data: WorldVisualPlayerData = $WorldVisualPlayerData
 @onready var lunge_component: LungeComponent = %LungeComponent
 @onready var player_camera: CameraEffect = %PlayerCamera
+@onready var drop_pickup_component: DropPickUpComponent = $DropPickupComponent
 
 
 #@export var player_data: PlayerData

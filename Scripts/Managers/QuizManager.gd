@@ -15,6 +15,7 @@ enum RESULTS {
 @onready var timed_out: TextureRect = %TimedOut
 @onready var quiz_prompter: QuizPrompter = %QuizPrompter
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var tool_tip: Label = %ToolTip
 
 @export var quiz_data: Dictionary = {}
 @export var time_to_wait: float = 5.0
@@ -24,6 +25,10 @@ const RESULT_ANIM: Dictionary = {
 	RESULTS.INCORRECT: "Incorrect",
 	RESULTS.TIMED_OUT: "TimedOut"
 }
+
+const CORRECT_MESSAGE: String = "Press [Enter] to continue."
+var incorrect_message: String = ""
+var timed_out_message: String = ""
 
 var questions: Array = []
 var answer: int = 0
@@ -36,9 +41,15 @@ var players: Array = []
 var level_mode: bool = false
 var death_mode: bool = false
 
+var answered: bool = false
 
 func _ready() -> void:
 	quiz_prompter.visible = false
+	correct.visible = false
+	incorrect.visible = false
+	timed_out.visible = false
+	tool_tip.visible = false
+	
 	players = get_tree().get_nodes_in_group("player")
 	var file := FileAccess.open("res://Resources/Quizes/TestQuizVerbs.json", FileAccess.READ)
 	if file == null:
@@ -60,9 +71,12 @@ func _ready() -> void:
 		(player as Player).death_phase.connect(_on_player_death_phase)
 		
 func _input(event: InputEvent) -> void:
+	if not answered:
+		return
 	if event.is_action_pressed("proceed"):
 		next.emit()
-
+	var screen_size = DisplayServer.window_get_size()
+	quiz_prompter.size = screen_size
 func get_question() -> Dictionary:
 	if questions.is_empty():
 		return {}
@@ -76,38 +90,67 @@ func get_question() -> Dictionary:
 	return current_question
 
 func result(choice: int) -> void:
+	if not answered:
+		return
 	if choice == answer:
 		if level_mode:
-			result_anim(RESULT_ANIM.get(RESULTS.CORRECT))
+			result_anim(RESULT_ANIM.get(RESULTS.CORRECT),false)
+			tool_tip.text = CORRECT_MESSAGE
 			await next
+			answered = false
+			result_anim(RESULT_ANIM.get(RESULTS.CORRECT),true)
+			await get_tree().create_timer(1.0).timeout
+			quiz_prompter.canvas_layer.visible = false
 			quiz_prompter.visible = false
 			level_mode = false
 			death_mode = false
 			question_answered.emit()
+			return
 		elif death_mode:
 			hit += 1
 			if hit == needed:
-				result_anim(RESULT_ANIM.get(RESULTS.CORRECT))
+				result_anim(RESULT_ANIM.get(RESULTS.CORRECT),false)
+				tool_tip.text = CORRECT_MESSAGE
 				await next
+				answered = false
+				result_anim(RESULT_ANIM.get(RESULTS.CORRECT),true)
+				await get_tree().create_timer(1.0).timeout
+				quiz_prompter.canvas_layer.visible = false
 				quiz_prompter.visible = false
 				level_mode = false
 				death_mode = false
 				revive.emit()
+				return
 			else: 
-				result_anim(RESULT_ANIM.get(RESULTS.CORRECT))
+				result_anim(RESULT_ANIM.get(RESULTS.CORRECT),false)
+				tool_tip.text = CORRECT_MESSAGE
 				await next
+				answered = false
+				result_anim(RESULT_ANIM.get(RESULTS.CORRECT),true)
+				await get_tree().create_timer(1.0).timeout
 				quiz_prompter.question = get_question()
 				quiz_prompter.start_question()
-			
+				return
+
 	else:
-		result_anim(RESULT_ANIM.get(RESULTS.INCORRECT))
+		result_anim(RESULT_ANIM.get(RESULTS.INCORRECT),false)
+		var choices: Array = current_question["options"]
+		incorrect_message = "Answer: %s. Press [Enter] to continue." % choices[answer]
+		tool_tip.text = incorrect_message
 		await next
+		answered = false
+		result_anim(RESULT_ANIM.get(RESULTS.INCORRECT),true)
+		await get_tree().create_timer(1.0).timeout
 		quiz_prompter.question = get_question()
 		quiz_prompter.start_question()
+		return
 
 #Animation Helper
-func result_anim(anim: String) -> void:
-	anim_player.play(anim)
+func result_anim(anim: String, reverse: bool) -> void:
+	if reverse:
+		anim_player.play_backwards(anim)
+	else:
+		anim_player.play(anim)
 
 func _on_player_level_phase() -> void:
 	needed = 1
@@ -128,11 +171,20 @@ func _on_player_death_phase() -> void:
 	quiz_prompter.start_question()
 
 func _on_quiz_prompter_answer_chosen(choice: int) -> void:
+	answered = true
 	result(choice)
 
 func _on_quiz_prompter_timed_out() -> void:
-	result_anim(RESULT_ANIM.get(RESULTS.TIMED_OUT))
-	await get_tree().create_timer(time_to_wait).timeout
+	answered = true
+	result_anim(RESULT_ANIM.get(RESULTS.TIMED_OUT),false)
+	var choices: Array = current_question["options"]
+	incorrect_message = "Answer: %s. Press [Enter] to continue." % choices[answer]
+	tool_tip.text = incorrect_message
+	await next
+	answered = false
+	result_anim(RESULT_ANIM.get(RESULTS.TIMED_OUT),true)
+	await get_tree().create_timer(1.0).timeout
 	quiz_prompter.question = get_question()
 	quiz_prompter.start_question()
+	return
 	

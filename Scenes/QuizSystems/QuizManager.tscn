@@ -1,64 +1,891 @@
 [gd_scene format=3 uid="uid://cfx00mejdv0sl"]
 
-[ext_resource type="PackedScene" uid="uid://cirbwiavfmjmu" path="res://Scenes/QuizSystems/QuizPrompter.tscn" id="1_t228d"]
 [ext_resource type="Script" uid="uid://bnj35x8v46cls" path="res://Scripts/Managers/QuizManager.gd" id="1_tunm7"]
+[ext_resource type="Script" uid="uid://3l7ylwjq518t" path="res://Scripts/QuizSystems/QuizPrompter.gd" id="2_tcrbt"]
+[ext_resource type="Shader" uid="uid://dtptfpryxs6ug" path="res://Assets/Shaders/ScreenBlur.gdshader" id="3_5yixp"]
+[ext_resource type="Texture2D" uid="uid://b05bniru6i8cy" path="res://Assets/Icons/CorrectIcon.png" id="3_8b0cn"]
+[ext_resource type="PackedScene" uid="uid://bagsr4u03l2t8" path="res://Scenes/QuizSystems/AnswerButton.tscn" id="4_ft1ek"]
+[ext_resource type="Texture2D" uid="uid://coywq4lqhuvr8" path="res://Assets/Icons/IncorrectIcon.png" id="4_k6a7m"]
+[ext_resource type="StyleBox" uid="uid://di04rvf6o3m67" path="res://Resources/AnswerButtons/A/ANormal.tres" id="5_1gw7h"]
+[ext_resource type="Texture2D" uid="uid://yti86vt17ett" path="res://Assets/Icons/TimedOutIcon.png" id="5_3un24"]
+[ext_resource type="StyleBox" uid="uid://xmixfpd7jr1x" path="res://Resources/AnswerButtons/A/APressed.tres" id="6_esclh"]
+[ext_resource type="StyleBox" uid="uid://bnt6tm81y68lj" path="res://Resources/AnswerButtons/B/BNormal.tres" id="7_uliec"]
+[ext_resource type="StyleBox" uid="uid://bifan3nuxwqyj" path="res://Resources/AnswerButtons/B/BPressed.tres" id="8_kh88c"]
+[ext_resource type="StyleBox" uid="uid://cvq7xd80wchxc" path="res://Resources/AnswerButtons/C/CNormal.tres" id="9_je10g"]
+[ext_resource type="StyleBox" uid="uid://fovoix7aubcc" path="res://Resources/AnswerButtons/C/CPressed.tres" id="10_w8yyb"]
+[ext_resource type="StyleBox" uid="uid://ohxnl7vfxnpf" path="res://Resources/AnswerButtons/D/DNormal.tres" id="11_kf0eg"]
+[ext_resource type="Shader" uid="uid://diciy5xecxo3e" path="res://Assets/Shaders/ScreenGlow.gdshader" id="12_2cc5x"]
+[ext_resource type="Texture2D" uid="uid://cj5y1yrerm46d" path="res://Assets/Images/QuestionBoarder.png" id="13_4b5mg"]
 
-[node name="QuizManager" type="CanvasLayer" unique_id=1378495818 groups=["quiz_manager"]]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7y7u"]
+shader = ExtResource("3_5yixp")
+shader_parameter/blur_amount = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0i1jj"]
+bg_color = Color(1, 0.07016479, 0, 0.44700003)
+border_width_top = 10
+border_color = Color(0.9902344, 0.9528551, 0.39911026, 1)
+expand_margin_top = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7a4u8"]
+bg_color = Color(1, 0.77500856, 0.17389506, 1)
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+
+[sub_resource type="FontFile" id="FontFile_51f1d"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6hm0b"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 10
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="FontFile" id="FontFile_yp5h8"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_51f1d"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_yp5h8"]
+button_index = 2
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_np52p"]
+events = [SubResource("InputEventKey_51f1d"), SubResource("InputEventJoypadButton_yp5h8")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_vq8ft"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_2lxx7"]
+button_index = 3
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_02tkn"]
+events = [SubResource("InputEventKey_vq8ft"), SubResource("InputEventJoypadButton_2lxx7")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_bsogc"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_j4jua"]
+button_index = 1
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_63ac7"]
+events = [SubResource("InputEventKey_bsogc"), SubResource("InputEventJoypadButton_j4jua")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_rqq1m"]
+device = -1
+keycode = 52
+unicode = 52
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_72rbf"]
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_k7qap"]
+events = [SubResource("InputEventKey_rqq1m"), SubResource("InputEventJoypadButton_72rbf")]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yp5h8"]
+shader = ExtResource("12_2cc5x")
+shader_parameter/border_color = Color(1, 0.84, 0.2, 1)
+shader_parameter/border_thickness = 0.0
+shader_parameter/glow_size = 0.0
+shader_parameter/glow_strength = 0.0
+shader_parameter/pulse_speed = 3.85600018316
+shader_parameter/pulse_amount = 0.5450000258875
+shader_parameter/deform_speed = 2.5
+shader_parameter/deform_amount = 0.008
+shader_parameter/deform_scale = 18.10800081263
+
+[sub_resource type="Animation" id="Animation_51f1d"]
+resource_name = "QuestionAppear"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.025, 2.025), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/TextureRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1002, -509), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yp5h8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/TextureRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_np52p"]
+_data = {
+&"QuestionAppear": SubResource("Animation_51f1d"),
+&"RESET": SubResource("Animation_yp5h8")
+}
+
+[sub_resource type="FontFile" id="FontFile_tunm7"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/35/0/ascent = 0.0
+cache/0/35/0/descent = 0.0
+cache/0/35/0/underline_position = 0.0
+cache/0/35/0/underline_thickness = 0.0
+cache/0/35/0/scale = 1.0
+
+[sub_resource type="Animation" id="Animation_tunm7"]
+resource_name = "Correct"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("QuizPrompter/CanvasLayer/Correct:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("QuizPrompter/CanvasLayer/ToolTip:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("QuizPrompter/CanvasLayer/Correct:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.27333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("QuizPrompter/CanvasLayer/Correct:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.27333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(905, 580), Vector2(660, 440)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("QuizPrompter/CanvasLayer/ToolTip:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("QuizPrompter/CanvasLayer/ToolTip:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(920, 699), Vector2(658.97, 576.285)]
+}
+
+[sub_resource type="Animation" id="Animation_rees0"]
+resource_name = "Incorrect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("QuizPrompter/CanvasLayer/Incorrect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(922, 603), Vector2(660, 440)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("QuizPrompter/CanvasLayer/Incorrect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("QuizPrompter/CanvasLayer/ToolTip:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(875, 646), Vector2(660.55, 580.745)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("QuizPrompter/CanvasLayer/ToolTip:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("QuizPrompter/CanvasLayer/ToolTip:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.03333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("QuizPrompter/CanvasLayer/Incorrect:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_y72ol"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("QuizPrompter/CanvasLayer/Correct:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("QuizPrompter/CanvasLayer/ToolTip:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("QuizPrompter/CanvasLayer/Correct:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("QuizPrompter/CanvasLayer/Correct:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(660, 440)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("QuizPrompter/CanvasLayer/ToolTip:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("QuizPrompter/CanvasLayer/ToolTip:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(710, 646)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("QuizPrompter/CanvasLayer/Incorrect:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(660, 440)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("QuizPrompter/CanvasLayer/Incorrect:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("QuizPrompter/CanvasLayer/TimedOut:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(660, 440)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("QuizPrompter/CanvasLayer/TimedOut:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("QuizPrompter/CanvasLayer/TimedOut:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("QuizPrompter/CanvasLayer/Incorrect:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_8b0cn"]
+resource_name = "TimedOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("QuizPrompter/CanvasLayer/TimedOut:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(891, 440), Vector2(660, 440)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("QuizPrompter/CanvasLayer/TimedOut:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("QuizPrompter/CanvasLayer/TimedOut:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("QuizPrompter/CanvasLayer/ToolTip:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(856, 646), Vector2(625.405, 600.835)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("QuizPrompter/CanvasLayer/ToolTip:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("QuizPrompter/CanvasLayer/ToolTip:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rees0"]
+_data = {
+&"Correct": SubResource("Animation_tunm7"),
+&"Incorrect": SubResource("Animation_rees0"),
+&"RESET": SubResource("Animation_y72ol"),
+&"TimedOut": SubResource("Animation_8b0cn")
+}
+
+[node name="QuizManager" type="Node" unique_id=2000062990 groups=["quiz_manager"]]
 script = ExtResource("1_tunm7")
 
-[node name="Correct" type="TextureRect" parent="." unique_id=461541692]
+[node name="QuizPrompter" type="Control" parent="." unique_id=1012666249]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(600, 200)
+visible = false
+layout_direction = 4
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_tcrbt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="QuizPrompter" unique_id=140821974]
+follow_viewport_enabled = true
+
+[node name="Background" type="ColorRect" parent="QuizPrompter/CanvasLayer" unique_id=1570446626]
+material = SubResource("ShaderMaterial_i7y7u")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="QuestionBox" type="VBoxContainer" parent="QuizPrompter/CanvasLayer" unique_id=1524926338]
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -302.0
+offset_top = -251.0
+offset_right = 302.0
+offset_bottom = 251.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="QuizPrompter/CanvasLayer/QuestionBox" unique_id=622354083]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_0i1jj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7a4u8")
+value = 50.0
+show_percentage = false
+
+[node name="TimeDis" type="Label" parent="QuizPrompter/CanvasLayer/QuestionBox/ProgressBar" unique_id=1360341939]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -20.0
+offset_top = -8.5
 offset_right = 20.0
-offset_bottom = 20.0
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="QuizPrompter/CanvasLayer/QuestionBox" unique_id=411876985]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_51f1d")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_6hm0b")
+text = "This is a question?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Choices" type="GridContainer" parent="QuizPrompter/CanvasLayer/QuestionBox" unique_id=796333443]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+columns = 2
+
+[node name="A" parent="QuizPrompter/CanvasLayer/QuestionBox/Choices" unique_id=2042028235 instance=ExtResource("4_ft1ek")]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.9514076, 1, 1)
+theme_override_colors/font_hover_color = Color(0.97849464, 1, 0.94623655, 1)
+theme_override_fonts/font = SubResource("FontFile_yp5h8")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("5_1gw7h")
+theme_override_styles/pressed = ExtResource("6_esclh")
+theme_override_styles/hover = ExtResource("5_1gw7h")
+theme_override_styles/disabled = ExtResource("5_1gw7h")
+action_mode = 0
+shortcut = SubResource("Shortcut_np52p")
+
+[node name="B" parent="QuizPrompter/CanvasLayer/QuestionBox/Choices" unique_id=1391388017 instance=ExtResource("4_ft1ek")]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.9514076, 1, 1)
+theme_override_colors/font_hover_color = Color(0.97849464, 1, 0.94623655, 1)
+theme_override_fonts/font = SubResource("FontFile_yp5h8")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("7_uliec")
+theme_override_styles/pressed = ExtResource("8_kh88c")
+theme_override_styles/hover = ExtResource("7_uliec")
+theme_override_styles/disabled = ExtResource("7_uliec")
+action_mode = 0
+shortcut = SubResource("Shortcut_02tkn")
+
+[node name="C" parent="QuizPrompter/CanvasLayer/QuestionBox/Choices" unique_id=707536176 instance=ExtResource("4_ft1ek")]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.9514076, 1, 1)
+theme_override_colors/font_hover_color = Color(0.97849464, 1, 0.94623655, 1)
+theme_override_fonts/font = SubResource("FontFile_yp5h8")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("9_je10g")
+theme_override_styles/pressed = ExtResource("10_w8yyb")
+theme_override_styles/hover = ExtResource("9_je10g")
+theme_override_styles/disabled = ExtResource("9_je10g")
+action_mode = 0
+shortcut = SubResource("Shortcut_63ac7")
+
+[node name="D" parent="QuizPrompter/CanvasLayer/QuestionBox/Choices" unique_id=1033264820 instance=ExtResource("4_ft1ek")]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.9514076, 1, 1)
+theme_override_colors/font_hover_color = Color(0.97849464, 1, 0.94623655, 1)
+theme_override_fonts/font = SubResource("FontFile_yp5h8")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = ExtResource("11_kf0eg")
+theme_override_styles/disabled = ExtResource("11_kf0eg")
+action_mode = 0
+shortcut = SubResource("Shortcut_k7qap")
+
+[node name="QuizTimer" type="Timer" parent="QuizPrompter/CanvasLayer" unique_id=603875794]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="TextureRect" type="TextureRect" parent="QuizPrompter/CanvasLayer" unique_id=5330988]
+material = SubResource("ShaderMaterial_yp5h8")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+texture = ExtResource("13_4b5mg")
+expand_mode = 1
 
-[node name="Incorrect" type="TextureRect" parent="." unique_id=2062704536]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="QuizPrompter/CanvasLayer" unique_id=1497161473]
 unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_np52p")
+
+[node name="Correct" type="TextureRect" parent="QuizPrompter/CanvasLayer" unique_id=461541692]
+unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(600, 200)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0088
+offset_bottom = 100.001465
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+texture = ExtResource("3_8b0cn")
+expand_mode = 1
 
-[node name="TimedOut" type="TextureRect" parent="." unique_id=722887939]
+[node name="Incorrect" type="TextureRect" parent="QuizPrompter/CanvasLayer" unique_id=2062704536]
 unique_name_in_owner = true
+visible = false
+clip_contents = true
 custom_minimum_size = Vector2(600, 200)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = 100.00049
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+texture = ExtResource("4_k6a7m")
+expand_mode = 1
 
-[node name="QuizPrompter" parent="." unique_id=1012666249 node_paths=PackedStringArray("quiz_manager") instance=ExtResource("1_t228d")]
+[node name="TimedOut" type="TextureRect" parent="QuizPrompter/CanvasLayer" unique_id=722887939]
 unique_name_in_owner = true
-quiz_manager = NodePath("..")
+visible = false
+custom_minimum_size = Vector2(600, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_3un24")
+expand_mode = 1
+
+[node name="ToolTip" type="Label" parent="QuizPrompter/CanvasLayer" unique_id=945001160]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(600, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 106.0
+offset_right = 350.00146
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("FontFile_tunm7")
+theme_override_font_sizes/font_size = 35
+text = "Press [Eneter] to continue."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=116685043]
+libraries/ = SubResource("AnimationLibrary_rees0")
 
 [connection signal="answer_chosen" from="QuizPrompter" to="." method="_on_quiz_prompter_answer_chosen"]
 [connection signal="timed_out" from="QuizPrompter" to="." method="_on_quiz_prompter_timed_out"]
+[connection signal="pressed" from="QuizPrompter/CanvasLayer/QuestionBox/Choices/A" to="QuizPrompter" method="_on_a_pressed"]
+[connection signal="pressed" from="QuizPrompter/CanvasLayer/QuestionBox/Choices/B" to="QuizPrompter" method="_on_b_pressed"]
+[connection signal="pressed" from="QuizPrompter/CanvasLayer/QuestionBox/Choices/C" to="QuizPrompter" method="_on_c_pressed"]
+[connection signal="pressed" from="QuizPrompter/CanvasLayer/QuestionBox/Choices/D" to="QuizPrompter" method="_on_d_pressed"]
+[connection signal="timeout" from="QuizPrompter/CanvasLayer/QuizTimer" to="QuizPrompter" method="_on_quiz_timer_timeout"]
+[connection signal="animation_finished" from="QuizPrompter/CanvasLayer/AnimationPlayer" to="QuizPrompter" method="_on_animation_player_animation_finished"]

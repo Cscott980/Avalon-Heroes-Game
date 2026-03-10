@@ -63,6 +63,5 @@ func _on_progression_component_leveling(status: bool) -> void:
 	else:
 		input_active = true
 
-
-func _on_health_component_revived(owner: Node) -> void:
-	pass # Replace with function body.
+func _on_health_component_revived() -> void:
+	input_active = true

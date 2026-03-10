@@ -44,7 +44,11 @@ func _physics_process(delta: float) -> void:
 		
 	if is_dead or not can_move:
 		return
-
+		
+	if current_target != null:
+		if not is_instance_valid(current_target):
+			current_target = null
+			
 	if current_target != null:
 		_move_to_target(delta)
 	else:
@@ -99,21 +103,16 @@ func wander(delta: float) -> void:
 	# 1. IDLE LOGIC
 	if wander_wait > 0:
 		wander_wait -= delta
-		
-		# Stop horizontal movement
 		user.velocity.x = move_toward(user.velocity.x, 0, wander_speed * delta)
 		user.velocity.z = move_toward(user.velocity.z, 0, wander_speed * delta)
-		
 		_apply_gravity(delta)
 		user.move_and_slide()
-		
-		# Ensure we only emit idle once per cycle
 		if _is_wandering:
 			_is_wandering = false
 			idling.emit()
 		return
 
-	# 2. PICK NEW POINT
+	# 2. PICK NEW POINT (no NavAgent)
 	if not has_wander_point:
 		var random_pos = Vector3(
 			randf_range(-wander_radius, wander_radius),
@@ -121,37 +120,24 @@ func wander(delta: float) -> void:
 			randf_range(-wander_radius, wander_radius)
 		)
 		wander_point = user.global_position + random_pos
-		
-		# Use NavAgent to ensure the point is reachable on the map
-		nav_agent.target_position = wander_point
 		has_wander_point = true
-		
+
 		if !_is_wandering:
 			_is_wandering = true
 			wandering.emit()
 
-	var next_point = nav_agent.get_next_path_position()
-
-	if not is_finite(next_point.x) or not is_finite(next_point.y) or not is_finite(next_point.z):
-		push_error("Invalid next_point in wander: %s" % [next_point])
-		has_wander_point = false
-		wander_wait = idling_wait_time
-		user.velocity.x = 0.0
-		user.velocity.z = 0.0
-		return
-
-	var to_point = next_point - user.global_position
+	# 3. MOVE DIRECTLY TOWARD POINT
+	var to_point = wander_point - user.global_position
 	to_point.y = 0.0
 
-	var dist_to_final = user.global_position.distance_to(wander_point)
-
-	if dist_to_final <= wander_reach_dist:
+	if user.global_position.distance_to(wander_point) <= wander_reach_dist:
 		has_wander_point = false
 		wander_wait = idling_wait_time
+		_apply_gravity(delta)
+		user.move_and_slide()
 		return
 
 	var dir = safe_normalized(to_point)
-
 	user.velocity.x = dir.x * wander_speed
 	user.velocity.z = dir.z * wander_speed
 
