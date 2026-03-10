@@ -59,14 +59,9 @@ func _on_drop_pickup_component_health_potion(_amount: float) -> void:
 		await get_tree().create_timer(1.0).timeout
 		user.remove_child(vfx)
 		
-func hit_flash_on() -> void:
+func hit_flash(state: bool) -> void:
 	pass
 	
-func hit_flash_off() -> void:
+func heal_glow(state: bool) -> void:
 	pass
 
-func heal_glow_on() -> void:
-	pass
-
-func heal_glow_off() -> void:
-	pass
