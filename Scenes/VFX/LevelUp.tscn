@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bf2qmdalqb8v8"]
 
-[ext_resource type="Shader" uid="uid://b8xg0rf2hjxod" path="res://LevelUp.tres" id="1_ewln8"]
+[ext_resource type="Shader" uid="uid://b8xg0rf2hjxod" path="res://Assets/Shaders/LevelUp.tres" id="1_ewln8"]
 [ext_resource type="Script" uid="uid://bhf5mo1w14me2" path="res://Scripts/Components/Player/LevelUpVXF.gd" id="1_x5hmj"]
 [ext_resource type="Texture2D" uid="uid://x6pygs18mph8" path="res://Assets/Textures/Misc/T_Aurax44.jpg" id="2_3phkf"]
 [ext_resource type="Shader" uid="uid://dyhj3goh2dwla" path="res://Assets/Shaders/Shackwave.gdshader" id="2_16slg"]
-[ext_resource type="ArrayMesh" uid="uid://qyykj3lerwgi" path="res://Assets/Misc/cylinder_long.obj" id="2_e662m"]
+[ext_resource type="ArrayMesh" uid="uid://qyykj3lerwgi" path="res://Assets/BlenderMeshes/cylinder_long.obj" id="2_e662m"]
 [ext_resource type="Texture2D" uid="uid://cq1nhqcs8v8d6" path="res://Assets/Textures/Misc/T_texr41.png" id="3_g8aqp"]
 [ext_resource type="Texture2D" uid="uid://bp1vpi6u631mh" path="res://Assets/Textures/Misc/T_VFX_CircleFit1.png" id="7_16slg"]
 [ext_resource type="AudioStream" uid="uid://duixq6rdh5atl" path="res://Assets/Audio/level up.wav" id="8_16slg"]

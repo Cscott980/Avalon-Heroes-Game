@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://caavhwhvoqvqm"]
 
 [ext_resource type="Script" uid="uid://darx8xm44dpc5" path="res://Scripts/Components/Player/DisplayStatChoiceComponent.gd" id="1_so8dy"]
-[ext_resource type="Texture2D" uid="uid://brg8dkr6fqm3e" path="res://Assets/GUI/UI/Icons/EmptySlot.png" id="2_mub4i"]
+[ext_resource type="Texture2D" uid="uid://ckpox5xl4eod8" path="res://Assets/GUI/StatBackGroundNormal.png" id="2_5itd0"]
+[ext_resource type="Texture2D" uid="uid://d1inj74j34lmx" path="res://Assets/GUI/StatBackGround.png" id="2_65kfj"]
+[ext_resource type="Texture2D" uid="uid://com8hepqi7r72" path="res://Assets/GUI/StatBackGroundPressed.png" id="3_eak8a"]
 [ext_resource type="StyleBox" uid="uid://vhfawbbim2h2" path="res://Styles/AbilityInfoBox/CommonStatBox.tres" id="3_joe0m"]
 [ext_resource type="Script" uid="uid://cjejxa4hnbunn" path="res://Scripts/UI/ChoiceBtn.gd" id="3_romyj"]
 [ext_resource type="Texture2D" uid="uid://oanefjsfn4v2" path="res://Assets/GUI/UI/Icons/WarriorAbilities/BattleShoutIcon.png" id="4_v4vkj"]
+[ext_resource type="FontFile" uid="uid://iexfsr36acr5" path="res://Assets/Fonts/TitanOne-Regular.ttf" id="6_65kfj"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_romyj"]
 device = -1
@@ -17,30 +20,6 @@ pressed = true
 
 [sub_resource type="Shortcut" id="Shortcut_gxoix"]
 events = [SubResource("InputEventKey_romyj"), SubResource("InputEventJoypadButton_65kfj")]
-
-[sub_resource type="FontFile" id="FontFile_t53un"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/25/0/ascent = 0.0
-cache/0/25/0/descent = 0.0
-cache/0/25/0/underline_position = 0.0
-cache/0/25/0/underline_thickness = 0.0
-cache/0/25/0/scale = 1.0
 
 [sub_resource type="InputEventKey" id="InputEventKey_65kfj"]
 device = -1
@@ -78,17 +57,18 @@ metadata/_custom_type_script = "uid://darx8xm44dpc5"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=243478469]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -15.150001
-anchor_top = -5.401
-anchor_right = 16.150002
-anchor_bottom = 6.7500005
-offset_left = 606.0
-offset_top = 216.04001
-offset_right = -606.00006
-offset_bottom = -230.00003
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -791.0
+offset_top = -250.0
+offset_right = 461.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.23, 1.23)
 theme_override_constants/separation = 26
 
 [node name="ChoiceBtnOne" type="TextureButton" parent="HBoxContainer" unique_id=1092519621]
@@ -99,7 +79,10 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 action_mode = 0
 shortcut = SubResource("Shortcut_gxoix")
-texture_normal = ExtResource("2_mub4i")
+texture_normal = ExtResource("2_5itd0")
+texture_pressed = ExtResource("3_eak8a")
+texture_hover = ExtResource("2_65kfj")
+texture_disabled = ExtResource("2_5itd0")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_romyj")
@@ -117,8 +100,10 @@ theme_override_styles/panel = ExtResource("3_joe0m")
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ChoiceBtnOne/PanelContainer" unique_id=1144704638]
 layout_mode = 2
 theme_override_constants/separation = 30
+alignment = 1
 
 [node name="StatIcon" type="TextureRect" parent="HBoxContainer/ChoiceBtnOne/PanelContainer/VBoxContainer" unique_id=566360972]
+visible = false
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 texture = ExtResource("4_v4vkj")
@@ -128,6 +113,8 @@ expand_mode = 1
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 1
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("6_65kfj")
 theme_override_font_sizes/font_size = 49
 text = "Stat Name"
 horizontal_alignment = 1
@@ -137,7 +124,8 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 mouse_filter = 1
-theme_override_fonts/font = SubResource("FontFile_t53un")
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("6_65kfj")
 theme_override_font_sizes/font_size = 25
 text = "This is stat description"
 horizontal_alignment = 1
@@ -152,7 +140,10 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 action_mode = 0
 shortcut = SubResource("Shortcut_5itd0")
-texture_normal = ExtResource("2_mub4i")
+texture_normal = ExtResource("2_5itd0")
+texture_pressed = ExtResource("3_eak8a")
+texture_hover = ExtResource("2_65kfj")
+texture_disabled = ExtResource("2_5itd0")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_romyj")
@@ -170,17 +161,20 @@ theme_override_styles/panel = ExtResource("3_joe0m")
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ChoiceBtnOne2/PanelContainer" unique_id=1303802923]
 layout_mode = 2
 theme_override_constants/separation = 30
+alignment = 1
 
 [node name="StatIcon" type="TextureRect" parent="HBoxContainer/ChoiceBtnOne2/PanelContainer/VBoxContainer" unique_id=903207442]
+visible = false
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-texture = ExtResource("4_v4vkj")
 expand_mode = 1
 
 [node name="StatName" type="Label" parent="HBoxContainer/ChoiceBtnOne2/PanelContainer/VBoxContainer" unique_id=1867525333]
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 1
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("6_65kfj")
 theme_override_font_sizes/font_size = 49
 text = "Stat Name"
 horizontal_alignment = 1
@@ -190,7 +184,8 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 mouse_filter = 1
-theme_override_fonts/font = SubResource("FontFile_t53un")
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("6_65kfj")
 theme_override_font_sizes/font_size = 25
 text = "This is stat description."
 horizontal_alignment = 1
@@ -205,7 +200,10 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 action_mode = 0
 shortcut = SubResource("Shortcut_eak8a")
-texture_normal = ExtResource("2_mub4i")
+texture_normal = ExtResource("2_5itd0")
+texture_pressed = ExtResource("3_eak8a")
+texture_hover = ExtResource("2_65kfj")
+texture_disabled = ExtResource("2_5itd0")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_romyj")
@@ -223,17 +221,20 @@ theme_override_styles/panel = ExtResource("3_joe0m")
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ChoiceBtnOne3/PanelContainer" unique_id=1911776571]
 layout_mode = 2
 theme_override_constants/separation = 30
+alignment = 1
 
 [node name="StatIcon" type="TextureRect" parent="HBoxContainer/ChoiceBtnOne3/PanelContainer/VBoxContainer" unique_id=1291181485]
+visible = false
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-texture = ExtResource("4_v4vkj")
 expand_mode = 1
 
 [node name="StatName" type="Label" parent="HBoxContainer/ChoiceBtnOne3/PanelContainer/VBoxContainer" unique_id=1679996920]
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 1
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("6_65kfj")
 theme_override_font_sizes/font_size = 49
 text = "Stat Name"
 horizontal_alignment = 1
@@ -243,7 +244,8 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 mouse_filter = 1
-theme_override_fonts/font = SubResource("FontFile_t53un")
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("6_65kfj")
 theme_override_font_sizes/font_size = 25
 text = "This is stat description"
 horizontal_alignment = 1

@@ -3,11 +3,8 @@
 [ext_resource type="Script" uid="uid://et2hd648a4h2" path="res://Scripts/Abilities/Whirlwind.gd" id="1_fvur8"]
 [ext_resource type="Shader" uid="uid://bdoldt80walo3" path="res://Assets/Shaders/Whirlwind.gdshader" id="2_io5sa"]
 [ext_resource type="Texture2D" uid="uid://b8jgehliubn34" path="res://Assets/Textures/Misc/T_VFX_Spiral07.jpg" id="3_a6io5"]
-[ext_resource type="ArrayMesh" uid="uid://cdjpbvlrlme1h" path="res://Assets/Misc/Whirlwind.obj" id="4_ld8e8"]
+[ext_resource type="ArrayMesh" uid="uid://cdjpbvlrlme1h" path="res://Assets/BlenderMeshes/Whirlwind.obj" id="4_ld8e8"]
 [ext_resource type="Texture2D" uid="uid://w4alclilyqd8" path="res://Assets/Textures/Misc/twirl_01.png" id="5_oank5"]
-[ext_resource type="Shader" uid="uid://dbf54pvjfduka" path="res://Assets/Shaders/SmokeShader.gdshader" id="6_qaefi"]
-[ext_resource type="Texture2D" uid="uid://f1mfwrdudlho" path="res://Assets/Textures/Misc/T_NKQ443.png" id="7_8o7b6"]
-[ext_resource type="ArrayMesh" uid="uid://7vuqsdwag5nh" path="res://Assets/Misc/staticmeshsmoke.obj" id="8_svend"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hasjt"]
 render_priority = 0
@@ -37,29 +34,106 @@ shader_parameter/scroll_speed = 0.8
 shader_parameter/alpha_strength = 1.0
 shader_parameter/gradient_power = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_slf7f"]
-render_priority = 0
-shader = ExtResource("6_qaefi")
-shader_parameter/noise_tex = ExtResource("7_8o7b6")
-shader_parameter/color_light = Color(0.9, 0.9, 0.95, 1)
-shader_parameter/color_dark = Color(0.55, 0.55, 0.65, 1)
-shader_parameter/grad_bottom = Color(1, 1, 1, 1)
-shader_parameter/grad_top = Color(1, 1, 1, 1)
-shader_parameter/alpha_strength = 1.0
-shader_parameter/scroll_speed = 0.15
-shader_parameter/swirl_strength = 0.06
-shader_parameter/noise_scale = 1.5
-shader_parameter/softness = 0.25
-shader_parameter/threshold = 0.45
-shader_parameter/toon_steps = 4.0
-shader_parameter/outline_width = 0.1
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_itr77"]
+load_path = "res://.godot/imported/Smoke_0000.png-5b4283b7d1dc49f29a2013f46d462d9e.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vr0dg"]
+load_path = "res://.godot/imported/Smoke_0001.png-341055efbfb6c685f0172bf994c60f21.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fvur8"]
+load_path = "res://.godot/imported/Smoke_0010.png-a8941baed2714c8cf5241d683acfdca2.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_io5sa"]
+load_path = "res://.godot/imported/Smoke_0011.png-dc50ed5e454d0c40490cb39f092b85b5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a6io5"]
+load_path = "res://.godot/imported/Smoke_0012.png-6ee5df58ff382c87e880b49b5f84cf73.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ld8e8"]
+load_path = "res://.godot/imported/Smoke_0013.png-ba8f8fdcd05ffb31fac53ea5725ea6d8.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oank5"]
+load_path = "res://.godot/imported/Smoke_0014.png-f62b756c407d6cd3e2352c902d649898.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qaefi"]
+load_path = "res://.godot/imported/Smoke_0015.png-607686335e6dc48760947649bd18e919.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8o7b6"]
+load_path = "res://.godot/imported/Smoke_0002.png-e00a64ad76f97a8385f0ab71a9ce1965.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_svend"]
+load_path = "res://.godot/imported/Smoke_0003.png-0b3354e9e7a4e399577143abda15cffd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v6xtk"]
+load_path = "res://.godot/imported/Smoke_0004.png-20fc9db7d206242e0f50344023ecb6b6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u7b2d"]
+load_path = "res://.godot/imported/Smoke_0005.png-9cbf3683328f016cc21fb98043e8259f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6uraa"]
+load_path = "res://.godot/imported/Smoke_0006.png-86201be9029eda26c20be2fd5a118f05.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rnswd"]
+load_path = "res://.godot/imported/Smoke_0007.png-fa5dca5b47d3fd1c6e7cdca03194873e.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v8p7u"]
+load_path = "res://.godot/imported/Smoke_0008.png-40267fdd093ccc9e4465b131e1a2b277.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mgyjh"]
+load_path = "res://.godot/imported/Smoke_0009.png-35607ec424d5c0aafed120f2bae7e98f.s3tc.ctex"
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_fk6vk"]
+frames = 16
+frame_0/texture = SubResource("CompressedTexture2D_itr77")
+frame_0/duration = 0.1
+frame_1/texture = SubResource("CompressedTexture2D_vr0dg")
+frame_1/duration = 0.1
+frame_2/texture = SubResource("CompressedTexture2D_8o7b6")
+frame_2/duration = 0.1
+frame_3/texture = SubResource("CompressedTexture2D_svend")
+frame_3/duration = 0.1
+frame_4/texture = SubResource("CompressedTexture2D_v6xtk")
+frame_4/duration = 0.1
+frame_5/texture = SubResource("CompressedTexture2D_u7b2d")
+frame_5/duration = 0.1
+frame_6/texture = SubResource("CompressedTexture2D_6uraa")
+frame_6/duration = 0.1
+frame_7/texture = SubResource("CompressedTexture2D_rnswd")
+frame_7/duration = 0.1
+frame_8/texture = SubResource("CompressedTexture2D_v8p7u")
+frame_8/duration = 0.1
+frame_9/texture = SubResource("CompressedTexture2D_mgyjh")
+frame_9/duration = 0.1
+frame_10/texture = SubResource("CompressedTexture2D_fvur8")
+frame_10/duration = 0.1
+frame_11/texture = SubResource("CompressedTexture2D_io5sa")
+frame_11/duration = 0.1
+frame_12/texture = SubResource("CompressedTexture2D_a6io5")
+frame_12/duration = 0.1
+frame_13/texture = SubResource("CompressedTexture2D_ld8e8")
+frame_13/duration = 0.1
+frame_14/texture = SubResource("CompressedTexture2D_oank5")
+frame_14/duration = 0.1
+frame_15/texture = SubResource("CompressedTexture2D_qaefi")
+frame_15/duration = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13iqf"]
+transparency = 4
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.9914296, 1, 0.9677882, 1)
+albedo_texture = SubResource("AnimatedTexture_fk6vk")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_2uwxd"]
+material = SubResource("StandardMaterial3D_13iqf")
 
 [sub_resource type="Curve" id="Curve_ofxau"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.5023582, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_31a5e"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0uh1l"]
 height = 3.7470703
@@ -79,12 +153,11 @@ cast_shadow = 0
 mesh = ExtResource("4_ld8e8")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1019805825]
-material_override = SubResource("ShaderMaterial_slf7f")
 amount = 30
 lifetime = 1.5
 explosiveness = 0.2
 randomness = 0.4
-mesh = ExtResource("8_svend")
+mesh = SubResource("QuadMesh_2uwxd")
 emission_shape = 1
 emission_sphere_radius = 0.3
 direction = Vector3(0, 0, 0)

@@ -171,14 +171,16 @@ func apply_equipment(slot_res: EquipmentSlotResource, item: ItemResource, sub_in
 				return
 				
 			if hand == &"off":
-				var mh := main_hand_weapon.WEAPON_TYPE
+				var mh := main_hand_data
 				if mh != null and mh.handedness == WeaponResource.HANDEDNESS.TWO_HANDED:
 					main_hand_weapon.clear_weapon()
+					main_hand_data = null
 				off_hand_data = w
 				off_hand_weapon.load_weapon(w)
 			else:
 				if w != null and w.handedness == WeaponResource.HANDEDNESS.TWO_HANDED:
 					off_hand_weapon.clear_weapon()
+					off_hand_data = null
 				main_hand_data = w
 				main_hand_weapon.load_weapon(w)
 				

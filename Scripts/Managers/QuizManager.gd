@@ -3,6 +3,7 @@ class_name QuizManager extends Node
 signal question_answered #Player must keep answering question until correct then this will be emited.
 signal revive
 signal next
+signal terminate
 
 enum RESULTS {
 	CORRECT,
@@ -42,7 +43,7 @@ var level_mode: bool = false
 var death_mode: bool = false
 
 var answered: bool = false
-
+var over: bool = false
 func _ready() -> void:
 	quiz_prompter.visible = false
 	correct.visible = false
@@ -71,12 +72,15 @@ func _ready() -> void:
 		(player as Player).death_phase.connect(_on_player_death_phase)
 		
 func _input(event: InputEvent) -> void:
+	if over:
+		return
 	if not answered:
 		return
 	if event.is_action_pressed("proceed"):
 		next.emit()
 	var screen_size = DisplayServer.window_get_size()
 	quiz_prompter.size = screen_size
+	
 func get_question() -> Dictionary:
 	if questions.is_empty():
 		return {}
@@ -152,7 +156,12 @@ func result_anim(anim: String, reverse: bool) -> void:
 	else:
 		anim_player.play(anim)
 
+func should_abort_quiz() -> bool:
+	return over
+
 func _on_player_level_phase() -> void:
+	if over:
+		return
 	needed = 1
 	hit = 0
 	level_mode = true
@@ -162,6 +171,8 @@ func _on_player_level_phase() -> void:
 	quiz_prompter.start_question()
 
 func _on_player_death_phase() -> void:
+	if over:
+		return
 	needed = 3
 	hit = 0
 	level_mode = false
@@ -171,10 +182,14 @@ func _on_player_death_phase() -> void:
 	quiz_prompter.start_question()
 
 func _on_quiz_prompter_answer_chosen(choice: int) -> void:
+	if over:
+		return
 	answered = true
 	result(choice)
 
 func _on_quiz_prompter_timed_out() -> void:
+	if over:
+		return
 	answered = true
 	result_anim(RESULT_ANIM.get(RESULTS.TIMED_OUT),false)
 	var choices: Array = current_question["options"]
@@ -187,4 +202,21 @@ func _on_quiz_prompter_timed_out() -> void:
 	quiz_prompter.question = get_question()
 	quiz_prompter.start_question()
 	return
+
+func _on_game_manager_game_ended() -> void:
+	if over:
+		return
 	
+	over = true
+	level_mode = false
+	death_mode = false
+	answered = false
+	
+	quiz_prompter.visible = false
+	quiz_prompter.canvas_layer.visible = false
+	correct.visible = false
+	incorrect.visible = false
+	timed_out.visible = false
+	tool_tip.visible = false
+	
+	terminate.emit()

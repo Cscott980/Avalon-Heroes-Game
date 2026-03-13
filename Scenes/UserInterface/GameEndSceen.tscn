@@ -1,0 +1,511 @@
+[gd_scene format=3 uid="uid://dm28c4okdv06"]
+
+[ext_resource type="Texture2D" uid="uid://b5f5w8fdyldle" path="res://Assets/GUI/UI/ConfirmButtonNormal.png" id="1_748nj"]
+[ext_resource type="Script" uid="uid://g1h8fqnsadvc" path="res://Scripts/UI/GameEndScene.gd" id="1_fwimo"]
+[ext_resource type="Shader" uid="uid://dtptfpryxs6ug" path="res://Assets/Shaders/ScreenBlur.gdshader" id="1_obhgk"]
+[ext_resource type="Texture2D" uid="uid://bc8p50pj08j51" path="res://Assets/GUI/UI/ConfirmButtonPressed.png" id="2_obhgk"]
+[ext_resource type="Texture2D" uid="uid://d1cff5at4kxar" path="res://Assets/GUI/UI/ConfirmButtonHover.png" id="3_46rj6"]
+[ext_resource type="FontFile" uid="uid://iexfsr36acr5" path="res://Assets/Fonts/TitanOne-Regular.ttf" id="5_46rj6"]
+[ext_resource type="Shader" uid="uid://diciy5xecxo3e" path="res://Assets/Shaders/ScreenGlow.gdshader" id="6_ts7qy"]
+[ext_resource type="Texture2D" uid="uid://cj5y1yrerm46d" path="res://Assets/Images/QuestionBoarder.png" id="7_fwimo"]
+[ext_resource type="Texture2D" uid="uid://b0xoxriqhdgfa" path="res://Assets/2DVFX/Glows/Timeline 1_0000.png" id="9_cdtek"]
+[ext_resource type="Texture2D" uid="uid://dtr5spnsaeiu2" path="res://Assets/GUI/Gem.png" id="9_tbslj"]
+[ext_resource type="Texture2D" uid="uid://t5kbgf5capaw" path="res://Assets/GUI/ClearedTextArt.png" id="10_cdtek"]
+[ext_resource type="AudioStream" uid="uid://csmbkrbgu14r8" path="res://Assets/Audio/SFX/Items/GoldCoin2.mp3" id="13_ercmq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_46rj6"]
+shader = ExtResource("1_obhgk")
+shader_parameter/blur_amount = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c0m84"]
+shader = ExtResource("6_ts7qy")
+shader_parameter/border_color = Color(1, 0.84, 0.2, 1)
+shader_parameter/border_thickness = 2.0
+shader_parameter/glow_size = 5.0
+shader_parameter/glow_strength = 1.6
+shader_parameter/pulse_speed = 2.0
+shader_parameter/pulse_amount = 0.15
+shader_parameter/deform_speed = 2.5
+shader_parameter/deform_amount = 0.008
+shader_parameter/deform_scale = 14.0
+
+[sub_resource type="Curve" id="Curve_8f3b8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ercmq"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8f3b8"]
+shader = ExtResource("6_ts7qy")
+shader_parameter/border_color = Color(0, 1.1172874, 1.0664176, 1)
+shader_parameter/border_thickness = 2.0
+shader_parameter/glow_size = 6.0610002878975
+shader_parameter/glow_strength = 1.6
+shader_parameter/pulse_speed = 2.0
+shader_parameter/pulse_amount = 0.15
+shader_parameter/deform_speed = 2.5
+shader_parameter/deform_amount = 0.02400000114
+shader_parameter/deform_scale = 21.400000969
+
+[sub_resource type="Animation" id="Animation_tbslj"]
+resource_name = "EndGame"
+length = 2.8666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Boarder:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2801.7778, 1576), Vector2(1920, 1080)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Boarder:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-440.88892, -248), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Gem:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(961, 328), Vector2(784, -21), Vector2(823, 20)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Gem:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.264, 1.264), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Text:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(1.559, 1.559), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Text:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(963, 201), Vector2(963, 201), Vector2(374.99988, 201), Vector2(584, 201)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/MenuBox:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5697915, 0.7651486),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/CPUParticles2D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.009302719),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_nw6ea"]
+resource_name = "LightFade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333336, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cdtek"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Boarder:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1920, 1080)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Boarder:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Gem:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(823, 20)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Gem:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Text:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Text:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(584, 201)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/MenuBox:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/CPUParticles2D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/Fade:color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8f3b8"]
+_data = {
+&"EndGame": SubResource("Animation_tbslj"),
+&"LightFade": SubResource("Animation_nw6ea"),
+&"RESET": SubResource("Animation_cdtek")
+}
+
+[node name="GameEndScreen" type="Control" unique_id=270843367]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_fwimo")
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=948712634]
+visible = false
+follow_viewport_enabled = true
+
+[node name="Blur" type="TextureRect" parent="CanvasLayer" unique_id=1821993334]
+material = SubResource("ShaderMaterial_46rj6")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuBox" type="VBoxContainer" parent="CanvasLayer" unique_id=1648435492]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -894.0
+offset_top = -511.0
+offset_right = 894.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+alignment = 1
+
+[node name="PointBox" type="HBoxContainer" parent="CanvasLayer/MenuBox" unique_id=804795316]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="Enemies" type="Label" parent="CanvasLayer/MenuBox/PointBox" unique_id=1766674374]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.31968558, 0.30849445, 1)
+theme_override_fonts/font = ExtResource("5_46rj6")
+theme_override_font_sizes/font_size = 60
+text = "Enemies Defeted:"
+
+[node name="EnemyKills" type="Label" parent="CanvasLayer/MenuBox/PointBox" unique_id=1732324259]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_46rj6")
+theme_override_font_sizes/font_size = 60
+text = "1000"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MenuBox/PointBox" unique_id=1889324278]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+
+[node name="Gold" type="Label" parent="CanvasLayer/MenuBox/PointBox" unique_id=1740423338]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9509461, 0, 1)
+theme_override_fonts/font = ExtResource("5_46rj6")
+theme_override_font_sizes/font_size = 60
+text = "Gold Collected:"
+
+[node name="GoldCollected" type="Label" parent="CanvasLayer/MenuBox/PointBox" unique_id=1825752034]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_46rj6")
+theme_override_font_sizes/font_size = 60
+text = "1000"
+
+[node name="PlayAgain" type="TextureButton" parent="CanvasLayer/MenuBox" unique_id=1711545239]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+focus_mode = 0
+action_mode = 0
+texture_normal = ExtResource("1_748nj")
+texture_pressed = ExtResource("2_obhgk")
+texture_hover = ExtResource("3_46rj6")
+texture_disabled = ExtResource("1_748nj")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/MenuBox/PlayAgain" unique_id=601998345]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9824219, 0.9295641, 0.875795, 1)
+theme_override_colors/font_outline_color = Color(0.728065, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("5_46rj6")
+theme_override_font_sizes/font_size = 65
+text = "Play Again"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MenuBox" unique_id=1373310266]
+layout_mode = 2
+theme_override_constants/margin_bottom = 53
+
+[node name="Boarder" type="TextureRect" parent="CanvasLayer" unique_id=466491749]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_c0m84")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_fwimo")
+expand_mode = 1
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer" unique_id=1646809195]
+position = Vector2(953, 319)
+emitting = false
+amount = 40
+texture = ExtResource("9_cdtek")
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+fixed_fps = 60
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 120.0
+initial_velocity_max = 900.0
+angular_velocity_min = 50.0
+angular_velocity_max = 180.0
+radial_accel_min = 1.0
+radial_accel_max = 5.0
+scale_amount_curve = SubResource("Curve_8f3b8")
+color = Color(12.83277, 18.892002, 18.3553, 1)
+color_ramp = SubResource("Gradient_ercmq")
+
+[node name="Gem" type="TextureRect" parent="CanvasLayer" unique_id=308346564]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_8f3b8")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -520.0
+offset_right = 137.0022
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_tbslj")
+
+[node name="Text" type="TextureRect" parent="CanvasLayer" unique_id=1448655377]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -376.0
+offset_top = -339.0
+offset_right = 376.0088
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_cdtek")
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=1460520935]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EndScreenPlayer" type="AnimationPlayer" parent="." unique_id=1280760638]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_8f3b8")
+
+[node name="ClearMusic" type="AudioStreamPlayer" parent="." unique_id=695921485]
+unique_name_in_owner = true
+
+[node name="EnemyCounter" type="AudioStreamPlayer" parent="." unique_id=1168279321]
+
+[node name="GoldSound" type="AudioStreamPlayer" parent="." unique_id=1837663456]
+stream = ExtResource("13_ercmq")
+volume_db = -5.0
+
+[node name="EnemyDeathsCounter" type="Timer" parent="." unique_id=1047548794]
+one_shot = true
+
+[node name="GoldCounterTrack" type="Timer" parent="." unique_id=102106100]
+one_shot = true
+
+[connection signal="pressed" from="CanvasLayer/MenuBox/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="animation_finished" from="EndScreenPlayer" to="." method="_on_end_screen_player_animation_finished"]

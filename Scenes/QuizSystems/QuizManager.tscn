@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://3l7ylwjq518t" path="res://Scripts/QuizSystems/QuizPrompter.gd" id="2_tcrbt"]
 [ext_resource type="Shader" uid="uid://dtptfpryxs6ug" path="res://Assets/Shaders/ScreenBlur.gdshader" id="3_5yixp"]
 [ext_resource type="Texture2D" uid="uid://b05bniru6i8cy" path="res://Assets/Icons/CorrectIcon.png" id="3_8b0cn"]
+[ext_resource type="FontFile" uid="uid://iexfsr36acr5" path="res://Assets/Fonts/TitanOne-Regular.ttf" id="4_5yixp"]
 [ext_resource type="PackedScene" uid="uid://bagsr4u03l2t8" path="res://Scenes/QuizSystems/AnswerButton.tscn" id="4_ft1ek"]
 [ext_resource type="Texture2D" uid="uid://coywq4lqhuvr8" path="res://Assets/Icons/IncorrectIcon.png" id="4_k6a7m"]
 [ext_resource type="StyleBox" uid="uid://di04rvf6o3m67" path="res://Resources/AnswerButtons/A/ANormal.tres" id="5_1gw7h"]
@@ -32,30 +33,6 @@ bg_color = Color(1, 0.77500856, 0.17389506, 1)
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 
-[sub_resource type="FontFile" id="FontFile_51f1d"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/25/0/ascent = 0.0
-cache/0/25/0/descent = 0.0
-cache/0/25/0/underline_position = 0.0
-cache/0/25/0/underline_thickness = 0.0
-cache/0/25/0/scale = 1.0
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6hm0b"]
 bg_color = Color(1, 1, 1, 1)
 border_width_bottom = 10
@@ -63,30 +40,6 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-
-[sub_resource type="FontFile" id="FontFile_yp5h8"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/20/0/ascent = 0.0
-cache/0/20/0/descent = 0.0
-cache/0/20/0/underline_position = 0.0
-cache/0/20/0/underline_thickness = 0.0
-cache/0/20/0/scale = 1.0
 
 [sub_resource type="InputEventKey" id="InputEventKey_51f1d"]
 device = -1
@@ -174,6 +127,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-1002, -509), Vector2(0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/QuestionBox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(991, 289), Vector2(658, 289)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/QuestionBox:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_yp5h8"]
 length = 0.001
@@ -201,36 +178,36 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/QuestionBox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(658, 289)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/QuestionBox:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_np52p"]
 _data = {
 &"QuestionAppear": SubResource("Animation_51f1d"),
 &"RESET": SubResource("Animation_yp5h8")
 }
-
-[sub_resource type="FontFile" id="FontFile_tunm7"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/35/0/ascent = 0.0
-cache/0/35/0/descent = 0.0
-cache/0/35/0/underline_position = 0.0
-cache/0/35/0/underline_thickness = 0.0
-cache/0/35/0/scale = 1.0
 
 [sub_resource type="Animation" id="Animation_tunm7"]
 resource_name = "Correct"
@@ -615,7 +592,7 @@ _data = {
 [node name="QuizManager" type="Node" unique_id=2000062990 groups=["quiz_manager"]]
 script = ExtResource("1_tunm7")
 
-[node name="QuizPrompter" type="Control" parent="." unique_id=1012666249]
+[node name="QuizPrompter" type="Control" parent="." unique_id=1012666249 node_paths=PackedStringArray("quiz_manager")]
 unique_name_in_owner = true
 visible = false
 layout_direction = 4
@@ -629,6 +606,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("2_tcrbt")
+quiz_manager = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="QuizPrompter" unique_id=140821974]
 follow_viewport_enabled = true
@@ -651,7 +629,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -302.0
 offset_top = -251.0
-offset_right = 302.0
+offset_right = 302.0039
 offset_bottom = 251.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -695,8 +673,8 @@ texture_filter = 1
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontFile_51f1d")
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("4_5yixp")
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_6hm0b")
 text = "This is a question?"
 horizontal_alignment = 1
@@ -718,7 +696,7 @@ focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.9514076, 1, 1)
 theme_override_colors/font_hover_color = Color(0.97849464, 1, 0.94623655, 1)
-theme_override_fonts/font = SubResource("FontFile_yp5h8")
+theme_override_fonts/font = ExtResource("4_5yixp")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("5_1gw7h")
 theme_override_styles/pressed = ExtResource("6_esclh")
@@ -735,7 +713,7 @@ focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.9514076, 1, 1)
 theme_override_colors/font_hover_color = Color(0.97849464, 1, 0.94623655, 1)
-theme_override_fonts/font = SubResource("FontFile_yp5h8")
+theme_override_fonts/font = ExtResource("4_5yixp")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("7_uliec")
 theme_override_styles/pressed = ExtResource("8_kh88c")
@@ -752,7 +730,7 @@ focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.9514076, 1, 1)
 theme_override_colors/font_hover_color = Color(0.97849464, 1, 0.94623655, 1)
-theme_override_fonts/font = SubResource("FontFile_yp5h8")
+theme_override_fonts/font = ExtResource("4_5yixp")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("9_je10g")
 theme_override_styles/pressed = ExtResource("10_w8yyb")
@@ -769,7 +747,7 @@ focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.9514076, 1, 1)
 theme_override_colors/font_hover_color = Color(0.97849464, 1, 0.94623655, 1)
-theme_override_fonts/font = SubResource("FontFile_yp5h8")
+theme_override_fonts/font = ExtResource("4_5yixp")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/hover = ExtResource("11_kf0eg")
 theme_override_styles/disabled = ExtResource("11_kf0eg")
@@ -809,7 +787,7 @@ anchor_bottom = 0.5
 offset_left = -300.0
 offset_top = -100.0
 offset_right = 300.0088
-offset_bottom = 100.001465
+offset_bottom = 100.00159
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -828,8 +806,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
 offset_top = -100.0
-offset_right = 300.0
-offset_bottom = 100.00049
+offset_right = 300.00024
+offset_bottom = 100.00055
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -866,12 +844,12 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -250.0
 offset_top = 106.0
-offset_right = 350.00146
+offset_right = 350.00012
 offset_bottom = 206.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = SubResource("FontFile_tunm7")
+theme_override_fonts/font = ExtResource("4_5yixp")
 theme_override_font_sizes/font_size = 35
 text = "Press [Eneter] to continue."
 horizontal_alignment = 1

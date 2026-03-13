@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dug3wybku4gaq"]
+
+[ext_resource type="Script" uid="uid://crhuyyt3ytv12" path="res://Scripts/Managers/GameManager.gd" id="1_ajldl"]
+[ext_resource type="Texture2D" uid="uid://cbees8154qmnw" path="res://Assets/GUI/UI/GameBanner.png" id="2_3bpoc"]
+[ext_resource type="FontFile" uid="uid://iexfsr36acr5" path="res://Assets/Fonts/TitanOne-Regular.ttf" id="3_lyu6u"]
+[ext_resource type="PackedScene" uid="uid://dm28c4okdv06" path="res://Scenes/UserInterface/GameEndSceen.tscn" id="4_3ns0j"]
+
+[node name="GameManager" type="Node" unique_id=1412356389]
+script = ExtResource("1_ajldl")
+session_time = 2.0
+frenzy_start_time = 1.0
+
+[node name="SessionTimer" type="Timer" parent="." unique_id=1032008430]
+one_shot = true
+
+[node name="TimeLeft" type="TextureRect" parent="." unique_id=981623190]
+custom_minimum_size = Vector2(-3.21, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -167.05084
+offset_top = 50.0
+offset_right = 167.05078
+offset_bottom = 127.0
+grow_horizontal = 2
+texture = ExtResource("2_3bpoc")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TimeLeft" unique_id=937646905]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TimeLeft/MarginContainer" unique_id=1822563145]
+layout_mode = 2
+theme_override_constants/separation = 9
+alignment = 1
+
+[node name="Label" type="Label" parent="TimeLeft/MarginContainer/HBoxContainer" unique_id=15365179]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Time Left:"
+
+[node name="Time" type="Label" parent="TimeLeft/MarginContainer/HBoxContainer" unique_id=2079393982]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_lyu6u")
+theme_override_font_sizes/font_size = 40
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameEndScreen" parent="." unique_id=270843367 instance=ExtResource("4_3ns0j")]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+grow_vertical = 1
+
+[connection signal="timeout" from="SessionTimer" to="." method="_on_session_timer_timeout"]

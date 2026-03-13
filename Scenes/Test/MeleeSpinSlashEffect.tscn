@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bw0pu5dankdke"]
 
 [ext_resource type="Texture2D" uid="uid://w4alclilyqd8" path="res://Assets/Textures/Misc/twirl_01.png" id="1_qu0w3"]
-[ext_resource type="ArrayMesh" uid="uid://cdjpbvlrlme1h" path="res://Assets/Misc/Whirlwind.obj" id="2_apotj"]
+[ext_resource type="ArrayMesh" uid="uid://cdjpbvlrlme1h" path="res://Assets/BlenderMeshes/Whirlwind.obj" id="2_apotj"]
 
 [sub_resource type="Shader" id="Shader_gfv71"]
 code = "shader_type spatial;

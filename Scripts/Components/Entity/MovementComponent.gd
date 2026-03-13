@@ -20,7 +20,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not can_move:
+		user.velocity.x = 0
+		user.velocity.z = 0
 		user.velocity = Vector3.ZERO
+		user.move_and_slide()
 		return
 		
 	user.velocity.x = -input_vec.x * move_speed

@@ -135,6 +135,7 @@ layout_mode = 2
 
 [node name="ResourceBar" parent="AbilityBar/VBoxContainer/HBoxContainer" unique_id=1965902390 instance=ExtResource("3_frm8p")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("4_gjolh")

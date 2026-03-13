@@ -47,6 +47,10 @@ func play_running_hurt_animation() -> void:
 		anim_tree.set("parameters/%s/Running_Hurt/OneShot/request" % playback_name,
 		AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
+func play_cheer_animation() -> void:
+	if playback:
+		playback.travel("Cheer")
+
 #--------- Melee Combat -----------
 
 func play_attack_animation(animation: String) -> void:

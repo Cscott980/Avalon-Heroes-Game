@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c2bjoyhf8po4y"]
 
 [ext_resource type="Script" uid="uid://np78fbu8py3p" path="res://Scripts/Others/slash.gd" id="1_khwsv"]
-[ext_resource type="ArrayMesh" uid="uid://dve5g0ibb7jse" path="res://Assets/Misc/SlashMesh.obj" id="2_f4a7m"]
+[ext_resource type="ArrayMesh" uid="uid://dve5g0ibb7jse" path="res://Assets/BlenderMeshes/SlashMesh.obj" id="2_f4a7m"]
 [ext_resource type="Texture2D" uid="uid://n1iyw2xhnnxf" path="res://Assets/Textures/Misc/T_Wave66.png" id="4_38hfn"]
 
 [sub_resource type="Shader" id="Shader_n12dg"]

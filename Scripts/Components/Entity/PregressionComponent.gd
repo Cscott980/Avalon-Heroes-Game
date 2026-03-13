@@ -29,6 +29,7 @@ func _ready() -> void:
 
 func level_up() -> void:
 	var player: Player = get_parent()
+	player.remove_from_group("player")
 	leveling.emit(true)
 	player.level_phase.emit()
 	await player.clear
@@ -37,6 +38,7 @@ func level_up() -> void:
 	stat_choices.emit(result)
 	await player_ui.stat_chosen
 	leveling.emit(false)
+	player.add_to_group("player")
 
 	if player_level < max_level:
 		player_level += 1

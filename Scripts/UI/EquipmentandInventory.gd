@@ -41,7 +41,10 @@ func _ready() -> void:
 	visible = false
 	print(equipment.armor.name)
 	_connect_equipment_slots()
-
+	
+	await get_tree().process_frame
+	reapply_equipped_slots()
+	
 func play_pick_up_sound() -> void:
 	audio_stream_player.stream = pick_up_sound
 	audio_stream_player.play()
@@ -81,6 +84,14 @@ func _is_in_drag_corner(local_pos: Vector2) -> bool:
 		or bottom_right.has_point(local_pos)
 	)
 
+func reapply_equipped_slots() -> void:
+	await get_tree().process_frame
+	await get_tree().process_frame
+	
+	for slot in get_tree().get_nodes_in_group("equipment_slot"):
+		if slot.has_method("_check_existing_equipment"):
+			slot._check_existing_equipment()
+
 func close() -> void:
 	self.visible = false
 	audio_stream_player.stream = open_inventory_sound
@@ -99,7 +110,7 @@ func _connect_equipment_slots() -> void:
 			node.equipment_changed.connect(_on_equipment_changed)
 
 func _on_equipment_changed(slot_res: EquipmentSlotResource, item: ItemResource, sub_index: int, hand: StringName) -> void:
-	equipment.set_item(slot_res, item)
+	equipment.set_item(slot_res, item, hand, sub_index)
 	character_sheet_character.apply_equipment(slot_res, item, sub_index, hand)
 	current_equipment.emit(slot_res, item, sub_index, hand)
 	for slot in get_tree().get_nodes_in_group("inventory_slot"):

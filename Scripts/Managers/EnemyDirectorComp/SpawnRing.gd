@@ -6,6 +6,8 @@ extends Node
 @export var players: Array[Player] = []
 
 func _ready() -> void:
+	if players.is_empty():
+		return
 	refresh_players()
 
 func refresh_players() -> void:

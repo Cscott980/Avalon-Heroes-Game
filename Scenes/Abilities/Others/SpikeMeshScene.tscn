@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqyrqmqstb8gi"]
+[gd_scene format=3 uid="uid://cqyrqmqstb8gi"]
 
-[ext_resource type="ArrayMesh" uid="uid://dvqlyuh1bqofk" path="res://Assets/World/Spike_Rock_4_B_Color1.res" id="1_nbalu"]
+[ext_resource type="ArrayMesh" uid="uid://dvqlyuh1bqofk" path="res://Assets/MultiMeshAssests/Spike_Rock_4_B_Color1.res" id="1_nbalu"]
 
 [node name="MeshInstance3D" type="MeshInstance3D"]
 transform = Transform3D(1.385, 0, 0, 0, 1.7, 0, 0, 0, 1.23, 0, 0, 0)

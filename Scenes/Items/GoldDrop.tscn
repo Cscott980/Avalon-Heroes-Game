@@ -59,7 +59,7 @@ frame_11/duration = 0.1
 collision_layer = 0
 script = ExtResource("1_sud05")
 items_data = Array[ExtResource("2_umfyl")]([ExtResource("3_73gud")])
-item_drop_weight = Array[int]([100])
+item_drop_weight = Array[int]([50])
 pop_out_component = NodePath("PopOutComponent")
 
 [node name="Drop" type="MeshInstance3D" parent="." unique_id=1777588831]

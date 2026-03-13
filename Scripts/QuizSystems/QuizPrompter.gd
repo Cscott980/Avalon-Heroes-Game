@@ -17,8 +17,6 @@ signal timed_out
 @onready var timer: ProgressBar = %ProgressBar
 @onready var prompt_dis: Label = %Label
 
-
-
 @export var delay: float = 1.0
 
 var question: Dictionary
@@ -42,18 +40,30 @@ func _ready() -> void:
 	]
 	
 func _process(_delta: float) -> void:
+	if quiz_manager and quiz_manager.over:
+		return
+		
 	if question_active:
 		timer.value = quiz_timer.time_left
 		time_dis.text = str(int(quiz_timer.time_left))
-		
+
+func abort_question() -> void:
+	question_active = false
+	quiz_timer.stop()
+	deactivate_buttons()
+	canvas_layer.visible = false
+	timer.value = 0
+	time_dis.text = ""
+
 func _on_resized() -> void:
 	await get_tree().process_frame
 	var screen := Vector2(DisplayServer.window_get_size())
 	size = screen
 	position = Vector2.ZERO
 	
-	
 func start_question() -> void:
+	if quiz_manager and quiz_manager.over:
+		return
 	if question.is_empty():
 		return
 		
@@ -97,30 +107,40 @@ func play_promp_appear(reverse: bool) -> void:
 		anim_player.play("QuestionAppear")
 
 func _on_a_pressed() -> void:
+	if quiz_manager and quiz_manager.over:
+		return
 	answer_chosen.emit(0)
 	deactivate_buttons()
 	play_promp_appear(true)
 	quiz_timer.stop()
 
 func _on_b_pressed() -> void:
+	if quiz_manager and quiz_manager.over:
+		return
 	answer_chosen.emit(1)
 	deactivate_buttons()
 	play_promp_appear(true)
 	quiz_timer.stop()
 
 func _on_c_pressed() -> void:
+	if quiz_manager and quiz_manager.over:
+		return
 	answer_chosen.emit(2)
 	deactivate_buttons()
 	play_promp_appear(true)
 	quiz_timer.stop()
 
 func _on_d_pressed() -> void:
+	if quiz_manager and quiz_manager.over:
+		return
 	answer_chosen.emit(3)
 	deactivate_buttons()
 	play_promp_appear(true)
 	quiz_timer.stop()
 
 func _on_quiz_timer_timeout() -> void:
+	if quiz_manager and quiz_manager.over:
+		return
 	timed_out.emit()
 	deactivate_buttons()
 	play_promp_appear(true)
@@ -128,6 +148,10 @@ func _on_quiz_timer_timeout() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == &"QuestionAppear" and not question_active:
 		await get_tree().create_timer(delay).timeout
+		
+		if quiz_manager and quiz_manager.over:
+			return
+
 		activate_buttons()
 		quiz_timer.start()
 		question_active = true

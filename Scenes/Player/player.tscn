@@ -9,17 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dfv5odlic646l" path="res://Scenes/Weapons/OffHandMeleeWeapon.tscn" id="7_o7dio"]
 [ext_resource type="PackedScene" uid="uid://bfvlj3yf2tqkv" path="res://Scenes/Weapons/ShieldComponent.tscn" id="8_5qtmx"]
 [ext_resource type="Script" uid="uid://cajf1u20kxsew" path="res://Scripts/Components/Entity/HurtBoxComponent.gd" id="9_o0fa5"]
-[ext_resource type="Animation" uid="uid://2qo5t34oq5u0" path="res://Assets/Animations/Rig_Mid_Animations/Crawling.res" id="10_ysu76"]
-[ext_resource type="Animation" uid="uid://bevsbcounnh4r" path="res://Assets/Animations/Rig_Mid_Animations/Crouching.res" id="11_ddhxi"]
+[ext_resource type="Animation" uid="uid://ckpv4nht87kan" path="res://Assets/Animations/Rig_Mid_Animations/Cheering.res" id="11_ysu76"]
 [ext_resource type="Animation" uid="uid://bnimkpt656j8j" path="res://Assets/Animations/Rig_Mid_Animations/Death_A.res" id="12_yias2"]
-[ext_resource type="Animation" uid="uid://cygmg61je73t3" path="res://Assets/Animations/Rig_Mid_Animations/Death_A_Pose.res" id="13_1y2wb"]
 [ext_resource type="Animation" uid="uid://pi7hexnyvexh" path="res://Assets/Animations/Rig_Mid_Animations/Death_B.res" id="14_rf3dn"]
-[ext_resource type="Animation" uid="uid://d6ij81x7swsm" path="res://Assets/Animations/Rig_Mid_Animations/Death_B_Pose.res" id="15_t8blf"]
-[ext_resource type="Animation" uid="uid://bqlpn4yntuk6v" path="res://Assets/Animations/Rig_Mid_Animations/Dodge_Backward.res" id="16_x3h47"]
-[ext_resource type="Animation" uid="uid://dlsbths02qc8f" path="res://Assets/Animations/Rig_Mid_Animations/Dodge_Forward.res" id="17_w6gsy"]
-[ext_resource type="Animation" uid="uid://dq4uvgryfr1nn" path="res://Assets/Animations/Rig_Mid_Animations/Dodge_Left.res" id="18_uwj03"]
-[ext_resource type="Animation" uid="uid://dyb3otnbs4meh" path="res://Assets/Animations/Rig_Mid_Animations/Dodge_Right.res" id="19_by3qs"]
-[ext_resource type="Animation" uid="uid://cwwx2anp1i4ej" path="res://Assets/Animations/Rig_Mid_Animations/EXPERIMENTAL_Medium_Transform.res" id="20_ffewu"]
 [ext_resource type="Animation" uid="uid://br3s0es5pxblt" path="res://Assets/Animations/Rig_Mid_Animations/Hit_A.res" id="21_jjsgr"]
 [ext_resource type="Animation" uid="uid://cx21q6jxcwmh3" path="res://Assets/Animations/Rig_Mid_Animations/Hit_B.res" id="22_mj2fe"]
 [ext_resource type="Animation" uid="uid://wyd6bbv82od5" path="res://Assets/Animations/Rig_Mid_Animations/Idle_A.res" id="23_utsmt"]
@@ -51,53 +43,26 @@
 [ext_resource type="Animation" uid="uid://m2mov5m6nyt2" path="res://Assets/Animations/Rig_Mid_Animations/Melee_Unarmed_Attack_Kick.res" id="49_w28nb"]
 [ext_resource type="Animation" uid="uid://dco6d01o4nbw7" path="res://Assets/Animations/Rig_Mid_Animations/Melee_Unarmed_Attack_Punch_A.res" id="50_roser"]
 [ext_resource type="Animation" uid="uid://eis8dabnaj8p" path="res://Assets/Animations/Rig_Mid_Animations/Melee_Unarmed_Idle.res" id="51_xtaxw"]
-[ext_resource type="Animation" uid="uid://e7dvnoscpji5" path="res://Assets/Animations/Rig_Mid_Animations/PickUp.res" id="52_rbomk"]
-[ext_resource type="Animation" uid="uid://fa5f4the88th" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_1H_Aiming.res" id="53_anxlj"]
-[ext_resource type="Animation" uid="uid://skih1b672eit" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_1H_Reload.res" id="54_ongw0"]
-[ext_resource type="Animation" uid="uid://bte48vqynm32h" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_1H_Shoot.res" id="55_ms6ij"]
-[ext_resource type="Animation" uid="uid://k762k43rgr06" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_1H_Shooting.res" id="56_al7jt"]
-[ext_resource type="Animation" uid="uid://dyu08ydc1wye7" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_2H_Aiming.res" id="57_mqxll"]
-[ext_resource type="Animation" uid="uid://c63vefmjdar17" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_2H_Reload.res" id="58_jmmub"]
-[ext_resource type="Animation" uid="uid://dqq2pf7ngirqd" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_2H_Shoot.res" id="59_d32uj"]
-[ext_resource type="Animation" uid="uid://oactry6hxolq" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_2H_Shooting.res" id="60_bi0ij"]
-[ext_resource type="Animation" uid="uid://c0hu67bicoaxj" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Bow_Aiming_Idle.res" id="61_x037w"]
-[ext_resource type="Animation" uid="uid://bhqxvlkvaxnd4" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Bow_Draw.res" id="62_pabni"]
-[ext_resource type="Animation" uid="uid://c2tr7yf7r4xe7" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Bow_Draw_Up.res" id="63_87hpc"]
-[ext_resource type="Animation" uid="uid://b4clg7wvqv52v" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Bow_Idle.res" id="64_n7rve"]
-[ext_resource type="Animation" uid="uid://bq1g5pidioqkl" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Bow_Release.res" id="65_wineu"]
-[ext_resource type="Animation" uid="uid://c5nul615l3lxx" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Bow_Release_Up.res" id="66_p7t3f"]
-[ext_resource type="Animation" uid="uid://b881apgub0uuk" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Magic_Raise.res" id="67_6enxl"]
-[ext_resource type="Animation" uid="uid://bbr3vbxqc5v3u" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Magic_Shoot.res" id="68_hrl7l"]
-[ext_resource type="Animation" uid="uid://cmu2h8172y1ek" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Magic_Spellcasting.res" id="69_v7vxd"]
-[ext_resource type="Animation" uid="uid://rxer4sy6vm7n" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Magic_Spellcasting_Long.res" id="70_v538b"]
-[ext_resource type="Animation" uid="uid://xf1lgey6cego" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Magic_Summon.res" id="71_8b1oe"]
 [ext_resource type="Animation" uid="uid://b86ppidsw0kmc" path="res://Assets/Animations/Rig_Mid_Animations/Running_A.res" id="72_20rlp"]
 [ext_resource type="Animation" uid="uid://155mggu41gh6" path="res://Assets/Animations/Rig_Mid_Animations/Running_B.res" id="73_tspie"]
 [ext_resource type="Animation" uid="uid://yb6iw1sk37m5" path="res://Assets/Animations/Rig_Mid_Animations/Running_HoldingBow.res" id="74_b1q8a"]
-[ext_resource type="Animation" uid="uid://b676qarpseclk" path="res://Assets/Animations/Rig_Mid_Animations/Running_HoldingRifle.res" id="75_5dro6"]
-[ext_resource type="Animation" uid="uid://c7qvqbhnix4n" path="res://Assets/Animations/Rig_Mid_Animations/Running_Strafe_Left.res" id="76_vk6o2"]
-[ext_resource type="Animation" uid="uid://cwknayapi1mai" path="res://Assets/Animations/Rig_Mid_Animations/Running_Strafe_Right.res" id="77_2q3dc"]
-[ext_resource type="Animation" uid="uid://rmvb5lr67m3s" path="res://Assets/Animations/Rig_Mid_Animations/Sneaking.res" id="78_84p05"]
 [ext_resource type="Animation" uid="uid://baoj0o3vjaocg" path="res://Assets/Animations/Rig_Mid_Animations/Spawn_Air.res" id="79_ppspy"]
-[ext_resource type="Animation" uid="uid://cbp7x8g2pnsdq" path="res://Assets/Animations/Rig_Mid_Animations/Sit_Ups.res" id="79_xmomh"]
 [ext_resource type="Animation" uid="uid://b8qm7mng43cbg" path="res://Assets/Animations/Rig_Mid_Animations/Spawn_Ground.res" id="80_tja0w"]
 [ext_resource type="Animation" uid="uid://cchtwwoohiw84" path="res://Assets/Animations/Rig_Mid_Animations/T-Pose.res" id="81_b6a1w"]
 [ext_resource type="Animation" uid="uid://cehos3v3dvcxu" path="res://Assets/Animations/Rig_Mid_Animations/Throw.res" id="82_uynns"]
-[ext_resource type="Animation" uid="uid://8a7cqpvjntrm" path="res://Assets/Animations/Rig_Mid_Animations/Use_Item.res" id="83_0nt0b"]
 [ext_resource type="Animation" uid="uid://c7wogo72e8dt5" path="res://Assets/Animations/Rig_Mid_Animations/Walking_A.res" id="84_oj8g0"]
 [ext_resource type="Animation" uid="uid://48i843qb1i5t" path="res://Assets/Animations/Rig_Mid_Animations/Walking_B.res" id="85_iklwn"]
-[ext_resource type="Animation" uid="uid://t3b7yphqd03l" path="res://Assets/Animations/Rig_Mid_Animations/Walking_Backwards.res" id="86_k5okl"]
 [ext_resource type="Animation" uid="uid://iuwul71pvd0j" path="res://Assets/Animations/Rig_Mid_Animations/Walking_C.res" id="87_652wa"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://ce8p8msdwlfjc" path="res://Resources/HeroClassAnimations/Warrior.tres" id="88_htxq1"]
 [ext_resource type="Script" uid="uid://esf7dpw2havr" path="res://Scripts/VFX/PriceEffect.gd" id="89_sah2w"]
 [ext_resource type="Shader" uid="uid://dihks774ogble" path="res://Assets/Shaders/PircingSlashEffect.gdshader" id="90_2p523"]
 [ext_resource type="Texture2D" uid="uid://n1iyw2xhnnxf" path="res://Assets/Textures/Misc/T_Wave66.png" id="91_ein1t"]
-[ext_resource type="ArrayMesh" uid="uid://bw2ywdqcs3112" path="res://Assets/Misc/DaimonMesh.obj" id="92_n6db7"]
+[ext_resource type="ArrayMesh" uid="uid://bw2ywdqcs3112" path="res://Assets/BlenderMeshes/DaimonMesh.obj" id="92_n6db7"]
 [ext_resource type="Script" uid="uid://np78fbu8py3p" path="res://Scripts/Others/slash.gd" id="93_b7rus"]
-[ext_resource type="ArrayMesh" uid="uid://dve5g0ibb7jse" path="res://Assets/Misc/SlashMesh.obj" id="94_84nve"]
+[ext_resource type="ArrayMesh" uid="uid://dve5g0ibb7jse" path="res://Assets/BlenderMeshes/SlashMesh.obj" id="94_84nve"]
 [ext_resource type="Shader" uid="uid://c75egq2357kku" path="res://Assets/Shaders/SlashNew.gdshader" id="95_ehuqk"]
 [ext_resource type="Texture2D" uid="uid://w4alclilyqd8" path="res://Assets/Textures/Misc/twirl_01.png" id="96_q7tsw"]
-[ext_resource type="ArrayMesh" uid="uid://cdjpbvlrlme1h" path="res://Assets/Misc/Whirlwind.obj" id="97_sk1xh"]
+[ext_resource type="ArrayMesh" uid="uid://cdjpbvlrlme1h" path="res://Assets/BlenderMeshes/Whirlwind.obj" id="97_sk1xh"]
 [ext_resource type="Script" uid="uid://br6tbncel7x2m" path="res://Scripts/Components/Entity/WorldCollision.gd" id="98_q7t4i"]
 [ext_resource type="Script" uid="uid://c4a3rb2rhw7sr" path="res://Scripts/Components/Player/PlayerAnimationComponent.gd" id="98_rpipw"]
 [ext_resource type="Script" uid="uid://b580uwxkgp4uh" path="res://Scripts/States/Player/PlayerStateMachine.gd" id="99_snwnj"]
@@ -115,6 +80,7 @@
 [ext_resource type="Script" uid="uid://8phc8k5eukyv" path="res://Scripts/States/Player/RiviveState.gd" id="112_o0fa5"]
 [ext_resource type="Script" uid="uid://15pigh03jv0i" path="res://Scripts/Components/Player/WorldVisualPlayerData.gd" id="112_w66sw"]
 [ext_resource type="Script" uid="uid://d365bnrqpmn2h" path="res://Scripts/Components/Player/TargetsInRangeComponent.gd" id="114_dc80h"]
+[ext_resource type="Script" uid="uid://ddqlt5d1omsqh" path="res://Scripts/States/Player/GameEndState.gd" id="114_ddhxi"]
 [ext_resource type="Script" uid="uid://nfxhpdw3pn7w" path="res://Scripts/Components/Weapons/WeaponEquipComponent.gd" id="114_ovbyp"]
 [ext_resource type="Script" uid="uid://jgliiq2fnm35" path="res://Scripts/Components/Entity/MovementComponent.gd" id="115_nrvsh"]
 [ext_resource type="Script" uid="uid://bu0m334de7h23" path="res://Scripts/Components/Entity/CombatComponent.gd" id="116_at7lu"]
@@ -401,17 +367,9 @@ _data = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rl351"]
 _data = {
-&"Crawling": ExtResource("10_ysu76"),
-&"Crouching": ExtResource("11_ddhxi"),
+&"Cheering": ExtResource("11_ysu76"),
 &"Death_A": ExtResource("12_yias2"),
-&"Death_A_Pose": ExtResource("13_1y2wb"),
 &"Death_B": ExtResource("14_rf3dn"),
-&"Death_B_Pose": ExtResource("15_t8blf"),
-&"Dodge_Backward": ExtResource("16_x3h47"),
-&"Dodge_Forward": ExtResource("17_w6gsy"),
-&"Dodge_Left": ExtResource("18_uwj03"),
-&"Dodge_Right": ExtResource("19_by3qs"),
-&"EXPERIMENTAL_Medium_Transform": ExtResource("20_ffewu"),
 &"Hit_A": ExtResource("21_jjsgr"),
 &"Hit_B": ExtResource("22_mj2fe"),
 &"Idle_A": ExtResource("23_utsmt"),
@@ -443,42 +401,15 @@ _data = {
 &"Melee_Unarmed_Attack_Kick": ExtResource("49_w28nb"),
 &"Melee_Unarmed_Attack_Punch_A": ExtResource("50_roser"),
 &"Melee_Unarmed_Idle": ExtResource("51_xtaxw"),
-&"PickUp": ExtResource("52_rbomk"),
-&"Ranged_1H_Aiming": ExtResource("53_anxlj"),
-&"Ranged_1H_Reload": ExtResource("54_ongw0"),
-&"Ranged_1H_Shoot": ExtResource("55_ms6ij"),
-&"Ranged_1H_Shooting": ExtResource("56_al7jt"),
-&"Ranged_2H_Aiming": ExtResource("57_mqxll"),
-&"Ranged_2H_Reload": ExtResource("58_jmmub"),
-&"Ranged_2H_Shoot": ExtResource("59_d32uj"),
-&"Ranged_2H_Shooting": ExtResource("60_bi0ij"),
-&"Ranged_Bow_Aiming_Idle": ExtResource("61_x037w"),
-&"Ranged_Bow_Draw": ExtResource("62_pabni"),
-&"Ranged_Bow_Draw_Up": ExtResource("63_87hpc"),
-&"Ranged_Bow_Idle": ExtResource("64_n7rve"),
-&"Ranged_Bow_Release": ExtResource("65_wineu"),
-&"Ranged_Bow_Release_Up": ExtResource("66_p7t3f"),
-&"Ranged_Magic_Raise": ExtResource("67_6enxl"),
-&"Ranged_Magic_Shoot": ExtResource("68_hrl7l"),
-&"Ranged_Magic_Spellcasting": ExtResource("69_v7vxd"),
-&"Ranged_Magic_Spellcasting_Long": ExtResource("70_v538b"),
-&"Ranged_Magic_Summon": ExtResource("71_8b1oe"),
 &"Running_A": ExtResource("72_20rlp"),
 &"Running_B": ExtResource("73_tspie"),
 &"Running_HoldingBow": ExtResource("74_b1q8a"),
-&"Running_HoldingRifle": ExtResource("75_5dro6"),
-&"Running_Strafe_Left": ExtResource("76_vk6o2"),
-&"Running_Strafe_Right": ExtResource("77_2q3dc"),
-&"Sit_Ups": ExtResource("79_xmomh"),
-&"Sneaking": ExtResource("78_84p05"),
 &"Spawn_Air": ExtResource("79_ppspy"),
 &"Spawn_Ground": ExtResource("80_tja0w"),
 &"T-Pose": ExtResource("81_b6a1w"),
 &"Throw": ExtResource("82_uynns"),
-&"Use_Item": ExtResource("83_0nt0b"),
 &"Walking_A": ExtResource("84_oj8g0"),
 &"Walking_B": ExtResource("85_iklwn"),
-&"Walking_Backwards": ExtResource("86_k5okl"),
 &"Walking_C": ExtResource("87_652wa")
 }
 
@@ -1400,6 +1331,14 @@ weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
 [node name="QuizState" type="Node" parent="StateMachine" unique_id=2059857483]
 
+[node name="GameEndState" type="Node" parent="StateMachine" unique_id=241040735 node_paths=PackedStringArray("player", "playback", "combat_comp", "target_comp", "weap_equip_comp")]
+script = ExtResource("114_ddhxi")
+player = NodePath("../..")
+playback = NodePath("../../PlayerAnimationComponent")
+combat_comp = NodePath("../../CombatComponent")
+target_comp = NodePath("../../Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent")
+weap_equip_comp = NodePath("../../WeaponEquipComponent")
+
 [node name="PlayerCamera" type="Camera3D" parent="." unique_id=1068808923]
 unique_name_in_owner = true
 transform = Transform3D(-1, 4.5900528e-08, -7.4403516e-08, -3.1962465e-08, 0.60019696, 0.79985225, 8.13704e-08, 0.79985225, -0.60019696, 1.4210855e-14, 13.361129, -10.006784)
@@ -1661,6 +1600,7 @@ visuals = NodePath("../Model/Rig_Medium/EquipmentVisualComponent")
 [connection signal="sheath_weapon" from="PlayerInputComponent" to="StateMachine/IdleState" method="_on_player_input_component_sheath_weapon"]
 [connection signal="timeout" from="LungeComponent/LungeTimer" to="LungeComponent" method="_on_lunge_timer_timeout"]
 [connection signal="exp_gem" from="DropPickupComponent" to="ProgressionComponent" method="_on_drop_pickup_component_exp_gem"]
+[connection signal="gold_picked_up" from="DropPickupComponent" to="PlayerUI" method="_on_drop_pickup_component_gold_picked_up"]
 [connection signal="health_potion" from="DropPickupComponent" to="HealthComponent" method="_on_drop_pickup_component_health_potion"]
 [connection signal="health_potion" from="DropPickupComponent" to="StatusEffectComponent" method="_on_drop_pickup_component_health_potion"]
 [connection signal="resource" from="DropPickupComponent" to="ResourcePoolComponent" method="_on_drop_pickup_component_resource"]

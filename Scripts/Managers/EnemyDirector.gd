@@ -1,5 +1,7 @@
 class_name EnemyDirector extends Node
 
+signal enemy_killed
+
 @onready var spawn_ring: SpawnRing = $SpawnRing
 @onready var enemy_leveler: EnemyLeveler = $EnemyLeveler
 @onready var budget_manager: BudgetManager = $BudgetManager
@@ -13,7 +15,7 @@ class_name EnemyDirector extends Node
 @export var spawn_interval: float = 1.0
 @export var enemy_level: int = 1
 
-
+var start: bool = false
 
 func _ready() -> void:
 	enemy_leveler.get_world_level(world)
@@ -21,6 +23,8 @@ func _ready() -> void:
 	spawn_timer.start()
 
 func try_spawn_enemy() -> void:
+	if not start:
+		return
 	if nav_root == null or not is_instance_valid(nav_root):
 		return
 	if world == null or not is_instance_valid(world):
@@ -61,3 +65,16 @@ func _on_enemy_leveler_world_level(l: int) -> void:
 func _on_enemy_finished(enemy: Enemy) -> void:
 	budget_manager.refund(enemy.enemy_data.cost)
 	enemy_leveler.get_world_level(world)
+	enemy_killed.emit()
+
+func _on_game_manager_game_ended() -> void:
+	start = false
+
+func _on_game_manager_game_start() -> void:
+	start = true
+
+func _on_game_manager_frenzy(status: bool) -> void:
+	if status:
+		budget_manager.max_budget = budget_manager.base_budget * 3
+	else:
+		budget_manager.max_budget = budget_manager.base_budget

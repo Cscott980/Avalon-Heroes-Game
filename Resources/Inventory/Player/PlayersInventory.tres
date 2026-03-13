@@ -8,8 +8,10 @@
 [ext_resource type="Resource" uid="uid://b7cnlw8hglnd6" path="res://Resources/Weapons/Sword/sword_avalonian_sword_common.tres" id="5_fg4g1"]
 [ext_resource type="Resource" uid="uid://dc6vfo02h0n3q" path="res://Resources/Weapons/Sword/sword_of_the_dead_common.tres" id="6_3op43"]
 [ext_resource type="Resource" uid="uid://s7nfclvo45yt" path="res://Resources/Weapons/Greatsword/greatsword_avalonian_greatsword_common.tres" id="7_c1hvk"]
+[ext_resource type="Resource" uid="uid://bscx7ayylksqy" path="res://Resources/Armor/Heavy/heavy_armor_avalonian_knight_armor_common.tres" id="8_2qf24"]
+[ext_resource type="Resource" uid="uid://dcoije2jyvwqc" path="res://Resources/Armor/Heavy/heavy_armor_avalonian_knight_helm_common.tres" id="9_388yi"]
 
 [resource]
 script = ExtResource("2_qrrdq")
-items = Array[ExtResource("1_0sf2v")]([ExtResource("3_fg4g1"), ExtResource("4_3op43"), ExtResource("5_fg4g1"), ExtResource("5_3op43"), ExtResource("6_3op43"), ExtResource("6_3op43"), ExtResource("7_c1hvk"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+items = Array[ExtResource("1_0sf2v")]([ExtResource("3_fg4g1"), ExtResource("4_3op43"), ExtResource("5_fg4g1"), ExtResource("5_3op43"), ExtResource("6_3op43"), ExtResource("6_3op43"), ExtResource("7_c1hvk"), ExtResource("8_2qf24"), ExtResource("9_388yi"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 metadata/_custom_type_script = "uid://c71q22lqo6ptg"

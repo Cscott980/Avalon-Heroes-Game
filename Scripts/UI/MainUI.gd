@@ -5,6 +5,7 @@ signal stat_chosen(data: Dictionary)
 @onready var inventory_equipment: EquipmentandInventory = %InventoryEquipment
 @onready var ability_bar: AbilityBar = %AbilityBar
 @onready var display_stat_choice_component: DisplayStatChoiceComponent = %DisplayStatChoiceComponent
+@onready var currency_comp: CurrencyComponent = %CurrencyComponent
 
 @export var stat_comp: StatComponent
 @export var ability_comp: AbilityComponent
@@ -115,8 +116,6 @@ func _on_player_input_component_charsheet_toggled() -> void:
 func _on_stat_component_current_stats(dic: Dictionary) -> void:
 	inventory_equipment.update_stat_display(dic)
 
-
-
 func _on_equipment_visual_component_player_head_for_sheat(mesh: Mesh, skin: Skin) -> void:
 	inventory_equipment.character_sheet_character.head.mesh = mesh
 	inventory_equipment.character_sheet_character.head.skin = skin
@@ -124,3 +123,6 @@ func _on_equipment_visual_component_player_head_for_sheat(mesh: Mesh, skin: Skin
 func _on_display_stat_choice_component_selected_choice(choice: Dictionary) -> void:
 	print(choice)
 	stat_chosen.emit(choice)
+
+func _on_drop_pickup_component_gold_picked_up(amount: int) -> void:
+	currency_comp.gold_collected(amount)

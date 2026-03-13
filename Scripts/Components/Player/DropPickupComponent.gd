@@ -4,6 +4,7 @@ class_name DropPickUpComponent extends Node
 signal health_potion(amount: float)
 signal exp_gem(amount: int)
 signal resource(amount: int)
+signal gold_picked_up(amount: int)
 
 @export var user: Player
 
@@ -30,6 +31,8 @@ func pickup(drop_value: float, drop_type: int) -> void:
 	if drop_type == ItemDropResource.DROP_TYPE.SCRAP:
 		if user.hero_class.resource_pool.resource_type == ResourcePoolResource.RESOURCE_TYPE.SCRAP:
 			resource.emit(int(drop_value))
+	if drop_type == ItemDropResource.DROP_TYPE.GOLD:
+		gold_picked_up.emit(drop_value)
 	return
 
 func _on_progression_component_leveling(status: bool) -> void:

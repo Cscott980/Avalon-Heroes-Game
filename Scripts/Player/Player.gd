@@ -33,12 +33,18 @@ signal death_phase
 @export var immortal: bool = false
 
 var combo_open: bool = false
-
+var game_over: bool = false
 
 func _ready() -> void:
 	if not is_instance_valid(hero_class):
 		return
 	hero_init()
+	
+	var game_manage: GameManager = get_tree().get_first_node_in_group("game_manager")
+	if game_manage == null:
+		push_warning("Player: GameManager not found.")
+	
+	(game_manage as GameManager).game_ended.connect(_on_game_manager_game_ended)
 	
 	var quiz_manager: QuizManager = get_tree().get_first_node_in_group("quiz_manager")
 	if quiz_manager == null:
@@ -47,6 +53,8 @@ func _ready() -> void:
 	
 	(quiz_manager as QuizManager).question_answered.connect(_on_quiz_manager_question_answered)
 	(quiz_manager as QuizManager).revive.connect(_on_quiz_manager_revive)
+	(quiz_manager as QuizManager).terminate.connect(_on_quiz_manager_terminate)
+	
 	
 func hero_init() -> void: 
 	if not is_instance_valid(hero_class):
@@ -68,6 +76,8 @@ func _physics_process(delta: float) -> void:
 		state_machine.current_state.physics_process(delta)
 
 func _on_player_input_component_attack() -> void:
+	if game_over:
+		return
 	if health_component.is_dead:
 		return
 	if equipment_visuals.is_sheathed or player_ui.invetory_open:
@@ -83,6 +93,8 @@ func _on_player_input_component_attack() -> void:
 		2: state_machine.change_state("AttackState3")
 
 func _on_movement_component_moving(status: bool) -> void:
+	if game_over:
+		return
 	if health_component.is_dead:
 		return
 	# Block movement state changes while attacking
@@ -113,6 +125,9 @@ func _on_health_component_dead() -> void:
 		death_phase.emit()
 
 func _on_progression_component_leveling(status: bool) -> void:
+	if game_over:
+		return
+		
 	immortal = status
 	if status:
 		level_phase.emit()
@@ -122,9 +137,13 @@ func _on_progression_component_init_quiz() -> void:
 		state_machine.change_state("QuizState")
 
 func _on_quiz_manager_question_answered() -> void:
+	if game_over:
+		return
 	clear.emit()
 
 func _on_quiz_manager_revive() -> void:
+	if game_over:
+		return
 	if state_machine:
 		state_machine.change_state("ReviveState")
 		health_component.on_revive(1.0)
@@ -132,3 +151,20 @@ func _on_quiz_manager_revive() -> void:
 		health_component.revived.emit()
 		remove_from_group("dead_players")
 		add_to_group("player")
+
+func _on_game_manager_game_ended() -> void:
+	game_over = true
+	remove_from_group("player")
+	immortal = true
+	player_ui.ability_bar.visible = false
+	player_ui.display_stat_choice_component.button_control(false)
+	player_ui.display_stat_choice_component.visible = false
+	player_ui.currency_comp.visible = false
+	player_input_component.input_active = false
+	movement_component.can_move = false
+	if state_machine:
+		state_machine.change_state("GameEndState")
+
+func _on_quiz_manager_terminate() -> void:
+	if game_over:
+		return

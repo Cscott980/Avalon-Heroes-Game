@@ -24,7 +24,7 @@
 [ext_resource type="Animation" uid="uid://d1w2qp1qqtbve" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Inactive_Standing_Pose.res" id="13_taj7k"]
 [ext_resource type="Script" uid="uid://np78fbu8py3p" path="res://Scripts/Others/slash.gd" id="13_v6xfs"]
 [ext_resource type="Animation" uid="uid://uba0p0u0gxkm" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Spawn_Ground.res" id="14_f7vau"]
-[ext_resource type="ArrayMesh" uid="uid://dve5g0ibb7jse" path="res://Assets/Misc/SlashMesh.obj" id="14_l00vh"]
+[ext_resource type="ArrayMesh" uid="uid://dve5g0ibb7jse" path="res://Assets/BlenderMeshes/SlashMesh.obj" id="14_l00vh"]
 [ext_resource type="Animation" uid="uid://d2fi4trvecay0" path="res://Assets/Animations/Rig_Mid_Animations/Skeletons_Taunt.res" id="15_p6qnn"]
 [ext_resource type="Texture2D" uid="uid://n1iyw2xhnnxf" path="res://Assets/Textures/Misc/T_Wave66.png" id="15_wixhu"]
 [ext_resource type="StyleBox" uid="uid://b48ll3i4j2q8c" path="res://Styles/Bars/EnemyHealthBarBackGround.tres" id="16_woysm"]
