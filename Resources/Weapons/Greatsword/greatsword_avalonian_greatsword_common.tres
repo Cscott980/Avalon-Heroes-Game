@@ -6,7 +6,7 @@
 [ext_resource type="Shape3D" uid="uid://d2ixrfwi8suha" path="res://Assets/CollissionShape/Avalonian_Greatsword_Collission_Shape.tres" id="1_yyi05"]
 [ext_resource type="Resource" uid="uid://wocpe21xoff4" path="res://Resources/WeaponAttackData/TwoHandedWeaponAttackData1.tres" id="2_a7r6o"]
 [ext_resource type="Resource" uid="uid://c3pmbnt1g14rf" path="res://Resources/WeaponAttackData/TwoHandedWeaponAttackData2.tres" id="3_2sak8"]
-[ext_resource type="ArrayMesh" uid="uid://b1d0n0b8nkjb3" path="res://Assets/WeaponMeshes/Greatswords/sword_2handed_sword_2handed.res" id="3_evudf"]
+[ext_resource type="ArrayMesh" uid="uid://b1d0n0b8nkjb3" path="res://Assets/WeaponMeshes/Greatswords/Avalonian_Greatsword.res" id="3_evudf"]
 [ext_resource type="Resource" uid="uid://b0qh2qh5l1efm" path="res://Resources/WeaponAttackData/TwoHandedWeaponAttackData3.tres" id="4_66yr5"]
 
 [resource]
@@ -16,6 +16,8 @@ handedness = 1
 mesh = ExtResource("3_evudf")
 collision_shape = ExtResource("1_yyi05")
 can_be_equippable = 1
+min_damage = 8
+max_damage = 12
 weapon_speed = 1.0
 scale_on_stat = 1
 scale_percentage = 0.2

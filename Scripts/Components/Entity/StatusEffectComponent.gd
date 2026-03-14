@@ -11,7 +11,8 @@ signal status_effect_data(art: Texture2D, desc: Dictionary, type: int)
 @export var heal_vfx: PackedScene = null
 @export var visuals: EquipmentVisualComponent = null
 
-var visual_data: Array = []
+const HEAL_GLOW: ShaderMaterial = preload("uid://debihr3yipjr3")
+const HIT_FLASH: StandardMaterial3D = preload("uid://cb5y33pvgwgop")
 
 var active_status_effects: Array[StatusEffectsResource]
 var icon: Texture2D
@@ -48,7 +49,6 @@ func _get_heal_or_dmg(type: int, dmg_value: float, heal_value: float) -> float:
 		mod = heal_value
 	return mod
 
-
 func _on_drop_pickup_component_health_potion(_amount: float) -> void:
 	if not heal_vfx == null:
 		var vfx = heal_vfx.instantiate() as Node3D
@@ -56,12 +56,36 @@ func _on_drop_pickup_component_health_potion(_amount: float) -> void:
 		if vfx.has_node("HealSymbol"):
 			var emitter = vfx.get_node("HealSymbol") as CPUParticles3D
 			emitter.emitting = true
+			heal_glow(true)
 		await get_tree().create_timer(1.0).timeout
 		user.remove_child(vfx)
+		heal_glow(false)
+		
 		
 func hit_flash(state: bool) -> void:
-	pass
+	if state:
+		for i in visuals.visual_data:
+			var mesh: MeshInstance3D = i
+			mesh.material_override = HIT_FLASH
+	else:
+		for i in visuals.visual_data:
+			var mesh: MeshInstance3D = i
+			mesh.material_override = null
 	
 func heal_glow(state: bool) -> void:
-	pass
+	if state:
+		for i in visuals.visual_data:
+			var mesh: MeshInstance3D = i
+			mesh.material_overlay = HEAL_GLOW
+	else:
+		for i in visuals.visual_data:
+			var mesh: MeshInstance3D = i
+			mesh.material_overlay = null
 
+
+func _on_hurt_box_component_hit(area: Area3D) -> void:
+	if not HIT_FLASH:
+		return
+	hit_flash(true)
+	await get_tree().create_timer(1.0).timeout
+	hit_flash(false)

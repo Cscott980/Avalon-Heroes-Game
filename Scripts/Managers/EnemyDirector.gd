@@ -9,7 +9,6 @@ signal enemy_killed
 @onready var spawn_timer: Timer = $SpawnTimer
 
 @export var world: Node3D
-@export var nav_root: Node3D
 
 @export var spawn_attempts_per_tick: int = 1
 @export var spawn_interval: float = 1.0
@@ -24,8 +23,6 @@ func _ready() -> void:
 
 func try_spawn_enemy() -> void:
 	if not start:
-		return
-	if nav_root == null or not is_instance_valid(nav_root):
 		return
 	if world == null or not is_instance_valid(world):
 		return
@@ -46,7 +43,7 @@ func try_spawn_enemy() -> void:
 	if not is_finite(spawn_pos.x) or not is_finite(spawn_pos.y) or not is_finite(spawn_pos.z):
 		return
 
-	nav_root.add_child(new_enemy)
+	world.add_child(new_enemy)
 	new_enemy.global_position = spawn_pos
 	new_enemy.setup(enemy, enemy_level)
 

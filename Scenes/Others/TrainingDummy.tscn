@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bmx38lontqsi2"]
+
+[ext_resource type="PackedScene" uid="uid://ce001vfu517n7" path="res://Assets/Items/Trainingdummy_Base.gltf" id="1_18bdq"]
+[ext_resource type="Texture2D" uid="uid://b8s3m31ghka1w" path="res://Assets/Textures/Hero/avianswordsman_texture.png" id="2_rha2x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hccg0"]
+albedo_texture = ExtResource("2_rha2x")
+
+[node name="Trainingdummy_Base2" unique_id=50392037 instance=ExtResource("1_18bdq")]
+
+[node name="Trainingdummy_Base" parent="." index="0" unique_id=1771208673]
+surface_material_override/0 = SubResource("StandardMaterial3D_hccg0")
+
+[node name="Trainingdummy_Post" parent="Trainingdummy_Base" index="0" unique_id=2001714206]
+surface_material_override/0 = SubResource("StandardMaterial3D_hccg0")
+
+[node name="Trainingdummy_Chest" parent="Trainingdummy_Base/Trainingdummy_Post" index="0" unique_id=298087027]
+surface_material_override/0 = SubResource("StandardMaterial3D_hccg0")
+
+[node name="Trainingdummy_ArmLeft" parent="Trainingdummy_Base/Trainingdummy_Post/Trainingdummy_Chest" index="0" unique_id=750373239]
+surface_material_override/0 = SubResource("StandardMaterial3D_hccg0")
+
+[node name="Trainingdummy_ArmRight" parent="Trainingdummy_Base/Trainingdummy_Post/Trainingdummy_Chest" index="1" unique_id=1966491945]
+surface_material_override/0 = SubResource("StandardMaterial3D_hccg0")
+
+[node name="Trainingdummy_Head" parent="Trainingdummy_Base/Trainingdummy_Post/Trainingdummy_Chest" index="2" unique_id=990440965]
+surface_material_override/0 = SubResource("StandardMaterial3D_hccg0")
+
+[node name="Trainingdummy_TargetBack" parent="Trainingdummy_Base/Trainingdummy_Post/Trainingdummy_Chest" index="3" unique_id=330185878]
+surface_material_override/0 = SubResource("StandardMaterial3D_hccg0")
+
+[node name="Trainingdummy_TargetFront" parent="Trainingdummy_Base/Trainingdummy_Post/Trainingdummy_Chest" index="4" unique_id=1975339481]
+surface_material_override/0 = SubResource("StandardMaterial3D_hccg0")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="1" unique_id=1333581564]

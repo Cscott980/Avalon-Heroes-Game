@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cfrxegokeyufx"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cfrxegokeyufx"]
 
-[ext_resource type="Shader" uid="uid://cyf2nlix3ov1k" path="res://Assets/Shaders/perfect_outline_shader.gdshader" id="1_be2pg"]
+[ext_resource type="Shader" uid="uid://cyf2nlix3ov1k" path="res://Assets/Shaders/Shaders/OutlineShader.gdshader" id="1_be2pg"]
 
 [resource]
 render_priority = 0

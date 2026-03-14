@@ -14,7 +14,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cen4nagslfip1" path="res://Assets/EnemyMeshes/SkeletalWarrior/Skeleton_Warrior_Skeleton_Warrior_ArmRight.res" id="11_ypv5t"]
 [ext_resource type="ArrayMesh" uid="uid://bkm5hyo7ijdm5" path="res://Assets/EnemyMeshes/SkeletalWarrior/Skeleton_Warrior_Skeleton_Warrior_LegRight.res" id="12_l785b"]
 [ext_resource type="Script" uid="uid://mrv0rwb4lf7b" path="res://Scripts/Resources/Enemies/EnemeyVisualsResource.gd" id="13_18wyn"]
-[ext_resource type="ArrayMesh" uid="uid://c1v6d7aitav73" path="res://Assets/WeaponMeshes/Swords/Skeleton_Blade_Cube_007.res" id="15_p1vio"]
+[ext_resource type="ArrayMesh" uid="uid://c1v6d7aitav73" path="res://Assets/WeaponMeshes/Swords/Sword_Of_The_Dead.res" id="15_p1vio"]
 [ext_resource type="Shape3D" uid="uid://boq5tagx70wx2" path="res://Assets/CollissionShape/Skeletal_Sword_Collisition.tres" id="16_3wuuy"]
 [ext_resource type="Script" uid="uid://maq73tggojj5" path="res://Scripts/Resources/Enemies/EnemyWeaponResource.gd" id="17_8ve5h"]
 

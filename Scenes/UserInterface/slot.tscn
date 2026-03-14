@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bp0xf0yuwpu21"]
+[gd_scene format=3 uid="uid://bp0xf0yuwpu21"]
 
-[ext_resource type="Texture2D" uid="uid://brg8dkr6fqm3e" path="res://Assets/GUI/UI/Icons/EmptySlot.png" id="1_42hnv"]
+[ext_resource type="Texture2D" uid="uid://brg8dkr6fqm3e" path="res://Assets/GUI/UI/Icons/EmptySlots/EmptySlot.png" id="1_42hnv"]
 
 [node name="Slot1" type="TextureRect"]
 clip_contents = true

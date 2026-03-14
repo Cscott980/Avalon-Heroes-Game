@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://1tw3mpkdl21d" path="res://Scenes/Abilities/Others/spike.tscn" id="1_vpd8b"]
 [ext_resource type="Texture2D" uid="uid://c62kbyu2j5uff" path="res://Assets/Textures/Misc/EarthShatterEffetc.png" id="2_yyqnm"]
 [ext_resource type="ArrayMesh" uid="uid://c2w8n23c8tw4s" path="res://Assets/BlenderMeshes/staticmeshdebrione.obj" id="3_vpd8b"]
-[ext_resource type="Shader" uid="uid://vdrcy18tp278" path="res://Assets/Shaders/rising_earth.tres" id="4_eoveu"]
+[ext_resource type="Shader" uid="uid://vdrcy18tp278" path="res://Assets/Shaders/Visual_Shaders/rising_earth.tres" id="4_eoveu"]
 [ext_resource type="ArrayMesh" uid="uid://cgf1e6l1m2mmk" path="res://Assets/BlenderMeshes/staticmeshdome.obj" id="5_eoveu"]
 [ext_resource type="Texture2D" uid="uid://dpi77r0pavrnr" path="res://Assets/Textures/Misc/T_VFX_WindNoise1.png" id="5_ficti"]
 [ext_resource type="AudioStream" uid="uid://bw5ilhlg63vqm" path="res://Assets/Audio/SFX/Rockfall.wav" id="7_odddu"]

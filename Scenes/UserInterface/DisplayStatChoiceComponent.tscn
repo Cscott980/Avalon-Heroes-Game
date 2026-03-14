@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://caavhwhvoqvqm"]
 
 [ext_resource type="Script" uid="uid://darx8xm44dpc5" path="res://Scripts/Components/Player/DisplayStatChoiceComponent.gd" id="1_so8dy"]
-[ext_resource type="Texture2D" uid="uid://ckpox5xl4eod8" path="res://Assets/GUI/StatBackGroundNormal.png" id="2_5itd0"]
-[ext_resource type="Texture2D" uid="uid://d1inj74j34lmx" path="res://Assets/GUI/StatBackGround.png" id="2_65kfj"]
-[ext_resource type="Texture2D" uid="uid://com8hepqi7r72" path="res://Assets/GUI/StatBackGroundPressed.png" id="3_eak8a"]
+[ext_resource type="Texture2D" uid="uid://ckpox5xl4eod8" path="res://Assets/GUI/UI/StatBackGroundNormal.png" id="2_5itd0"]
+[ext_resource type="Texture2D" uid="uid://d1inj74j34lmx" path="res://Assets/GUI/UI/StatBackGround.png" id="2_65kfj"]
+[ext_resource type="Texture2D" uid="uid://com8hepqi7r72" path="res://Assets/GUI/UI/StatBackGroundPressed.png" id="3_eak8a"]
 [ext_resource type="StyleBox" uid="uid://vhfawbbim2h2" path="res://Styles/AbilityInfoBox/CommonStatBox.tres" id="3_joe0m"]
 [ext_resource type="Script" uid="uid://cjejxa4hnbunn" path="res://Scripts/UI/ChoiceBtn.gd" id="3_romyj"]
 [ext_resource type="Texture2D" uid="uid://oanefjsfn4v2" path="res://Assets/GUI/UI/Icons/WarriorAbilities/BattleShoutIcon.png" id="4_v4vkj"]

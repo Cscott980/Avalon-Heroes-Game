@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://debihr3yipjr3"]
+
+[ext_resource type="Shader" uid="uid://mcurvcfwfvua" path="res://Assets/Shaders/Shaders/HealShader.gdshader" id="1_vrnd3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_vrnd3")
+shader_parameter/shine_color = Color(0, 0.8001019, 0.19966345, 1)
+shader_parameter/cycle_speed = 5.0
+shader_parameter/shine_width = 1.0
+shader_parameter/intensity = 5.0

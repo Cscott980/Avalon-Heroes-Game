@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://np78fbu8py3p" path="res://Scripts/Others/slash.gd" id="1_ypxok"]
 [ext_resource type="ArrayMesh" uid="uid://dve5g0ibb7jse" path="res://Assets/BlenderMeshes/SlashMesh.obj" id="2_qscc0"]
-[ext_resource type="Shader" uid="uid://c75egq2357kku" path="res://Assets/Shaders/SlashNew.gdshader" id="3_7aotf"]
+[ext_resource type="Shader" uid="uid://c75egq2357kku" path="res://Assets/Shaders/Shaders/SlashNew.gdshader" id="3_7aotf"]
 [ext_resource type="Texture2D" uid="uid://n1iyw2xhnnxf" path="res://Assets/Textures/Misc/T_Wave66.png" id="4_6xiwc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o61ax"]

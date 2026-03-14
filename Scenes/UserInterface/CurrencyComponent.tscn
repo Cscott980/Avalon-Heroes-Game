@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://codeas5x2rcg1"]
 
 [ext_resource type="Script" uid="uid://dvtw0r2daemam" path="res://Scripts/Components/Player/CurrencyComponent.gd" id="1_ru1er"]
-[ext_resource type="Texture2D" uid="uid://bj47ar0qvkdnk" path="res://Assets/GUI/gold.png" id="2_645ux"]
+[ext_resource type="Texture2D" uid="uid://bj47ar0qvkdnk" path="res://Assets/GUI/UI/gold.png" id="2_645ux"]
 
 [node name="CurrencyComponent" type="Control" unique_id=981018518]
 layout_mode = 3

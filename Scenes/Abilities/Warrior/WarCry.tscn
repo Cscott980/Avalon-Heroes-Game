@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dat5oxr5onj6i"]
 
-[ext_resource type="Shader" uid="uid://dyhj3goh2dwla" path="res://Assets/Shaders/Shackwave.gdshader" id="1_jsor5"]
+[ext_resource type="Shader" uid="uid://dyhj3goh2dwla" path="res://Assets/Shaders/Shaders/Shackwave.gdshader" id="1_jsor5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e6p3e"]
 render_priority = 0

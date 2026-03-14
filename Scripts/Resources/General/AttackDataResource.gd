@@ -5,7 +5,8 @@ class_name AttackDataResource extends Resource
 @export var dualwield_animation_name: String = ""
 
 @export_group("Base Attack Combo Data")
-@export var combo_window_start: float = 0.3
+@export var combo_window_start: float = 0.45
+@export var combo_window_end: float = 0.85
 @export var attack_duration: float = 0.8
 @export var can_move: bool = false
 @export var root_motion_speed: float = 1.0

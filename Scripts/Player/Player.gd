@@ -43,6 +43,7 @@ func _ready() -> void:
 	var game_manage: GameManager = get_tree().get_first_node_in_group("game_manager")
 	if game_manage == null:
 		push_warning("Player: GameManager not found.")
+		return
 	
 	(game_manage as GameManager).game_ended.connect(_on_game_manager_game_ended)
 	
@@ -54,8 +55,7 @@ func _ready() -> void:
 	(quiz_manager as QuizManager).question_answered.connect(_on_quiz_manager_question_answered)
 	(quiz_manager as QuizManager).revive.connect(_on_quiz_manager_revive)
 	(quiz_manager as QuizManager).terminate.connect(_on_quiz_manager_terminate)
-	
-	
+
 func hero_init() -> void: 
 	if not is_instance_valid(hero_class):
 		return
@@ -66,31 +66,16 @@ func hero_init() -> void:
 	ability_component.apply_ability_data(hero_class.hero_abilities)
 	player_ui.get_player_visual_data(hero_class.class_defaults, hero_class.starting_equipment)
 	equipment_visuals.get_defults(hero_class.class_defaults)
-	targets_in_range_component._update_closest_target()
 	world_visual_player_data.apply_player_visual_data(player_name, progression_component.player_level)
 	world_visual_player_data.apply_player_health_visual_data(hero_class.max_health)
 	resource_pool_component.apply_resource_data(hero_class.resource_pool, hero_class.hero_class)
-	
+
 func _physics_process(delta: float) -> void:
 	if state_machine.current_state:
 		state_machine.current_state.physics_process(delta)
 
-func _on_player_input_component_attack() -> void:
-	if game_over:
-		return
-	if health_component.is_dead:
-		return
-	if equipment_visuals.is_sheathed or player_ui.invetory_open:
-		return
-	var attack_index = combat_component.request_attack()
-	
-	if attack_index == -1:
-		return
-	
-	match attack_index:
-		0: state_machine.change_state("AttackState1")
-		1: state_machine.change_state("AttackState2")
-		2: state_machine.change_state("AttackState3")
+func _on_targets_in_range_component_target_in_range() -> void:
+		try_attack()
 
 func _on_movement_component_moving(status: bool) -> void:
 	if game_over:
@@ -110,7 +95,7 @@ func _on_movement_component_moving(status: bool) -> void:
 
 func _on_combat_component_combo_window_open() -> void:
 	if combat_component.attack_queued:
-		_on_player_input_component_attack()
+		_on_targets_in_range_component_target_in_range()
 
 func _on_shield_component_block_broke(_cooldown: float) -> void:
 	if health_component.is_dead:
@@ -131,6 +116,12 @@ func _on_progression_component_leveling(status: bool) -> void:
 	immortal = status
 	if status:
 		level_phase.emit()
+
+func _on_player_animation_component_attack_animation_finished(_anim_name: String) -> void:
+	print("Player got attack_animation_finished")
+	if state_machine and state_machine.current_state and state_machine.current_state.has_method("_finish_attack"):
+		print("Calling _finish_attack on: ", state_machine.current_state)
+		state_machine.current_state._finish_attack()
 
 func _on_progression_component_init_quiz() -> void:
 	if state_machine:
@@ -168,3 +159,31 @@ func _on_game_manager_game_ended() -> void:
 func _on_quiz_manager_terminate() -> void:
 	if game_over:
 		return
+
+func try_attack() -> void:
+	if game_over:
+		return
+	if health_component.is_dead:
+		return
+	if equipment_visuals.is_sheathed or player_ui.invetory_open:
+		return
+	var attack_index = combat_component.request_attack()
+	
+	if attack_index == -1:
+		return
+	
+	match attack_index:
+		0: state_machine.change_state("AttackState1")
+		1: state_machine.change_state("AttackState2")
+		2: state_machine.change_state("AttackState3")
+
+func _on_combat_component_attack_window_ended() -> void:
+	if game_over:
+		return
+	if health_component.is_dead:
+		return
+
+	if movement_component.has_move_intent():
+		state_machine.change_state("MoveState")
+	else:
+		state_machine.change_state("IdleState")

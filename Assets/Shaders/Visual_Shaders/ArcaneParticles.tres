@@ -1,0 +1,17 @@
+[gd_resource type="VisualShader" format=3 uid="uid://bfeapv0sr8o8f"]
+
+[ext_resource type="Texture2D" uid="uid://2i4mdqy7xgrx" path="res://Assets/Textures/Misc/T_VFX_simplex_1.png" id="1_5im0c"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_p80mm"]
+expanded_output_ports = [0]
+texture = ExtResource("1_5im0c")
+
+[resource]
+mode = 2
+flags/collision_use_scale = false
+flags/disable_force = false
+flags/disable_velocity = false
+flags/keep_data = false
+nodes/start/2/node = SubResource("VisualShaderNodeTexture_p80mm")
+nodes/start/2/position = Vector2(-820, 200)
+nodes/start/connections = PackedInt32Array(2, 1, 0, 3)

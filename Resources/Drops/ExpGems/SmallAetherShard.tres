@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemDropResource" format=3 uid="uid://bei60qgluitl1"]
 
-[ext_resource type="ArrayMesh" uid="uid://df5gh618qexua" path="res://Resources/Item Mesh/Gem_Small_Gem_Small.res" id="1_uh5fb"]
+[ext_resource type="ArrayMesh" uid="uid://df5gh618qexua" path="res://Assets/Items/Gem Meshes/Gem_Small_Gem_Small.res" id="1_uh5fb"]
 [ext_resource type="Script" uid="uid://du5jyvboj74e1" path="res://Scripts/Resources/Items/ItemDropResource.gd" id="1_xgrec"]
 
 [resource]

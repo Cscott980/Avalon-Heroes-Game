@@ -1,11 +1,14 @@
 @icon("uid://mobiykq2mgwg")
 class_name PlayerAnimationComponent extends Node
 
+signal attack_animation_finished(anim_name: String)
+
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var anim_tree: AnimationTree = %AnimationTree
 var playback: AnimationNodeStateMachinePlayback
 
 var playback_name: String
+var current_attack_anim: String = ""
 
 func apply_animation_data(data: HeroClassResource) -> void:
 	anim_tree.tree_root = data.playback
@@ -53,9 +56,13 @@ func play_cheer_animation() -> void:
 
 #--------- Melee Combat -----------
 
-func play_attack_animation(animation: String) -> void:
-	if playback:
+func play_attack_animation(animation: String, attack_speed: float) -> void:
+	if playback and anim_tree:
+		current_attack_anim = animation
+		anim_tree.set("parameters/%s/%s/AttackSpeed/scale" % [playback_name, animation], attack_speed)
 		playback.travel(animation)
+		
+	
 
 #--------- Range Combat -----------
 
@@ -86,3 +93,9 @@ func play_ability_animation(anim: String) -> void:
 
 func _on_ability_component_cast_ability(animation: String) -> void:
 	play_ability_animation(animation)
+
+func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
+	print("animation finished signal fired, current_attack_anim=", current_attack_anim)
+	if current_attack_anim != "":
+		attack_animation_finished.emit(current_attack_anim)
+		current_attack_anim = ""

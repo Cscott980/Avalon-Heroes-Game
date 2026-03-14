@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://3xr32o0k6r0k" path="res://Assets/2DVFX/Smoke/Smoke_0008.png" id="15_r26f6"]
 [ext_resource type="Texture2D" uid="uid://dea4pkksu4s0b" path="res://Assets/2DVFX/Smoke/Smoke_0009.png" id="16_aebfb"]
 [ext_resource type="Texture2D" uid="uid://dg3anf8xloseq" path="res://Assets/2DVFX/HealIcon.png" id="17_tfnux"]
-[ext_resource type="Shader" uid="uid://dfg4igxmg82sa" path="res://Assets/Shaders/SpinTexture.gdshader" id="27_yk4b1"]
+[ext_resource type="Shader" uid="uid://dfg4igxmg82sa" path="res://Assets/Shaders/Shaders/SpinTexture.gdshader" id="27_yk4b1"]
 [ext_resource type="Texture2D" uid="uid://w4alclilyqd8" path="res://Assets/Textures/Misc/twirl_01.png" id="28_xouyj"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_i1f7e"]

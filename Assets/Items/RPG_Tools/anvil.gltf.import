@@ -38,6 +38,17 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"meshes": {
+"anvil_anvil": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Assets/Items/RPG_Tools/anvil_anvil.res",
+"save_to_file/path": "uid://bs35p6rd3h6uo"
+}
+},
 "nodes": {
 "PATH:anvil": {
 "generate/physics": true,

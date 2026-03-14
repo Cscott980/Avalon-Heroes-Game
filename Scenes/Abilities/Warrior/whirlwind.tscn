@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cb2nxh08im3od"]
 
 [ext_resource type="Script" uid="uid://et2hd648a4h2" path="res://Scripts/Abilities/Whirlwind.gd" id="1_fvur8"]
-[ext_resource type="Shader" uid="uid://bdoldt80walo3" path="res://Assets/Shaders/Whirlwind.gdshader" id="2_io5sa"]
+[ext_resource type="Shader" uid="uid://bdoldt80walo3" path="res://Assets/Shaders/Shaders/Whirlwind.gdshader" id="2_io5sa"]
 [ext_resource type="Texture2D" uid="uid://b8jgehliubn34" path="res://Assets/Textures/Misc/T_VFX_Spiral07.jpg" id="3_a6io5"]
 [ext_resource type="ArrayMesh" uid="uid://cdjpbvlrlme1h" path="res://Assets/BlenderMeshes/Whirlwind.obj" id="4_ld8e8"]
 [ext_resource type="Texture2D" uid="uid://w4alclilyqd8" path="res://Assets/Textures/Misc/twirl_01.png" id="5_oank5"]

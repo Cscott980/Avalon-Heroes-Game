@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cirbwiavfmjmu"]
 
 [ext_resource type="Script" uid="uid://3l7ylwjq518t" path="res://Scripts/QuizSystems/QuizPrompter.gd" id="1_0i1jj"]
-[ext_resource type="Shader" uid="uid://dtptfpryxs6ug" path="res://Assets/Shaders/ScreenBlur.gdshader" id="1_1xsqr"]
+[ext_resource type="Shader" uid="uid://dtptfpryxs6ug" path="res://Assets/Shaders/Shaders/ScreenBlur.gdshader" id="1_1xsqr"]
 [ext_resource type="PackedScene" uid="uid://bagsr4u03l2t8" path="res://Scenes/QuizSystems/AnswerButton.tscn" id="2_i7y7u"]
 [ext_resource type="StyleBox" uid="uid://di04rvf6o3m67" path="res://Resources/AnswerButtons/A/ANormal.tres" id="3_wekko"]
 [ext_resource type="StyleBox" uid="uid://xmixfpd7jr1x" path="res://Resources/AnswerButtons/A/APressed.tres" id="4_0i1jj"]
@@ -10,8 +10,8 @@
 [ext_resource type="StyleBox" uid="uid://cvq7xd80wchxc" path="res://Resources/AnswerButtons/C/CNormal.tres" id="7_yp5h8"]
 [ext_resource type="StyleBox" uid="uid://fovoix7aubcc" path="res://Resources/AnswerButtons/C/CPressed.tres" id="8_np52p"]
 [ext_resource type="StyleBox" uid="uid://ohxnl7vfxnpf" path="res://Resources/AnswerButtons/D/DNormal.tres" id="9_vq8ft"]
-[ext_resource type="Texture2D" uid="uid://cj5y1yrerm46d" path="res://Assets/Images/QuestionBoarder.png" id="11_7a4u8"]
-[ext_resource type="Shader" uid="uid://diciy5xecxo3e" path="res://Assets/Shaders/ScreenGlow.gdshader" id="11_51f1d"]
+[ext_resource type="Texture2D" uid="uid://cj5y1yrerm46d" path="res://Assets/GUI/UI/QuestionBoarder.png" id="11_7a4u8"]
+[ext_resource type="Shader" uid="uid://diciy5xecxo3e" path="res://Assets/Shaders/Shaders/ScreenGlow.gdshader" id="11_51f1d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i7y7u"]
 shader = ExtResource("1_1xsqr")

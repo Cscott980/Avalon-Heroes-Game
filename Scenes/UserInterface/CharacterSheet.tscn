@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://lhsufnuhcrv4"]
 
-[ext_resource type="Texture2D" uid="uid://27uopevfvay8" path="res://Assets/GUI/UI/Icons/CharactersheetboarderBack.png" id="1_454s2"]
+[ext_resource type="Texture2D" uid="uid://27uopevfvay8" path="res://Assets/GUI/UI/CharactersheetboarderBack.png" id="1_454s2"]
 [ext_resource type="Script" uid="uid://x5hf3om51ne1" path="res://Scripts/UI/EquipmentandInventory.gd" id="1_ldpf6"]
 [ext_resource type="Texture2D" uid="uid://bbddt36loswn6" path="res://Assets/GUI/UI/Icons/EmptySlots/HelmSlot.png" id="2_4n6dp"]
 [ext_resource type="Resource" uid="uid://be2r8y3pbompl" path="res://Resources/Inventory/Player/PlayersInventory.tres" id="2_tkgd0"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://d3nriib4yt871" path="res://Assets/GUI/UI/Icons/EmptySlots/OffHandSlot.png" id="7_chg5b"]
 [ext_resource type="Script" uid="uid://cjjkjjxw3qev5" path="res://Scripts/UI/CharacterSheetDisplay.gd" id="7_tkgd0"]
 [ext_resource type="Resource" uid="uid://dfhs3gii54www" path="res://Resources/CharacterSheet/ArmorSlot.tres" id="8_60vy0"]
-[ext_resource type="Texture2D" uid="uid://brg8dkr6fqm3e" path="res://Assets/GUI/UI/Icons/EmptySlot.png" id="9_ldpf6"]
+[ext_resource type="Texture2D" uid="uid://brg8dkr6fqm3e" path="res://Assets/GUI/UI/Icons/EmptySlots/EmptySlot.png" id="9_ldpf6"]
 [ext_resource type="Resource" uid="uid://xbcr4crirkuc" path="res://Resources/CharacterSheet/BackSlot.tres" id="10_0486i"]
 [ext_resource type="Resource" uid="uid://b11fisyjek6rk" path="res://Resources/CharacterSheet/MainHand.tres" id="12_gwtsw"]
 [ext_resource type="Script" uid="uid://dqky27w2nv3ao" path="res://Scripts/UI/InventorySlot.gd" id="13_tkgd0"]
@@ -23,7 +23,7 @@
 [ext_resource type="Resource" uid="uid://cuqi8pcddas8g" path="res://Resources/CharacterSheet/OffHand.tres" id="19_rbd57"]
 [ext_resource type="Animation" uid="uid://b4clg7wvqv52v" path="res://Assets/Animations/Rig_Mid_Animations/Ranged_Bow_Idle.res" id="20_lgmnu"]
 [ext_resource type="Animation" uid="uid://wyd6bbv82od5" path="res://Assets/Animations/Rig_Mid_Animations/Idle_A.res" id="21_464jw"]
-[ext_resource type="Texture2D" uid="uid://clqome72lrsce" path="res://Assets/GUI/Charactersheetboarder front2.png" id="27_5oqxr"]
+[ext_resource type="Texture2D" uid="uid://clqome72lrsce" path="res://Assets/GUI/UI/Charactersheetboarder front2.png" id="27_5oqxr"]
 [ext_resource type="FontFile" uid="uid://bpj43a3io706v" path="res://Assets/Fonts/gomarice_no_continue.ttf" id="28_lgmnu"]
 
 [sub_resource type="Resource" id="Resource_tcolc"]

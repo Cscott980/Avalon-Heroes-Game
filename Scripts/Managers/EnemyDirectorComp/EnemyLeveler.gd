@@ -5,15 +5,14 @@ signal world_level(l: int)
 @export var current_level: int = 1
 
 var new_level: int
+var p_levels: Array = []
 
 func get_world_level(world: Node3D) -> void:
-	var root = world
-	var p_levels: Array = []
+	var players_in_world = get_tree().get_nodes_in_group("player")
 	
-	for i in world.get_children():
-		if i.is_in_group("player"):
-			var player: Player = i
-			p_levels.append(player.progression_component.player_level)
+	for p in players_in_world:
+		var player: Player = p
+		p_levels.append(player.progression_component.player_level)
 			
 	new_level = level_avarage_formula(p_levels)
 	

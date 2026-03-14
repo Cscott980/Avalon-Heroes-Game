@@ -41,42 +41,51 @@ func get_current_weapon_combo() -> Array[AttackDataResource]:
 
 func request_attack() -> int:
 	var combo_data = get_current_weapon_combo()
-	
+	print("request_attack | idx=", current_combo_idx, " attacking=", is_attacking, " can_combo=", can_combo, " queued=", attack_queued)
+
 	if combo_data.is_empty():
+		print("request_attack -> no combo")
 		return -1
-	
+
 	if is_attacking and not can_combo:
 		attack_queued = true
+		print("request_attack -> queued")
 		return -1
-	
+
+	if is_attacking and can_combo:
+		var next_idx := current_combo_idx + 1
+		print("request_attack -> next idx ", next_idx)
+		if next_idx >= combo_data.size():
+			print("request_attack -> next idx too high")
+			return -1
+		return next_idx
+
 	if current_combo_idx >= combo_data.size():
+		print("request_attack -> current idx too high")
 		return -1
-	
+
+	print("request_attack -> return current idx ", current_combo_idx)
 	return current_combo_idx
 
 func base_melee_attack_started(index: int) -> void:
 	var combo_data = get_current_weapon_combo()
-	
+
 	if combo_data.is_empty() or index >= combo_data.size():
+		print("base_melee_attack_started blocked")
 		return
-	
+
 	current_combo_idx = index
 	is_attacking = true
 	can_combo = false
 	attack_queued = false
-	
-	if combo_timer.is_stopped():
-		combo_timer.stop()
-		
+
+	print("ATTACK STARTED idx=", index)
+
 	attack_started.emit(index)
 	
 func open_combo_window() -> void:
 	can_combo = true
 	combo_window_open.emit()
-	
-	if attack_queued:
-		attack_queued = false
-		combo_window_open.emit()
 
 func close_combo_window() -> void:
 	can_combo = false
@@ -84,15 +93,19 @@ func close_combo_window() -> void:
 
 func base_melee_complete_attack() -> void:
 	var combo_data = get_current_weapon_combo()
-	
+
+	print("base_melee_complete_attack idx=", current_combo_idx)
+
 	is_attacking = false
 	attack_window_ended.emit()
-	
-	if current_combo_idx >= combo_data.size() -1:
+
+	if current_combo_idx >= combo_data.size() - 1:
+		print("combo completed -> reset")
 		combo_completed.emit()
 		reset_combo()
 	else:
 		current_combo_idx += 1
+		print("combo advanced to ", current_combo_idx)
 		combo_timer.start(combo_timeout)
 
 func reset_combo() -> void:

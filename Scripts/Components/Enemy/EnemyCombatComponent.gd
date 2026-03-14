@@ -24,7 +24,6 @@ func apply_melee_weapon_data(data: EnemyWeaponResource) -> void:
 
 func enemy_calculate_weapon_damage(base_damage: int, defense: int, is_mainhand: bool = true) -> int:
 	main_stat_value = stat_ref[StatConst.STATS.STRENGTH]
-	print(main_stat_value)
 	
 	var bonus_damage: float = main_stat_value * scale_percent
 	

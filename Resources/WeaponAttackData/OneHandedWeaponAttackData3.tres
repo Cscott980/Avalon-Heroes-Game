@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_ds036")
-animation_name = "1_Hand_Attack_3"
+animation_name = "1_Hand_Attack_3 "
 dualwield_animation_name = "Dualwield_Attack_3"
 combo_window_start = 0.6
 attack_duration = 1.0

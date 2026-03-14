@@ -1,6 +1,10 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://bstp4l3321icf"]
 
-[ext_resource type="Texture2D" uid="uid://swtute58npl1" path="res://Assets/PlayableCharacterBodies/Druid_druid_texture.png" id="1_qioql"]
+[ext_resource type="Texture2D" uid="uid://bofj1t0mmylqq" path="res://Assets/Textures/Hero/druid_texture.png" id="1_qioql"]
+[ext_resource type="Texture2D" uid="uid://p63tb82v0x4b" path="res://Assets/Textures/Items/tools_bits_texture.png" id="2_gtnmt"]
 
 [resource]
+albedo_color = Color(1, 0.94132966, 0, 1)
 albedo_texture = ExtResource("1_qioql")
+metallic = 1.0
+metallic_texture = ExtResource("2_gtnmt")

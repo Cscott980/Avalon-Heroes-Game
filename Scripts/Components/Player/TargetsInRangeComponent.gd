@@ -2,16 +2,41 @@
 class_name TargetsInRangeComponent extends Node3D
 
 signal target_change(new_target: CharacterBody3D)
-signal targets_updated(count: int)
-
-@onready var detector: Area3D = %TargetsInRange
+signal target_in_range
 
 @export var player: CharacterBody3D
+@export var move_comp: MovementComponent
 
-var targets_in_range: Array[CharacterBody3D] = []
-var current_target: CharacterBody3D
+@export var attack_stop_distance: float = 1.1
 
-func get_closets_target() -> CharacterBody3D:
+var current_target: CharacterBody3D = null
+
+var pending_click_attack: bool = false
+var manual_target_locked: bool = false
+
+func _physics_process(_delta: float) -> void:
+	if current_target == null or not is_instance_valid(current_target):
+		return
+	
+	if current_target.is_in_group("dead_enemies"):
+		clear_manual_target()
+		return
+	
+	if not manual_target_locked:
+		return
+	
+	var dist := get_distance_to_current_target()
+
+	if dist > attack_stop_distance:
+		move_comp.set_move_to_target(current_target.global_position)
+	else:
+		move_comp.stop_click_move()
+		
+		if pending_click_attack:
+			pending_click_attack = false
+			target_in_range.emit()
+
+func get_closest_target() -> CharacterBody3D:
 	return current_target
 
 func get_distance_to_current_target() -> float:
@@ -24,66 +49,82 @@ func get_direction_to_current_target() -> Vector3:
 		return Vector3.ZERO
 	return (current_target.global_position - player.global_position).normalized()
 
-func _update_closest_target() -> void:
-	# Clean invalid enemies
-	for i in range(targets_in_range.size() - 1, -1, -1):
-		var e := targets_in_range[i]
-		if e == null or not is_instance_valid(e) or e.is_in_group("dead_enemies"):
-			targets_in_range.remove_at(i)
+func clear_manual_target() -> void:
+	if current_target != null and is_instance_valid(current_target):
+		if current_target.has_node("EnemyVisualComponent"):
+			var old_visual := current_target.get_node("EnemyVisualComponent") as EnemyVisualComponent
+			old_visual.highlighter_off()
+	
+	manual_target_locked = false
+	pending_click_attack = false
+	current_target = null
+	move_comp.stop_click_move()
+	target_change.emit(null)
 
-	var closest: CharacterBody3D = null
-	var closest_dist_sq := INF
+func get_best_click_target(click_pos: Vector3, max_dist: float = 2.5) -> Enemy:
+	var best: Enemy = null
+	var best_dist := INF
 
-	for e in targets_in_range:
-		var d_sq := player.global_position.distance_squared_to(e.global_position)
-		if d_sq < closest_dist_sq:
-			closest_dist_sq = d_sq
-			closest = e
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		if enemy.is_in_group("dead_enemies"):
+			continue
+		
+		var d: float = enemy.global_position.distance_to(click_pos)
+		if d < max_dist and d < best_dist:
+			best_dist = d
+			best = enemy as Enemy
 
-	# If target didn't change, do nothing
-	if closest == current_target:
+	return best
+
+func get_best_close_target(click_pos: Vector3, player_pos: Vector3, click_radius: float = 2.5, player_radius: float = 3.0) -> Enemy:
+	var best: Enemy = null
+	var best_score := INF
+
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		if enemy.is_in_group("dead_enemies"):
+			continue
+		
+		var click_dist: float = enemy.global_position.distance_to(click_pos)
+		var player_dist: float = enemy.global_position.distance_to(player_pos)
+
+		if click_dist > click_radius:
+			continue
+		if player_dist > player_radius:
+			continue
+
+		var score := click_dist + player_dist * 0.5
+		if score < best_score:
+			best_score = score
+			best = enemy as Enemy
+
+	return best
+
+func _on_player_input_component_attack_target_requested(target: Enemy) -> void:
+	if target == null or not is_instance_valid(target):
 		return
 		
-	var old_target = current_target
-	# Turn OFF old target highlight
-	if old_target != null and is_instance_valid(current_target):
-		if old_target.has_node("EnemyVisualComponent"):
-			var old_highlighter = old_target.get_node("EnemyVisualComponent") as EnemyVisualComponent
-			old_highlighter.highlighter_off()
+	if current_target == target:
+		pending_click_attack = true
+		return
+		
+	if current_target != null and is_instance_valid(current_target):
+		if current_target.has_node("EnemyVisualComponent"):
+			var old_visual := current_target.get_node("EnemyVisualComponent") as EnemyVisualComponent
+			old_visual.highlighter_off()
 	
-	# Set new target
-	current_target = closest
-
-	# Turn ON new target highlight
-	if current_target != null and current_target.has_node("EnemyVisualComponent"):
-		var new_highlighter = current_target.get_node("EnemyVisualComponent") as EnemyVisualComponent
-		new_highlighter.highlighter_on()
-
+	current_target = target
+	manual_target_locked = true
+	pending_click_attack = true
+	
+	if current_target.has_node("EnemyVisualComponent"):
+		var new_visual := current_target.get_node("EnemyVisualComponent") as EnemyVisualComponent
+		new_visual.highlighter_on()
+	
 	target_change.emit(current_target)
 
-func _on_targets_in_range_body_entered(body: Node3D) -> void:
-	if not body.is_in_group("enemy") or body.is_in_group("dead_enemies"):
-		return
-		
-	if body.is_in_group("exp_gem") or body.is_in_group("gold") or body.is_in_group("healing_pot"):
-		if body.has_node("ItemPullAndPickupComponent"):
-			var activate: ItemPullAndPickupComponent = body.get_node("ItemPullAndPickupComponent")
-			activate.turn_on_collision()
-			
-	if not targets_in_range.has(body):
-		targets_in_range.append(body)
-		
-	_update_closest_target()
+func _on_player_input_component_ground_move_requested(_data: Dictionary) -> void:
+	clear_manual_target()
 
-func _on_targets_in_range_body_exited(body: Node3D) -> void:
-	if not body.is_in_group("enemy") or body.is_in_group("dead_enemies"):
-		return
-		
-	if body.is_in_group("exp_gem") or body.is_in_group("gold") or body.is_in_group("healing_pot"):
-		if body.has_node("ItemPullAndPickupComponent"):
-			var activate: ItemPullAndPickupComponent = body.get_node("ItemPullAndPickupComponent")
-			activate.turn_off_collision()
-		
-	if targets_in_range.has(body):
-		targets_in_range.erase(body)
-	_update_closest_target()
+func _on_player_input_component_move_intent_changed(intent: Vector3) -> void:
+	if intent.length() > 0.1:
+		clear_manual_target()

@@ -55,12 +55,12 @@
 [ext_resource type="Animation" uid="uid://iuwul71pvd0j" path="res://Assets/Animations/Rig_Mid_Animations/Walking_C.res" id="87_652wa"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://ce8p8msdwlfjc" path="res://Resources/HeroClassAnimations/Warrior.tres" id="88_htxq1"]
 [ext_resource type="Script" uid="uid://esf7dpw2havr" path="res://Scripts/VFX/PriceEffect.gd" id="89_sah2w"]
-[ext_resource type="Shader" uid="uid://dihks774ogble" path="res://Assets/Shaders/PircingSlashEffect.gdshader" id="90_2p523"]
+[ext_resource type="Shader" uid="uid://dihks774ogble" path="res://Assets/Shaders/Shaders/PircingSlashEffect.gdshader" id="90_2p523"]
 [ext_resource type="Texture2D" uid="uid://n1iyw2xhnnxf" path="res://Assets/Textures/Misc/T_Wave66.png" id="91_ein1t"]
 [ext_resource type="ArrayMesh" uid="uid://bw2ywdqcs3112" path="res://Assets/BlenderMeshes/DaimonMesh.obj" id="92_n6db7"]
 [ext_resource type="Script" uid="uid://np78fbu8py3p" path="res://Scripts/Others/slash.gd" id="93_b7rus"]
 [ext_resource type="ArrayMesh" uid="uid://dve5g0ibb7jse" path="res://Assets/BlenderMeshes/SlashMesh.obj" id="94_84nve"]
-[ext_resource type="Shader" uid="uid://c75egq2357kku" path="res://Assets/Shaders/SlashNew.gdshader" id="95_ehuqk"]
+[ext_resource type="Shader" uid="uid://c75egq2357kku" path="res://Assets/Shaders/Shaders/SlashNew.gdshader" id="95_ehuqk"]
 [ext_resource type="Texture2D" uid="uid://w4alclilyqd8" path="res://Assets/Textures/Misc/twirl_01.png" id="96_q7tsw"]
 [ext_resource type="ArrayMesh" uid="uid://cdjpbvlrlme1h" path="res://Assets/BlenderMeshes/Whirlwind.obj" id="97_sk1xh"]
 [ext_resource type="Script" uid="uid://br6tbncel7x2m" path="res://Scripts/Components/Entity/WorldCollision.gd" id="98_q7t4i"]
@@ -173,9 +173,6 @@ bind/22/pose = Transform3D(-1, -1.5343467e-07, 1.0123822e-14, 3.0390822e-12, 5.9
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xpcdj"]
 radius = 0.7055664
 height = 2.481018
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_eiow7"]
-radius = 4.8164063
 
 [sub_resource type="Animation" id="Animation_pxqwv"]
 length = 0.001
@@ -853,33 +850,6 @@ unique_name_in_owner = true
 
 [node name="Rig_Medium" type="Node3D" parent="Model" unique_id=849327112]
 
-[node name="EquipmentVisualComponent" type="Node" parent="Model/Rig_Medium" unique_id=542579935 node_paths=PackedStringArray("player_ui", "weapon_equip_comp", "main_hand_weapon", "off_hand_weapon", "shield", "main_hand_slot", "off_hand_slot", "sheath_back", "sheath_hip_right", "sheath_hip_left", "arm_left", "arm_right", "helm", "helm_addon", "armor", "back", "head", "leg_left", "leg_right", "accessory_1", "accessory_2", "accessory_3")]
-unique_name_in_owner = true
-script = ExtResource("3_dc80h")
-player_ui = NodePath("../../../PlayerUI")
-weapon_equip_comp = NodePath("../../../WeaponEquipComponent")
-main_hand_weapon = NodePath("../Skeleton3D/MainHand/MainHandWeapon")
-off_hand_weapon = NodePath("../Skeleton3D/OffHand/OffHandWeapon")
-shield = NodePath("../Skeleton3D/OffHand/ShieldComponent")
-main_hand_slot = NodePath("../Skeleton3D/MainHand")
-off_hand_slot = NodePath("../Skeleton3D/OffHand")
-sheath_back = NodePath("../Skeleton3D/SheathBack")
-sheath_hip_right = NodePath("../Skeleton3D/SheathHipRight")
-sheath_hip_left = NodePath("../Skeleton3D/SheathHipLeft")
-arm_left = NodePath("../Skeleton3D/arm_left")
-arm_right = NodePath("../Skeleton3D/arm_right")
-helm = NodePath("../Skeleton3D/helm")
-helm_addon = NodePath("../Skeleton3D/helm_addon")
-armor = NodePath("../Skeleton3D/armor")
-back = NodePath("../Skeleton3D/back")
-head = NodePath("../Skeleton3D/head")
-leg_left = NodePath("../Skeleton3D/leg_left")
-leg_right = NodePath("../Skeleton3D/leg_right")
-accessory_1 = NodePath("../Skeleton3D/accessory1")
-accessory_2 = NodePath("../Skeleton3D/accessory2")
-accessory_3 = NodePath("../Skeleton3D/accessory3")
-metadata/_custom_type_script = "uid://bglhntwrd1fs5"
-
 [node name="Skeleton3D" type="Skeleton3D" parent="Model/Rig_Medium" unique_id=125430146]
 bones/0/name = "root"
 bones/0/parent = -1
@@ -1138,26 +1108,6 @@ one_shot = true
 
 [node name="PlayerHurtSound" type="AudioStreamPlayer" parent="Model/Rig_Medium/Skeleton3D/HurtBoxComponent" unique_id=1086797177]
 
-[node name="targetcompattachment" type="BoneAttachment3D" parent="Model/Rig_Medium/Skeleton3D" unique_id=1769334525]
-transform = Transform3D(1, 0, 1.4210855e-14, 0, 1, 0, -1.4210855e-14, 0, 1, 0, 0.59764093, 0)
-bone_name = "spine"
-bone_idx = 2
-
-[node name="TargetsInRangeComponent" type="Node3D" parent="Model/Rig_Medium/Skeleton3D/targetcompattachment" unique_id=1886340383 node_paths=PackedStringArray("player")]
-unique_name_in_owner = true
-script = ExtResource("114_dc80h")
-player = NodePath("../../../../..")
-
-[node name="TargetsInRange" type="Area3D" parent="Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent" unique_id=750300260]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1646211, 0)
-collision_layer = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent/TargetsInRange" unique_id=851071864]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.312768, 0)
-shape = SubResource("CylinderShape3D_eiow7")
-debug_color = Color(0, 0.8666667, 0.06432292, 0.41960785)
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Model" unique_id=1399250402]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_x3h74")
@@ -1169,6 +1119,19 @@ unique_name_in_owner = true
 root_node = NodePath("%AnimationTree/..")
 tree_root = ExtResource("88_htxq1")
 anim_player = NodePath("../AnimationPlayer")
+parameters/Warrior/1_Hand_Attack_1/AttackSpeed/scale = 1.0
+parameters/Warrior/1_Hand_Attack_2/AttackSpeed/scale = 1.0
+"parameters/Warrior/1_Hand_Attack_3 /AttackSpeed/scale" = 1.0
+parameters/Warrior/2_Hand_Attack_1/AttackSpeed/scale = 1.0
+parameters/Warrior/2_Hand_Attack_2/AttackSpeed/scale = 1.0
+parameters/Warrior/2_Hand_Attack_3/AttackSpeed/scale = 1.0
+parameters/Warrior/Dualwield_Attack_1/AttackSpeed/scale = 1.0
+parameters/Warrior/Dualwield_Attack_2/AttackSpeed/scale = 1.0
+parameters/Warrior/Dualwield_Attack_3/AttackSpeed/scale = 1.0
+parameters/Warrior/Polarm_Attack_1/AttackSpeed/scale = 1.0
+parameters/Warrior/Polarm_Attack_2/AttackSpeed/scale = 1.0
+parameters/Warrior/Polarm_Attack_3/AttackSpeed/scale = 1.0
+parameters/Warrior/Polarm_Attack_3/Blend2/blend_amount = 1.0
 parameters/Warrior/Walk_Shield_Block/WalkAndBlock/blend_amount = 1.0
 parameters/Warrior/Walk_Shield_Hit/Blend2/blend_amount = 1.0
 
@@ -1238,6 +1201,40 @@ mesh = ExtResource("97_sk1xh")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Model/MeleeSpinSlashEffect" unique_id=1523856792]
 libraries/ = SubResource("AnimationLibrary_v7jcj")
 
+[node name="EquipmentVisualComponent" type="Node" parent="." unique_id=542579935 node_paths=PackedStringArray("player_ui", "weapon_equip_comp", "main_hand_weapon", "off_hand_weapon", "shield", "main_hand_slot", "off_hand_slot", "sheath_back", "sheath_hip_right", "sheath_hip_left", "arm_left", "arm_right", "helm", "helm_addon", "armor", "back", "head", "leg_left", "leg_right", "accessory_1", "accessory_2", "accessory_3")]
+unique_name_in_owner = true
+script = ExtResource("3_dc80h")
+player_ui = NodePath("../PlayerUI")
+weapon_equip_comp = NodePath("../WeaponEquipComponent")
+main_hand_weapon = NodePath("../Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon")
+off_hand_weapon = NodePath("../Model/Rig_Medium/Skeleton3D/OffHand/OffHandWeapon")
+shield = NodePath("../Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent")
+main_hand_slot = NodePath("../Model/Rig_Medium/Skeleton3D/MainHand")
+off_hand_slot = NodePath("../Model/Rig_Medium/Skeleton3D/OffHand")
+sheath_back = NodePath("../Model/Rig_Medium/Skeleton3D/SheathBack")
+sheath_hip_right = NodePath("../Model/Rig_Medium/Skeleton3D/SheathHipRight")
+sheath_hip_left = NodePath("../Model/Rig_Medium/Skeleton3D/SheathHipLeft")
+arm_left = NodePath("../Model/Rig_Medium/Skeleton3D/arm_left")
+arm_right = NodePath("../Model/Rig_Medium/Skeleton3D/arm_right")
+helm = NodePath("../Model/Rig_Medium/Skeleton3D/helm")
+helm_addon = NodePath("../Model/Rig_Medium/Skeleton3D/helm_addon")
+armor = NodePath("../Model/Rig_Medium/Skeleton3D/armor")
+back = NodePath("../Model/Rig_Medium/Skeleton3D/back")
+head = NodePath("../Model/Rig_Medium/Skeleton3D/head")
+leg_left = NodePath("../Model/Rig_Medium/Skeleton3D/leg_left")
+leg_right = NodePath("../Model/Rig_Medium/Skeleton3D/leg_right")
+accessory_1 = NodePath("../Model/Rig_Medium/Skeleton3D/accessory1")
+accessory_2 = NodePath("../Model/Rig_Medium/Skeleton3D/accessory2")
+accessory_3 = NodePath("../Model/Rig_Medium/Skeleton3D/accessory3")
+metadata/_custom_type_script = "uid://bglhntwrd1fs5"
+
+[node name="TargetsInRangeComponent" type="Node3D" parent="." unique_id=1886340383 node_paths=PackedStringArray("player", "move_comp")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 1.4210855e-14, 0, 1, 0, -1.4210855e-14, 0, 1, 0, 0.59764093, 0)
+script = ExtResource("114_dc80h")
+player = NodePath("..")
+move_comp = NodePath("../MovementComponent")
+
 [node name="WorldCollision" type="CollisionShape3D" parent="." unique_id=110340728 node_paths=PackedStringArray("user")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 1.1524184, 0)
@@ -1288,7 +1285,7 @@ script = ExtResource("104_wti82")
 player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
-target_comp = NodePath("../../Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent")
+target_comp = NodePath("../../TargetsInRangeComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
 [node name="AttackState2" type="Node" parent="StateMachine" unique_id=1753463908 node_paths=PackedStringArray("player", "playback", "combat_comp", "target_comp", "weap_equip_comp")]
@@ -1296,7 +1293,7 @@ script = ExtResource("105_8gfi0")
 player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
-target_comp = NodePath("../../Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent")
+target_comp = NodePath("../../TargetsInRangeComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
 [node name="AttackState3" type="Node" parent="StateMachine" unique_id=1819353206 node_paths=PackedStringArray("player", "playback", "combat_comp", "target_comp", "weap_equip_comp")]
@@ -1304,7 +1301,7 @@ script = ExtResource("106_mbhwj")
 player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
-target_comp = NodePath("../../Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent")
+target_comp = NodePath("../../TargetsInRangeComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
 [node name="AbilityState" type="Node" parent="StateMachine" unique_id=1149044750 node_paths=PackedStringArray("player", "playback", "combat_comp", "weap_equip_comp")]
@@ -1326,7 +1323,7 @@ script = ExtResource("112_o0fa5")
 player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
-target_comp = NodePath("../../Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent")
+target_comp = NodePath("../../TargetsInRangeComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
 [node name="QuizState" type="Node" parent="StateMachine" unique_id=2059857483]
@@ -1336,20 +1333,23 @@ script = ExtResource("114_ddhxi")
 player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
-target_comp = NodePath("../../Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent")
+target_comp = NodePath("../../TargetsInRangeComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
-[node name="PlayerCamera" type="Camera3D" parent="." unique_id=1068808923]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1504127475]
+
+[node name="PlayerCamera" type="Camera3D" parent="." unique_id=1068808923 node_paths=PackedStringArray("player")]
 unique_name_in_owner = true
-transform = Transform3D(-1, 4.5900528e-08, -7.4403516e-08, -3.1962465e-08, 0.60019696, 0.79985225, 8.13704e-08, 0.79985225, -0.60019696, 1.4210855e-14, 13.361129, -10.006784)
+transform = Transform3D(-1, 4.5900528e-08, -7.4403516e-08, -3.1962465e-08, 0.60019696, 0.79985225, 8.13704e-08, 0.79985225, -0.60019696, 1.4210855e-14, 10.244779, -8.587467)
 script = ExtResource("110_ih6wi")
+player = NodePath("..")
 
 [node name="PlayerUI" parent="." unique_id=714406961 node_paths=PackedStringArray("stat_comp", "ability_comp", "health_comp", "equip_visuals_comp", "resource_comp") instance=ExtResource("111_h55qd")]
 unique_name_in_owner = true
 stat_comp = NodePath("../StatComponent")
 ability_comp = NodePath("../AbilityComponent")
 health_comp = NodePath("../HealthComponent")
-equip_visuals_comp = NodePath("../Model/Rig_Medium/EquipmentVisualComponent")
+equip_visuals_comp = NodePath("../EquipmentVisualComponent")
 resource_comp = NodePath("../ResourcePoolComponent")
 
 [node name="WorldVisualPlayerData" type="Sprite3D" parent="." unique_id=319263515]
@@ -1421,11 +1421,13 @@ unique_name_in_owner = true
 script = ExtResource("114_ovbyp")
 metadata/_custom_type_script = "uid://nfxhpdw3pn7w"
 
-[node name="MovementComponent" type="Node" parent="." unique_id=1196397969 node_paths=PackedStringArray("user", "model")]
+[node name="MovementComponent" type="Node" parent="." unique_id=1196397969 node_paths=PackedStringArray("user", "model", "nav_agent", "lunge_comp")]
 unique_name_in_owner = true
 script = ExtResource("115_nrvsh")
 user = NodePath("..")
 model = NodePath("../Model")
+nav_agent = NodePath("../NavigationAgent3D")
+lunge_comp = NodePath("../LungeComponent")
 move_speed = 4.5
 turn_speed = 6.0
 metadata/_custom_type_script = "uid://jgliiq2fnm35"
@@ -1471,26 +1473,30 @@ player_ui = NodePath("../PlayerUI")
 out_level_display = NodePath("../WorldVisualPlayerData/PlayerData/VBoxContainer/HBoxContainer/LevelDisplay")
 metadata/_custom_type_script = "uid://bb280644mkjrc"
 
-[node name="PlayerInputComponent" type="Node" parent="." unique_id=1954393148]
+[node name="PlayerInputComponent" type="Node" parent="." unique_id=1954393148 node_paths=PackedStringArray("camera", "targets_in_range_component")]
 unique_name_in_owner = true
 script = ExtResource("122_1ugck")
+camera = NodePath("../PlayerCamera")
+targets_in_range_component = NodePath("../TargetsInRangeComponent")
 metadata/_custom_type_script = "uid://c45o617x5qf67"
 
 [node name="LungeComponent" type="Node" parent="." unique_id=223400195 node_paths=PackedStringArray("player", "targeting_comp", "weap_equip_comp")]
 unique_name_in_owner = true
 script = ExtResource("124_nojrp")
 player = NodePath("..")
-targeting_comp = NodePath("../Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent")
+targeting_comp = NodePath("../TargetsInRangeComponent")
 weap_equip_comp = NodePath("../WeaponEquipComponent")
+stop_distance = 1.0
 metadata/_custom_type_script = "uid://b5q5ou4g32ags"
 
 [node name="LungeTimer" type="Timer" parent="LungeComponent" unique_id=64164420]
 unique_name_in_owner = true
 
-[node name="StatusEffectComponent" type="Node" parent="." unique_id=1505091165 node_paths=PackedStringArray("user")]
+[node name="StatusEffectComponent" type="Node" parent="." unique_id=1505091165 node_paths=PackedStringArray("user", "visuals")]
 script = ExtResource("126_o7dio")
 user = NodePath("..")
 heal_vfx = ExtResource("127_5qtmx")
+visuals = NodePath("../EquipmentVisualComponent")
 metadata/_custom_type_script = "uid://cj25lj11qx8gq"
 
 [node name="DropPickupComponent" type="Node" parent="." unique_id=2127323241 node_paths=PackedStringArray("user")]
@@ -1519,9 +1525,8 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4111938, 0)
 
 [node name="LevelUpVFX" parent="." unique_id=592593492 node_paths=PackedStringArray("visuals") instance=ExtResource("127_s3fhb")]
-visuals = NodePath("../Model/Rig_Medium/EquipmentVisualComponent")
+visuals = NodePath("../EquipmentVisualComponent")
 
-[connection signal="player_head_for_sheat" from="Model/Rig_Medium/EquipmentVisualComponent" to="PlayerUI" method="_on_equipment_visual_component_player_head_for_sheat"]
 [connection signal="no_weapon_equiped" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/IdleState" method="_on_main_hand_weapon_no_weapon_equiped"]
 [connection signal="no_weapon_equiped" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/AttackState1" method="_on_main_hand_weapon_no_weapon_equiped"]
 [connection signal="no_weapon_equiped" from="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" to="StateMachine/AttackState2" method="_on_main_hand_weapon_no_weapon_equiped"]
@@ -1541,13 +1546,16 @@ visuals = NodePath("../Model/Rig_Medium/EquipmentVisualComponent")
 [connection signal="block_broke" from="Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent" to="." method="_on_shield_component_block_broke"]
 [connection signal="is_blocking" from="Model/Rig_Medium/Skeleton3D/OffHand/ShieldComponent" to="." method="_on_shield_component_is_blocking"]
 [connection signal="hit" from="Model/Rig_Medium/Skeleton3D/HurtBoxComponent" to="." method="_on_hurt_box_component_hit"]
+[connection signal="hit" from="Model/Rig_Medium/Skeleton3D/HurtBoxComponent" to="StatusEffectComponent" method="_on_hurt_box_component_hit"]
 [connection signal="area_entered" from="Model/Rig_Medium/Skeleton3D/HurtBoxComponent/HurtBox" to="Model/Rig_Medium/Skeleton3D/HurtBoxComponent" method="_on_hurt_box_area_entered"]
 [connection signal="area_exited" from="Model/Rig_Medium/Skeleton3D/HurtBoxComponent/HurtBox" to="Model/Rig_Medium/Skeleton3D/HurtBoxComponent" method="_on_hurt_box_area_exited"]
 [connection signal="timeout" from="Model/Rig_Medium/Skeleton3D/HurtBoxComponent/HurtBox/InvincibilityTimer" to="Model/Rig_Medium/Skeleton3D/HurtBoxComponent" method="_on_invincibility_timer_timeout"]
-[connection signal="target_change" from="Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent" to="StateMachine/AttackState1" method="_on_targets_in_range_component_target_change"]
-[connection signal="target_change" from="Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent" to="LungeComponent" method="_on_targets_in_range_component_target_change"]
-[connection signal="body_entered" from="Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent/TargetsInRange" to="Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent" method="_on_targets_in_range_body_entered"]
-[connection signal="body_exited" from="Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent/TargetsInRange" to="Model/Rig_Medium/Skeleton3D/targetcompattachment/TargetsInRangeComponent" method="_on_targets_in_range_body_exited"]
+[connection signal="animation_finished" from="Model/AnimationTree" to="PlayerAnimationComponent" method="_on_animation_tree_animation_finished"]
+[connection signal="player_head_for_sheat" from="EquipmentVisualComponent" to="PlayerUI" method="_on_equipment_visual_component_player_head_for_sheat"]
+[connection signal="target_change" from="TargetsInRangeComponent" to="StateMachine/AttackState1" method="_on_targets_in_range_component_target_change"]
+[connection signal="target_change" from="TargetsInRangeComponent" to="LungeComponent" method="_on_targets_in_range_component_target_change"]
+[connection signal="target_in_range" from="TargetsInRangeComponent" to="." method="_on_targets_in_range_component_target_in_range"]
+[connection signal="attack_animation_finished" from="PlayerAnimationComponent" to="." method="_on_player_animation_component_attack_animation_finished"]
 [connection signal="stat_chosen" from="PlayerUI" to="StatComponent" method="_on_player_ui_stat_chosen"]
 [connection signal="stat_chosen" from="PlayerUI" to="ProgressionComponent" method="_on_player_ui_stat_chosen"]
 [connection signal="is_dual_wielding" from="WeaponEquipComponent" to="StateMachine/AttackState1" method="_on_weapon_equip_component_is_dual_wielding"]
@@ -1555,6 +1563,7 @@ visuals = NodePath("../Model/Rig_Medium/EquipmentVisualComponent")
 [connection signal="is_dual_wielding" from="WeaponEquipComponent" to="StateMachine/AttackState3" method="_on_weapon_equip_component_is_dual_wielding"]
 [connection signal="moving" from="MovementComponent" to="." method="_on_movement_component_moving"]
 [connection signal="attack_started" from="CombatComponent" to="MovementComponent" method="_on_combat_component_attack_started"]
+[connection signal="attack_window_ended" from="CombatComponent" to="." method="_on_combat_component_attack_window_ended"]
 [connection signal="attack_window_ended" from="CombatComponent" to="MovementComponent" method="_on_combat_component_attack_window_ended"]
 [connection signal="combo_window_closed" from="CombatComponent" to="." method="_on_combat_component_combo_window_closed"]
 [connection signal="combo_window_open" from="CombatComponent" to="." method="_on_combat_component_combo_window_open"]
@@ -1572,6 +1581,7 @@ visuals = NodePath("../Model/Rig_Medium/EquipmentVisualComponent")
 [connection signal="hurt" from="HealthComponent" to="." method="_on_health_component_hurt"]
 [connection signal="leveled_health" from="HealthComponent" to="PlayerUI" method="_on_health_component_leveled_health"]
 [connection signal="leveled_health" from="HealthComponent" to="WorldVisualPlayerData" method="_on_health_component_leveled_health"]
+[connection signal="revived" from="HealthComponent" to="Model/Rig_Medium/Skeleton3D/MainHand/MainHandWeapon" method="_on_health_component_revived"]
 [connection signal="revived" from="HealthComponent" to="WorldCollision" method="_on_health_component_revived"]
 [connection signal="revived" from="HealthComponent" to="PlayerUI" method="_on_health_component_revived"]
 [connection signal="revived" from="HealthComponent" to="MovementComponent" method="_on_health_component_revived"]
@@ -1593,10 +1603,14 @@ visuals = NodePath("../Model/Rig_Medium/EquipmentVisualComponent")
 [connection signal="leveling" from="ProgressionComponent" to="DropPickupComponent" method="_on_progression_component_leveling"]
 [connection signal="new_exp_max_value" from="ProgressionComponent" to="PlayerUI" method="_on_progression_component_new_exp_max_value"]
 [connection signal="stat_choices" from="ProgressionComponent" to="PlayerUI" method="_on_progression_component_stat_choices"]
-[connection signal="attack" from="PlayerInputComponent" to="." method="_on_player_input_component_attack"]
+[connection signal="attack_target_requested" from="PlayerInputComponent" to="TargetsInRangeComponent" method="_on_player_input_component_attack_target_requested"]
+[connection signal="attack_target_requested" from="PlayerInputComponent" to="LungeComponent" method="_on_player_input_component_attack_target_requested"]
 [connection signal="charsheet_toggled" from="PlayerInputComponent" to="PlayerUI" method="_on_player_input_component_charsheet_toggled"]
+[connection signal="ground_move_requested" from="PlayerInputComponent" to="TargetsInRangeComponent" method="_on_player_input_component_ground_move_requested"]
+[connection signal="move_intent_changed" from="PlayerInputComponent" to="TargetsInRangeComponent" method="_on_player_input_component_move_intent_changed"]
 [connection signal="move_intent_changed" from="PlayerInputComponent" to="MovementComponent" method="_on_player_input_component_move_intent_changed"]
-[connection signal="sheath_weapon" from="PlayerInputComponent" to="Model/Rig_Medium/EquipmentVisualComponent" method="_on_player_input_component_sheath_weapon"]
+[connection signal="move_to_target" from="PlayerInputComponent" to="MovementComponent" method="_on_player_input_component_move_to_target"]
+[connection signal="sheath_weapon" from="PlayerInputComponent" to="EquipmentVisualComponent" method="_on_player_input_component_sheath_weapon"]
 [connection signal="sheath_weapon" from="PlayerInputComponent" to="StateMachine/IdleState" method="_on_player_input_component_sheath_weapon"]
 [connection signal="timeout" from="LungeComponent/LungeTimer" to="LungeComponent" method="_on_lunge_timer_timeout"]
 [connection signal="exp_gem" from="DropPickupComponent" to="ProgressionComponent" method="_on_drop_pickup_component_exp_gem"]

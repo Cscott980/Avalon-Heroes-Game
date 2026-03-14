@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyWeaponResource" format=3 uid="uid://twlopc6dyht6"]
 
-[ext_resource type="ArrayMesh" uid="uid://c1v6d7aitav73" path="res://Assets/WeaponMeshes/Swords/Skeleton_Blade_Cube_007.res" id="1_nirfa"]
+[ext_resource type="ArrayMesh" uid="uid://c1v6d7aitav73" path="res://Assets/WeaponMeshes/Swords/Sword_Of_The_Dead.res" id="1_nirfa"]
 [ext_resource type="Shape3D" uid="uid://boq5tagx70wx2" path="res://Assets/CollissionShape/Skeletal_Sword_Collisition.tres" id="2_k6tok"]
 [ext_resource type="ArrayMesh" uid="uid://c3ak1i3pflgge" path="res://Assets/WeaponMeshes/Shields/Skeleton_Shield_Small_A_Cylinder_010.res" id="3_738wb"]
 [ext_resource type="AudioStream" uid="uid://c0gmd6gjc4uub" path="res://Assets/Audio/SFX/Swoosh/zapsplat_foley_stick_branch_swish_swoosh_air_001.mp3" id="3_k6tok"]
@@ -13,8 +13,8 @@ main_hand_collision = ExtResource("2_k6tok")
 off_hand = ExtResource("3_738wb")
 attack_animation = "Attack"
 attack_range = 2.0
-min_damage = 5
-max_damage = 10
+min_damage = 2
+max_damage = 8
 attack_speed = 1.5
 attack_cooldown = 1.5
 crit_chance = 0.01

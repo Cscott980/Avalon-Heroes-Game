@@ -22,6 +22,8 @@ var weapon_defult_position: Transform3D
 var attack_data: Array[AttackDataResource]
 var attack_type: int
 
+var cant_attack: bool = false
+
 func _ready() -> void:
 	if WEAPON_TYPE == null:
 		return 
@@ -75,6 +77,9 @@ func load_weapon(weapon_id: WeaponResource) -> void:
 	no_weapon_equiped.emit(false)
 	
 func weapon_hit_box_on() -> void:
+	if cant_attack == true:
+		return
+		
 	if hit_box:
 		hit_box.set_deferred("monitoring", true)
 		hit_box.set_deferred("monitorable", true)
@@ -85,9 +90,13 @@ func weapon_hit_box_off() -> void:
 		hit_box.set_deferred("monitorable", false)
 
 func _on_hit_box_area_entered(area: Area3D) -> void:
+	if cant_attack:
+		return
 	if area.is_in_group("enemy"):
 		weapon_hit.emit(area)
-
-
+		
 func _on_health_component_dead() -> void:
-	weapon_hit_box_off()
+	cant_attack = true
+
+func _on_health_component_revived() -> void:
+	cant_attack = false

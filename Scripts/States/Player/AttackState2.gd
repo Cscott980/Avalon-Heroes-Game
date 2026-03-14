@@ -7,6 +7,7 @@ var dual_wielding: bool = false
 var weapon_data: WeaponResource
 
 func enter() -> void:
+	print("ENTER Attack_State_2")
 	if no_weapon_equiped:
 		return
 	var combo = combat_comp.get_current_weapon_combo()
@@ -20,16 +21,20 @@ func enter() -> void:
 	combat_comp.base_melee_attack_started(1)
 	
 	if not dual_wielding:
-		playback.play_attack_animation(attack_data.animation_name)
+		playback.play_attack_animation(attack_data.animation_name, weapon_data.weapon_speed)
 	else:
-		playback.play_attack_animation(attack_data.dualwield_animation_name)
+		playback.play_attack_animation(attack_data.dualwield_animation_name, weapon_data.weapon_speed)
 	
 	
-	get_tree().create_timer(attack_data.combo_window_start).timeout.connect(_open_combo_window)
-	get_tree().create_timer(attack_data.attack_duration).timeout.connect(_finish_attack)
+	var speed: float = max(weapon_data.weapon_speed, 0.01)
+	get_tree().create_timer(attack_data.combo_window_start / speed).timeout.connect(_open_combo_window)
+	get_tree().create_timer(attack_data.combo_window_end / speed).timeout.connect(_close_combo_window)
 
 func _open_combo_window() -> void:
 	combat_comp.open_combo_window()
+
+func _close_combo_window() -> void:
+	combat_comp.close_combo_window()
 
 func _finish_attack() -> void:
 	combat_comp.close_combo_window()

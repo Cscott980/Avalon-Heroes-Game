@@ -4,7 +4,7 @@ signal wandering
 signal idling
 signal target_in_attack_dist(status: bool)
 
-@onready var nav_agent: NavigationAgent3D = %NavigationAgent3D
+
 @onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @export var user: CharacterBody3D
@@ -67,33 +67,13 @@ func _move_to_target(delta: float) -> void:
 	else:
 		target_in_attack_dist.emit(false)
 
-	# --- NAVIGATION AGENT MOVEMENT ---
-	if target_close:
-		nav_agent.target_position = current_target.global_position
-		
-		var next_point = nav_agent.get_next_path_position()
-		if not is_finite(next_point.x) or not is_finite(next_point.y) or not is_finite(next_point.z):
-			user.velocity.x = 0.0
-			user.velocity.z = 0.0
-			_apply_gravity(delta)
-			user.move_and_slide()
-			return
-		
-		var move_vec = next_point - user.global_position
-		move_vec.y = 0.0
-		var direction = safe_normalized(move_vec)
-		
-		user.velocity.x = direction.x * speed
-		user.velocity.z = direction.z * speed
-		face_direction(direction, delta)
-	else:
-		var move_vec = current_target.global_position - user.global_position
-		move_vec.y = 0.0
-		var direction = safe_normalized(move_vec)
-		
-		user.velocity.x = direction.x * speed
-		user.velocity.z = direction.z * speed
-		face_direction(direction, delta)
+	var move_vec = current_target.global_position - user.global_position
+	move_vec.y = 0.0
+	var direction = safe_normalized(move_vec)
+	
+	user.velocity.x = direction.x * speed
+	user.velocity.z = direction.z * speed
+	face_direction(direction, delta)
 	# Gravity
 	_apply_gravity(delta)
 	

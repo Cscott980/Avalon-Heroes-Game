@@ -1,9 +1,9 @@
 [gd_resource type="MeshLibrary" format=4 uid="uid://b41fl2a8nd4lt"]
 
-[ext_resource type="Texture2D" uid="uid://p63tb82v0x4b" path="res://Assets/Items/RPG_Tools/tools_bits_texture.png" id="1_fku1f"]
-[ext_resource type="Texture2D" uid="uid://c3rhq7ror3rl2" path="res://Assets/Items/RPG_Tools/tools_bits_blueprint.png" id="2_san0r"]
-[ext_resource type="Texture2D" uid="uid://fpbcqf68xm7l" path="res://Assets/Items/RPG_Tools/tools_bits_map.png" id="3_rnvqp"]
-[ext_resource type="Texture2D" uid="uid://drnntyp8gees7" path="res://Assets/Items/RPG_Tools/tools_bits_map_empty.png" id="4_cg5s8"]
+[ext_resource type="Texture2D" uid="uid://p63tb82v0x4b" path="res://Assets/Textures/Items/tools_bits_texture.png" id="1_fku1f"]
+[ext_resource type="Texture2D" uid="uid://c3rhq7ror3rl2" path="res://Assets/Textures/Items/tools_bits_blueprint.png" id="2_san0r"]
+[ext_resource type="Texture2D" uid="uid://fpbcqf68xm7l" path="res://Assets/Textures/Items/tools_bits_map.png" id="3_rnvqp"]
+[ext_resource type="Texture2D" uid="uid://drnntyp8gees7" path="res://Assets/Textures/Items/tools_bits_map_empty.png" id="4_cg5s8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kcv3f"]
 resource_name = "tools"

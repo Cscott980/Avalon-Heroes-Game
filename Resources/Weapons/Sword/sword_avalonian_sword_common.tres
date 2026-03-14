@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://c50kbrwa28ffs" path="res://Scripts/Resources/Items/WeaponResource.gd" id="1_w3odh"]
 [ext_resource type="Resource" uid="uid://0e6fya1yhkck" path="res://Resources/WeaponAttackData/OneHandedWeaponAttackData1.tres" id="2_ta7di"]
 [ext_resource type="Texture2D" uid="uid://kvpeki0wbrco" path="res://Assets/Icons/Weapons/Swords/Avalonian_Sword_Common.png" id="2_x4qt2"]
-[ext_resource type="ArrayMesh" uid="uid://slrqi52dh4da" path="res://Assets/WeaponMeshes/Swords/Sword_Basic.res" id="3_4fwxc"]
+[ext_resource type="ArrayMesh" uid="uid://slrqi52dh4da" path="res://Assets/WeaponMeshes/Swords/Worn_Sword.res" id="3_4fwxc"]
 [ext_resource type="Resource" uid="uid://cvwnmqet3smpb" path="res://Resources/WeaponAttackData/OneHandedWeaponAttackData2.tres" id="3_nageh"]
 [ext_resource type="Resource" uid="uid://bat4npj5saada" path="res://Resources/WeaponAttackData/OneHandedWeaponAttackData3.tres" id="4_f6qfs"]
 
