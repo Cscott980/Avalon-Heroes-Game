@@ -13,7 +13,6 @@ signal moving(status: bool)
 
 @export var move_speed: float
 @export var turn_speed: float
-@export var pointer_effect: PackedScene
 
 var input_vec: Vector3
 var can_move: bool = true
@@ -58,7 +57,6 @@ func _physics_process(delta: float) -> void:
 			var next_position: Vector3 = nav_agent.get_next_path_position()
 			var move_dir: Vector3 = next_position - user.global_position
 			move_dir.y = 0.0
-			
 			if move_dir.length() > 0.05:
 				move_dir = move_dir.normalized()
 				user.velocity.x = move_dir.x *move_speed
@@ -68,14 +66,15 @@ func _physics_process(delta: float) -> void:
 				using_click_move = false
 				user.velocity.x = 0
 				user.velocity.z = 0
-				
+			
 		if not user.is_on_floor():
 			user.velocity.y -= world_gravity * delta
 		else:
 			user.velocity.y = 0
-		
+			
 		user.move_and_slide()
 		is_moving()
+		
 
 func face_direction(dir: Vector3, delta: float) -> void: 
 	if dir == Vector3.ZERO:

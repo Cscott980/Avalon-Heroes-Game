@@ -20,7 +20,6 @@ func get_world_level(world: Node3D) -> void:
 		return 
 	current_level = new_level
 	world_level.emit(current_level)
-	
 
 func level_avarage_formula(arr: Array) -> int:
 	var total_weight: float = 0.0

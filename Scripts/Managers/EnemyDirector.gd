@@ -20,7 +20,7 @@ func _ready() -> void:
 	enemy_leveler.get_world_level(world)
 	spawn_timer.wait_time = spawn_interval
 	spawn_timer.start()
-
+	
 func try_spawn_enemy() -> void:
 	if not start:
 		return

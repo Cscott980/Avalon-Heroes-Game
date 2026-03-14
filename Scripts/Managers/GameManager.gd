@@ -31,7 +31,6 @@ func _ready() -> void:
 		
 		if not player.drop_pickup_component.resource.is_connected(_on_drop_pickup_component_gold_picked_up):
 			player.drop_pickup_component.resource.connect(_on_drop_pickup_component_gold_picked_up)
-
 	session_timer.wait_time = get_time_in_seconds(session_time)
 	session_timer.start()
 	game_start.emit()
@@ -58,7 +57,7 @@ func _process(_delta: float) -> void:
 		return
 	
 	time.text = format_time(session_timer.time_left)
-	#check_frenzy() need to fine tune it
+	check_frenzy()
 	
 func check_frenzy() -> void:
 	if frenzy_active:
