@@ -32,6 +32,7 @@ var dragging: bool = false
 var drag_offset := Vector2.ZERO
 var player: Player = null
 var is_open: bool = false
+var is_dragging: bool = false
 var equipment_equiped: Array = []
 var player_defults: HeroClassVisualDefaultResource
 
@@ -104,10 +105,18 @@ func open() -> void:
 	audio_stream_player.play()
 	is_open = true
 
+func _connect_inventory_slots() -> void:
+	for node in get_tree().get_nodes_in_group("inventory_slot"):
+		if node.has_signal("dragging") and node.has_signal("drop"):
+			node.dragging.connect(_on_dragging)
+			node.drop.connect(_on_dropping)
+
 func _connect_equipment_slots() -> void:
 	for node in get_tree().get_nodes_in_group("equipment_slot"):
 		if node.has_signal("equipment_changed"):
 			node.equipment_changed.connect(_on_equipment_changed)
+			node.dragging.connect(_on_dragging)
+			node.drop.connect(_on_dropping)
 
 func _on_equipment_changed(slot_res: EquipmentSlotResource, item: ItemResource, sub_index: int, hand: StringName) -> void:
 	equipment.set_item(slot_res, item, hand, sub_index)
@@ -115,3 +124,9 @@ func _on_equipment_changed(slot_res: EquipmentSlotResource, item: ItemResource, 
 	current_equipment.emit(slot_res, item, sub_index, hand)
 	for slot in get_tree().get_nodes_in_group("inventory_slot"):
 		slot._refresh()
+
+func _on_dragging() -> void:
+	is_dragging = true
+
+func _on_dropping() -> void:
+	is_dragging = false

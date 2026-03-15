@@ -1260,11 +1260,12 @@ playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
-[node name="IdleState" type="Node" parent="StateMachine" unique_id=2082240196 node_paths=PackedStringArray("player", "playback", "combat_comp", "weap_equip_comp")]
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=2082240196 node_paths=PackedStringArray("player", "playback", "combat_comp", "target_comp", "weap_equip_comp")]
 script = ExtResource("101_gu2dv")
 player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
+target_comp = NodePath("../../TargetsInRangeComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
 [node name="MoveState" type="Node" parent="StateMachine" unique_id=1775966732 node_paths=PackedStringArray("player", "playback", "combat_comp", "weap_equip_comp")]
@@ -1305,11 +1306,12 @@ combat_comp = NodePath("../../CombatComponent")
 target_comp = NodePath("../../TargetsInRangeComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
-[node name="AbilityState" type="Node" parent="StateMachine" unique_id=1149044750 node_paths=PackedStringArray("player", "playback", "combat_comp", "weap_equip_comp")]
+[node name="AbilityState" type="Node" parent="StateMachine" unique_id=1149044750 node_paths=PackedStringArray("player", "playback", "combat_comp", "target_comp", "weap_equip_comp")]
 script = ExtResource("107_lw1dm")
 player = NodePath("../..")
 playback = NodePath("../../PlayerAnimationComponent")
 combat_comp = NodePath("../../CombatComponent")
+target_comp = NodePath("../../TargetsInRangeComponent")
 weap_equip_comp = NodePath("../../WeaponEquipComponent")
 
 [node name="DeadState" type="Node" parent="StateMachine" unique_id=461590499 node_paths=PackedStringArray("player", "playback", "combat_comp", "weap_equip_comp")]
@@ -1475,11 +1477,12 @@ player_ui = NodePath("../PlayerUI")
 out_level_display = NodePath("../WorldVisualPlayerData/PlayerData/VBoxContainer/HBoxContainer/LevelDisplay")
 metadata/_custom_type_script = "uid://bb280644mkjrc"
 
-[node name="PlayerInputComponent" type="Node" parent="." unique_id=1954393148 node_paths=PackedStringArray("camera", "targets_in_range_component")]
+[node name="PlayerInputComponent" type="Node" parent="." unique_id=1954393148 node_paths=PackedStringArray("camera", "targets_in_range_component", "player_ui")]
 unique_name_in_owner = true
 script = ExtResource("122_1ugck")
 camera = NodePath("../PlayerCamera")
 targets_in_range_component = NodePath("../TargetsInRangeComponent")
+player_ui = NodePath("../PlayerUI")
 metadata/_custom_type_script = "uid://c45o617x5qf67"
 
 [node name="LungeComponent" type="Node" parent="." unique_id=223400195 node_paths=PackedStringArray("player", "targeting_comp", "weap_equip_comp")]
@@ -1493,6 +1496,8 @@ metadata/_custom_type_script = "uid://b5q5ou4g32ags"
 
 [node name="LungeTimer" type="Timer" parent="LungeComponent" unique_id=64164420]
 unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
 
 [node name="StatusEffectComponent" type="Node" parent="." unique_id=1505091165 node_paths=PackedStringArray("user", "visuals")]
 script = ExtResource("126_o7dio")
@@ -1504,11 +1509,6 @@ metadata/_custom_type_script = "uid://cj25lj11qx8gq"
 [node name="DropPickupComponent" type="Node" parent="." unique_id=2127323241 node_paths=PackedStringArray("user")]
 script = ExtResource("125_nojrp")
 user = NodePath("..")
-
-[node name="AttackCooldown" type="Timer" parent="." unique_id=913160004]
-unique_name_in_owner = true
-process_callback = 0
-one_shot = true
 
 [node name="ComboTimer" type="Timer" parent="." unique_id=1406325620]
 unique_name_in_owner = true
@@ -1605,6 +1605,7 @@ visuals = NodePath("../EquipmentVisualComponent")
 [connection signal="leveling" from="ProgressionComponent" to="DropPickupComponent" method="_on_progression_component_leveling"]
 [connection signal="new_exp_max_value" from="ProgressionComponent" to="PlayerUI" method="_on_progression_component_new_exp_max_value"]
 [connection signal="stat_choices" from="ProgressionComponent" to="PlayerUI" method="_on_progression_component_stat_choices"]
+[connection signal="attack" from="PlayerInputComponent" to="." method="_on_player_input_component_attack"]
 [connection signal="attack_target_requested" from="PlayerInputComponent" to="TargetsInRangeComponent" method="_on_player_input_component_attack_target_requested"]
 [connection signal="attack_target_requested" from="PlayerInputComponent" to="LungeComponent" method="_on_player_input_component_attack_target_requested"]
 [connection signal="charsheet_toggled" from="PlayerInputComponent" to="PlayerUI" method="_on_player_input_component_charsheet_toggled"]
@@ -1620,7 +1621,5 @@ visuals = NodePath("../EquipmentVisualComponent")
 [connection signal="health_potion" from="DropPickupComponent" to="HealthComponent" method="_on_drop_pickup_component_health_potion"]
 [connection signal="health_potion" from="DropPickupComponent" to="StatusEffectComponent" method="_on_drop_pickup_component_health_potion"]
 [connection signal="resource" from="DropPickupComponent" to="ResourcePoolComponent" method="_on_drop_pickup_component_resource"]
-[connection signal="timeout" from="AttackCooldown" to="StateMachine" method="_on_attack_cooldown_timeout"]
-[connection signal="timeout" from="AttackCooldown" to="CombatComponent" method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="ComboTimer" to="StateMachine" method="_on_combo_timer_timeout"]
 [connection signal="timeout" from="ComboTimer" to="CombatComponent" method="_on_combo_timer_timeout"]

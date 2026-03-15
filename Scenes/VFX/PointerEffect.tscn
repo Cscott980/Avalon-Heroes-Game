@@ -36,7 +36,6 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 script = ExtResource("1_awivh")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=556239830]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 material_override = SubResource("StandardMaterial3D_8jilg")
 emitting = false
 amount = 1

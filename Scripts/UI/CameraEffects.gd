@@ -11,7 +11,7 @@ var original_position: Vector3
 
 func _ready() -> void:
 	original_position = position
-	
+
 func shake(amount: float) -> void:
 	shake_strength = amount
 
@@ -34,23 +34,30 @@ func play_pointer_effect(pos: Vector3) -> void:
 		return
 	
 	var point = pointer_effect.instantiate()
-	player.get_parent().add_child(point)
-
+	
 	if point is Node3D:
 		point.top_level = true
+	
+	get_tree().current_scene.add_child(point)
+	
+	if point is Node3D:
 		point.global_position = pos + Vector3.UP * 0.2
-
+	
+	# Get particles whether root or child
+	var particles: CPUParticles3D
 	if point is CPUParticles3D:
-		point.emitting = false
-		point.restart()
-		point.emitting = true
-
-	print("spawned pointer at: ", point.global_position)
-
+		particles = point
+	else:
+		particles = point.find_child("*", true, false) as CPUParticles3D
+	
+	if particles:
+		particles.emitting = false
+		particles.restart()
+		particles.emitting = true
 	await get_tree().create_timer(2.0).timeout
 	if is_instance_valid(point):
 		point.queue_free()
-
+	
 func move_to_mouse() -> Dictionary:
 	var mouse_pos = get_viewport().get_mouse_position()
 	
@@ -64,11 +71,8 @@ func move_to_mouse() -> Dictionary:
 		query.exclude = [player]
 	
 	var result: Dictionary = space_state.intersect_ray(query)
-	
 	if result:
 		var collider = result.collider
-		play_pointer_effect(result.position)
-		
 		return {
 			"hit": true,
 			"position": result.position,

@@ -1,5 +1,6 @@
 class_name InventorySlot extends TextureRect
-
+signal dragging
+signal drop
 @export var slot_index: int = 0
 @export var inventory: InventoryResource
 
@@ -51,6 +52,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	set_drag_preview(c)
 	base.play_pick_up_sound()
 	icon.hide()
+	dragging.emit()
 	return {
 		"item": item,
 		"from": "inventory",
@@ -93,4 +95,5 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 			from_eq.clear_item()
 	base.play_drop_sound()
 	icon.show()
+	drop.emit()
 	_refresh()

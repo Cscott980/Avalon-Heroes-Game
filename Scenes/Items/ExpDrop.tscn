@@ -87,7 +87,7 @@ rotation_speed_deg = 30.0
 
 [node name="ItemPullAndPickupComponent" parent="." unique_id=524405164 node_paths=PackedStringArray("item_base") groups=["exp_gem"] instance=ExtResource("4_tlrfi")]
 item_base = NodePath("..")
-item_speed = 5.0
+item_speed = 3.0
 
 [node name="PopOutComponent" type="Node" parent="." unique_id=1330528238 node_paths=PackedStringArray("item_base")]
 unique_name_in_owner = true

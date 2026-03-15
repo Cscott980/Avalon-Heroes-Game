@@ -28,7 +28,7 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Arr
 environment = SubResource("Environment_7mxwi")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1112800566]
-transform = Transform3D(-0.8660254, -0.43301275, 0.24999996, -0.39567584, 0.8991943, 0.18678923, -0.30568066, 0.06284527, -0.9500578, 6.7161922, 13.642517, 12.560162)
+transform = Transform3D(-0.8660254, -0.43301275, 0.24999996, -0.39567584, 0.8991943, 0.18678923, -0.30568066, 0.06284527, -0.9500578, 6.7161922, 44.909832, 12.560162)
 visible = false
 shadow_enabled = true
 

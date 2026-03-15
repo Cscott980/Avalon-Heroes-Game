@@ -1,6 +1,7 @@
 class_name MainUI extends CanvasLayer
 
 signal stat_chosen(data: Dictionary)
+signal drag_status(status:bool)
 
 @onready var inventory_equipment: EquipmentandInventory = %InventoryEquipment
 @onready var ability_bar: AbilityBar = %AbilityBar

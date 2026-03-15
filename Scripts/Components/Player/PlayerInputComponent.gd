@@ -3,9 +3,9 @@ class_name PlayerInputComponent extends Node
 
 signal move_intent_changed(intent: Vector3)
 signal ground_move_requested(data: Dictionary)
-signal attack_target_requested(target: Enemy)
+signal attack_target_requested(target: Enemy) #click on targets
+signal attack #space_bar attacks
 signal move_to_target(data: Dictionary)
-signal attack
 signal block_started
 signal block_ended
 signal charsheet_toggled
@@ -13,12 +13,14 @@ signal sheath_weapon(sheath: bool)
 
 @export var camera: CameraEffect = null
 @export var targets_in_range_component: TargetsInRangeComponent = null
+@export var player_ui: MainUI = null
 
 var move_intent: Vector3 = Vector3.ZERO
 var _last_move_intent: Vector3 = Vector3.ZERO
 var is_sheathed: bool = false
 var inventroy_open: bool = false
-var input_active = true
+var input_active: bool = true
+
 
 func _physics_process(_delta: float) -> void:
 	if not input_active:
@@ -72,7 +74,12 @@ func _input(event: InputEvent) -> void:
 			else:
 				ground_move_requested.emit(data)
 				move_to_target.emit(data)
-
+				camera.play_pointer_effect(data.position)
+	
+	if event.is_action_pressed("space(base_attack)"):
+		attack_target_requested.emit(null)
+	
+	
 	# UI input
 	if event.is_action_pressed("inventory"):
 		charsheet_toggled.emit()
@@ -82,7 +89,7 @@ func _input(event: InputEvent) -> void:
 		sheath_weapon.emit(is_sheathed)
 
 func is_mouse_over_ui() -> bool:
-	return get_viewport().gui_get_hovered_control() != null
+	return get_viewport().gui_get_hovered_control() != null or player_ui.inventory_equipment.is_dragging
 
 func get_enemy_from_hit(node: Node) -> Enemy:
 	var current: Node = node

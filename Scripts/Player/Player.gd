@@ -187,3 +187,6 @@ func _on_combat_component_attack_window_ended() -> void:
 		state_machine.change_state("MoveState")
 	else:
 		state_machine.change_state("IdleState")
+
+func _on_player_input_component_attack() -> void:
+	try_attack()

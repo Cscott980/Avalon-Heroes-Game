@@ -87,7 +87,7 @@ rotation_speed_deg = 30.0
 
 [node name="ItemPullAndPickupComponent" parent="." unique_id=524405164 node_paths=PackedStringArray("item_base") instance=ExtResource("9_sdqfx")]
 item_base = NodePath("..")
-item_speed = 1.0
+item_speed = 3.0
 
 [node name="PopOutComponent" type="Node" parent="." unique_id=1049484279 node_paths=PackedStringArray("item_base")]
 script = ExtResource("10_ldkxl")

@@ -1,7 +1,8 @@
 class_name Equipment extends TextureRect
 
 signal equipment_changed(slot_res: EquipmentSlotResource, item: ItemResource, sub_index: int, hand: StringName)
-
+signal dragging
+signal drop
 
 @onready var icon: TextureRect = $Icon
 @onready var tool_tip: Label = null
@@ -106,6 +107,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	set_drag_preview(c)
 	icon.hide()
 	base.play_pick_up_sound()
+	dragging.emit()
 	return {
 		"item": item,
 		"from": "equipment",
@@ -199,5 +201,6 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 			from_eq._refresh()
 			from_eq.equipment_changed.emit(from_eq.SLOT_TYPE, from_eq.item, from_eq.accessory_index, StringName(from_eq.hand_role))
 	base.play_drop_sound()
+	drop.emit()
 	icon.show()
 	_refresh()
