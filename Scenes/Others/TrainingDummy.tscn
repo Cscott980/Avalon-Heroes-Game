@@ -2,13 +2,28 @@
 
 [ext_resource type="PackedScene" uid="uid://ce001vfu517n7" path="res://Assets/Items/Trainingdummy_Base.gltf" id="1_18bdq"]
 [ext_resource type="Texture2D" uid="uid://b8s3m31ghka1w" path="res://Assets/Textures/Hero/avianswordsman_texture.png" id="2_rha2x"]
+[ext_resource type="Script" uid="uid://c8qoiq0cb1cmp" path="res://Scripts/Components/Enemy/EnemyHurtBoxComponent.gd" id="3_rha2x"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_18bdq"]
+radius = 0.9291992
+height = 2.7104492
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hccg0"]
 albedo_texture = ExtResource("2_rha2x")
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rha2x"]
+radius = 1.1396484
+height = 2.8896484
+
 [node name="Trainingdummy_Base2" unique_id=50392037 instance=ExtResource("1_18bdq")]
 
-[node name="Trainingdummy_Base" parent="." index="0" unique_id=1771208673]
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0" unique_id=345760082]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1656500556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1740723, 0)
+shape = SubResource("CapsuleShape3D_18bdq")
+
+[node name="Trainingdummy_Base" parent="." index="1" unique_id=1771208673]
 surface_material_override/0 = SubResource("StandardMaterial3D_hccg0")
 
 [node name="Trainingdummy_Post" parent="Trainingdummy_Base" index="0" unique_id=2001714206]
@@ -32,4 +47,15 @@ surface_material_override/0 = SubResource("StandardMaterial3D_hccg0")
 [node name="Trainingdummy_TargetFront" parent="Trainingdummy_Base/Trainingdummy_Post/Trainingdummy_Chest" index="4" unique_id=1975339481]
 surface_material_override/0 = SubResource("StandardMaterial3D_hccg0")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="1" unique_id=1333581564]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="2" unique_id=1333581564]
+
+[node name="EnemyHurtBoxComponent" type="Node3D" parent="." index="3" unique_id=972565698]
+script = ExtResource("3_rha2x")
+metadata/_custom_type_script = "uid://c8qoiq0cb1cmp"
+
+[node name="Area3D" type="Area3D" parent="EnemyHurtBoxComponent" index="0" unique_id=152816321]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyHurtBoxComponent/Area3D" index="0" unique_id=1667780558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1557617, 0)
+shape = SubResource("CapsuleShape3D_rha2x")
+debug_color = Color(0.70196074, 0, 0.04852617, 0.41960785)

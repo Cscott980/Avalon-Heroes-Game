@@ -17,7 +17,8 @@ var armor: int
 var _can_get_hurt: bool = true
 
 func _ready() -> void:
-	armor = stat_comp.armor
+	if stat_comp:
+		armor = stat_comp.armor
 
 func _on_invincibility_timer_timeout() -> void:
 	_can_get_hurt = true
